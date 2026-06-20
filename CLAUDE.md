@@ -51,6 +51,17 @@ All tokens defined in `src/styles.css` via Tailwind v4 `@theme` block.
 
 **Heading convention**: Headings use `font-display` (EB Garamond) by default via base styles. Uppercase + tracking is NOT applied by default — only use `uppercase tracking-display` on small eyebrow labels and section markers, not on main display headings. Main headings stay mixed-case.
 
+## Verification
+
+Always verify changes using these commands (not Playwright/browser screenshots):
+
+```bash
+bun run check              # Biome lint + format check (run first)
+bun run lint:fix           # Auto-fix lint issues
+npx biome format --write . # Auto-fix formatting
+bunx tsc --noEmit          # TypeScript type check
+```
+
 ## Adding Routes
 
 Create a new `.tsx` file in `src/routes/`. TanStack Router auto-generates the route tree. Use `createFileRoute` for page routes. Use `createServerFn` from `@tanstack/react-start` for server functions.

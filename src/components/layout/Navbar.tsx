@@ -95,7 +95,11 @@ export function Navbar() {
 			<div className="mx-auto flex max-w-7xl items-center gap-6 px-6 py-3 lg:gap-8 lg:px-4">
 				{/* Logo */}
 				<Link to="/" className="flex shrink-0 items-center">
-					<img src="/logo.png" alt="Ranthambhore" className="h-16 lg:h-[72px]" />
+					<img
+						src="/logo.png"
+						alt="Ranthambhore"
+						className="h-16 lg:h-[72px]"
+					/>
 				</Link>
 
 				{/* Desktop Nav Links */}
