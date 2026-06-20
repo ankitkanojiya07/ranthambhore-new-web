@@ -42,7 +42,7 @@ const inputClasses =
 export function ContactSection() {
 	return (
 		<section
-			className="bg-sand-50 px-6 py-16 lg:px-8 lg:py-20"
+			className="bg-sand-50 relative px-6 py-16 lg:px-8 lg:py-20"
 			aria-label="Contact"
 		>
 			<div className="mx-auto max-w-7xl">
@@ -55,7 +55,7 @@ export function ContactSection() {
 						whileInView="visible"
 						viewport={{ once: true, amount: 0.2 }}
 					>
-						<div className="hero-grunge-mask h-full min-h-[460px] w-full">
+						<div className="hero-grunge-mask h-full min-h-[460px] w-full z-10 relative">
 							<img
 								src="/gallery/7.jpg"
 								alt="Tiger resting in the wild"
@@ -88,7 +88,7 @@ export function ContactSection() {
 						<motion.form
 							variants={itemVariants}
 							onSubmit={(e) => e.preventDefault()}
-							className="mt-8 space-y-4"
+							className="mt-8 space-y-4 relative z-10"
 						>
 							<div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
 								<input

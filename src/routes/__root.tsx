@@ -6,6 +6,7 @@ import {
 	Scripts,
 } from "@tanstack/react-router";
 import { TanStackRouterDevtoolsPanel } from "@tanstack/react-router-devtools";
+import { Footer } from "#/components/layout/Footer";
 import { Navbar } from "#/components/layout/Navbar";
 
 import appCss from "../styles.css?url";
@@ -49,6 +50,7 @@ function RootLayout() {
 		<>
 			<Navbar />
 			<Outlet />
+			<Footer />
 		</>
 	);
 }
