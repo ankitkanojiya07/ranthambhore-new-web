@@ -32,14 +32,14 @@ const ACTIVITIES = [
 		id: "jeep-safari",
 		title: "Ranthambore Jeep Safari",
 		description:
-		"Experience the thrill of Ranthambore with our exclusive Jeep Safari. Limited seats left!",
+			"Experience the thrill of Ranthambore with our exclusive Jeep Safari. Limited seats left!",
 		image: { src: "/gallery/2.jpg", alt: "Jeep safari through the forest" },
 	},
 	{
 		id: "canter-safari",
 		title: "Ranthambore Canter Safari",
 		description:
-		"Explore Ranthambore in a budget-friendly Canter Safari. Perfect for groups and families.",
+			"Explore Ranthambore in a budget-friendly Canter Safari. Perfect for groups and families.",
 		image: {
 			src: "/gallery/3.jpg",
 			alt: "Canter safari with group of visitors",

@@ -1,5 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { AboutSection } from "#/components/home/AboutSection";
+import { ContactSection } from "#/components/home/ContactSection";
+import { FeaturesSection } from "#/components/home/FeaturesSection";
 import { HeroSection } from "#/components/home/HeroSection";
 import { NewsSection } from "#/components/home/NewsSection";
 import { ThingsToDoSection } from "#/components/home/ThingsToDoSection";
@@ -23,6 +25,14 @@ function Home() {
 			<div className="mx-auto max-w-5xl border-t border-earth-200" />
 
 			<ThingsToDoSection />
+
+			<div className="mx-auto max-w-5xl border-t border-earth-200" />
+
+			<FeaturesSection />
+
+			<div className="mx-auto max-w-5xl border-t border-earth-200" />
+
+			<ContactSection />
 		</div>
 	);
 }
