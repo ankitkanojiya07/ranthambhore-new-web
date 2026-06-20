@@ -18,7 +18,7 @@ export function AboutSection() {
 							About Ranthambhore
 						</p>
 						<h3 className="mt-2 text-2xl font-semibold text-charcoal-800 lg:text-3xl">
-							A Legacy of Wildlife <br/> Conservation
+							A Legacy of Wildlife <br /> Conservation
 						</h3>
 						<div className="mt-6 space-y-2">
 							<p>
