@@ -18,13 +18,13 @@ const RESOURCES = [
 
 export function Footer() {
 	return (
-		<footer className="relative">
+		<footer className="relative overflow-hidden bg-sand-100">
 			{/* Tree logo watermark */}
 			<img
 				src="/logo.png"
 				alt=""
 				aria-hidden="true"
-				className="pointer-events-none absolute bottom-0 left-0 w-full opacity-10"
+				className="pointer-events-none absolute inset-0 m-auto h-full w-auto object-contain opacity-[0.04]"
 			/>
 
 			<div className="relative z-10 mx-auto max-w-7xl px-6 pb-8 pt-16 lg:px-8">
