@@ -5,34 +5,40 @@ import { FeaturesSection } from "#/components/home/FeaturesSection";
 import { HeroSection } from "#/components/home/HeroSection";
 import { NewsSection } from "#/components/home/NewsSection";
 import { ThingsToDoSection } from "#/components/home/ThingsToDoSection";
+import { ZoneSection } from "#/components/home/ZoneSection";
 
 export const Route = createFileRoute("/")({ component: Home });
 
 function Home() {
 	return (
-		<div className="mx-auto max-w-7xl bg-sand-50">
-			<HeroSection />
+		<div className="bg-sand-50">
+			<div className="mx-auto max-w-7xl">
+				<HeroSection />
 
-			{/* Section divider */}
-			<div className="mx-auto max-w-5xl border-t border-earth-200" />
+				<div className="mx-auto max-w-5xl border-t border-earth-200" />
 
-			<AboutSection />
+				<AboutSection />
 
-			<div className="mx-auto max-w-5xl border-t border-earth-200" />
+				<div className="mx-auto max-w-5xl border-t border-earth-200" />
 
-			<NewsSection />
+				<NewsSection />
 
-			<div className="mx-auto max-w-5xl border-t border-earth-200" />
+				<div className="mx-auto max-w-5xl border-t border-earth-200" />
 
-			<ThingsToDoSection />
+				<ThingsToDoSection />
+			</div>
 
-			<div className="mx-auto max-w-5xl border-t border-earth-200" />
+			<ZoneSection />
 
-			<FeaturesSection />
+			<div className="mx-auto max-w-7xl">
+				<div className="mx-auto max-w-5xl border-t border-earth-200" />
 
-			<div className="mx-auto max-w-5xl border-t border-earth-200" />
+				<FeaturesSection />
 
-			<ContactSection />
+				<div className="mx-auto max-w-5xl border-t border-earth-200" />
+
+				<ContactSection />
+			</div>
 		</div>
 	);
 }
