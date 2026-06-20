@@ -39,20 +39,20 @@ export function HeroContent({
 }: HeroContentProps) {
 	return (
 		<motion.div
-			className="relative z-10 w-full py-8 lg:w-[45%] lg:py-0"
+			className="relative z-10 w-full py-8 lg:w-[50%] lg:py-0"
 			variants={containerVariants}
 			initial="hidden"
 			animate="visible"
 		>
 			<motion.p
-				className="font-display text-sm uppercase tracking-display text-forest-500"
+				className="font-body text-base uppercase font-medium text-forest-700"
 				variants={itemVariants}
 			>
 				Into the wild 365 welcomes you to
 			</motion.p>
 
 			<motion.h1
-				className="mt-4 text-5xl text-charcoal-800 md:text-6xl lg:text-7xl"
+				className="mt-2 text-5xl text-charcoal-800 md:text-6xl lg:text-7xl"
 				variants={itemVariants}
 			>
 				Experience
@@ -61,7 +61,7 @@ export function HeroContent({
 			</motion.h1>
 
 			<motion.p
-				className="mt-6 max-w-md font-body text-lg text-charcoal-600"
+				className="mt-4 max-w-md font-body text-lg text-charcoal-600"
 				variants={itemVariants}
 			>
 				Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod

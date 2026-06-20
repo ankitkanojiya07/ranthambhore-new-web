@@ -12,7 +12,7 @@ function Home() {
 			<div className="mx-auto max-w-5xl border-t border-earth-200" />
 
 			{/* Content section */}
-			<section className="px-8 py-16">
+			<section id="home-content" className="px-8 py-16">
 				<p className="text-center font-display text-xs uppercase tracking-display text-earth-400">
 					Our History, Mission, Vision and Passion
 				</p>

@@ -1,3 +1,4 @@
+import { Link } from "@tanstack/react-router";
 import { ChevronDown, Menu, X } from "lucide-react";
 import { AnimatePresence, motion } from "motion/react";
 import { useState } from "react";
@@ -35,7 +36,7 @@ function NavDropdown({
 }) {
 	return (
 		<motion.div
-			className="absolute top-full left-0 z-50 mt-2 min-w-[200px] rounded bg-white py-2 shadow-lg"
+			className="absolute top-full left-0 z-50 mt-2 min-w-[200px] rounded py-2 bg-white shadow-lg"
 			initial={{ opacity: 0, y: -8 }}
 			animate={{ opacity: 1, y: 0 }}
 			exit={{ opacity: 0, y: -8 }}
@@ -67,7 +68,7 @@ function NavItem({ item }: { item: (typeof NAV_ITEMS)[number] }) {
 		>
 			<a
 				href={item.href}
-				className="flex items-center gap-1 font-display text-xs uppercase tracking-nav text-charcoal-800 transition-colors hover:text-forest-500"
+				className="flex items-center font-body gap-1 text-sm font-semibold uppercase tracking-nav text-charcoal-900 transition-colors hover:text-forest-500"
 			>
 				{item.label}
 				{hasChildren && <ChevronDown className="size-3" />}
@@ -86,29 +87,29 @@ export function Navbar() {
 
 	return (
 		<motion.nav
-			className="relative z-50 bg-sand-50"
+			className="relative z-50"
 			initial={{ y: -20, opacity: 0 }}
 			animate={{ y: 0, opacity: 1 }}
 			transition={{ duration: 0.5, ease: "easeOut" }}
 		>
-			<div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 lg:px-8">
+			<div className="mx-auto flex max-w-7xl items-center gap-6 px-6 py-3 lg:gap-8 lg:px-4">
 				{/* Logo */}
-				<a href="/" className="flex shrink-0 items-center gap-3">
-					<img src="/logo.png" alt="Ranthambhore" className="h-12" />
-				</a>
+				<Link to="/" className="flex shrink-0 items-center">
+					<img src="/logo.png" alt="Ranthambhore" className="h-16 lg:h-[72px]" />
+				</Link>
 
 				{/* Desktop Nav Links */}
-				<div className="hidden items-center gap-6 lg:flex xl:gap-8">
+				<div className="hidden flex-1 items-center justify-center gap-7 lg:flex xl:gap-5">
 					{NAV_ITEMS.map((item) => (
 						<NavItem key={item.label} item={item} />
 					))}
 				</div>
 
 				{/* Right side: CTA */}
-				<div className="hidden items-center gap-3 lg:flex">
+				<div className="hidden shrink-0 lg:block">
 					<a
 						href="#quote"
-						className="rounded bg-forest-800 px-5 py-2.5 font-display text-xs uppercase tracking-nav text-white transition-colors hover:bg-forest-900"
+						className="inline-block rounded-lg bg-forest-500 px-8 py-3 font-display text-xs font-semibold uppercase tracking-nav text-white transition-colors hover:bg-forest-600"
 					>
 						Get Free Quote
 					</a>
@@ -118,7 +119,7 @@ export function Navbar() {
 				<button
 					type="button"
 					aria-label={mobileOpen ? "Close menu" : "Open menu"}
-					className="flex size-10 items-center justify-center rounded lg:hidden"
+					className="ml-auto flex size-10 items-center justify-center rounded lg:hidden"
 					onClick={() => setMobileOpen(!mobileOpen)}
 				>
 					{mobileOpen ? (
@@ -133,7 +134,7 @@ export function Navbar() {
 			<AnimatePresence>
 				{mobileOpen && (
 					<motion.div
-						className="border-t border-sand-200 bg-sand-50 px-6 pb-6 lg:hidden"
+						className="border-t border-muted-200 bg-white px-6 pb-6 lg:hidden"
 						initial={{ height: 0, opacity: 0 }}
 						animate={{ height: "auto", opacity: 1 }}
 						exit={{ height: 0, opacity: 0 }}
@@ -169,7 +170,7 @@ export function Navbar() {
 
 						<a
 							href="#quote"
-							className="mt-4 inline-block rounded bg-forest-800 px-5 py-2.5 font-display text-xs uppercase tracking-nav text-white"
+							className="mt-6 inline-block rounded-lg bg-forest-500 px-8 py-3 font-display text-xs font-semibold uppercase tracking-nav text-white"
 						>
 							Get Free Quote
 						</a>

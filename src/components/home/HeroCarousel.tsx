@@ -12,7 +12,7 @@ export function HeroCarousel({ currentSlide }: { currentSlide: number }) {
 
 	return (
 		<div
-			className="hero-grunge-mask relative aspect-4/3 w-full lg:aspect-auto lg:h-[600px]"
+			className="hero-grunge-mask relative aspect-4/3 w-full lg:aspect-auto lg:h-[550px]"
 			aria-live="polite"
 		>
 			<AnimatePresence>
