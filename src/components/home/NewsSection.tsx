@@ -24,7 +24,12 @@ const itemVariants = {
 const NEWS_ARTICLES = [
 	{
 		id: "tiger-cubs",
-		image: { src: "/hero/1.webp", alt: "Tiger with cubs in the wild" },
+		image: {
+			src: "/hero/1.webp",
+			alt: "Tiger with cubs in the wild",
+			width: 2048,
+			height: 1365,
+		},
 		title: "Tiger T-109 Spotted With Three New Cubs in Zone 6",
 		category: "Wildlife",
 		date: "June 15, 2026",
@@ -37,6 +42,8 @@ const NEWS_ARTICLES = [
 		image: {
 			src: "/hero/2.webp",
 			alt: "Wildlife on a safari trail in Ranthambhore",
+			width: 1280,
+			height: 771,
 		},
 		title: "Ranthambhore Wins National Award for Conservation Excellence",
 		category: "Conservation",
@@ -50,6 +57,8 @@ const NEWS_ARTICLES = [
 		image: {
 			src: "/hero/3.webp",
 			alt: "Tigers roaming the forest path",
+			width: 2048,
+			height: 1365,
 		},
 		title: "Migratory Birds Return Early to Padam Talao This Season",
 		category: "Birdwatching",
@@ -119,7 +128,9 @@ export function NewsSection() {
 								<Image
 									src={article.image.src}
 									alt={article.image.alt}
-									layout="fullWidth"
+									layout="constrained"
+									width={article.image.width}
+									height={article.image.height}
 									className="absolute inset-0 h-full w-full object-cover"
 								/>
 							</div>

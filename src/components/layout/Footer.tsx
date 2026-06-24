@@ -25,7 +25,9 @@ export function Footer() {
 				src="/logo.png"
 				alt=""
 				aria-hidden="true"
-				layout="fullWidth"
+				layout="constrained"
+				width={1092}
+				height={556}
 				className="pointer-events-none absolute inset-0 h-full w-full object-contain opacity-[0.04]"
 				fallback="vercel"
 			/>

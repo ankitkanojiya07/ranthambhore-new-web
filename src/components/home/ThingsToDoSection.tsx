@@ -29,14 +29,24 @@ const ACTIVITIES = [
 		title: "Ranthambore Tiger Safari",
 		description:
 			"Witness the beauty of Ranthambore's wildlife with our trusted Tiger Safari bookings.",
-		image: { src: "/gallery/14.jpg", alt: "Tiger walking through grasslands" },
+		image: {
+			src: "/gallery/14.jpg",
+			alt: "Tiger walking through grasslands",
+			width: 2048,
+			height: 1365,
+		},
 	},
 	{
 		id: "jeep-safari",
 		title: "Ranthambore Jeep Safari",
 		description:
 			"Experience the thrill of Ranthambore with our exclusive Jeep Safari. Limited seats left!",
-		image: { src: "/gallery/2.jpg", alt: "Jeep safari through the forest" },
+		image: {
+			src: "/gallery/2.jpg",
+			alt: "Jeep safari through the forest",
+			width: 2048,
+			height: 1093,
+		},
 	},
 	{
 		id: "canter-safari",
@@ -46,6 +56,8 @@ const ACTIVITIES = [
 		image: {
 			src: "/gallery/3.jpg",
 			alt: "Canter safari with group of visitors",
+			width: 2048,
+			height: 1381,
 		},
 	},
 	{
@@ -56,6 +68,8 @@ const ACTIVITIES = [
 		image: {
 			src: "/gallery/4.jpg",
 			alt: "Boat safari on the Chambal River",
+			width: 2048,
+			height: 1480,
 		},
 	},
 	{
@@ -66,6 +80,8 @@ const ACTIVITIES = [
 		image: {
 			src: "/gallery/5.jpg",
 			alt: "Hotel resort near Ranthambore forest",
+			width: 1365,
+			height: 2048,
 		},
 	},
 	{
@@ -76,6 +92,8 @@ const ACTIVITIES = [
 		image: {
 			src: "/gallery/6.jpg",
 			alt: "Scenic view of Ranthambore National Park",
+			width: 2048,
+			height: 1365,
 		},
 	},
 ];
@@ -136,6 +154,8 @@ export function ThingsToDoSection() {
 									key={active.id}
 									src={active.image.src}
 									alt={active.image.alt}
+									width={active.image.width}
+									height={active.image.height}
 									className="absolute inset-0 h-full w-full object-cover"
 									initial={{ opacity: 0, scale: 1.05 }}
 									animate={{ opacity: 1, scale: 1 }}
@@ -199,7 +219,9 @@ export function ThingsToDoSection() {
 									<Image
 										src={activity.image.src}
 										alt={activity.image.alt}
-										layout="fullWidth"
+										layout="constrained"
+										width={activity.image.width}
+										height={activity.image.height}
 										className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
 										fallback="vercel"
 									/>

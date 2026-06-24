@@ -60,7 +60,9 @@ export function ContactSection() {
 							<Image
 								src="/gallery/7.jpg"
 								alt="Tiger resting in the wild"
-								layout="fullWidth"
+								layout="constrained"
+								width={2048}
+								height={1365}
 								className="h-full w-full object-cover"
 							/>
 						</div>

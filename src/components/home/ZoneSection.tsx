@@ -134,7 +134,9 @@ export function ZoneSection() {
 				<Image
 					src="/gallery/8.jpg"
 					alt=""
-					layout="fullWidth"
+					layout="constrained"
+					width={1646}
+					height={2048}
 					className="h-full w-full object-cover"
 				/>
 				<div className="absolute inset-0 bg-charcoal-900/80" />

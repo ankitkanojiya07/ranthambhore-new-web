@@ -4,10 +4,30 @@ import { Image } from "#/util/Image";
 const MotionImage = motion.create(Image);
 
 const HERO_IMAGES = [
-	{ src: "/hero/3.webp", alt: "Tigers roaming the forest path" },
-	{ src: "/hero/2.webp", alt: "Wildlife on a safari trail" },
-	{ src: "/hero/1.webp", alt: "Tiger in the wild grasslands of Ranthambhore" },
-	{ src: "/hero/4.webp", alt: "Tiger approaching through dry grassland" },
+	{
+		src: "/hero/3.webp",
+		alt: "Tigers roaming the forest path",
+		width: 2048,
+		height: 1365,
+	},
+	{
+		src: "/hero/2.webp",
+		alt: "Wildlife on a safari trail",
+		width: 1280,
+		height: 771,
+	},
+	{
+		src: "/hero/1.webp",
+		alt: "Tiger in the wild grasslands of Ranthambhore",
+		width: 2048,
+		height: 1365,
+	},
+	{
+		src: "/hero/4.webp",
+		alt: "Tiger approaching through dry grassland",
+		width: 2048,
+		height: 1093,
+	},
 ];
 
 export function HeroCarousel({ currentSlide }: { currentSlide: number }) {
@@ -23,6 +43,8 @@ export function HeroCarousel({ currentSlide }: { currentSlide: number }) {
 					key={currentSlide}
 					src={image.src}
 					alt={image.alt}
+					width={image.width}
+					height={image.height}
 					priority
 					className="absolute inset-0 h-full w-full object-cover"
 					fallback="vercel"

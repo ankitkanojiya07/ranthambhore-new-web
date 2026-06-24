@@ -10,7 +10,9 @@ export function AboutSection() {
 						<Image
 							src="/map.png"
 							alt="Illustrated map of Ranthambhore National Park"
-							layout="fullWidth"
+							layout="constrained"
+							width={482}
+							height={518}
 							className="w-full rounded-sm"
 						/>
 					</div>
