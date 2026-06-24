@@ -1,18 +1,26 @@
 import { type ImageProps, Image as UnpicImage } from "@unpic/react";
 import placeholders from "#/lib/placeholders.json";
 
+const isVercel = import.meta.env.VITE_VERCEL_ENV && import.meta.env.VITE_VERCEL_ENV !== "development";
 
-const ALLOWED_WIDTHS = [640, 750, 828, 1080, 1200, 1920, 2048, 3840];
+export function Image({ src, className, ...props }: ImageProps) {
+  const placeholder = placeholders[src as keyof typeof placeholders];
+  const isTransparent = placeholder === "transparent";
 
-export const Image = ({ src, ...props }: ImageProps) => {
-	const background = placeholders[src as keyof typeof placeholders];
-	return (
-		<UnpicImage
-			{...props}
-			src={src}
-			breakpoints={ALLOWED_WIDTHS}
-			background={background}
-			fallback="vercel"
-		/>
-	);
-};
+  return (
+    <UnpicImage
+      src={src}
+      fallback={isVercel ? "vercel" : undefined}
+      background={isTransparent ? undefined : placeholder}
+      className={`${
+        isTransparent ? "opacity-0 transition-opacity duration-500" : ""
+      } ${className ?? ""}`}
+      onLoad={(e) => {
+        if (isTransparent) {
+          (e.target as HTMLImageElement).classList.replace("opacity-0", "opacity-100");
+        }
+      }}
+      {...props}
+    />
+  );
+}
