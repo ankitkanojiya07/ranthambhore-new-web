@@ -1,4 +1,5 @@
 import { motion } from "motion/react";
+import { Image } from "#/util/Image";
 
 const containerVariants = {
 	hidden: {},
@@ -56,9 +57,10 @@ export function ContactSection() {
 						viewport={{ once: true, amount: 0.2 }}
 					>
 						<div className="hero-grunge-mask h-full min-h-[460px] w-full z-10 relative">
-							<img
+							<Image
 								src="/gallery/7.jpg"
 								alt="Tiger resting in the wild"
+								layout="fullWidth"
 								className="h-full w-full object-cover"
 							/>
 						</div>

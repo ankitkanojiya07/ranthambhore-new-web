@@ -1,4 +1,5 @@
 import { Mail, MapPin, PawPrint } from "lucide-react";
+import { Image } from "#/util/Image";
 
 const QUICK_LINKS = [
 	"Home",
@@ -20,11 +21,13 @@ export function Footer() {
 	return (
 		<footer className="relative overflow-hidden bg-sand-100">
 			{/* Tree logo watermark */}
-			<img
+			<Image
 				src="/logo.png"
 				alt=""
 				aria-hidden="true"
-				className="pointer-events-none absolute inset-0 m-auto h-full w-auto object-contain opacity-[0.04]"
+				layout="fullWidth"
+				className="pointer-events-none absolute inset-0 h-full w-full object-contain opacity-[0.04]"
+				fallback="vercel"
 			/>
 
 			<div className="relative z-10 mx-auto max-w-7xl px-6 pb-8 pt-16 lg:px-8">

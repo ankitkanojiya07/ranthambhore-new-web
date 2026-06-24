@@ -1,4 +1,7 @@
 import { AnimatePresence, motion } from "motion/react";
+import { Image } from "#/util/Image";
+
+const MotionImage = motion.create(Image);
 
 const HERO_IMAGES = [
 	{ src: "/hero/3.webp", alt: "Tigers roaming the forest path" },
@@ -16,11 +19,13 @@ export function HeroCarousel({ currentSlide }: { currentSlide: number }) {
 			aria-live="polite"
 		>
 			<AnimatePresence>
-				<motion.img
+				<MotionImage
 					key={currentSlide}
 					src={image.src}
 					alt={image.alt}
+					priority
 					className="absolute inset-0 h-full w-full object-cover"
+					fallback="vercel"
 					initial={{ opacity: 0 }}
 					animate={{ opacity: 1 }}
 					exit={{ opacity: 0 }}

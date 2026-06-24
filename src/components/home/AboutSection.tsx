@@ -1,3 +1,5 @@
+import { Image } from "#/util/Image";
+
 export function AboutSection() {
 	return (
 		<section className="bg-sand-50 px-6 lg:px-4" aria-label="About">
@@ -5,9 +7,10 @@ export function AboutSection() {
 				<div className="mt-14 flex flex-col items-center gap-12 lg:flex-row lg:gap-16">
 					{/* Map image */}
 					<div className="w-full shrink-0 lg:w-[45%]">
-						<img
+						<Image
 							src="/map.png"
 							alt="Illustrated map of Ranthambhore National Park"
+							layout="fullWidth"
 							className="w-full rounded-sm"
 						/>
 					</div>

@@ -1,5 +1,6 @@
 import { ArrowLeft, ArrowRight, FileText } from "lucide-react";
 import { motion } from "motion/react";
+import { Image } from "#/util/Image";
 
 const containerVariants = {
 	hidden: {},
@@ -115,9 +116,10 @@ export function NewsSection() {
 							className="flex flex-col"
 						>
 							<div className="hero-grunge-mask relative aspect-4/3 w-full">
-								<img
+								<Image
 									src={article.image.src}
 									alt={article.image.alt}
+									layout="fullWidth"
 									className="absolute inset-0 h-full w-full object-cover"
 								/>
 							</div>

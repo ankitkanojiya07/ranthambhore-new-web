@@ -1,5 +1,8 @@
 import { AnimatePresence, motion } from "motion/react";
 import { useState } from "react";
+import { Image } from "#/util/Image";
+
+const MotionImage = motion.create(Image);
 
 const containerVariants = {
 	hidden: {},
@@ -129,7 +132,7 @@ export function ThingsToDoSection() {
 					>
 						<div className="relative h-full min-h-96">
 							<AnimatePresence mode="wait">
-								<motion.img
+								<MotionImage
 									key={active.id}
 									src={active.image.src}
 									alt={active.image.alt}
@@ -193,10 +196,12 @@ export function ThingsToDoSection() {
 								}`}
 							>
 								<div className="relative size-full overflow-hidden rounded-xl">
-									<img
+									<Image
 										src={activity.image.src}
 										alt={activity.image.alt}
+										layout="fullWidth"
 										className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
+										fallback="vercel"
 									/>
 									<div
 										className={`absolute inset-0 transition-colors duration-300 ${

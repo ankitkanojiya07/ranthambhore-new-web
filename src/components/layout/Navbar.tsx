@@ -2,6 +2,7 @@ import { Link } from "@tanstack/react-router";
 import { ChevronDown, Menu, X } from "lucide-react";
 import { AnimatePresence, motion } from "motion/react";
 import { useState } from "react";
+import { Image } from "#/util/Image";
 
 const NAV_ITEMS = [
 	{ label: "Home", href: "/" },
@@ -95,9 +96,13 @@ export function Navbar() {
 			<div className="mx-auto flex max-w-7xl items-center gap-6 px-6 py-3 lg:gap-8 lg:px-4">
 				{/* Logo */}
 				<Link to="/" className="flex shrink-0 items-center">
-					<img
+					<Image
 						src="/logo.png"
 						alt="Ranthambhore"
+						fallback="vercel"
+						layout="fixed"
+						width={144}
+						height={72}
 						className="h-16 lg:h-[72px]"
 					/>
 				</Link>

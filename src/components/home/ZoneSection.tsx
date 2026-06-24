@@ -1,5 +1,6 @@
 import { motion, useScroll, useTransform } from "motion/react";
 import { useRef } from "react";
+import { Image } from "#/util/Image";
 
 const containerVariants = {
 	hidden: {},
@@ -127,12 +128,13 @@ export function ZoneSection() {
 		>
 			{/* Parallax background */}
 			<motion.div
-				className="absolute inset-0 -top-[20%] h-[140%]"
+				className="absolute inset-0 top-[-20%] h-[140%]"
 				style={{ y: backgroundY }}
 			>
-				<img
+				<Image
 					src="/gallery/8.jpg"
 					alt=""
+					layout="fullWidth"
 					className="h-full w-full object-cover"
 				/>
 				<div className="absolute inset-0 bg-charcoal-900/80" />
