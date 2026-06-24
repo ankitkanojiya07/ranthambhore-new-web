@@ -5,5 +5,5 @@ const isVercel =
 	import.meta.env.VITE_VERCEL_ENV !== "development";
 
 export const Image = (props: ImageProps) => {
-	return <UnpicImage {...props} fallback={isVercel ? "vercel" : undefined} />;
+	return <UnpicImage {...props} fallback={"vercel"} />;
 };
