@@ -8,7 +8,7 @@
   "scripts": {
     "dev": "bun run scripts/generate-placeholders.ts && vite dev --port 3000",
     "generate-routes": "tsr generate",
-    "build": "bun scripts/generate-placeholders.ts && vite build",
+    "build": "vite build",
     "preview": "vite preview",
     "test": "vitest run",
     "format": "biome format",
