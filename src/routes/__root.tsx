@@ -1,17 +1,19 @@
 import { TanStackDevtools } from "@tanstack/react-devtools";
-import {
-	createRootRoute,
-	HeadContent,
-	Outlet,
-	Scripts,
-} from "@tanstack/react-router";
+import { createRootRoute, HeadContent, Scripts } from "@tanstack/react-router";
 import { TanStackRouterDevtoolsPanel } from "@tanstack/react-router-devtools";
-import { Footer } from "#/components/layout/Footer";
-import { Navbar } from "#/components/layout/Navbar";
-
 import appCss from "../styles.css?url";
 
+function NotFound() {
+	return (
+		<div>
+			<h1>404</h1>
+			<p>Page not found</p>
+		</div>
+	);
+}
+
 export const Route = createRootRoute({
+	notFoundComponent: NotFound,
 	head: () => ({
 		meta: [
 			{
@@ -27,33 +29,13 @@ export const Route = createRootRoute({
 		],
 		links: [
 			{
-				rel: "preconnect",
-				href: "https://fonts.googleapis.com",
-			},
-			{
-				rel: "preconnect",
-				href: "https://fonts.gstatic.com",
-				crossOrigin: "anonymous",
-			},
-			{
 				rel: "stylesheet",
 				href: appCss,
 			},
 		],
 	}),
-	component: RootLayout,
 	shellComponent: RootDocument,
 });
-
-function RootLayout() {
-	return (
-		<>
-			<Navbar />
-			<Outlet />
-			<Footer />
-		</>
-	);
-}
 
 function RootDocument({ children }: { children: React.ReactNode }) {
 	return (

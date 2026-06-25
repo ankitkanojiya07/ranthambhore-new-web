@@ -19,6 +19,10 @@
   },
   "dependencies": {
     "@base-ui-components/react": "^1.0.0-rc.0",
+    "@base-ui/react": "^1.6.0",
+    "@fontsource-variable/playfair-display": "^5.2.8",
+    "@fontsource/poppins": "^5.2.7",
+    "@solar-icons/react-perf": "^2.1.1",
     "@tailwindcss/vite": "^4.1.18",
     "@tanstack/react-devtools": "latest",
     "@tanstack/react-router": "latest",
@@ -28,11 +32,13 @@
     "@tanstack/router-plugin": "^1.132.0",
     "@unpic/react": "^1.0.2",
     "blurhash": "^2.0.5",
+    "class-variance-authority": "^0.7.1",
     "lucide-react": "^0.545.0",
     "motion": "^12.40.0",
     "nitro": "npm:nitro-nightly@latest",
     "react": "^19.2.0",
     "react-dom": "^19.2.0",
+    "tailwind-merge": "^3.6.0",
     "tailwindcss": "^4.1.18"
   },
   "devDependencies": {

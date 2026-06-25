@@ -14,7 +14,7 @@ export function HeroScrollIndicator() {
 			className="absolute bottom-0 left-1/2 z-10 flex -translate-x-1/2 flex-col items-center pb-0"
 			initial={{ opacity: 0, y: 10 }}
 			animate={{ opacity: 1, y: 0 }}
-			transition={{ delay: 1, duration: 0.6, ease: "easeOut" }}
+			transition={{ delay: 1.4, duration: 0.6, ease: "easeOut" }}
 			aria-label="Scroll to content below"
 		>
 			<p className="font-display text-center text-sm font-semibold uppercase tracking-display text-earth-500">

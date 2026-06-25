@@ -1,191 +1,114 @@
 import { Link } from "@tanstack/react-router";
-import { ChevronDown, Menu, X } from "lucide-react";
-import { AnimatePresence, motion } from "motion/react";
-import { useState } from "react";
-import { Image } from "#/util/Image";
+import { FacebookIcon } from "#/icons/facebook.icon";
+import { InstagramIcon } from "#/icons/instagram.icon";
+import { MenuIcon } from "#/icons/menu.icon";
+import { XIcon } from "#/icons/x.icon";
+import { Button } from "../ui/button";
+import { NavDrawerRoot, NavDrawerTrigger } from "./NavDrawer";
 
-const NAV_ITEMS = [
-	{ label: "Home", href: "/" },
-	{
-		label: "Ranthambhore",
-		href: "#ranthambhore",
-		children: [
-			{ label: "History", href: "#history" },
-			{ label: "Conservation", href: "#conservation" },
-			{ label: "Flora & Fauna", href: "#flora-fauna" },
-			{ label: "Tigers In Ranthambore", href: "#tigers" },
-		],
-	},
-	{ label: "Wildlife", href: "#wildlife" },
-	{
-		label: "Safaris",
-		href: "#safaris",
-		children: [
-			{ label: "Jeep Safari", href: "#jeep-safari" },
-			{ label: "Canter Safari", href: "#canter-safari" },
-			{ label: "Bird Watching", href: "#bird-watching" },
-		],
-	},
-	{ label: "Hotels", href: "#hotels" },
-	{ label: "TravelTips", href: "#travel-tips" },
-] as const;
-
-function NavDropdown({
-	children,
-}: {
-	children: readonly { label: string; href: string }[];
-}) {
+const NavigationBar = () => {
 	return (
-		<motion.div
-			className="absolute top-full left-0 z-50 mt-2 min-w-[200px] rounded py-2 bg-white shadow-lg"
-			initial={{ opacity: 0, y: -8 }}
-			animate={{ opacity: 1, y: 0 }}
-			exit={{ opacity: 0, y: -8 }}
-			transition={{ duration: 0.2 }}
-		>
-			{children.map((child) => (
-				<a
-					key={child.label}
-					href={child.href}
-					className="block px-5 py-2 font-body text-sm text-charcoal-700 transition-colors hover:bg-sand-100 hover:text-forest-500"
-				>
-					{child.label}
-				</a>
-			))}
-		</motion.div>
-	);
-}
-
-function NavItem({ item }: { item: (typeof NAV_ITEMS)[number] }) {
-	const [open, setOpen] = useState(false);
-	const hasChildren = "children" in item && item.children;
-
-	return (
-		// biome-ignore lint/a11y/noStaticElementInteractions: hover dropdown trigger
-		<div
-			className="relative"
-			onMouseEnter={() => hasChildren && setOpen(true)}
-			onMouseLeave={() => hasChildren && setOpen(false)}
-		>
-			<a
-				href={item.href}
-				className="flex items-center font-body gap-1 text-sm font-semibold uppercase tracking-nav text-charcoal-900 transition-colors hover:text-forest-500"
-			>
-				{item.label}
-				{hasChildren && <ChevronDown className="size-3" />}
-			</a>
-			{hasChildren && (
-				<AnimatePresence>
-					{open && <NavDropdown>{item.children}</NavDropdown>}
-				</AnimatePresence>
-			)}
-		</div>
-	);
-}
-
-export function Navbar() {
-	const [mobileOpen, setMobileOpen] = useState(false);
-
-	return (
-		<motion.nav
-			className="relative z-50"
-			initial={{ y: -20, opacity: 0 }}
-			animate={{ y: 0, opacity: 1 }}
-			transition={{ duration: 0.5, ease: "easeOut" }}
-		>
-			<div className="mx-auto flex max-w-7xl items-center gap-6 px-6 py-3 lg:gap-8 lg:px-4">
-				{/* Logo */}
-				<Link to="/" className="flex shrink-0 items-center">
-					<Image
-						src="/logo.png"
-						alt="Ranthambhore"
-						fallback="vercel"
-						layout="fixed"
-						width={144}
-						height={72}
-						className="h-16 lg:h-[72px]"
-					/>
-				</Link>
-
-				{/* Desktop Nav Links */}
-				<div className="hidden flex-1 items-center justify-center gap-7 lg:flex xl:gap-5">
-					{NAV_ITEMS.map((item) => (
-						<NavItem key={item.label} item={item} />
-					))}
-				</div>
-
-				{/* Right side: CTA */}
-				<div className="hidden shrink-0 lg:block">
-					<a
-						href="#quote"
-						className="inline-block rounded-lg bg-forest-500 px-8 py-3 font-display text-xs font-semibold uppercase tracking-nav text-white transition-colors hover:bg-forest-600"
-					>
-						Get Free Quote
-					</a>
-				</div>
-
-				{/* Mobile hamburger */}
-				<button
-					type="button"
-					aria-label={mobileOpen ? "Close menu" : "Open menu"}
-					className="ml-auto flex size-10 items-center justify-center rounded lg:hidden"
-					onClick={() => setMobileOpen(!mobileOpen)}
-				>
-					{mobileOpen ? (
-						<X className="size-6 text-charcoal-800" />
-					) : (
-						<Menu className="size-6 text-charcoal-800" />
-					)}
-				</button>
-			</div>
-
-			{/* Mobile drawer */}
-			<AnimatePresence>
-				{mobileOpen && (
-					<motion.div
-						className="border-t border-muted-200 bg-white px-6 pb-6 lg:hidden"
-						initial={{ height: 0, opacity: 0 }}
-						animate={{ height: "auto", opacity: 1 }}
-						exit={{ height: 0, opacity: 0 }}
-						transition={{ duration: 0.3 }}
-					>
-						<div className="flex flex-col gap-4 pt-4">
-							{NAV_ITEMS.map((item) => (
-								<div key={item.label}>
-									<a
-										href={item.href}
-										className="font-display text-sm uppercase tracking-nav text-charcoal-800"
-										onClick={() => setMobileOpen(false)}
-									>
-										{item.label}
-									</a>
-									{"children" in item && item.children && (
-										<div className="mt-2 flex flex-col gap-2 pl-4">
-											{item.children.map((child) => (
-												<a
-													key={child.label}
-													href={child.href}
-													className="font-body text-sm text-charcoal-600"
-													onClick={() => setMobileOpen(false)}
-												>
-													{child.label}
-												</a>
-											))}
-										</div>
-									)}
-								</div>
-							))}
-						</div>
-
-						<a
-							href="#quote"
-							className="mt-6 inline-block rounded-lg bg-forest-500 px-8 py-3 font-display text-xs font-semibold uppercase tracking-nav text-white"
+		<NavDrawerRoot>
+			<header className="bg-sand-50 px-4 py-3 sm:px-6 sm:py-4 lg:px-10 lg:py-5">
+				<div className="grid grid-cols-3 items-center gap-2">
+					{/* Left: menu trigger + social icons (desktop only) */}
+					<div className="flex items-center">
+						<NavDrawerTrigger
+							render={<Button variant="ghost" className="px-2 py-1 sm:px-3" />}
 						>
-							Get Free Quote
-						</a>
-					</motion.div>
-				)}
-			</AnimatePresence>
-		</motion.nav>
+							<MenuIcon className="size-4 sm:size-5" />
+							<span className="hidden sm:inline">Menu</span>
+						</NavDrawerTrigger>
+						<Button
+							variant="ghost"
+							size={"icon-sm"}
+							className="hidden md:inline-flex"
+							render={
+								// biome-ignore lint/a11y/useAnchorContent: this is a custom button
+								<a
+									href="https://www.instagram.com/ranthambhoreregencyhotel/"
+									aria-label="Follow us on Instagram"
+									target="_blank"
+									rel="noopener noreferrer"
+								/>
+							}
+						>
+							<InstagramIcon className="size-4" />
+						</Button>
+						<Button
+							variant="ghost"
+							size={"icon-sm"}
+							className="hidden md:inline-flex"
+							render={
+								// biome-ignore lint/a11y/useAnchorContent: this is a custom button
+								<a
+									href="https://www.facebook.com/ranthambhore.com"
+									aria-label="Follow us on Facebook"
+									target="_blank"
+									rel="noopener noreferrer"
+								/>
+							}
+						>
+							<FacebookIcon className="size-4" />
+						</Button>
+						<Button
+							variant="ghost"
+							size={"icon-sm"}
+							className="hidden md:inline-flex"
+							render={
+								// biome-ignore lint/a11y/useAnchorContent: this is a custom button
+								<a
+									href="https://x.com/ranthambhore.com"
+									aria-label="Follow us on X"
+									target="_blank"
+									rel="noopener noreferrer"
+								/>
+							}
+						>
+							<XIcon className="size-4" />
+						</Button>
+					</div>
+
+					{/* Center: logo */}
+					<div className="flex justify-center">
+						<Link to="/" className="block aspect-video h-10 sm:h-12 lg:h-14">
+							<img
+								src="/logo.png"
+								alt="Ranthambhore.com"
+								width={100}
+								height={100}
+								className="w-full h-full object-contain"
+							/>
+						</Link>
+					</div>
+
+					{/* Right: CTA */}
+					<div className="flex justify-end">
+						<Button variant="outline" className="hidden sm:inline-flex">
+							Make a Request
+						</Button>
+						<Button variant="outline" size="icon-sm" className="sm:hidden">
+							<span className="sr-only">Make a Request</span>
+							<svg
+								viewBox="0 0 24 24"
+								fill="none"
+								stroke="currentColor"
+								strokeWidth={1.5}
+								className="size-4"
+								aria-hidden="true"
+							>
+								<path
+									strokeLinecap="round"
+									strokeLinejoin="round"
+									d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75"
+								/>
+							</svg>
+						</Button>
+					</div>
+				</div>
+			</header>
+		</NavDrawerRoot>
 	);
-}
+};
+
+export default NavigationBar;

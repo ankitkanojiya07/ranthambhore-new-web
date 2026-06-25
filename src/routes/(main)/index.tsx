@@ -8,26 +8,24 @@ import { NewsSection } from "#/components/home/NewsSection";
 import { ThingsToDoSection } from "#/components/home/ThingsToDoSection";
 import { ZoneSection } from "#/components/home/ZoneSection";
 
-export const Route = createFileRoute("/")({ component: Home });
+export const Route = createFileRoute("/(main)/")({ component: Home });
 
 function Home() {
 	return (
 		<div className="bg-sand-50">
-			<div className="mx-auto max-w-7xl">
-				<HeroSection />
+			<HeroSection />
 
-				<div className="mx-auto max-w-5xl border-t border-earth-200" />
+			<div className="mx-auto max-w-5xl border-t border-earth-200" />
 
-				<AboutSection />
+			<AboutSection />
 
-				<div className="mx-auto max-w-5xl border-t border-earth-200" />
+			<div className="mx-auto max-w-5xl border-t border-earth-200" />
 
-				<NewsSection />
+			<NewsSection />
 
-				<div className="mx-auto max-w-5xl border-t border-earth-200" />
+			<div className="mx-auto max-w-5xl border-t border-earth-200" />
 
-				<ThingsToDoSection />
-			</div>
+			<ThingsToDoSection />
 
 			<ZoneSection />
 

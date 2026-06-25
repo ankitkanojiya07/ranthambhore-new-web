@@ -1,29 +1,96 @@
-@import url('https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,200..900;1,200..900&family=EB+Garamond:ital,wght@0,400..800;1,400..800&display=swap');
+@import "@fontsource/poppins/400.css";
+@import "@fontsource/poppins/500.css";
+@import "@fontsource/poppins/600.css";
+@import "@fontsource/poppins/700.css";
+@import "@fontsource-variable/playfair-display/wght.css";
+@import "@fontsource-variable/playfair-display/wght-italic.css";
+
+@font-face {
+	font-family: "Vonca";
+	src: url("./fonts/vonca-extralight.otf") format("opentype");
+	font-weight: 200;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: "Vonca";
+	src: url("./fonts/vonca-light.otf") format("opentype");
+	font-weight: 300;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: "Vonca";
+	src: url("./fonts/vonca-regular.otf") format("opentype");
+	font-weight: 400;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: "Vonca";
+	src: url("./fonts/vonca-medium.otf") format("opentype");
+	font-weight: 500;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: "Vonca";
+	src: url("./fonts/vonca-semibold.otf") format("opentype");
+	font-weight: 600;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: "Vonca";
+	src: url("./fonts/vonca-bold.otf") format("opentype");
+	font-weight: 700;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: "Vonca";
+	src: url("./fonts/vonca-extrabold.otf") format("opentype");
+	font-weight: 800;
+	font-style: normal;
+	font-display: swap;
+}
+
 @import "tailwindcss";
 
 @plugin "@tailwindcss/typography";
 
 @theme {
 	/* === Font Families === */
-	--font-display: "EB Garamond";
-	--font-body: "Crimson Pro";
+	--font-display: "Vonca", system-ui, sans-serif;
+	--font-body: "Poppins", system-ui, sans-serif;
+	--font-playfair: "Playfair Display Variable", Georgia, serif;
 
 	/* === Brand Colors === */
 
-	/* Forest Green - Primary brand */
-	--color-forest-50: #e6f5ef;
-	--color-forest-100: #b3e0cc;
-	--color-forest-200: #80cba9;
-	--color-forest-300: #4db686;
-	--color-forest-400: #26a66d;
-	--color-forest-500: #0d7a55;
-	--color-forest-600: #0b6d4b;
-	--color-forest-700: #095e41;
-	--color-forest-800: #074f36;
-	--color-forest-900: #043d2a;
-	--color-forest-950: #022a1c;
+	/*
+	 * Olive Green — Primary brand
+	 * Shifted from aqua/teal to true yellow-olive to match the
+	 * "Proven Excellence" dark panel (~#454D25) and nature-forward aesthetic.
+	 */
+	--color-forest-50: #f2f4e6;
+	--color-forest-100: #dce2b8;
+	--color-forest-200: #c4cf8a;
+	--color-forest-300: #aabc5c;
+	--color-forest-400: #8ea432;
+	--color-forest-500: #728c28;
+	--color-forest-600: #5e7620;
+	--color-forest-700: #4a601a;
+	--color-forest-800: #3a4c14;
+	--color-forest-900: #28360c;  /* ← "Proven Excellence" section base */
+	--color-forest-950: #182008;
 
-	/* Earth Brown - Accents, warm tones */
+	/* Earth Brown — Accents, warm tones (unchanged — already accurate) */
 	--color-earth-50: #f6f0ea;
 	--color-earth-100: #e4d4c5;
 	--color-earth-200: #d2b8a0;
@@ -36,80 +103,104 @@
 	--color-earth-900: #47301e;
 	--color-earth-950: #2e1f14;
 
-	/* Sand Beige - Backgrounds, cards */
-	--color-sand-50: #fdf9f0;
-	--color-sand-100: #faf2df;
-	--color-sand-200: #f7ebce;
-	--color-sand-300: #f4e3c1;
-	--color-sand-400: #edd5a5;
-	--color-sand-500: #e5c789;
-	--color-sand-600: #d4ad62;
-	--color-sand-700: #b8903d;
-	--color-sand-800: #8f6f2f;
-	--color-sand-900: #665022;
-	--color-sand-950: #3d3014;
+	/*
+	 * Sand Beige — Backgrounds, cards
+	 * Pulled warmer and more yellow-cream to match the site's
+	 * distinctive ivory background (~#FAF4E2).
+	 */
+	--color-sand-50: #fef8e7;   /* ← main page background */
+	--color-sand-100: #f5eac8;
+	--color-sand-200: #efdfa8;
+	--color-sand-300: #e8d28a;
+	--color-sand-400: #dfc26c;
+	--color-sand-500: #d4ae52;
+	--color-sand-600: #b89040;
+	--color-sand-700: #9a742e;
+	--color-sand-800: #7c5a22;
+	--color-sand-900: #5e4218;
+	--color-sand-950: #3a280e;
 
-	/* Sunset Orange - CTAs, highlights */
-	--color-sunset-50: #fff3e8;
-	--color-sunset-100: #ffdfc0;
-	--color-sunset-200: #ffcb98;
-	--color-sunset-300: #ffb770;
-	--color-sunset-400: #ffa159;
-	--color-sunset-500: #ff8c42;
-	--color-sunset-600: #e07530;
-	--color-sunset-700: #c06020;
-	--color-sunset-800: #994c1a;
-	--color-sunset-900: #733913;
-	--color-sunset-950: #4d260d;
+	/*
+	 * Terracotta — CTAs, highlighted buttons
+	 * Replaced bright orange (#ff8c42) with a muted burnt-sienna
+	 * terracotta (~#C05838) matching the "Start Customizing" button.
+	 */
+	--color-sunset-50: #faf0eb;
+	--color-sunset-100: #f0d0c0;
+	--color-sunset-200: #e4b09a;
+	--color-sunset-300: #d89074;
+	--color-sunset-400: #cc7050;
+	--color-sunset-500: #c05838;  /* ← primary CTA button */
+	--color-sunset-600: #a84830;
+	--color-sunset-700: #903a24;
+	--color-sunset-800: #782c1c;
+	--color-sunset-900: #602214;
+	--color-sunset-950: #3c140c;
 
-	/* Golden Yellow - Secondary accent */
-	--color-golden-50: #fff9e6;
-	--color-golden-100: #ffefb3;
-	--color-golden-200: #ffe580;
-	--color-golden-300: #ffd166;
-	--color-golden-400: #ffc233;
-	--color-golden-500: #ffb300;
-	--color-golden-600: #d99700;
-	--color-golden-700: #b37c00;
-	--color-golden-800: #8c6100;
-	--color-golden-900: #664600;
-	--color-golden-950: #402c00;
+	/*
+	 * Amber / Ochre — Section backgrounds, secondary accent
+	 * Replaced bright yellow (#ffb300) with warm golden amber (~#D09038)
+	 * matching the FAQ section background.
+	 */
+	--color-golden-50: #fdf6e8;
+	--color-golden-100: #f8e5b8;
+	--color-golden-200: #f2d488;
+	--color-golden-300: #eabf5a;
+	--color-golden-400: #dea830;
+	--color-golden-500: #d09038;  /* ← FAQ section amber background tone */
+	--color-golden-600: #b47830;
+	--color-golden-700: #966228;
+	--color-golden-800: #784c1e;
+	--color-golden-900: #5a3816;
+	--color-golden-950: #38220c;
 
-	/* Dark Charcoal - Text, dark backgrounds */
-	--color-charcoal-50: #f2f2f2;
-	--color-charcoal-100: #e0e0e0;
-	--color-charcoal-200: #c7c7c7;
-	--color-charcoal-300: #adadad;
-	--color-charcoal-400: #949494;
-	--color-charcoal-500: #7a7a7a;
-	--color-charcoal-600: #616161;
-	--color-charcoal-700: #4d4d4d;
-	--color-charcoal-800: #333333;
-	--color-charcoal-900: #1f1f1f;
-	--color-charcoal-950: #0d0d0d;
+	/*
+	 * Dark Charcoal — Text, dark backgrounds
+	 * Added a subtle warm/olive undertone to match the design's
+	 * near-black heading treatment (~#1E1E12 rather than pure #1f1f1f).
+	 */
+	--color-charcoal-50: #f4f4f0;
+	--color-charcoal-100: #e4e4dc;
+	--color-charcoal-200: #c8c8bc;
+	--color-charcoal-300: #b0b0a0;
+	--color-charcoal-400: #969684;
+	--color-charcoal-500: #7c7c68;
+	--color-charcoal-600: #626250;
+	--color-charcoal-700: #4a4a38;
+	--color-charcoal-800: #323224;  /* ← body text */
+	--color-charcoal-900: #1e1e12;  /* ← heading text */
+	--color-charcoal-950: #0e0e08;
 
-	/* Soft Gray - Borders, muted backgrounds */
-	--color-muted-50: #fcfcfc;
-	--color-muted-100: #f7f7f7;
-	--color-muted-200: #f0f0f0;
-	--color-muted-300: #e6e6e6;
-	--color-muted-400: #cccccc;
-	--color-muted-500: #b3b3b3;
-	--color-muted-600: #999999;
-	--color-muted-700: #808080;
-	--color-muted-800: #666666;
-	--color-muted-900: #4d4d4d;
-	--color-muted-950: #333333;
+	/*
+	 * Soft Gray — Borders, muted backgrounds
+	 * Given a very subtle warm tint to stay cohesive with
+	 * the overall warm-cream palette.
+	 */
+	--color-muted-50: #fcfcfa;
+	--color-muted-100: #f7f7f4;
+	--color-muted-200: #efefea;
+	--color-muted-300: #e4e4de;
+	--color-muted-400: #cecec6;
+	--color-muted-500: #b2b2a8;
+	--color-muted-600: #96968a;
+	--color-muted-700: #7a7a6e;
+	--color-muted-800: #606054;
+	--color-muted-900: #48483e;
+	--color-muted-950: #302e28;
+
+	--font-display: "Vonca", system-ui, sans-serif;
+	--font-body: "Poppins", system-ui, sans-serif;
+	--font-playfair: "Playfair Display Variable", Georgia, serif;
 
 	/* === Letter Spacing === */
-	--tracking-display: 0.15em;
-	--tracking-nav: 0.1em;
+	--tracking-display: 0.2em;   /* ← widened to match editorial all-caps headings */
+	--tracking-nav: 0.15em;      /* ← widened for uppercase nav labels */
 }
 
 @layer components {
-	.hero-grunge-mask {
-		-webkit-mask-image: url("/grunge-frame-overlay.png");
-		mask-image: url("/grunge-frame-overlay.png");
+	.hero-frame-mask {
+		-webkit-mask-image: url("/hero/frame.png");
+		mask-image: url("/hero/frame.png");
 		-webkit-mask-size: 100% 100%;
 		mask-size: 100% 100%;
 		-webkit-mask-repeat: no-repeat;
@@ -142,7 +233,7 @@
 	h6 {
 		font-family: var(--font-display);
 		font-weight: 700;
-		color: var(--color-charcoal-800);
+		color: var(--color-charcoal-900);
 	}
 
 	.prose {
@@ -161,6 +252,6 @@
 
 	.prose :where(blockquote) {
 		font-style: italic;
-		font-family: var(--font-body);
+		font-family: var(--font-display);
 	}
 }
