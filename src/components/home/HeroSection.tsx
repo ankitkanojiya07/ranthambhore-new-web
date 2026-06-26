@@ -43,7 +43,7 @@ export function HeroSection() {
 						<div className="h-[70dvh] relative mx-auto bg-[#FEECCB] rounded-t-full w-[60%]" />
 						<div className="absolute aspect-square max-w-[550px] max-h-[550px] -bottom-20  mx-auto left-0 hero-frame-mask size-full">
 							<img
-								src="/hero/2.webp"
+								src="/gallery/9.jpg"
 								alt="Ranthambhore"
 								className="size-full object-cover"
 							/>
@@ -64,9 +64,11 @@ export function HeroSection() {
 			</div>
 
 			<div className="pt-10 max-w-4xl mx-auto">
-				<ul className="flex items-center justify-between font-medium gap-4">
+				<ul className="flex items-center font-display justify-between font-medium gap-4">
 					{TRUST_BADGES.map((badge) => (
-						<li key={badge} className="text-lg text-center">{badge}</li>
+						<li key={badge} className="text-lg text-center">
+							{badge}
+						</li>
 					))}
 				</ul>
 			</div>

@@ -1,107 +1,93 @@
 import { Mail, MapPin, PawPrint } from "lucide-react";
+import { FacebookIcon } from "#/icons/facebook.icon";
+import { InstagramIcon } from "#/icons/instagram.icon";
 import { Image } from "#/util/Image";
+import { Button } from "../ui/button";
 
-const QUICK_LINKS = [
-	"Home",
-	"About",
-	"Wildlife",
-	"Park Zones",
-	"Safari Information",
-	"Book Safari",
-	"Photo Gallery",
+const QUICK_LINKS: { label: string; href: string }[] = [
+	{ label: "Home", href: "/" },
+	{ label: "About", href: "/about" },
+	{ label: "Wildlife", href: "/wildlife" },
+	{ label: "Park Zones", href: "/park-zones" },
+	{ label: "Safari Information", href: "/safari" },
+	{ label: "Book Safari", href: "/book" },
+	{ label: "Photo Gallery", href: "/gallery" },
 ];
 
-const RESOURCES = [
-	"Ranthambore Regency",
-	"Vanaashrya Resort",
-	"Ranthambore Aangan",
+const RESOURCES: { label: string; href: string }[] = [
+	{ label: "Ranthambore Regency", href: "/ranthambore-regency" },
+	{ label: "Vanaashrya Resort", href: "/vanaashrya-resort" },
+	{ label: "Ranthambore Aangan", href: "/ranthambore-aangan" },
 ];
 
 export function Footer() {
 	return (
-		<footer className="relative overflow-hidden bg-sand-100">
-			{/* Tree logo watermark */}
-			<Image
-				src="/logo.png"
-				alt=""
-				aria-hidden="true"
-				layout="constrained"
-				width={1092}
-				height={556}
-				className="pointer-events-none absolute inset-0 h-full w-full object-contain opacity-[0.04]"
-				fallback="vercel"
-			/>
-
-			<div className="relative z-10 mx-auto max-w-7xl px-6 pb-8 pt-16 lg:px-8">
-				<div className="grid grid-cols-1 gap-10 md:grid-cols-2 lg:grid-cols-4">
-					{/* About */}
-					<div>
-						<h3 className="flex items-center gap-2 border-b border-earth-200 pb-2 font-display text-lg text-charcoal-800">
-							<PawPrint className="size-5" strokeWidth={1.5} />
-							About Ranthambore
-						</h3>
-						<div className="mt-4 space-y-3 font-body text-sm leading-relaxed text-charcoal-600">
-							<p>
-								Ranthambore National Park is a premier tiger reserve in
-								Rajasthan, India. With a rich blend of history, wildlife, and
-								natural beauty, it offers an unforgettable safari experience.
-							</p>
-							<p>
-								Once the private hunting grounds of Jaipur's Maharajas,
-								Ranthambore now thrives as a conservation success story under
-								Project Tiger.
-							</p>
-						</div>
+		<footer className="relative overflow-hidden bg-[#41442C]">
+			<div className="relative z-10 mx-auto max-w-7xl px-6 lg:px-8">
+				{/* ── Top Branding Zone ── */}
+				<div className="relative flex items-end justify-center pb-10 pt-16">
+					<div className="flex flex-col items-center gap-3 text-center">
+						<Image
+							src="/logo.png"
+							alt="Ranthambhore logo"
+							width={64}
+							height={64}
+							className="w-40 invert object-contain opacity-90"
+						/>
+						<h2 className="font-display text-4xl tracking-display text-sand-100">
+							RANTHAMBHORE
+						</h2>
+						<p className="font-body font-medium text-sm uppercase tracking-display text-sand-100/80">
+							Wildlife &amp; Safari
+						</p>
 					</div>
+				</div>
 
-					{/* Quick Links */}
+				{/* ── Middle 3-Column Section ── */}
+				<div className="grid grid-cols-1 gap-10 border-t border-sand-100/30 pt-10 md:grid-cols-3">
+					{/* Column 1 — Quick Links */}
 					<div>
-						<h3 className="border-b border-earth-200 pb-2 font-display text-lg text-charcoal-800">
+						<h3 className="mb-2 font-display uppercase tracking-display text-sand-100">
 							Quick Links
 						</h3>
-						<ul className="mt-4 space-y-2">
+						<ul className="space-y-3">
 							{QUICK_LINKS.map((link) => (
-								<li
-									key={link}
-									className="font-body text-sm text-charcoal-600 transition-colors hover:text-forest-500"
-								>
-									<span className="mr-2 text-earth-400">•</span>
-									{link}
+								<li key={link.label}>
+									<a
+										href={link.href}
+										className="font-body font-medium text-sm text-sand-100/80 transition-colors hover:text-sand-100"
+									>
+										{link.label}
+									</a>
 								</li>
 							))}
 						</ul>
 					</div>
 
-					{/* Supported Resources */}
+					{/* Column 2 — Explore */}
 					<div>
-						<h3 className="border-b border-earth-200 pb-2 font-display text-lg text-charcoal-800">
-							Supported Resources
+						<h3 className="mb-2 font-display uppercase tracking-display text-sand-100">
+							Explore
 						</h3>
-						<ul className="mt-4 space-y-2">
+						<ul className="mb-6 space-y-3">
 							{RESOURCES.map((resource) => (
-								<li
-									key={resource}
-									className="font-body text-sm text-charcoal-600 transition-colors hover:text-forest-500"
-								>
-									<span className="mr-2 text-earth-400">•</span>
-									{resource}
+								<li key={resource.label}>
+									<a
+										href={resource.href}
+										className="font-body font-medium text-sm text-sand-100/80 transition-colors hover:text-sand-100"
+									>
+										{resource.label}
+									</a>
 								</li>
 							))}
 						</ul>
-					</div>
-
-					{/* Get In Touch */}
-					<div>
-						<h3 className="border-b border-earth-200 pb-2 font-display text-lg text-charcoal-800">
-							Get In Touch
-						</h3>
-						<div className="mt-4 space-y-4">
+						<div className="space-y-3 border-t border-sand-100/20 pt-5">
 							<div className="flex items-start gap-3">
 								<MapPin
-									className="mt-0.5 size-5 shrink-0 text-charcoal-700"
+									className="mt-0.5 size-4 shrink-0 text-sand-100/80"
 									strokeWidth={1.5}
 								/>
-								<p className="font-body text-sm leading-relaxed text-charcoal-600">
+								<p className="font-body font-medium text-sm text-sand-100/80">
 									Sawai Madhopur, Rajasthan
 									<br />
 									India
@@ -109,26 +95,120 @@ export function Footer() {
 							</div>
 							<div className="flex items-center gap-3">
 								<Mail
-									className="size-5 shrink-0 text-charcoal-700"
+									className="size-4 shrink-0 text-sand-100/80"
 									strokeWidth={1.5}
 								/>
 								<a
 									href="mailto:ranthambhoreregency@gmail.com"
-									className="font-body text-sm text-charcoal-600 transition-colors hover:text-forest-500"
+									className="font-body font-medium text-sm text-sand-100/80 transition-colors hover:text-sand-100"
 								>
 									ranthambhoreregency@gmail.com
 								</a>
 							</div>
 						</div>
 					</div>
+
+					{/* Column 3 — Newsletter */}
+					<div>
+						<h3 className="mb-2 font-display uppercase tracking-display text-sand-100">
+							Sign Up For Our Newsletter
+						</h3>
+						<p className="mb-5 font-body font-medium text-sm text-sand-100/80">
+							Receive safari updates, wildlife stories, and travel inspiration
+							directly in your inbox.
+						</p>
+
+						{/* Name inputs */}
+						<div className="mb-4 grid grid-cols-2 gap-4">
+							<div>
+								<input
+									type="text"
+									placeholder="Your Name"
+									className="w-full border-b border-sand-100/20 bg-transparent pb-2 font-body font-medium text-sm text-sand-100 placeholder:text-sand-100/40 focus:border-golden-400 focus:outline-none"
+								/>
+							</div>
+							<div>
+								<input
+									type="email"
+									placeholder="Your Email"
+									className="w-full border-b border-sand-100/20 bg-transparent pb-2 font-body font-medium text-sm text-sand-100 placeholder:text-sand-100/40 focus:border-golden-400 focus:outline-none"
+								/>
+							</div>
+						</div>
+
+						{/* Checkbox */}
+						<label className="mb-5 flex cursor-pointer items-start gap-3">
+							<input
+								type="checkbox"
+								className="mt-0.5 h-3.5 w-3.5 shrink-0 accent-golden-400"
+							/>
+							<span className="font-body font-medium text-sm text-sand-100/80">
+								By signing up for our mailing list, you agree to our{" "}
+								<a
+									href="/privacy-policy"
+									className="underline transition-colors hover:text-sand-100"
+								>
+									privacy policy
+								</a>
+								.
+							</span>
+						</label>
+
+						{/* Sign up button */}
+						<Button
+							variant="secondary"
+							className="w-full text-base py-2 px-3 h-auto bg-sand-400 font-medium text-[#41442C]"
+						>
+							Sign Up
+						</Button>
+					</div>
 				</div>
 
-				{/* Copyright bar */}
-				<div className="mt-12 border-t border-earth-200 pt-6 text-center">
-					<p className="font-body text-xs text-charcoal-500">
-						© {new Date().getFullYear()} Ranthambhore Wildlife Hotel. All rights
-						reserved.
+				{/* ── Bottom Bar ── */}
+				<div className="mt-10 flex flex-col items-center gap-4 border-t border-sand-100/30 py-6 md:flex-row md:justify-between">
+					{/* Copyright */}
+					<p className="font-body font-medium text-sm text-sand-100/80">
+						&copy; {new Date().getFullYear()} Ranthambhore Wildlife Hotel. All
+						rights reserved.
 					</p>
+
+					{/* Legal links */}
+					<div className="flex items-center gap-6">
+						<a
+							href="/terms"
+							className="font-body font-medium text-sm text-sand-100/80 transition-colors hover:text-sand-100"
+						>
+							&rsaquo; Terms &amp; Conditions
+						</a>
+						<a
+							href="/privacy-policy"
+							className="font-body font-medium text-sm text-sand-100/80 transition-colors hover:text-sand-100"
+						>
+							Privacy Policy
+						</a>
+					</div>
+
+					{/* Social icons */}
+					<div className="flex items-center gap-3">
+						<a
+							href="https://www.instagram.com/ranthambhoreregencyhotel/"
+							aria-label="Follow us on Instagram"
+							target="_blank"
+							rel="noopener noreferrer"
+							className="text-sand-100/80 transition-colors hover:text-sand-100"
+						>
+							<InstagramIcon className="size-4" />
+						</a>
+						<a
+							href="https://www.facebook.com/"
+							aria-label="Follow us on Facebook"
+							target="_blank"
+							rel="noopener noreferrer"
+							className="text-sand-100/80 transition-colors hover:text-sand-100"
+						>
+							<FacebookIcon className="size-4" />
+						</a>
+					</div>
 				</div>
 			</div>
 		</footer>

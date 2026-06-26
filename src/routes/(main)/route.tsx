@@ -1,4 +1,5 @@
 import { createFileRoute, Outlet } from "@tanstack/react-router";
+import { Footer } from "#/components/layout/Footer";
 import NavigationBar from "#/components/layout/Navbar";
 
 export const Route = createFileRoute("/(main)")({
@@ -10,6 +11,7 @@ function RouteComponent() {
 		<div>
 			<NavigationBar />
 			<Outlet />
+			<Footer />
 		</div>
 	);
 }

@@ -1,4 +1,5 @@
 import { Image } from "#/util/Image";
+import { Button } from "../ui/button";
 
 export function AboutSection() {
 	return (
@@ -10,7 +11,7 @@ export function AboutSection() {
 						<Image
 							src="/map.png"
 							alt="Illustrated map of Ranthambhore National Park"
-							layout="constrained"
+							// layout="constrained"
 							width={482}
 							height={518}
 							className="w-full rounded-sm"
@@ -47,12 +48,12 @@ export function AboutSection() {
 								come.
 							</p>
 						</div>
-						<a
-							href="#experiences"
-							className="mt-8 inline-block border border-charcoal-800 px-8 py-3 font-display text-xs uppercase tracking-display text-charcoal-800 transition-colors hover:bg-charcoal-800 hover:text-sand-50"
-						>
-							Discover More
-						</a>
+						<Button
+							variant={"outline"}
+							size={"lg"}
+							className="mt-8 rounded-none"
+							render={<a href="#experiences">Discover More</a>}
+						/>
 					</div>
 				</div>
 			</div>
