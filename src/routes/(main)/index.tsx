@@ -16,33 +16,33 @@ function Home() {
 		<div>
 			<HeroSection />
 
-			{/* <div className="mx-auto max-w-5xl my-10 border-t border-earth-200" /> */}
+			{/* <div className="mx-auto max-w-5xl my-10 border-t border-muted-300" /> */}
 
 			<AboutSection />
 
-			<div className="mx-auto max-w-5xl border-t border-earth-200" />
+			<div className="mx-auto max-w-5xl border-t border-muted-300" />
 			<TaglineSection />
 
-			{/* <div className="mx-auto max-w-5xl border-t border-earth-200" /> */}
+			{/* <div className="mx-auto max-w-5xl border-t border-muted-300" /> */}
 
 			<NewsSection />
 
-			<div className="mx-auto max-w-5xl border-t border-earth-200" />
+			<div className="mx-auto max-w-5xl border-t border-muted-300" />
 
 			<ThingsToDoSection />
 
 			<ZoneSection />
 
 			<div className="mx-auto max-w-7xl">
-				{/* <div className="mx-auto max-w-5xl border-t border-earth-200" /> */}
+				{/* <div className="mx-auto max-w-5xl border-t border-muted-300" /> */}
 
 				{/* <FeaturesSection /> */}
 
-				{/* <div className="mx-auto max-w-5xl border-t border-earth-200" /> */}
+				{/* <div className="mx-auto max-w-5xl border-t border-muted-300" /> */}
 
 				<ContactSection />
 
-				<div className="mx-auto max-w-5xl border-t border-earth-200" />
+				<div className="mx-auto max-w-5xl border-t border-muted-300" />
 
 				<FaqSection />
 			</div>

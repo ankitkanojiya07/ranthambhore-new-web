@@ -18,7 +18,7 @@ export function HeroSection() {
 						WELCOME TO
 					</h1>
 					<div className="relative mt-10 w-full max-w-sm">
-						<div className="absolute left-1/2 top-[-6%] h-[106%] w-[80%] -translate-x-1/2 rounded-t-full bg-[#FFECC8]" />
+						<div className="absolute left-1/2 top-[-6%] h-[106%] w-[80%] -translate-x-1/2 rounded-t-full bg-cream-100" />
 						<div className="hero-frame-mask relative aspect-square w-full">
 							<img
 								src="/hero/3.webp"
@@ -40,7 +40,7 @@ export function HeroSection() {
 				{/* Desktop: overlay composition — image left, brand over the cream arch */}
 				<div className="hidden md:block">
 					<div className="relative max-w-4xl mx-auto">
-						<div className="h-[70dvh] relative mx-auto bg-[#FEECCB] rounded-t-full w-[60%]" />
+						<div className="h-[70dvh] relative mx-auto bg-cream-100 rounded-t-full w-[60%]" />
 						<div className="absolute aspect-square max-w-[550px] max-h-[550px] -bottom-20  mx-auto left-0 hero-frame-mask size-full">
 							<img
 								src="/gallery/9.jpg"

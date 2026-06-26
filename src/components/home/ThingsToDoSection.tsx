@@ -234,7 +234,7 @@ export function ThingsToDoSection() {
 
 										{/* Icon circle — protrudes on the outer edge */}
 										<div
-											className={`absolute right-6 z-20 flex size-12 items-center justify-center rounded-full bg-sand-50 ${
+											className={`absolute right-6 z-20 flex size-12 items-center justify-center rounded-full bg-cream-100 shadow-sm ring-1 ring-muted-300 ${
 												i % 2 === 0 ? "-bottom-6" : "-top-6"
 											}`}
 										>
@@ -245,7 +245,7 @@ export function ThingsToDoSection() {
 										</div>
 
 										{/* Cream label box — overlaps below the image */}
-										<div className="absolute bottom-6 left-0 z-10 max-w-[80%] bg-sand-50 px-4 py-3 transition-[max-width] duration-300 ease-out group-hover:max-w-[88%] group-focus-within:max-w-[88%]">
+										<div className="absolute bottom-6 left-0 z-10 max-w-[80%] rounded-r-lg bg-cream-100 px-4 py-3 shadow-md ring-1 ring-muted-300 transition-[max-width] duration-300 ease-out group-hover:max-w-[88%] group-focus-within:max-w-[88%]">
 											<h3 className="font-display text-sm uppercase leading-snug tracking-display text-charcoal-900 drop-shadow-sm">
 												{activity.title}
 											</h3>

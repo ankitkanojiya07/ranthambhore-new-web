@@ -122,9 +122,9 @@ export function NewsSection() {
 						<motion.article
 							key={article.id}
 							variants={itemVariants}
-							className="flex flex-col"
+							className="flex flex-col overflow-hidden rounded-2xl bg-cream-100 shadow-sm ring-1 ring-muted-300"
 						>
-							<div className="hero-grunge-mask relative aspect-4/3 w-full">
+							<div className="relative aspect-4/3 w-full overflow-hidden">
 								<Image
 									src={article.image.src}
 									alt={article.image.alt}
@@ -135,7 +135,7 @@ export function NewsSection() {
 								/>
 							</div>
 
-							<div className="mt-5 flex flex-1 flex-col">
+							<div className="flex flex-1 flex-col p-6">
 								<h3 className="text-xl text-charcoal-800">{article.title}</h3>
 
 								<p className="mt-2">
@@ -152,7 +152,7 @@ export function NewsSection() {
 								</p>
 
 								<div className="mt-5 flex items-center justify-between gap-4">
-									<span className="inline-block rounded bg-sunset-500 px-3 py-1.5 font-display text-xs font-semibold uppercase tracking-display text-white">
+									<span className="inline-block rounded bg-sunset-500 px-3 py-1.5 font-display text-xs font-semibold uppercase tracking-display text-charcoal-900">
 										{article.badge}
 									</span>
 									<button

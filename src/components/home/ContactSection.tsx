@@ -38,7 +38,7 @@ const SOURCE_OPTIONS = [
 ];
 
 const inputClasses =
-	"w-full rounded border border-sand-300 bg-sand-100 px-4 py-3 font-body text-sm text-charcoal-800 placeholder:text-charcoal-400 focus:border-earth-400 focus:outline-none";
+	"w-full rounded border border-muted-300 bg-cream-50 px-4 py-3 font-body text-sm text-charcoal-800 placeholder:text-charcoal-400 focus:border-sunset-500 focus:outline-none";
 
 export function ContactSection() {
 	return (
@@ -70,7 +70,7 @@ export function ContactSection() {
 
 					{/* Form */}
 					<motion.div
-						className="w-full lg:w-[60%]"
+						className="w-full rounded-2xl bg-cream-100 p-8 shadow-sm ring-1 ring-muted-300 lg:w-[60%] lg:p-10"
 						variants={containerVariants}
 						initial="hidden"
 						whileInView="visible"
@@ -152,7 +152,7 @@ export function ContactSection() {
 							<div>
 								<button
 									type="submit"
-									className="rounded bg-sunset-500 px-8 py-3 font-display text-xs uppercase tracking-display text-white transition-colors hover:bg-sunset-600"
+									className="rounded bg-sunset-500 px-8 py-3 font-display text-xs uppercase tracking-display text-charcoal-900 transition-colors hover:bg-sunset-600"
 								>
 									Send Enquiry
 								</button>

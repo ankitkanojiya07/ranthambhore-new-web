@@ -175,7 +175,7 @@ export function FaqSection() {
 				</motion.div>
 
 				<motion.div
-					className="mx-auto mt-12 grid grid-cols-2 gap-x-10"
+					className="mx-auto mt-12 grid grid-cols-1 gap-4 md:grid-cols-2"
 					variants={containerVariants}
 					initial="hidden"
 					whileInView="visible"
@@ -187,7 +187,7 @@ export function FaqSection() {
 							<motion.div
 								key={item.id}
 								variants={itemVariants}
-								className="border-b border-earth-200"
+								className="h-fit overflow-hidden rounded-xl bg-cream-100 px-5 shadow-sm ring-1 ring-muted-300"
 							>
 								<button
 									type="button"

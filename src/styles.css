@@ -74,23 +74,24 @@
 	/* === Brand Colors === */
 
 	/*
-	 * Olive Green — Primary brand
-	 * Shifted from aqua/teal to true yellow-olive to match the
-	 * "Proven Excellence" dark panel (~#454D25) and nature-forward aesthetic.
+	 * Forest Green — Primary brand
+	 * Deepened, refined evergreen used for primary surfaces (footer,
+	 * dark panels), secondary buttons, and links. Pairs with the
+	 * pista canvas as the rich, premium anchor of the palette.
 	 */
-	--color-forest-50: #f2f4e6;
-	--color-forest-100: #dce2b8;
-	--color-forest-200: #c4cf8a;
-	--color-forest-300: #aabc5c;
-	--color-forest-400: #8ea432;
-	--color-forest-500: #728c28;
-	--color-forest-600: #5e7620;
-	--color-forest-700: #4a601a;
-	--color-forest-800: #3a4c14;
-	--color-forest-900: #28360c;  /* ← "Proven Excellence" section base */
-	--color-forest-950: #182008;
+	--color-forest-50: #eef1e2;
+	--color-forest-100: #d6deb9;
+	--color-forest-200: #bbc78d;
+	--color-forest-300: #9dad63;
+	--color-forest-400: #7c9145;
+	--color-forest-500: #5e7634;  /* ← link color (prose) */
+	--color-forest-600: #4b6029;
+	--color-forest-700: #3a4c20;
+	--color-forest-800: #2c3a1e;
+	--color-forest-900: #232e18;  /* ← footer / deep panel base */
+	--color-forest-950: #161e0f;
 
-	/* Earth Brown — Accents, warm tones (unchanged — already accurate) */
+	/* Earth Brown — Warm accents (kept warm for contrast against green) */
 	--color-earth-50: #f6f0ea;
 	--color-earth-100: #e4d4c5;
 	--color-earth-200: #d2b8a0;
@@ -104,89 +105,100 @@
 	--color-earth-950: #2e1f14;
 
 	/*
-	 * Sand Beige — Backgrounds, cards
-	 * Pulled warmer and more yellow-cream to match the site's
-	 * distinctive ivory background (~#FAF4E2).
+	 * Sand — Pista / Sage canvas
+	 * The page + section background. Shifted from warm cream to a soft
+	 * muted pistachio so the whole site reads fresh, calm, eco-luxury.
+	 * Light end (50/100) also serves as readable text on dark surfaces.
 	 */
-	--color-sand-50: #fef8e7;   /* ← main page background */
-	--color-sand-100: #f5eac8;
-	--color-sand-200: #efdfa8;
-	--color-sand-300: #e8d28a;
-	--color-sand-400: #dfc26c;
-	--color-sand-500: #d4ae52;
-	--color-sand-600: #b89040;
-	--color-sand-700: #9a742e;
-	--color-sand-800: #7c5a22;
-	--color-sand-900: #5e4218;
-	--color-sand-950: #3a280e;
+	--color-sand-50: #e6ead8;   /* ← main page background (pista) */
+	--color-sand-100: #dde2cc;
+	--color-sand-200: #d0d7bb;
+	--color-sand-300: #c2cba8;
+	--color-sand-400: #aeb98e;
+	--color-sand-500: #98a576;
+	--color-sand-600: #7e8b5e;
+	--color-sand-700: #646f4a;
+	--color-sand-800: #4a5237;
+	--color-sand-900: #333925;
+	--color-sand-950: #202417;
 
 	/*
-	 * Terracotta — CTAs, highlighted buttons
-	 * Replaced bright orange (#ff8c42) with a muted burnt-sienna
-	 * terracotta (~#C05838) matching the "Start Customizing" button.
+	 * Cream — Lifted card surface
+	 * A pale cream-green that sits one layer above the pista canvas to
+	 * create depth: cards, panels, and accordion items use this with a
+	 * subtle shadow + sage ring for premium separation.
 	 */
-	--color-sunset-50: #faf0eb;
-	--color-sunset-100: #f0d0c0;
-	--color-sunset-200: #e4b09a;
-	--color-sunset-300: #d89074;
-	--color-sunset-400: #cc7050;
-	--color-sunset-500: #c05838;  /* ← primary CTA button */
-	--color-sunset-600: #a84830;
-	--color-sunset-700: #903a24;
-	--color-sunset-800: #782c1c;
-	--color-sunset-900: #602214;
-	--color-sunset-950: #3c140c;
+	--color-cream-50: #f8faf1;
+	--color-cream-100: #f6f8ee;  /* ← primary card surface */
+	--color-cream-200: #eff3e3;
+	--color-cream-300: #e6ecd4;
 
 	/*
-	 * Amber / Ochre — Section backgrounds, secondary accent
-	 * Replaced bright yellow (#ffb300) with warm golden amber (~#D09038)
-	 * matching the FAQ section background.
+	 * Sunset — Brass / Gold (CTAs, badges, accents)
+	 * Replaced terracotta with an understated warm brass for quiet
+	 * luxury. 500 = accent/label/badge tone, 600 = filled-button fill.
 	 */
-	--color-golden-50: #fdf6e8;
-	--color-golden-100: #f8e5b8;
-	--color-golden-200: #f2d488;
-	--color-golden-300: #eabf5a;
-	--color-golden-400: #dea830;
-	--color-golden-500: #d09038;  /* ← FAQ section amber background tone */
-	--color-golden-600: #b47830;
-	--color-golden-700: #966228;
-	--color-golden-800: #784c1e;
-	--color-golden-900: #5a3816;
-	--color-golden-950: #38220c;
+	--color-sunset-50: #f8f1e2;
+	--color-sunset-100: #efdfbc;
+	--color-sunset-200: #e4cb94;
+	--color-sunset-300: #d6b468;
+	--color-sunset-400: #c99e4f;
+	--color-sunset-500: #b98a3c;  /* ← brass accent / badge */
+	--color-sunset-600: #9c6f2c;  /* ← primary CTA fill + hover */
+	--color-sunset-700: #7e5824;
+	--color-sunset-800: #61441e;
+	--color-sunset-900: #443015;
+	--color-sunset-950: #2c1e0c;
 
 	/*
-	 * Dark Charcoal — Text, dark backgrounds
-	 * Added a subtle warm/olive undertone to match the design's
-	 * near-black heading treatment (~#1E1E12 rather than pure #1f1f1f).
+	 * Golden — Secondary accent (harmonized with brass)
+	 * Used for the nav-drawer CTA and soft gold focus accents.
 	 */
-	--color-charcoal-50: #f4f4f0;
-	--color-charcoal-100: #e4e4dc;
-	--color-charcoal-200: #c8c8bc;
-	--color-charcoal-300: #b0b0a0;
-	--color-charcoal-400: #969684;
-	--color-charcoal-500: #7c7c68;
-	--color-charcoal-600: #626250;
-	--color-charcoal-700: #4a4a38;
-	--color-charcoal-800: #323224;  /* ← body text */
-	--color-charcoal-900: #1e1e12;  /* ← heading text */
-	--color-charcoal-950: #0e0e08;
+	--color-golden-50: #fbf4e0;
+	--color-golden-100: #f6e6b6;
+	--color-golden-200: #edd389;
+	--color-golden-300: #e0bb5c;
+	--color-golden-400: #cfa23a;
+	--color-golden-500: #b8882f;
+	--color-golden-600: #9c7028;
+	--color-golden-700: #7e5a20;
+	--color-golden-800: #604519;
+	--color-golden-900: #443011;
+	--color-golden-950: #2a1d0a;
 
 	/*
-	 * Soft Gray — Borders, muted backgrounds
-	 * Given a very subtle warm tint to stay cohesive with
-	 * the overall warm-cream palette.
+	 * Charcoal — Ink Green (text, dark text backgrounds)
+	 * Deep desaturated green instead of warm near-black, so headings and
+	 * body text feel cohesive with the green palette rather than stark.
 	 */
-	--color-muted-50: #fcfcfa;
-	--color-muted-100: #f7f7f4;
-	--color-muted-200: #efefea;
-	--color-muted-300: #e4e4de;
-	--color-muted-400: #cecec6;
-	--color-muted-500: #b2b2a8;
-	--color-muted-600: #96968a;
-	--color-muted-700: #7a7a6e;
-	--color-muted-800: #606054;
-	--color-muted-900: #48483e;
-	--color-muted-950: #302e28;
+	--color-charcoal-50: #f1f2ec;
+	--color-charcoal-100: #e0e2d6;
+	--color-charcoal-200: #c5c9b6;
+	--color-charcoal-300: #a8ad95;
+	--color-charcoal-400: #888e73;
+	--color-charcoal-500: #6b7156;
+	--color-charcoal-600: #525842;
+	--color-charcoal-700: #3e4431;
+	--color-charcoal-800: #2e3522;  /* ← body text */
+	--color-charcoal-900: #23291a;  /* ← heading text */
+	--color-charcoal-950: #14180e;
+
+	/*
+	 * Muted — Sage neutral (borders, dividers, soft backgrounds)
+	 * Subtle sage-tinted grays that read as cohesive separators on the
+	 * pista canvas. 300 is the default border / ring tone.
+	 */
+	--color-muted-50: #fafbf6;
+	--color-muted-100: #f2f4ea;
+	--color-muted-200: #e2e6d2;
+	--color-muted-300: #cbd3b4;  /* ← default border / ring */
+	--color-muted-400: #b2bc97;
+	--color-muted-500: #97a279;
+	--color-muted-600: #7c8760;
+	--color-muted-700: #636c4c;
+	--color-muted-800: #4c533a;
+	--color-muted-900: #383d2b;
+	--color-muted-950: #23271b;
 
 	--font-display: "Vonca", system-ui, sans-serif;
 	--font-body: "Poppins", system-ui, sans-serif;

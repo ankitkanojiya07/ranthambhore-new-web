@@ -22,7 +22,7 @@ const RESOURCES: { label: string; href: string }[] = [
 
 export function Footer() {
 	return (
-		<footer className="relative overflow-hidden bg-[#41442C]">
+		<footer className="relative overflow-hidden bg-forest-900">
 			<div className="relative z-10 mx-auto max-w-7xl px-6 lg:px-8">
 				{/* ── Top Branding Zone ── */}
 				<div className="relative flex items-end justify-center pb-10 pt-16">
@@ -157,7 +157,7 @@ export function Footer() {
 						{/* Sign up button */}
 						<Button
 							variant="secondary"
-							className="w-full text-base py-2 px-3 h-auto bg-sand-400 font-medium text-[#41442C]"
+							className="w-full text-base py-2 px-3 h-auto bg-sunset-500 font-medium text-charcoal-900 hover:bg-sunset-600"
 						>
 							Sign Up
 						</Button>
