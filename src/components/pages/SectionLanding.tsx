@@ -104,7 +104,7 @@ export function SectionLanding({
 					<div className="mt-12 text-center">
 						<Link
 							to="/safari/book"
-							className="inline-flex items-center gap-2 font-display text-xs uppercase tracking-display text-forest-700 transition-colors hover:text-sunset-600"
+							className="inline-flex items-center gap-2 font-display text-xs uppercase tracking-display text-tiger-700 transition-colors hover:text-sunset-600"
 						>
 							Ready to book? Start here
 							<ArrowUpRight className="size-4" />

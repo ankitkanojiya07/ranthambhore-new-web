@@ -246,9 +246,9 @@ function RoyalBengalSection() {
 							{TRAIT_CHIPS.map((trait) => (
 								<span
 									key={trait}
-									className="inline-flex items-center gap-2 rounded-sm border border-forest-700/40 px-4 py-2 font-display text-xs uppercase tracking-display text-forest-700"
+									className="inline-flex items-center gap-2 rounded-sm border border-tiger-700/40 px-4 py-2 font-display text-xs uppercase tracking-display text-tiger-700"
 								>
-									<span className="size-1.5 shrink-0 rotate-45 bg-forest-600" />
+									<span className="size-1.5 shrink-0 rotate-45 bg-tiger-600" />
 									{trait}
 								</span>
 							))}
@@ -456,7 +456,7 @@ function PrimeZonesSection() {
 					Our{" "}
 					<a
 						href="/safari/zones"
-						className="font-display text-xs uppercase tracking-display text-forest-700 underline decoration-sunset-500/50 underline-offset-4 transition-colors hover:text-forest-600"
+						className="font-display text-xs uppercase tracking-display text-tiger-700 underline decoration-sunset-500/50 underline-offset-4 transition-colors hover:text-tiger-600"
 					>
 						Zone Guide
 					</a>{" "}
@@ -493,7 +493,7 @@ function IdentificationSection() {
 						</p>
 						<a
 							href="/wildlife/tiger-identification"
-							className="mt-8 inline-flex items-center gap-2 font-display text-xs uppercase tracking-display text-forest-700 transition-colors hover:text-forest-600"
+							className="mt-8 inline-flex items-center gap-2 font-display text-xs uppercase tracking-display text-tiger-700 transition-colors hover:text-tiger-600"
 						>
 							Explore the Identification Guide
 							<span aria-hidden>→</span>
@@ -549,7 +549,7 @@ function RelatedSection() {
 						<p className="font-display text-xs uppercase tracking-display text-sunset-500">
 							About Ranthambore
 						</p>
-						<h3 className="mt-2 font-playfair text-xl text-charcoal-900 group-hover:text-forest-700">
+						<h3 className="mt-2 font-playfair text-xl text-charcoal-900 group-hover:text-tiger-700">
 							Flora &amp; Fauna
 						</h3>
 						<p className="mt-3 font-body text-sm leading-relaxed text-charcoal-600">
@@ -564,7 +564,7 @@ function RelatedSection() {
 						<p className="font-display text-xs uppercase tracking-display text-sunset-500">
 							About Ranthambore
 						</p>
-						<h3 className="mt-2 font-playfair text-xl text-charcoal-900 group-hover:text-forest-700">
+						<h3 className="mt-2 font-playfair text-xl text-charcoal-900 group-hover:text-tiger-700">
 							Park Overview &amp; Geography
 						</h3>
 						<p className="mt-3 font-body text-sm leading-relaxed text-charcoal-600">
@@ -579,7 +579,7 @@ function RelatedSection() {
 						<p className="font-display text-xs uppercase tracking-display text-sunset-500">
 							About Ranthambore
 						</p>
-						<h3 className="mt-2 font-playfair text-xl text-charcoal-900 group-hover:text-forest-700">
+						<h3 className="mt-2 font-playfair text-xl text-charcoal-900 group-hover:text-tiger-700">
 							History &amp; Conservation
 						</h3>
 						<p className="mt-3 font-body text-sm leading-relaxed text-charcoal-600">

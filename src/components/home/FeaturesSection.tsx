@@ -66,7 +66,7 @@ export function FeaturesSection() {
 							>
 								<div className="flex size-16 items-center justify-center rounded-full border border-muted-300">
 									<feature.icon
-										className="size-7 text-forest-600"
+										className="size-7 text-tiger-600"
 										strokeWidth={1.5}
 									/>
 								</div>

@@ -325,7 +325,7 @@ function KingdomNavigator() {
 						<li key={link.id} className="shrink-0">
 							<a
 								href={`#${link.id}`}
-								className="block px-4 py-2 font-display text-xs uppercase tracking-display text-charcoal-600 hover:text-forest-600 border-b-2 border-transparent hover:border-forest-600 transition-colors"
+								className="block px-4 py-2 font-display text-xs uppercase tracking-display text-charcoal-600 hover:text-tiger-600 border-b-2 border-transparent hover:border-tiger-600 transition-colors"
 							>
 								{link.label}
 							</a>
@@ -365,9 +365,9 @@ function FloraSection() {
 							prominent species include the Indian gooseberry (amla), flame of
 							the forest (palash), tendu, and Kardhai.
 						</p>
-						<div className="mt-8 inline-flex items-center gap-3 rounded-sm border border-forest-700/40 px-5 py-3">
-							<span className="size-2.5 shrink-0 rotate-45 bg-forest-600" />
-							<span className="font-display text-xs uppercase tracking-display text-forest-700">
+						<div className="mt-8 inline-flex items-center gap-3 rounded-sm border border-tiger-700/40 px-5 py-3">
+							<span className="size-2.5 shrink-0 rotate-45 bg-tiger-600" />
+							<span className="font-display text-xs uppercase tracking-display text-tiger-700">
 								Tropical Dry Deciduous Forest
 							</span>
 						</div>
@@ -382,7 +382,7 @@ function FloraSection() {
 								species.featured ? (
 									<div
 										key={species.name}
-										className="sm:col-span-2 rounded-sm bg-sand-100 p-6 ring-1 ring-muted-300 border-l-4 border-forest-700"
+										className="sm:col-span-2 rounded-sm bg-sand-100 p-6 ring-1 ring-muted-300 border-l-4 border-tiger-700"
 									>
 										<p className="font-display text-xs uppercase tracking-display text-sunset-500">
 											Dominant Species
@@ -637,10 +637,10 @@ function BirdlifeSection() {
 						</div>
 						<div className="mt-5 h-px w-12 bg-sunset-500/40" />
 						<div className="mt-8 flex items-end gap-2">
-							<span className="font-playfair text-7xl font-semibold text-forest-700 leading-none">
+							<span className="font-playfair text-7xl font-semibold text-tiger-700 leading-none">
 								300
 							</span>
-							<span className="font-playfair text-3xl text-forest-600 pb-2">
+							<span className="font-playfair text-3xl text-tiger-600 pb-2">
 								+
 							</span>
 						</div>
@@ -667,7 +667,7 @@ function BirdlifeSection() {
 					{FEATURED_BIRDS.map((bird) => (
 						<div
 							key={bird.name}
-							className={`rounded-sm p-6 ring-1 ring-muted-300 ${bird.spanTwo ? "sm:col-span-2 lg:col-span-2 bg-sand-100 border-l-4 border-forest-700" : "bg-cream-100"}`}
+							className={`rounded-sm p-6 ring-1 ring-muted-300 ${bird.spanTwo ? "sm:col-span-2 lg:col-span-2 bg-sand-100 border-l-4 border-tiger-700" : "bg-cream-100"}`}
 						>
 							{bird.role && (
 								<p className="font-display text-xs uppercase tracking-display text-sunset-500">
@@ -684,7 +684,7 @@ function BirdlifeSection() {
 					))}
 				</div>
 
-				<div className="mt-12 overflow-hidden rounded-sm bg-sand-100 ring-1 ring-muted-300 border-l-4 border-forest-700">
+				<div className="mt-12 overflow-hidden rounded-sm bg-sand-100 ring-1 ring-muted-300 border-l-4 border-tiger-700">
 					<div className="flex flex-col gap-6 p-8 lg:flex-row lg:items-center lg:gap-12 lg:p-10">
 						<div className="shrink-0">
 							<p className="font-display text-xs uppercase tracking-display text-sunset-500">
@@ -725,7 +725,7 @@ function RelatedSection() {
 						<p className="font-display text-xs uppercase tracking-display text-sunset-500">
 							About Ranthambore
 						</p>
-						<h3 className="mt-2 font-playfair text-xl text-charcoal-900 group-hover:text-forest-700">
+						<h3 className="mt-2 font-playfair text-xl text-charcoal-900 group-hover:text-tiger-700">
 							Park Overview &amp; Geography
 						</h3>
 						<p className="mt-3 font-body text-sm leading-relaxed text-charcoal-600">
@@ -740,7 +740,7 @@ function RelatedSection() {
 						<p className="font-display text-xs uppercase tracking-display text-sunset-500">
 							About Ranthambore
 						</p>
-						<h3 className="mt-2 font-playfair text-xl text-charcoal-900 group-hover:text-forest-700">
+						<h3 className="mt-2 font-playfair text-xl text-charcoal-900 group-hover:text-tiger-700">
 							Tigers of Ranthambore
 						</h3>
 						<p className="mt-3 font-body text-sm leading-relaxed text-charcoal-600">

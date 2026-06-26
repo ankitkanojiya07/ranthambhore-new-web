@@ -141,8 +141,8 @@ export function WhyChooseSection({
 							<div
 								className={`flex size-12 items-center justify-center rounded-full ${
 									dark
-										? "bg-forest-800 text-sunset-400"
-										: "bg-forest-50 text-forest-600"
+										? "bg-tiger-800 text-sunset-400"
+										: "bg-tiger-50 text-tiger-600"
 								}`}
 							>
 								<feature.icon className="size-5" strokeWidth={1.5} />

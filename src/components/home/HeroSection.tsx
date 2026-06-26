@@ -14,7 +14,7 @@ export function HeroSection() {
 			<div className="py-20">
 				{/* Mobile: stacked, centered — brand sits on cream below the image */}
 				<div className="flex flex-col items-center md:hidden">
-					<h1 className="whitespace-nowrap text-3xl text-center font-semibold font-display tracking-display text-forest-900">
+					<h1 className="whitespace-nowrap text-3xl text-center font-semibold font-display tracking-display text-tiger-900">
 						WELCOME TO
 					</h1>
 					<div className="relative mt-10 w-full max-w-sm">
@@ -28,7 +28,7 @@ export function HeroSection() {
 						</div>
 					</div>
 					<div className="mt-10 flex flex-col items-center text-center">
-						<h2 className="whitespace-nowrap text-3xl font-semibold font-display tracking-display text-forest-900 leading-none">
+						<h2 className="whitespace-nowrap text-3xl font-semibold font-display tracking-display text-tiger-900 leading-none">
 							Ranthambhore
 						</h2>
 						<p className="mt-2 max-w-xs font-body text-sm text-charcoal-700">
@@ -48,11 +48,11 @@ export function HeroSection() {
 								className="size-full object-cover"
 							/>
 						</div>
-						<h1 className="absolute -top-4 left-1/2 -translate-x-1/2 whitespace-nowrap text-5xl lg:text-7xl text-center font-medium font-display tracking-display text-forest-900">
+						<h1 className="absolute -top-4 left-1/2 -translate-x-1/2 whitespace-nowrap text-5xl lg:text-7xl text-center font-medium font-display tracking-display text-tiger-900">
 							WELCOME TO
 						</h1>
 						<div className="absolute bottom-[10%] right-[-8%] flex flex-col items-center text-right">
-							<h2 className="whitespace-nowrap text-4xl lg:text-6xl font-medium font-display tracking-display text-forest-900 leading-none">
+							<h2 className="whitespace-nowrap text-4xl lg:text-6xl font-medium font-display tracking-display text-tiger-900 leading-none">
 								Ranthambhore
 							</h2>
 							<p className="mt-2 max-w-sm font-body text-sm lg:text-base text-charcoal-700">

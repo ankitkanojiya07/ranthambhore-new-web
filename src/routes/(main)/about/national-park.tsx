@@ -468,11 +468,11 @@ function VegetationSection() {
 						<div className="mt-5 h-px w-12 bg-sunset-500/40" />
 
 						<div className="mt-8 flex items-end gap-3">
-							<span className="font-playfair text-8xl font-semibold text-forest-700 leading-none">
+							<span className="font-playfair text-8xl font-semibold text-tiger-700 leading-none">
 								80
 							</span>
 							<div className="flex flex-col pb-2 gap-0.5">
-								<span className="font-playfair text-3xl text-forest-600 leading-none">
+								<span className="font-playfair text-3xl text-tiger-600 leading-none">
 									%
 								</span>
 								<span className="font-display text-xs uppercase tracking-display text-charcoal-400">
@@ -490,9 +490,9 @@ function VegetationSection() {
 							creating the dappled light in which tigers hunt and leopards rest.
 						</p>
 
-						<div className="mt-8 inline-flex items-center gap-3 rounded-sm border border-forest-700/40 px-5 py-3">
-							<span className="size-2.5 shrink-0 rotate-45 bg-forest-600" />
-							<span className="font-display text-xs uppercase tracking-display text-forest-700">
+						<div className="mt-8 inline-flex items-center gap-3 rounded-sm border border-tiger-700/40 px-5 py-3">
+							<span className="size-2.5 shrink-0 rotate-45 bg-tiger-600" />
+							<span className="font-display text-xs uppercase tracking-display text-tiger-700">
 								Tropical Dry Deciduous Forest
 							</span>
 						</div>

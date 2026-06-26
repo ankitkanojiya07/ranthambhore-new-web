@@ -29,7 +29,7 @@ const CTASection = ({
 		<section
 			className={cn(
 				"px-6 py-24 lg:px-8 lg:py-32",
-				isDark ? "bg-forest-900" : "bg-sand-50",
+				isDark ? "bg-tiger-900" : "bg-sand-50",
 				className,
 			)}
 			aria-label="Call to action"

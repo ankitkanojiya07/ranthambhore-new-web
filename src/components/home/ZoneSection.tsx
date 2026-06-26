@@ -157,7 +157,7 @@ export function ZoneSection() {
 				>
 					<table className="w-full border-collapse">
 						<thead>
-							<tr className="bg-forest-700">
+							<tr className="bg-tiger-700">
 								<th className="px-5 py-4 text-left font-display text-xs uppercase tracking-display text-white">
 									Zone
 								</th>
@@ -183,7 +183,7 @@ export function ZoneSection() {
 											: "bg-cream-200 hover:bg-cream-300"
 									}
 								>
-									<td className="px-5 py-4 font-display text-sm font-semibold text-forest-700">
+									<td className="px-5 py-4 font-display text-sm font-semibold text-tiger-700">
 										Zone {zone.zone}
 									</td>
 									<td className="px-5 py-4 font-body text-sm text-charcoal-800">

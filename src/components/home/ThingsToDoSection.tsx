@@ -225,7 +225,7 @@ export function ThingsToDoSection() {
 											<div className="pointer-events-none absolute inset-0 flex items-center justify-center opacity-0 transition-[opacity,transform] duration-300 ease-out group-hover:pointer-events-auto group-hover:opacity-100 group-focus-within:pointer-events-auto group-focus-within:opacity-100">
 												<button
 													type="button"
-													className="scale-[0.92] rounded-full bg-forest-900 px-8 py-3 font-display text-xs uppercase tracking-display text-sand-50 transition-[transform,background-color] duration-300 ease-out group-hover:scale-100 group-focus-within:scale-100 hover:bg-forest-800"
+													className="scale-[0.92] rounded-full bg-tiger-900 px-8 py-3 font-display text-xs uppercase tracking-display text-sand-50 transition-[transform,background-color] duration-300 ease-out group-hover:scale-100 group-focus-within:scale-100 hover:bg-tiger-800"
 												>
 													Know More
 												</button>
@@ -239,7 +239,7 @@ export function ThingsToDoSection() {
 											}`}
 										>
 											<Icon
-												className="size-5 text-forest-900"
+												className="size-5 text-tiger-900"
 												strokeWidth={1.25}
 											/>
 										</div>

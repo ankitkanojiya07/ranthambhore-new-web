@@ -13,7 +13,7 @@ export function TrustBar({
 
 	return (
 		<section
-			className="border-b border-muted-300 bg-forest-900"
+			className="border-b border-muted-300 bg-tiger-900"
 			aria-label="Trust highlights"
 		>
 			<div className="mx-auto max-w-7xl px-6 py-5 lg:px-8">

@@ -6,7 +6,7 @@ import { Spinner } from "#/components/ui/spinner";
 import { cn } from "#/lib/utils";
 
 export const buttonVariants = cva(
-	"relative inline-flex shrink-0 cursor-pointer items-center justify-center gap-2 whitespace-nowrap rounded-full border font-display text-xs uppercase outline-none transition-colors pointer-coarse:after:absolute pointer-coarse:after:size-full pointer-coarse:after:min-h-11 pointer-coarse:after:min-w-11 focus-visible:ring-2 focus-visible:ring-forest-500/40 focus-visible:ring-offset-1 focus-visible:ring-offset-sand-50 disabled:pointer-events-none disabled:opacity-60 data-loading:select-none data-loading:text-transparent [&_svg:not([class*='size-'])]:size-4 [&_svg]:pointer-events-none [&_svg]:shrink-0",
+	"relative inline-flex shrink-0 cursor-pointer items-center justify-center gap-2 whitespace-nowrap rounded-full border font-display text-xs uppercase outline-none transition-colors pointer-coarse:after:absolute pointer-coarse:after:size-full pointer-coarse:after:min-h-11 pointer-coarse:after:min-w-11 focus-visible:ring-2 focus-visible:ring-tiger-500/40 focus-visible:ring-offset-1 focus-visible:ring-offset-sand-50 disabled:pointer-events-none disabled:opacity-60 data-loading:select-none data-loading:text-transparent [&_svg:not([class*='size-'])]:size-4 [&_svg]:pointer-events-none [&_svg]:shrink-0",
 	{
 		defaultVariants: {
 			size: "default",
@@ -30,10 +30,10 @@ export const buttonVariants = cva(
 				outline:
 					"border-charcoal-800 bg-transparent text-charcoal-800 tracking-nav hover:bg-charcoal-800 hover:text-sand-50 data-pressed:bg-charcoal-800 data-pressed:text-sand-50 *:data-[slot=button-loading-indicator]:text-charcoal-800",
 				secondary:
-					"border-transparent bg-forest-500 text-sand-50 tracking-display hover:bg-forest-600 data-pressed:bg-forest-600 *:data-[slot=button-loading-indicator]:text-sand-50",
+					"border-transparent bg-tiger-500 text-sand-50 tracking-display hover:bg-tiger-600 data-pressed:bg-tiger-600 *:data-[slot=button-loading-indicator]:text-sand-50",
 				ghost:
 					"border-transparent text-charcoal-800 hover:bg-sand-100 data-pressed:bg-sand-100 *:data-[slot=button-loading-indicator]:text-charcoal-800",
-				link: "border-transparent text-forest-600 underline-offset-4 hover:underline data-pressed:underline *:data-[slot=button-loading-indicator]:text-forest-600",
+				link: "border-transparent text-tiger-600 underline-offset-4 hover:underline data-pressed:underline *:data-[slot=button-loading-indicator]:text-tiger-600",
 				destructive:
 					"border-transparent bg-earth-700 text-sand-50 tracking-display hover:bg-earth-800 data-pressed:bg-earth-800 *:data-[slot=button-loading-indicator]:text-sand-50",
 				"destructive-outline":
