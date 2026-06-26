@@ -11,8 +11,12 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as mainRouteRouteImport } from './routes/(main)/route'
 import { Route as mainIndexRouteImport } from './routes/(main)/index'
+import { Route as mainAboutTigersRouteImport } from './routes/(main)/about/tigers'
 import { Route as mainAboutNationalParkRouteImport } from './routes/(main)/about/national-park'
 import { Route as mainAboutHistoryRouteImport } from './routes/(main)/about/history'
+import { Route as mainAboutFortRouteImport } from './routes/(main)/about/fort'
+import { Route as mainAboutFloraAndFaunaRouteImport } from './routes/(main)/about/flora-and-fauna'
+import { Route as mainAboutConservationRouteImport } from './routes/(main)/about/conservation'
 
 const mainRouteRoute = mainRouteRouteImport.update({
   id: '/(main)',
@@ -21,6 +25,11 @@ const mainRouteRoute = mainRouteRouteImport.update({
 const mainIndexRoute = mainIndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => mainRouteRoute,
+} as any)
+const mainAboutTigersRoute = mainAboutTigersRouteImport.update({
+  id: '/about/tigers',
+  path: '/about/tigers',
   getParentRoute: () => mainRouteRoute,
 } as any)
 const mainAboutNationalParkRoute = mainAboutNationalParkRouteImport.update({
@@ -33,35 +42,80 @@ const mainAboutHistoryRoute = mainAboutHistoryRouteImport.update({
   path: '/about/history',
   getParentRoute: () => mainRouteRoute,
 } as any)
+const mainAboutFortRoute = mainAboutFortRouteImport.update({
+  id: '/about/fort',
+  path: '/about/fort',
+  getParentRoute: () => mainRouteRoute,
+} as any)
+const mainAboutFloraAndFaunaRoute = mainAboutFloraAndFaunaRouteImport.update({
+  id: '/about/flora-and-fauna',
+  path: '/about/flora-and-fauna',
+  getParentRoute: () => mainRouteRoute,
+} as any)
+const mainAboutConservationRoute = mainAboutConservationRouteImport.update({
+  id: '/about/conservation',
+  path: '/about/conservation',
+  getParentRoute: () => mainRouteRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof mainIndexRoute
+  '/about/conservation': typeof mainAboutConservationRoute
+  '/about/flora-and-fauna': typeof mainAboutFloraAndFaunaRoute
+  '/about/fort': typeof mainAboutFortRoute
   '/about/history': typeof mainAboutHistoryRoute
   '/about/national-park': typeof mainAboutNationalParkRoute
+  '/about/tigers': typeof mainAboutTigersRoute
 }
 export interface FileRoutesByTo {
   '/': typeof mainIndexRoute
+  '/about/conservation': typeof mainAboutConservationRoute
+  '/about/flora-and-fauna': typeof mainAboutFloraAndFaunaRoute
+  '/about/fort': typeof mainAboutFortRoute
   '/about/history': typeof mainAboutHistoryRoute
   '/about/national-park': typeof mainAboutNationalParkRoute
+  '/about/tigers': typeof mainAboutTigersRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/(main)': typeof mainRouteRouteWithChildren
   '/(main)/': typeof mainIndexRoute
+  '/(main)/about/conservation': typeof mainAboutConservationRoute
+  '/(main)/about/flora-and-fauna': typeof mainAboutFloraAndFaunaRoute
+  '/(main)/about/fort': typeof mainAboutFortRoute
   '/(main)/about/history': typeof mainAboutHistoryRoute
   '/(main)/about/national-park': typeof mainAboutNationalParkRoute
+  '/(main)/about/tigers': typeof mainAboutTigersRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/about/history' | '/about/national-park'
+  fullPaths:
+    | '/'
+    | '/about/conservation'
+    | '/about/flora-and-fauna'
+    | '/about/fort'
+    | '/about/history'
+    | '/about/national-park'
+    | '/about/tigers'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/about/history' | '/about/national-park'
+  to:
+    | '/'
+    | '/about/conservation'
+    | '/about/flora-and-fauna'
+    | '/about/fort'
+    | '/about/history'
+    | '/about/national-park'
+    | '/about/tigers'
   id:
     | '__root__'
     | '/(main)'
     | '/(main)/'
+    | '/(main)/about/conservation'
+    | '/(main)/about/flora-and-fauna'
+    | '/(main)/about/fort'
     | '/(main)/about/history'
     | '/(main)/about/national-park'
+    | '/(main)/about/tigers'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -84,6 +138,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof mainIndexRouteImport
       parentRoute: typeof mainRouteRoute
     }
+    '/(main)/about/tigers': {
+      id: '/(main)/about/tigers'
+      path: '/about/tigers'
+      fullPath: '/about/tigers'
+      preLoaderRoute: typeof mainAboutTigersRouteImport
+      parentRoute: typeof mainRouteRoute
+    }
     '/(main)/about/national-park': {
       id: '/(main)/about/national-park'
       path: '/about/national-park'
@@ -98,19 +159,48 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof mainAboutHistoryRouteImport
       parentRoute: typeof mainRouteRoute
     }
+    '/(main)/about/fort': {
+      id: '/(main)/about/fort'
+      path: '/about/fort'
+      fullPath: '/about/fort'
+      preLoaderRoute: typeof mainAboutFortRouteImport
+      parentRoute: typeof mainRouteRoute
+    }
+    '/(main)/about/flora-and-fauna': {
+      id: '/(main)/about/flora-and-fauna'
+      path: '/about/flora-and-fauna'
+      fullPath: '/about/flora-and-fauna'
+      preLoaderRoute: typeof mainAboutFloraAndFaunaRouteImport
+      parentRoute: typeof mainRouteRoute
+    }
+    '/(main)/about/conservation': {
+      id: '/(main)/about/conservation'
+      path: '/about/conservation'
+      fullPath: '/about/conservation'
+      preLoaderRoute: typeof mainAboutConservationRouteImport
+      parentRoute: typeof mainRouteRoute
+    }
   }
 }
 
 interface mainRouteRouteChildren {
   mainIndexRoute: typeof mainIndexRoute
+  mainAboutConservationRoute: typeof mainAboutConservationRoute
+  mainAboutFloraAndFaunaRoute: typeof mainAboutFloraAndFaunaRoute
+  mainAboutFortRoute: typeof mainAboutFortRoute
   mainAboutHistoryRoute: typeof mainAboutHistoryRoute
   mainAboutNationalParkRoute: typeof mainAboutNationalParkRoute
+  mainAboutTigersRoute: typeof mainAboutTigersRoute
 }
 
 const mainRouteRouteChildren: mainRouteRouteChildren = {
   mainIndexRoute: mainIndexRoute,
+  mainAboutConservationRoute: mainAboutConservationRoute,
+  mainAboutFloraAndFaunaRoute: mainAboutFloraAndFaunaRoute,
+  mainAboutFortRoute: mainAboutFortRoute,
   mainAboutHistoryRoute: mainAboutHistoryRoute,
   mainAboutNationalParkRoute: mainAboutNationalParkRoute,
+  mainAboutTigersRoute: mainAboutTigersRoute,
 }
 
 const mainRouteRouteWithChildren = mainRouteRoute._addFileChildren(
