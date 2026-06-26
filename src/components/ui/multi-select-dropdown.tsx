@@ -67,7 +67,7 @@ export function MultiSelectDropdown({
 				aria-controls={listboxId}
 				onClick={() => setOpen((current) => !current)}
 				className={cn(
-					"flex w-full items-center justify-between gap-3 rounded border border-muted-300 bg-cream-50 px-4 py-3 text-left font-body text-sm focus:border-sunset-500 focus:outline-none",
+					"flex w-full items-center justify-between gap-3 rounded border border-muted-300 bg-sand-50 px-4 py-3 text-left font-body text-sm focus:border-sunset-500 focus:outline-none",
 					selected.length === 0 ? "text-charcoal-400" : "text-charcoal-800",
 				)}
 			>
@@ -86,7 +86,7 @@ export function MultiSelectDropdown({
 					role="listbox"
 					aria-multiselectable="true"
 					aria-label={placeholder}
-					className="absolute z-30 mt-1 max-h-56 w-full overflow-y-auto rounded border border-muted-300 bg-cream-50 py-1 shadow-lg ring-1 ring-muted-300/50"
+					className="absolute z-30 mt-1 max-h-56 w-full overflow-y-auto rounded border border-muted-300 bg-sand-50 py-1 shadow-lg ring-1 ring-muted-300/50"
 				>
 					{options.map((option) => {
 						const isSelected = selected.includes(option);

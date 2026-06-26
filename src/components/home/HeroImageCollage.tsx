@@ -6,7 +6,7 @@ export function HeroImageCollage() {
 		<div className="relative mx-auto w-full max-w-sm sm:max-w-md lg:max-w-lg">
 			{/* Arch background — peeks above and right of the clover */}
 			<motion.div
-				className="absolute left-[55%] top-[-15%] h-[110%] w-[50%] -translate-x-1/2 rounded-t-full bg-sand-200"
+				className="absolute left-[55%] top-[-15%] h-[110%] w-[50%] -translate-x-1/2 rounded-t-full bg-tiger-100"
 				initial={{ opacity: 0 }}
 				animate={{ opacity: 1 }}
 				transition={{ delay: 0.4, duration: 0.8 }}

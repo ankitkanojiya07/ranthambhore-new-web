@@ -21,7 +21,7 @@ export function TrustBar({
 					{badges.map((item) => (
 						<li
 							key={item}
-							className="flex items-center justify-center gap-2.5 font-display text-xs uppercase tracking-display text-sand-100 sm:text-sm"
+							className="flex items-center justify-center gap-2.5 font-display text-xs uppercase tracking-display text-sand-50 sm:text-sm"
 						>
 							<span className="size-2 shrink-0 rotate-45 bg-sunset-500" />
 							{item}

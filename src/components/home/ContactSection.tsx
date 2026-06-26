@@ -40,7 +40,7 @@ const GUEST_OPTIONS = [
 ];
 
 const inputClasses =
-	"w-full rounded border border-muted-300 bg-cream-50 px-4 py-3 font-body text-sm text-charcoal-800 placeholder:text-charcoal-400 focus:border-sunset-500 focus:outline-none";
+	"w-full rounded border border-muted-300 bg-sand-50 px-4 py-3 font-body text-sm text-charcoal-800 placeholder:text-charcoal-400 focus:border-sunset-500 focus:outline-none";
 
 const labelClasses =
 	"mb-1.5 block font-display text-[10px] uppercase tracking-display text-charcoal-700";
@@ -65,7 +65,7 @@ function FieldLabel({
 export function ContactSection() {
 	return (
 		<section
-			className="bg-sand-50 relative px-6 py-16 lg:px-8 lg:py-20"
+			className="bg-sand-50 relative px-6 py-16 lg:px-8 lg:py-20 border-t border-muted-300"
 			aria-label="Contact"
 		>
 			<div className="mx-auto max-w-5xl">
@@ -238,7 +238,7 @@ export function ContactSection() {
 								<div>
 									<button
 										type="submit"
-										className="rounded bg-sunset-500 px-8 py-3 font-display text-xs uppercase tracking-display text-charcoal-900 transition-colors hover:bg-sunset-600"
+										className="rounded bg-sunset-500 px-8 py-3 font-display text-xs uppercase tracking-display text-sand-50 transition-colors hover:bg-sunset-600"
 									>
 										Send Enquiry
 									</button>

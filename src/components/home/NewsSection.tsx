@@ -72,7 +72,7 @@ const NEWS_ARTICLES = [
 export function NewsSection() {
 	return (
 		<section
-			className="bg-sand-50 px-6 py-16 lg:px-8 lg:py-20"
+			className="bg-sand-100 px-6 py-16 lg:px-8 lg:py-20"
 			aria-label="News"
 		>
 			<div className="mx-auto max-w-7xl">
@@ -151,7 +151,7 @@ export function NewsSection() {
 								</p>
 
 								<div className="mt-5 flex items-center justify-between gap-4">
-									<span className="inline-block rounded bg-sunset-500 px-3 py-1.5 font-display text-xs font-semibold uppercase tracking-display text-charcoal-900">
+									<span className="inline-block rounded bg-sunset-500/20 px-3 py-1.5 font-display text-xs font-semibold uppercase tracking-display text-sunset-700 ring-1 ring-sunset-500/30">
 										{article.badge}
 									</span>
 									<button

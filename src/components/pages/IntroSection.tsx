@@ -7,7 +7,7 @@ interface IntroSectionProps {
 export function IntroSection({ children, eyebrow, title }: IntroSectionProps) {
 	return (
 		<section
-			className="border-b border-muted-300 bg-cream-100 px-6 py-16 lg:px-8 lg:py-20"
+			className="border-b border-muted-300 bg-sand-100 px-6 py-16 lg:px-8 lg:py-20"
 			aria-label="Introduction"
 		>
 			<div className="mx-auto max-w-3xl text-center">

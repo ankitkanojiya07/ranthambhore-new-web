@@ -220,7 +220,7 @@ export function ThingsToDoSection() {
 												height={activity.image.height}
 												className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-105 group-focus-within:scale-105"
 											/>
-											<div className="absolute inset-0 bg-charcoal-900/5 transition-colors duration-500 group-hover:bg-sand-50/45 group-focus-within:bg-sand-50/45" />
+											<div className="absolute inset-0 bg-charcoal-900/5 transition-colors duration-500 group-hover:bg-tiger-900/30 group-focus-within:bg-tiger-900/30" />
 
 											<div className="pointer-events-none absolute inset-0 flex items-center justify-center opacity-0 transition-[opacity,transform] duration-300 ease-out group-hover:pointer-events-auto group-hover:opacity-100 group-focus-within:pointer-events-auto group-focus-within:opacity-100">
 												<button

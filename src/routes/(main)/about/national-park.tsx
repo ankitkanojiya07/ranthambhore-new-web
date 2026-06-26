@@ -204,7 +204,7 @@ function NationalParkPage() {
 
 function StatsBanner() {
 	return (
-		<section className="bg-cream-100" aria-label="Park statistics">
+		<section className="bg-sand-100" aria-label="Park statistics">
 			<div className="mx-auto max-w-7xl grid grid-cols-2 lg:grid-cols-4 divide-y divide-muted-300 lg:divide-y-0 lg:divide-x">
 				{PARK_STATS.map((stat) => (
 					<div
@@ -222,7 +222,7 @@ function StatsBanner() {
 								{stat.unit}
 							</span>
 						</div>
-						<p className="font-display text-xs uppercase tracking-display text-charcoal-500">
+						<p className="font-display text-xs uppercase tracking-display text-earth-500">
 							{stat.label}
 						</p>
 					</div>
@@ -350,9 +350,9 @@ function BoundariesSection() {
 
 					{/* Right: compass grid */}
 					<div className="w-full lg:flex-1">
-						<div className="grid grid-cols-2 gap-px bg-muted-300 overflow-hidden rounded-sm">
+						<div className="grid grid-cols-2 gap-px bg-earth-300 overflow-hidden rounded-sm">
 							{CARDINAL_BOUNDARIES.map((b) => (
-								<div key={b.direction} className="bg-cream-100 p-8 relative">
+								<div key={b.direction} className="bg-sand-50 p-8 relative">
 									<p
 										className="absolute top-4 right-5 font-playfair text-7xl lg:text-8xl font-semibold italic text-charcoal-900/8 leading-none select-none"
 										aria-hidden

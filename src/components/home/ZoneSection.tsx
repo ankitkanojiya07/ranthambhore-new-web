@@ -179,8 +179,8 @@ export function ZoneSection() {
 									variants={itemVariants}
 									className={
 										i % 2 === 0
-											? "bg-cream-50 hover:bg-cream-200"
-											: "bg-cream-200 hover:bg-cream-300"
+											? "bg-cream-100 hover:bg-tiger-50"
+											: "bg-sand-100 hover:bg-tiger-50"
 									}
 								>
 									<td className="px-5 py-4 font-display text-sm font-semibold text-tiger-700">

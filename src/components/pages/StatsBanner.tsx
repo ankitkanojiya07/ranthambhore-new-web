@@ -14,7 +14,7 @@ export function StatsBanner({
 }) {
 	return (
 		<section
-			className="border-y border-muted-300 bg-cream-100"
+			className="border-y border-muted-300 bg-sand-100"
 			aria-label={label}
 		>
 			<div className="mx-auto max-w-7xl grid grid-cols-2 divide-y divide-muted-300 lg:grid-cols-4 lg:divide-x lg:divide-y-0">

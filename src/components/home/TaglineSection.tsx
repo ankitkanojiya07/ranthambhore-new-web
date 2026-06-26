@@ -52,7 +52,7 @@ export function TaglineSection() {
 					<span>Wild</span>
 				</div>
 
-				<p className="mt-14 font-display text-3xl text-charcoal-300 leading-none">
+				<p className="mt-14 font-display text-3xl text-earth-300 leading-none">
 					〜
 				</p>
 			</div>

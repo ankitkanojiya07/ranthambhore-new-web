@@ -283,7 +283,7 @@ function HeroSection() {
 
 function StatsBanner() {
 	return (
-		<section className="bg-cream-100" aria-label="Wildlife statistics">
+		<section className="bg-sand-100" aria-label="Wildlife statistics">
 			<div className="mx-auto max-w-7xl grid grid-cols-2 lg:grid-cols-4 divide-y divide-muted-300 lg:divide-y-0 lg:divide-x">
 				{PAGE_STATS.map((stat) => (
 					<div
@@ -303,7 +303,7 @@ function StatsBanner() {
 								</span>
 							)}
 						</div>
-						<p className="font-display text-xs uppercase tracking-display text-charcoal-500">
+						<p className="font-display text-xs uppercase tracking-display text-earth-500">
 							{stat.label}
 						</p>
 					</div>
@@ -568,7 +568,7 @@ function ReptilesSection() {
 	return (
 		<section
 			id="reptiles"
-			className="scroll-mt-16 bg-cream-100 px-6 py-24 lg:px-8 lg:py-32"
+			className="scroll-mt-16 bg-sand-100 px-6 py-24 lg:px-8 lg:py-32"
 			aria-label="Reptiles"
 		>
 			<div className="mx-auto max-w-7xl">

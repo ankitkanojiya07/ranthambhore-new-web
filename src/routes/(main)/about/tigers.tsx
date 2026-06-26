@@ -183,7 +183,7 @@ function HeroSection() {
 
 function StatsBanner() {
 	return (
-		<section className="bg-cream-100" aria-label="Tiger statistics">
+		<section className="bg-sand-100" aria-label="Tiger statistics">
 			<div className="mx-auto max-w-7xl grid grid-cols-2 lg:grid-cols-4 divide-y divide-muted-300 lg:divide-y-0 lg:divide-x">
 				{PAGE_STATS.map((stat) => (
 					<div
@@ -203,7 +203,7 @@ function StatsBanner() {
 								</span>
 							)}
 						</div>
-						<p className="font-display text-xs uppercase tracking-display text-charcoal-500">
+						<p className="font-display text-xs uppercase tracking-display text-earth-500">
 							{stat.label}
 						</p>
 					</div>
@@ -260,7 +260,7 @@ function RoyalBengalSection() {
 							className="pointer-events-none absolute -right-4 top-0 bottom-0 w-3 opacity-20"
 							style={{
 								backgroundImage:
-									"repeating-linear-gradient(-12deg, transparent, transparent 8px, #1a2e1a 8px, #1a2e1a 20px, transparent 20px, transparent 36px, #2d4a2d 36px, #2d4a2d 48px)",
+									"repeating-linear-gradient(-12deg, transparent, transparent 8px, #4e3020 8px, #4e3020 20px, transparent 20px, transparent 36px, #6f3f15 36px, #6f3f15 48px)",
 							}}
 							aria-hidden
 						/>
@@ -410,7 +410,7 @@ function TigerRegistryCard({ tiger }: { tiger: FamousTiger }) {
 function PrimeZonesSection() {
 	return (
 		<section
-			className="bg-cream-100 px-6 py-24 lg:px-8 lg:py-32"
+			className="bg-sand-100 px-6 py-24 lg:px-8 lg:py-32"
 			aria-label="Best zones for tiger sightings"
 		>
 			<div className="mx-auto max-w-7xl">
@@ -506,7 +506,7 @@ function IdentificationSection() {
 								className="absolute inset-0 opacity-30"
 								style={{
 									backgroundImage:
-										"repeating-linear-gradient(168deg, transparent 0px, transparent 18px, rgba(250,245,235,0.15) 18px, rgba(250,245,235,0.15) 28px, transparent 28px, transparent 52px, rgba(250,245,235,0.08) 52px, rgba(250,245,235,0.08) 62px)",
+										"repeating-linear-gradient(168deg, transparent 0px, transparent 18px, rgba(250,245,237,0.12) 18px, rgba(250,245,237,0.12) 28px, transparent 28px, transparent 52px, rgba(250,245,237,0.06) 52px, rgba(250,245,237,0.06) 62px)",
 								}}
 								aria-hidden
 							/>

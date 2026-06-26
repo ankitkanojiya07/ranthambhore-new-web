@@ -26,7 +26,7 @@ export const buttonVariants = cva(
 			},
 			variant: {
 				default:
-					"border-transparent bg-sunset-500 text-charcoal-900 tracking-display hover:bg-sunset-600 data-pressed:bg-sunset-600 *:data-[slot=button-loading-indicator]:text-charcoal-900",
+					"border-transparent bg-sunset-500 text-sand-50 tracking-display hover:bg-sunset-600 data-pressed:bg-sunset-600 *:data-[slot=button-loading-indicator]:text-sand-50",
 				outline:
 					"border-charcoal-800 bg-transparent text-charcoal-800 tracking-nav hover:bg-charcoal-800 hover:text-sand-50 data-pressed:bg-charcoal-800 data-pressed:text-sand-50 *:data-[slot=button-loading-indicator]:text-charcoal-800",
 				secondary:

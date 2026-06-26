@@ -22,7 +22,7 @@ export function FaqAccordion({
 
 	return (
 		<section
-			className="border-t border-muted-300 bg-cream-100 px-6 py-20 lg:px-8 lg:py-28"
+			className="border-t border-muted-300 bg-sand-100 px-6 py-20 lg:px-8 lg:py-28"
 			aria-label="Frequently asked questions"
 		>
 			<div className="mx-auto max-w-3xl">
@@ -34,12 +34,12 @@ export function FaqAccordion({
 						return (
 							<div
 								key={item.id}
-								className="overflow-hidden rounded-sm bg-sand-50 ring-1 ring-muted-300"
+								className="overflow-hidden rounded-sm bg-cream-100 ring-1 ring-muted-300"
 							>
 								<button
 									type="button"
 									onClick={() => setOpenId(isOpen ? null : item.id)}
-									className="flex w-full cursor-pointer items-center justify-between gap-4 px-5 py-5 text-left transition-colors hover:bg-cream-50 sm:px-6"
+									className="flex w-full cursor-pointer items-center justify-between gap-4 px-5 py-5 text-left transition-colors hover:bg-sand-100 sm:px-6"
 									aria-expanded={isOpen}
 								>
 									<span className="font-playfair text-lg text-charcoal-900">

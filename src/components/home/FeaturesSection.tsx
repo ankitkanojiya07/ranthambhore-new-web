@@ -64,7 +64,7 @@ export function FeaturesSection() {
 								variants={itemVariants}
 								className="flex flex-col items-center gap-3"
 							>
-								<div className="flex size-16 items-center justify-center rounded-full border border-muted-300">
+								<div className="flex size-16 items-center justify-center rounded-full border border-muted-300 bg-tiger-50">
 									<feature.icon
 										className="size-7 text-tiger-600"
 										strokeWidth={1.5}

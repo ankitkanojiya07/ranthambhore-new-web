@@ -255,7 +255,7 @@ function MachhliSection() {
 							/>
 						</div>
 
-						<p className="mt-8 font-display text-xs uppercase tracking-display text-muted-600">
+						<p className="mt-8 font-display text-xs uppercase tracking-display text-sand-400">
 							04 / 04
 						</p>
 					</div>

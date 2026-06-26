@@ -22,7 +22,7 @@ const RESOURCES: { label: string; href: string }[] = [
 
 export function Footer() {
 	return (
-		<footer className="relative overflow-hidden border-t border-muted-300 bg-cream-100">
+		<footer className="relative overflow-hidden border-t border-muted-300 bg-sand-100">
 			<div className="relative z-10 mx-auto max-w-7xl px-6 lg:px-8">
 				{/* ── Top Branding Zone ── */}
 				<div className="relative flex items-end justify-center pb-10 pt-16">

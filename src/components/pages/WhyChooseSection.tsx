@@ -98,7 +98,7 @@ export function WhyChooseSection({
 			className={
 				dark
 					? "bg-charcoal-900 px-6 py-20 lg:px-8 lg:py-28"
-					: "border-y border-muted-300 bg-cream-100 px-6 py-20 lg:px-8 lg:py-28"
+					: "border-y border-muted-300 bg-sand-100 px-6 py-20 lg:px-8 lg:py-28"
 			}
 			aria-label="Why choose us"
 		>
@@ -135,7 +135,7 @@ export function WhyChooseSection({
 							className={`group rounded-sm p-6 ring-1 transition-shadow hover:shadow-lg ${
 								dark
 									? "bg-charcoal-800/60 ring-charcoal-700 hover:ring-sunset-500/40"
-									: "bg-sand-50 ring-muted-300 hover:ring-sunset-500/30"
+									: "bg-cream-100 ring-muted-300 hover:ring-sunset-500/30"
 							}`}
 						>
 							<div
