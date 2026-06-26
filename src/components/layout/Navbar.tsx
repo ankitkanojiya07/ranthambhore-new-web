@@ -1,20 +1,42 @@
-import { Link } from "@tanstack/react-router";
+import { Link, useRouterState } from "@tanstack/react-router";
 import { FacebookIcon } from "#/icons/facebook.icon";
 import { InstagramIcon } from "#/icons/instagram.icon";
 import { MenuIcon } from "#/icons/menu.icon";
 import { XIcon } from "#/icons/x.icon";
+import { cn } from "#/lib/utils";
 import { Button } from "../ui/button";
 import { NavDrawerRoot, NavDrawerTrigger } from "./NavDrawer";
 
 const NavigationBar = () => {
+	const navOverlay = useRouterState({
+		select: (state) =>
+			state.matches.some((match) => match.staticData?.navOverlay),
+	});
+
 	return (
 		<NavDrawerRoot>
-			<header className="bg-sand-50 px-4 py-3 sm:px-6 sm:py-4 lg:px-10 lg:py-5">
+			<header
+				className={cn(
+					"px-4 py-3 sm:px-6 sm:py-4 lg:px-10 lg:py-5",
+					navOverlay
+						? "absolute inset-x-0 top-0 z-50 bg-transparent"
+						: "bg-sand-50",
+				)}
+			>
 				<div className="grid grid-cols-3 items-center gap-2">
 					{/* Left: menu trigger + social icons (desktop only) */}
 					<div className="flex items-center">
 						<NavDrawerTrigger
-							render={<Button variant="ghost" className="px-2 py-1 sm:px-3" />}
+							render={
+								<Button
+									variant="ghost"
+									className={cn(
+										"px-2 py-1 sm:px-3",
+										navOverlay &&
+											"text-sand-50 hover:bg-white/10 hover:text-sand-50",
+									)}
+								/>
+							}
 						>
 							<MenuIcon className="size-4 sm:size-5" />
 							<span className="hidden sm:inline">Menu</span>
@@ -22,7 +44,11 @@ const NavigationBar = () => {
 						<Button
 							variant="ghost"
 							size={"icon-sm"}
-							className="hidden md:inline-flex"
+							className={cn(
+								"hidden md:inline-flex",
+								navOverlay &&
+									"text-sand-50 hover:bg-white/10 hover:text-sand-50",
+							)}
 							render={
 								// biome-ignore lint/a11y/useAnchorContent: this is a custom button
 								<a
@@ -38,7 +64,11 @@ const NavigationBar = () => {
 						<Button
 							variant="ghost"
 							size={"icon-sm"}
-							className="hidden md:inline-flex"
+							className={cn(
+								"hidden md:inline-flex",
+								navOverlay &&
+									"text-sand-50 hover:bg-white/10 hover:text-sand-50",
+							)}
 							render={
 								// biome-ignore lint/a11y/useAnchorContent: this is a custom button
 								<a
@@ -54,7 +84,11 @@ const NavigationBar = () => {
 						<Button
 							variant="ghost"
 							size={"icon-sm"}
-							className="hidden md:inline-flex"
+							className={cn(
+								"hidden md:inline-flex",
+								navOverlay &&
+									"text-sand-50 hover:bg-white/10 hover:text-sand-50",
+							)}
 							render={
 								// biome-ignore lint/a11y/useAnchorContent: this is a custom button
 								<a
@@ -77,17 +111,35 @@ const NavigationBar = () => {
 								alt="Ranthambhore.com"
 								width={100}
 								height={100}
-								className="w-full h-full object-contain"
+								className={cn(
+									"h-full w-full object-contain",
+									navOverlay && "invert",
+								)}
 							/>
 						</Link>
 					</div>
 
 					{/* Right: CTA */}
 					<div className="flex justify-end">
-						<Button variant="outline" className="hidden sm:inline-flex">
+						<Button
+							variant="outline"
+							className={cn(
+								"hidden sm:inline-flex",
+								navOverlay &&
+									"border-sand-50/70 text-sand-50 hover:bg-white/10 hover:text-sand-50",
+							)}
+						>
 							Make a Request
 						</Button>
-						<Button variant="outline" size="icon-sm" className="sm:hidden">
+						<Button
+							variant="outline"
+							size="icon-sm"
+							className={cn(
+								"sm:hidden",
+								navOverlay &&
+									"border-sand-50/70 text-sand-50 hover:bg-white/10 hover:text-sand-50",
+							)}
+						>
 							<span className="sr-only">Make a Request</span>
 							<svg
 								viewBox="0 0 24 24"

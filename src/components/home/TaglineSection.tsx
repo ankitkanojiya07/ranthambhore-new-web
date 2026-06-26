@@ -45,8 +45,8 @@ export function TaglineSection() {
 							playsInline
 							className="size-full object-cover"
 						>
-							<source src="/ASP_3008.MOV" type="video/quicktime" />
-							<source src="/ASP_3008.MOV" type="video/mp4" />
+							<source src="/ASP_3008.mp4" type="video/quicktime" />
+							<source src="/ASP_3008.mp4" type="video/mp4" />
 						</video>
 					</span>
 					<span>Wild</span>

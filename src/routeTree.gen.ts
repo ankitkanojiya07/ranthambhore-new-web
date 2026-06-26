@@ -11,6 +11,8 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as mainRouteRouteImport } from './routes/(main)/route'
 import { Route as mainIndexRouteImport } from './routes/(main)/index'
+import { Route as mainAboutNationalParkRouteImport } from './routes/(main)/about/national-park'
+import { Route as mainAboutHistoryRouteImport } from './routes/(main)/about/history'
 
 const mainRouteRoute = mainRouteRouteImport.update({
   id: '/(main)',
@@ -21,24 +23,45 @@ const mainIndexRoute = mainIndexRouteImport.update({
   path: '/',
   getParentRoute: () => mainRouteRoute,
 } as any)
+const mainAboutNationalParkRoute = mainAboutNationalParkRouteImport.update({
+  id: '/about/national-park',
+  path: '/about/national-park',
+  getParentRoute: () => mainRouteRoute,
+} as any)
+const mainAboutHistoryRoute = mainAboutHistoryRouteImport.update({
+  id: '/about/history',
+  path: '/about/history',
+  getParentRoute: () => mainRouteRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof mainIndexRoute
+  '/about/history': typeof mainAboutHistoryRoute
+  '/about/national-park': typeof mainAboutNationalParkRoute
 }
 export interface FileRoutesByTo {
   '/': typeof mainIndexRoute
+  '/about/history': typeof mainAboutHistoryRoute
+  '/about/national-park': typeof mainAboutNationalParkRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/(main)': typeof mainRouteRouteWithChildren
   '/(main)/': typeof mainIndexRoute
+  '/(main)/about/history': typeof mainAboutHistoryRoute
+  '/(main)/about/national-park': typeof mainAboutNationalParkRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths: '/' | '/about/history' | '/about/national-park'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/(main)' | '/(main)/'
+  to: '/' | '/about/history' | '/about/national-park'
+  id:
+    | '__root__'
+    | '/(main)'
+    | '/(main)/'
+    | '/(main)/about/history'
+    | '/(main)/about/national-park'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -61,15 +84,33 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof mainIndexRouteImport
       parentRoute: typeof mainRouteRoute
     }
+    '/(main)/about/national-park': {
+      id: '/(main)/about/national-park'
+      path: '/about/national-park'
+      fullPath: '/about/national-park'
+      preLoaderRoute: typeof mainAboutNationalParkRouteImport
+      parentRoute: typeof mainRouteRoute
+    }
+    '/(main)/about/history': {
+      id: '/(main)/about/history'
+      path: '/about/history'
+      fullPath: '/about/history'
+      preLoaderRoute: typeof mainAboutHistoryRouteImport
+      parentRoute: typeof mainRouteRoute
+    }
   }
 }
 
 interface mainRouteRouteChildren {
   mainIndexRoute: typeof mainIndexRoute
+  mainAboutHistoryRoute: typeof mainAboutHistoryRoute
+  mainAboutNationalParkRoute: typeof mainAboutNationalParkRoute
 }
 
 const mainRouteRouteChildren: mainRouteRouteChildren = {
   mainIndexRoute: mainIndexRoute,
+  mainAboutHistoryRoute: mainAboutHistoryRoute,
+  mainAboutNationalParkRoute: mainAboutNationalParkRoute,
 }
 
 const mainRouteRouteWithChildren = mainRouteRoute._addFileChildren(

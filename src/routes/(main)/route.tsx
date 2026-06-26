@@ -8,7 +8,7 @@ export const Route = createFileRoute("/(main)")({
 
 function RouteComponent() {
 	return (
-		<div>
+		<div className="relative">
 			<NavigationBar />
 			<Outlet />
 			<Footer />
