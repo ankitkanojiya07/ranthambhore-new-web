@@ -2,7 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { AboutSection } from "#/components/home/AboutSection";
 import { ContactSection } from "#/components/home/ContactSection";
 import { FaqSection } from "#/components/home/FaqSection";
-import { FeaturesSection } from "#/components/home/FeaturesSection";
+// import { FeaturesSection } from "#/components/home/FeaturesSection";
 import { HeroSection } from "#/components/home/HeroSection";
 import { NewsSection } from "#/components/home/NewsSection";
 import { TaglineSection } from "#/components/home/TaglineSection";

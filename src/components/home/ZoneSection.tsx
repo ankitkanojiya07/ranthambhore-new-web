@@ -1,6 +1,4 @@
-import { motion, useScroll, useTransform } from "motion/react";
-import { useRef } from "react";
-import { Image } from "#/util/Image";
+import { motion } from "motion/react";
 
 const containerVariants = {
 	hidden: {},
@@ -20,6 +18,7 @@ const itemVariants = {
 		transition: { duration: 0.5, ease: "easeOut" as const },
 	},
 };
+
 
 const ZONES = [
 	{
@@ -113,37 +112,14 @@ const ZONES = [
 ];
 
 export function ZoneSection() {
-	const sectionRef = useRef<HTMLElement>(null);
-	const { scrollYProgress } = useScroll({
-		target: sectionRef,
-		offset: ["start end", "end start"],
-	});
-	const backgroundY = useTransform(scrollYProgress, [0, 1], ["0%", "-20%"]);
-
 	return (
 		<section
-			ref={sectionRef}
-			className="relative w-full overflow-hidden py-20 lg:py-28"
+			className="relative w-full overflow-hidden bg-[url('/gallery/8.jpg')] bg-fixed bg-cover bg-center py-24 lg:py-32"
 			aria-label="Tiger Zones"
 		>
-			{/* Parallax background */}
-			<motion.div
-				className="absolute inset-0 top-[-20%] h-[140%]"
-				style={{ y: backgroundY }}
-			>
-				<Image
-					src="/gallery/8.jpg"
-					alt=""
-					layout="constrained"
-					width={1646}
-					height={2048}
-					className="h-full w-full object-cover"
-				/>
-				<div className="absolute inset-0 bg-charcoal-900/80" />
-			</motion.div>
-
-			{/* Foreground content */}
-			<div className="relative z-10 mx-auto max-w-7xl px-6 lg:px-8">
+			<div className="absolute inset-0 bg-charcoal-900/70" />
+			<div className="relative z-10 mx-auto max-w-6xl px-6 lg:px-8">
+				{/* Header */}
 				<motion.div
 					variants={containerVariants}
 					initial="hidden"
@@ -174,7 +150,7 @@ export function ZoneSection() {
 
 				{/* Table */}
 				<motion.div
-					className="mt-12 overflow-hidden rounded-lg"
+					className="mt-12 overflow-hidden rounded-xl shadow-2xl shadow-black/40"
 					variants={containerVariants}
 					initial="hidden"
 					whileInView="visible"
@@ -183,16 +159,16 @@ export function ZoneSection() {
 					<table className="w-full border-collapse">
 						<thead>
 							<tr className="bg-forest-700">
-								<th className="px-6 py-4 text-center font-display text-sm font-semibold uppercase tracking-display text-white">
+								<th className="px-5 py-4 text-left font-display text-xs uppercase tracking-display text-white">
 									Zone
 								</th>
-								<th className="px-6 py-4 text-center font-display text-sm font-semibold uppercase tracking-display text-white">
+								<th className="px-5 py-4 text-left font-display text-xs uppercase tracking-display text-white">
 									Zone Name / Area
 								</th>
-								<th className="hidden px-6 py-4 text-center font-display text-sm font-semibold uppercase tracking-display text-white md:table-cell">
+								<th className="hidden px-5 py-4 text-left font-display text-xs uppercase tracking-display text-white md:table-cell">
 									Safari Type
 								</th>
-								<th className="hidden px-6 py-4 text-center font-display text-sm font-semibold uppercase tracking-display text-white lg:table-cell">
+								<th className="hidden px-5 py-4 text-left font-display text-xs uppercase tracking-display text-white lg:table-cell">
 									Famous For
 								</th>
 							</tr>
@@ -202,18 +178,22 @@ export function ZoneSection() {
 								<motion.tr
 									key={zone.zone}
 									variants={itemVariants}
-									className={i % 2 === 0 ? "bg-white/90" : "bg-sand-100/90"}
+									className={
+										i % 2 === 0
+											? "bg-sand-50 hover:bg-sand-100"
+											: "bg-sand-100 hover:bg-sand-200"
+									}
 								>
-									<td className="px-6 py-4 text-center font-body text-sm text-charcoal-800">
+									<td className="px-5 py-4 font-display text-sm font-semibold text-forest-700">
 										Zone {zone.zone}
 									</td>
-									<td className="px-6 py-4 text-center font-body text-sm text-charcoal-800">
+									<td className="px-5 py-4 font-body text-sm text-charcoal-800">
 										{zone.area}
 									</td>
-									<td className="hidden px-6 py-4 text-center font-body text-sm text-charcoal-800 md:table-cell">
+									<td className="hidden px-5 py-4 font-body text-sm text-charcoal-700 md:table-cell">
 										{zone.safariType}
 									</td>
-									<td className="hidden px-6 py-4 text-center font-body text-sm text-charcoal-800 lg:table-cell">
+									<td className="hidden px-5 py-4 font-body text-sm text-charcoal-600 lg:table-cell">
 										{zone.famousFor}
 									</td>
 								</motion.tr>
