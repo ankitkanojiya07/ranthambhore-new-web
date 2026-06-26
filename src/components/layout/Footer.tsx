@@ -22,7 +22,7 @@ const RESOURCES: { label: string; href: string }[] = [
 
 export function Footer() {
 	return (
-		<footer className="relative overflow-hidden bg-earth-900">
+		<footer className="relative overflow-hidden border-t border-muted-300 bg-cream-100">
 			<div className="relative z-10 mx-auto max-w-7xl px-6 lg:px-8">
 				{/* ── Top Branding Zone ── */}
 				<div className="relative flex items-end justify-center pb-10 pt-16">
@@ -32,22 +32,22 @@ export function Footer() {
 							alt="Ranthambhore logo"
 							width={64}
 							height={64}
-							className="w-40 invert object-contain opacity-90"
+							className="w-40 object-contain opacity-90"
 						/>
-						<h2 className="font-display text-4xl tracking-display text-cream-50">
+						<h2 className="font-display text-4xl tracking-display text-charcoal-900">
 							RANTHAMBHORE
 						</h2>
-						<p className="font-body font-medium text-sm uppercase tracking-display text-cream-100/80">
+						<p className="font-body font-medium text-sm uppercase tracking-display text-charcoal-600">
 							Wildlife &amp; Safari
 						</p>
 					</div>
 				</div>
 
 				{/* ── Middle 3-Column Section ── */}
-				<div className="grid grid-cols-1 gap-10 border-t border-earth-700/50 pt-10 md:grid-cols-3">
+				<div className="grid grid-cols-1 gap-10 border-t border-muted-300 pt-10 md:grid-cols-3">
 					{/* Column 1 — Quick Links */}
 					<div>
-						<h3 className="mb-2 font-display uppercase tracking-display text-cream-50">
+						<h3 className="mb-2 font-display uppercase tracking-display text-charcoal-900">
 							Quick Links
 						</h3>
 						<ul className="space-y-3">
@@ -55,7 +55,7 @@ export function Footer() {
 								<li key={link.label}>
 									<a
 										href={link.href}
-										className="font-body font-medium text-sm text-cream-100/75 transition-colors hover:text-sunset-400"
+										className="font-body font-medium text-sm text-charcoal-700 transition-colors hover:text-earth-700"
 									>
 										{link.label}
 									</a>
@@ -66,7 +66,7 @@ export function Footer() {
 
 					{/* Column 2 — Explore */}
 					<div>
-						<h3 className="mb-2 font-display uppercase tracking-display text-cream-50">
+						<h3 className="mb-2 font-display uppercase tracking-display text-charcoal-900">
 							Explore
 						</h3>
 						<ul className="mb-6 space-y-3">
@@ -74,20 +74,20 @@ export function Footer() {
 								<li key={resource.label}>
 									<a
 										href={resource.href}
-										className="font-body font-medium text-sm text-cream-100/75 transition-colors hover:text-sunset-400"
+										className="font-body font-medium text-sm text-charcoal-700 transition-colors hover:text-earth-700"
 									>
 										{resource.label}
 									</a>
 								</li>
 							))}
 						</ul>
-						<div className="space-y-3 border-t border-earth-700/40 pt-5">
+						<div className="space-y-3 border-t border-muted-300 pt-5">
 							<div className="flex items-start gap-3">
 								<MapPin
-									className="mt-0.5 size-4 shrink-0 text-sunset-400"
+									className="mt-0.5 size-4 shrink-0 text-earth-600"
 									strokeWidth={1.5}
 								/>
-								<p className="font-body font-medium text-sm text-cream-100/75">
+								<p className="font-body font-medium text-sm text-charcoal-700">
 									Sawai Madhopur, Rajasthan
 									<br />
 									India
@@ -95,12 +95,12 @@ export function Footer() {
 							</div>
 							<div className="flex items-center gap-3">
 								<Mail
-									className="size-4 shrink-0 text-sunset-400"
+									className="size-4 shrink-0 text-earth-600"
 									strokeWidth={1.5}
 								/>
 								<a
 									href="mailto:ranthambhoreregency@gmail.com"
-									className="font-body font-medium text-sm text-cream-100/75 transition-colors hover:text-sunset-400"
+									className="font-body font-medium text-sm text-charcoal-700 transition-colors hover:text-earth-700"
 								>
 									ranthambhoreregency@gmail.com
 								</a>
@@ -110,10 +110,10 @@ export function Footer() {
 
 					{/* Column 3 — Newsletter */}
 					<div>
-						<h3 className="mb-2 font-display uppercase tracking-display text-cream-50">
+						<h3 className="mb-2 font-display uppercase tracking-display text-charcoal-900">
 							Sign Up For Our Newsletter
 						</h3>
-						<p className="mb-5 font-body font-medium text-sm text-cream-100/75">
+						<p className="mb-5 font-body font-medium text-sm text-charcoal-700">
 							Receive safari updates, wildlife stories, and travel inspiration
 							directly in your inbox.
 						</p>
@@ -124,14 +124,14 @@ export function Footer() {
 								<input
 									type="text"
 									placeholder="Your Name"
-									className="w-full border-b border-earth-700/50 bg-transparent pb-2 font-body font-medium text-sm text-cream-50 placeholder:text-cream-100/40 focus:border-sunset-400 focus:outline-none"
+									className="w-full border-b border-muted-300 bg-transparent pb-2 font-body font-medium text-sm text-charcoal-800 placeholder:text-charcoal-400 focus:border-sunset-500 focus:outline-none"
 								/>
 							</div>
 							<div>
 								<input
 									type="email"
 									placeholder="Your Email"
-									className="w-full border-b border-earth-700/50 bg-transparent pb-2 font-body font-medium text-sm text-cream-50 placeholder:text-cream-100/40 focus:border-sunset-400 focus:outline-none"
+									className="w-full border-b border-muted-300 bg-transparent pb-2 font-body font-medium text-sm text-charcoal-800 placeholder:text-charcoal-400 focus:border-sunset-500 focus:outline-none"
 								/>
 							</div>
 						</div>
@@ -140,13 +140,13 @@ export function Footer() {
 						<label className="mb-5 flex cursor-pointer items-start gap-3">
 							<input
 								type="checkbox"
-								className="mt-0.5 h-3.5 w-3.5 shrink-0 accent-golden-400"
+								className="mt-0.5 h-3.5 w-3.5 shrink-0 accent-sunset-500"
 							/>
-							<span className="font-body font-medium text-sm text-cream-100/75">
+							<span className="font-body font-medium text-sm text-charcoal-700">
 								By signing up for our mailing list, you agree to our{" "}
 								<a
 									href="/privacy-policy"
-									className="underline transition-colors hover:text-sunset-400"
+									className="underline transition-colors hover:text-earth-700"
 								>
 									privacy policy
 								</a>
@@ -156,8 +156,8 @@ export function Footer() {
 
 						{/* Sign up button */}
 						<Button
-							variant="secondary"
-							className="w-full text-base py-2 px-3 h-auto bg-sunset-500 font-medium text-charcoal-900 hover:bg-sunset-600"
+							variant="default"
+							className="w-full h-auto px-3 py-2 text-base font-medium"
 						>
 							Sign Up
 						</Button>
@@ -165,9 +165,9 @@ export function Footer() {
 				</div>
 
 				{/* ── Bottom Bar ── */}
-				<div className="mt-10 flex flex-col items-center gap-4 border-t border-earth-700/50 py-6 md:flex-row md:justify-between">
+				<div className="mt-10 flex flex-col items-center gap-4 border-t border-muted-300 py-6 md:flex-row md:justify-between">
 					{/* Copyright */}
-					<p className="font-body font-medium text-sm text-cream-100/75">
+					<p className="font-body font-medium text-sm text-charcoal-600">
 						&copy; {new Date().getFullYear()} Ranthambhore Wildlife Hotel. All
 						rights reserved.
 					</p>
@@ -176,13 +176,13 @@ export function Footer() {
 					<div className="flex items-center gap-6">
 						<a
 							href="/terms"
-							className="font-body font-medium text-sm text-cream-100/75 transition-colors hover:text-sunset-400"
+							className="font-body font-medium text-sm text-charcoal-700 transition-colors hover:text-earth-700"
 						>
 							&rsaquo; Terms &amp; Conditions
 						</a>
 						<a
 							href="/privacy-policy"
-							className="font-body font-medium text-sm text-cream-100/75 transition-colors hover:text-sunset-400"
+							className="font-body font-medium text-sm text-charcoal-700 transition-colors hover:text-earth-700"
 						>
 							Privacy Policy
 						</a>
@@ -195,7 +195,7 @@ export function Footer() {
 							aria-label="Follow us on Instagram"
 							target="_blank"
 							rel="noopener noreferrer"
-							className="text-cream-100/75 transition-colors hover:text-sunset-400"
+							className="text-charcoal-700 transition-colors hover:text-earth-700"
 						>
 							<InstagramIcon className="size-4" />
 						</a>
@@ -204,7 +204,7 @@ export function Footer() {
 							aria-label="Follow us on Facebook"
 							target="_blank"
 							rel="noopener noreferrer"
-							className="text-cream-100/75 transition-colors hover:text-sunset-400"
+							className="text-charcoal-700 transition-colors hover:text-earth-700"
 						>
 							<FacebookIcon className="size-4" />
 						</a>
