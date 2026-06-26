@@ -1,4 +1,4 @@
-import { Mail, MapPin, PawPrint } from "lucide-react";
+import { Mail, MapPin } from "lucide-react";
 import { FacebookIcon } from "#/icons/facebook.icon";
 import { InstagramIcon } from "#/icons/instagram.icon";
 import { Image } from "#/util/Image";
@@ -22,7 +22,7 @@ const RESOURCES: { label: string; href: string }[] = [
 
 export function Footer() {
 	return (
-		<footer className="relative overflow-hidden bg-forest-900">
+		<footer className="relative overflow-hidden bg-earth-900">
 			<div className="relative z-10 mx-auto max-w-7xl px-6 lg:px-8">
 				{/* ── Top Branding Zone ── */}
 				<div className="relative flex items-end justify-center pb-10 pt-16">
@@ -34,20 +34,20 @@ export function Footer() {
 							height={64}
 							className="w-40 invert object-contain opacity-90"
 						/>
-						<h2 className="font-display text-4xl tracking-display text-sand-100">
+						<h2 className="font-display text-4xl tracking-display text-cream-50">
 							RANTHAMBHORE
 						</h2>
-						<p className="font-body font-medium text-sm uppercase tracking-display text-sand-100/80">
+						<p className="font-body font-medium text-sm uppercase tracking-display text-cream-100/80">
 							Wildlife &amp; Safari
 						</p>
 					</div>
 				</div>
 
 				{/* ── Middle 3-Column Section ── */}
-				<div className="grid grid-cols-1 gap-10 border-t border-sand-100/30 pt-10 md:grid-cols-3">
+				<div className="grid grid-cols-1 gap-10 border-t border-earth-700/50 pt-10 md:grid-cols-3">
 					{/* Column 1 — Quick Links */}
 					<div>
-						<h3 className="mb-2 font-display uppercase tracking-display text-sand-100">
+						<h3 className="mb-2 font-display uppercase tracking-display text-cream-50">
 							Quick Links
 						</h3>
 						<ul className="space-y-3">
@@ -55,7 +55,7 @@ export function Footer() {
 								<li key={link.label}>
 									<a
 										href={link.href}
-										className="font-body font-medium text-sm text-sand-100/80 transition-colors hover:text-sand-100"
+										className="font-body font-medium text-sm text-cream-100/75 transition-colors hover:text-sunset-400"
 									>
 										{link.label}
 									</a>
@@ -66,7 +66,7 @@ export function Footer() {
 
 					{/* Column 2 — Explore */}
 					<div>
-						<h3 className="mb-2 font-display uppercase tracking-display text-sand-100">
+						<h3 className="mb-2 font-display uppercase tracking-display text-cream-50">
 							Explore
 						</h3>
 						<ul className="mb-6 space-y-3">
@@ -74,20 +74,20 @@ export function Footer() {
 								<li key={resource.label}>
 									<a
 										href={resource.href}
-										className="font-body font-medium text-sm text-sand-100/80 transition-colors hover:text-sand-100"
+										className="font-body font-medium text-sm text-cream-100/75 transition-colors hover:text-sunset-400"
 									>
 										{resource.label}
 									</a>
 								</li>
 							))}
 						</ul>
-						<div className="space-y-3 border-t border-sand-100/20 pt-5">
+						<div className="space-y-3 border-t border-earth-700/40 pt-5">
 							<div className="flex items-start gap-3">
 								<MapPin
-									className="mt-0.5 size-4 shrink-0 text-sand-100/80"
+									className="mt-0.5 size-4 shrink-0 text-sunset-400"
 									strokeWidth={1.5}
 								/>
-								<p className="font-body font-medium text-sm text-sand-100/80">
+								<p className="font-body font-medium text-sm text-cream-100/75">
 									Sawai Madhopur, Rajasthan
 									<br />
 									India
@@ -95,12 +95,12 @@ export function Footer() {
 							</div>
 							<div className="flex items-center gap-3">
 								<Mail
-									className="size-4 shrink-0 text-sand-100/80"
+									className="size-4 shrink-0 text-sunset-400"
 									strokeWidth={1.5}
 								/>
 								<a
 									href="mailto:ranthambhoreregency@gmail.com"
-									className="font-body font-medium text-sm text-sand-100/80 transition-colors hover:text-sand-100"
+									className="font-body font-medium text-sm text-cream-100/75 transition-colors hover:text-sunset-400"
 								>
 									ranthambhoreregency@gmail.com
 								</a>
@@ -110,10 +110,10 @@ export function Footer() {
 
 					{/* Column 3 — Newsletter */}
 					<div>
-						<h3 className="mb-2 font-display uppercase tracking-display text-sand-100">
+						<h3 className="mb-2 font-display uppercase tracking-display text-cream-50">
 							Sign Up For Our Newsletter
 						</h3>
-						<p className="mb-5 font-body font-medium text-sm text-sand-100/80">
+						<p className="mb-5 font-body font-medium text-sm text-cream-100/75">
 							Receive safari updates, wildlife stories, and travel inspiration
 							directly in your inbox.
 						</p>
@@ -124,14 +124,14 @@ export function Footer() {
 								<input
 									type="text"
 									placeholder="Your Name"
-									className="w-full border-b border-sand-100/20 bg-transparent pb-2 font-body font-medium text-sm text-sand-100 placeholder:text-sand-100/40 focus:border-golden-400 focus:outline-none"
+									className="w-full border-b border-earth-700/50 bg-transparent pb-2 font-body font-medium text-sm text-cream-50 placeholder:text-cream-100/40 focus:border-sunset-400 focus:outline-none"
 								/>
 							</div>
 							<div>
 								<input
 									type="email"
 									placeholder="Your Email"
-									className="w-full border-b border-sand-100/20 bg-transparent pb-2 font-body font-medium text-sm text-sand-100 placeholder:text-sand-100/40 focus:border-golden-400 focus:outline-none"
+									className="w-full border-b border-earth-700/50 bg-transparent pb-2 font-body font-medium text-sm text-cream-50 placeholder:text-cream-100/40 focus:border-sunset-400 focus:outline-none"
 								/>
 							</div>
 						</div>
@@ -142,11 +142,11 @@ export function Footer() {
 								type="checkbox"
 								className="mt-0.5 h-3.5 w-3.5 shrink-0 accent-golden-400"
 							/>
-							<span className="font-body font-medium text-sm text-sand-100/80">
+							<span className="font-body font-medium text-sm text-cream-100/75">
 								By signing up for our mailing list, you agree to our{" "}
 								<a
 									href="/privacy-policy"
-									className="underline transition-colors hover:text-sand-100"
+									className="underline transition-colors hover:text-sunset-400"
 								>
 									privacy policy
 								</a>
@@ -165,9 +165,9 @@ export function Footer() {
 				</div>
 
 				{/* ── Bottom Bar ── */}
-				<div className="mt-10 flex flex-col items-center gap-4 border-t border-sand-100/30 py-6 md:flex-row md:justify-between">
+				<div className="mt-10 flex flex-col items-center gap-4 border-t border-earth-700/50 py-6 md:flex-row md:justify-between">
 					{/* Copyright */}
-					<p className="font-body font-medium text-sm text-sand-100/80">
+					<p className="font-body font-medium text-sm text-cream-100/75">
 						&copy; {new Date().getFullYear()} Ranthambhore Wildlife Hotel. All
 						rights reserved.
 					</p>
@@ -176,13 +176,13 @@ export function Footer() {
 					<div className="flex items-center gap-6">
 						<a
 							href="/terms"
-							className="font-body font-medium text-sm text-sand-100/80 transition-colors hover:text-sand-100"
+							className="font-body font-medium text-sm text-cream-100/75 transition-colors hover:text-sunset-400"
 						>
 							&rsaquo; Terms &amp; Conditions
 						</a>
 						<a
 							href="/privacy-policy"
-							className="font-body font-medium text-sm text-sand-100/80 transition-colors hover:text-sand-100"
+							className="font-body font-medium text-sm text-cream-100/75 transition-colors hover:text-sunset-400"
 						>
 							Privacy Policy
 						</a>
@@ -195,7 +195,7 @@ export function Footer() {
 							aria-label="Follow us on Instagram"
 							target="_blank"
 							rel="noopener noreferrer"
-							className="text-sand-100/80 transition-colors hover:text-sand-100"
+							className="text-cream-100/75 transition-colors hover:text-sunset-400"
 						>
 							<InstagramIcon className="size-4" />
 						</a>
@@ -204,7 +204,7 @@ export function Footer() {
 							aria-label="Follow us on Facebook"
 							target="_blank"
 							rel="noopener noreferrer"
-							className="text-sand-100/80 transition-colors hover:text-sand-100"
+							className="text-cream-100/75 transition-colors hover:text-sunset-400"
 						>
 							<FacebookIcon className="size-4" />
 						</a>

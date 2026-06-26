@@ -128,6 +128,7 @@ const NavigationBar = () => {
 								navOverlay &&
 									"border-sand-50/70 text-sand-50 hover:bg-white/10 hover:text-sand-50",
 							)}
+							render={<Link to="/contact" />}
 						>
 							Make a Request
 						</Button>

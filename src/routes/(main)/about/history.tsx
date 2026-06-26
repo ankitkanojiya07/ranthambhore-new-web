@@ -1,4 +1,7 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { createFileRoute } from "@tanstack/react-router";
+import CTASection from "#/components/cta";
+import { TrustBar } from "#/components/pages/TrustBar";
+import { WhyChooseSection } from "#/components/pages/WhyChooseSection";
 
 export const Route = createFileRoute("/(main)/about/history")({
 	staticData: { navOverlay: true },
@@ -71,13 +74,7 @@ function HistoryPage() {
 						aria-hidden
 						className="size-full object-cover object-center"
 					/>
-					<div className="absolute inset-0 bg-forest-950/78" />
-					<img
-						src="/grunge-frame-overlay.png"
-						alt=""
-						aria-hidden
-						className="pointer-events-none absolute inset-0 size-full object-cover opacity-20 mix-blend-overlay"
-					/>
+					<div className="absolute inset-0 bg-linear-to-t from-charcoal-900/90 via-charcoal-900/45 to-charcoal-900/20" />
 				</div>
 
 				<div className="relative z-10 mx-auto w-full max-w-7xl px-6 pb-20 pt-36 lg:px-8 lg:pb-28">
@@ -97,6 +94,8 @@ function HistoryPage() {
 					</div>
 				</div>
 			</section>
+
+			<TrustBar />
 
 			{/* ── Timeline ── */}
 			<section
@@ -125,8 +124,9 @@ function HistoryPage() {
 			{/* ── Machhli Feature ── */}
 			<MachhliSection />
 
-			{/* ── CTA ── */}
-			<CtaSection />
+			<WhyChooseSection />
+
+			<CTASection />
 		</div>
 	);
 }
@@ -184,7 +184,7 @@ function TimelineEra({ era, index }: { era: Era; index: number }) {
 function MachhliSection() {
 	return (
 		<section
-			className="bg-forest-900 px-6 py-24 lg:px-8 lg:py-32"
+			className="bg-charcoal-900 px-6 py-24 lg:px-8 lg:py-32"
 			aria-label="Machhli — Lady of the Lakes"
 		>
 			<div className="mx-auto max-w-7xl">
@@ -259,46 +259,6 @@ function MachhliSection() {
 							04 / 04
 						</p>
 					</div>
-				</div>
-			</div>
-		</section>
-	);
-}
-
-function CtaSection() {
-	return (
-		<section
-			className="bg-sand-50 px-6 py-24 lg:px-8 lg:py-32"
-			aria-label="Call to action"
-		>
-			<div className="mx-auto max-w-3xl text-center">
-				<p className="font-display text-xs uppercase tracking-display text-sunset-500">
-					Plan Your Visit
-				</p>
-				<h2 className="mt-4 font-playfair text-3xl text-charcoal-900 lg:text-5xl">
-					Be Part of Ranthambore's
-					<br className="hidden lg:block" /> Living Story
-				</h2>
-				<p className="mx-auto mt-5 max-w-xl font-body text-base text-charcoal-700">
-					Walk the same ancient forests that sheltered Maharajas, tigers, and
-					legends. Your chapter in Ranthambore's story begins with a single
-					safari.
-				</p>
-				<div className="mt-10 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
-					<Link
-						to="/"
-						hash="contact"
-						className="rounded bg-sunset-600 px-8 py-3.5 font-display text-xs uppercase tracking-display text-sand-50 hover:bg-sunset-700"
-					>
-						Book a Safari
-					</Link>
-					<Link
-						to="/"
-						hash="contact"
-						className="rounded border border-charcoal-800 px-8 py-3.5 font-display text-xs uppercase tracking-display text-charcoal-800 hover:bg-charcoal-800 hover:text-sand-50"
-					>
-						Get Free Quote
-					</Link>
 				</div>
 			</div>
 		</section>

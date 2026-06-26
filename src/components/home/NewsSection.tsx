@@ -128,7 +128,6 @@ export function NewsSection() {
 								<Image
 									src={article.image.src}
 									alt={article.image.alt}
-									layout="constrained"
 									width={article.image.width}
 									height={article.image.height}
 									className="absolute inset-0 h-full w-full object-cover"

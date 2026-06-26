@@ -31,8 +31,8 @@ export function HeroSection() {
 						<h2 className="whitespace-nowrap text-3xl font-semibold font-display tracking-display text-forest-900 leading-none">
 							Ranthambhore
 						</h2>
-						<p className="mt-2 font-display text-xs uppercase tracking-display text-forest-900">
-							Safari &amp; Wildlife Tours
+						<p className="mt-2 max-w-xs font-body text-sm text-charcoal-700">
+							Into the Land of Tigers.
 						</p>
 					</div>
 				</div>
@@ -55,8 +55,8 @@ export function HeroSection() {
 							<h2 className="whitespace-nowrap text-4xl lg:text-6xl font-medium font-display tracking-display text-forest-900 leading-none">
 								Ranthambhore
 							</h2>
-							<p className="mt-2 font-display text-sm lg:text-base uppercase tracking-display text-forest-900">
-								Safari &amp; Wildlife Tours
+							<p className="mt-2 max-w-sm font-body text-sm lg:text-base text-charcoal-700">
+								Into the Land of Tigers
 							</p>
 						</div>
 					</div>

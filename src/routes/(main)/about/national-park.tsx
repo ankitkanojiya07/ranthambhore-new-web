@@ -1,5 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import CTASection from "#/components/cta";
+import { TrustBar } from "#/components/pages/TrustBar";
+import { WhyChooseSection } from "#/components/pages/WhyChooseSection";
 
 export const Route = createFileRoute("/(main)/about/national-park")({
 	staticData: { navOverlay: true },
@@ -156,13 +158,7 @@ function NationalParkPage() {
 						aria-hidden
 						className="size-full object-cover object-center"
 					/>
-					<div className="absolute inset-0 bg-forest-950/78" />
-					<img
-						src="/grunge-frame-overlay.png"
-						alt=""
-						aria-hidden
-						className="pointer-events-none absolute inset-0 size-full object-cover opacity-20 mix-blend-overlay"
-					/>
+					<div className="absolute inset-0 bg-linear-to-t from-charcoal-900/90 via-charcoal-900/45 to-charcoal-900/20" />
 				</div>
 
 				<div className="relative z-10 mx-auto w-full max-w-7xl px-6 pb-20 pt-36 lg:px-8 lg:pb-28">
@@ -181,6 +177,8 @@ function NationalParkPage() {
 				</div>
 			</section>
 
+			<TrustBar />
+
 			{/* ── Stats Banner ── */}
 			<StatsBanner />
 
@@ -196,6 +194,8 @@ function NationalParkPage() {
 			{/* ── Landscape & Lakes ── */}
 			<LakesSection />
 
+			<WhyChooseSection />
+
 			{/* ── CTA ── */}
 			<CTASection />
 		</div>
@@ -204,25 +204,25 @@ function NationalParkPage() {
 
 function StatsBanner() {
 	return (
-		<section className="bg-charcoal-950" aria-label="Park statistics">
-			<div className="mx-auto max-w-7xl grid grid-cols-2 lg:grid-cols-4 divide-y divide-sunset-500/20 lg:divide-y-0 lg:divide-x">
+		<section className="bg-cream-100" aria-label="Park statistics">
+			<div className="mx-auto max-w-7xl grid grid-cols-2 lg:grid-cols-4 divide-y divide-muted-300 lg:divide-y-0 lg:divide-x">
 				{PARK_STATS.map((stat) => (
 					<div
 						key={stat.index}
 						className="px-8 py-12 lg:py-16 flex flex-col gap-3"
 					>
-						<p className="font-display text-xs uppercase tracking-display text-sunset-500/60">
+						<p className="font-display text-xs uppercase tracking-display text-sunset-500/70">
 							{stat.index}
 						</p>
 						<div className="flex items-end gap-1.5">
-							<span className="font-playfair text-6xl lg:text-7xl font-semibold text-sand-50 whitespace-nowrap leading-none">
+							<span className="font-playfair text-6xl lg:text-7xl font-semibold text-charcoal-900 whitespace-nowrap leading-none">
 								{stat.value}
 							</span>
-							<span className="font-playfair text-2xl lg:text-3xl text-sand-300 pb-1.5">
+							<span className="font-playfair text-2xl lg:text-3xl text-earth-600 pb-1.5">
 								{stat.unit}
 							</span>
 						</div>
-						<p className="font-display text-xs uppercase tracking-display text-charcoal-300">
+						<p className="font-display text-xs uppercase tracking-display text-charcoal-500">
 							{stat.label}
 						</p>
 					</div>
@@ -302,7 +302,7 @@ function LocationSection() {
 function BoundariesSection() {
 	return (
 		<section
-			className="bg-charcoal-950 px-6 py-24 lg:px-8 lg:py-32"
+			className="bg-sand-50 px-6 py-24 lg:px-8 lg:py-32"
 			aria-label="Area and boundaries"
 		>
 			<div className="mx-auto max-w-7xl">
@@ -310,7 +310,7 @@ function BoundariesSection() {
 					<p className="font-display text-xs uppercase tracking-display text-sunset-500">
 						Area & Boundaries
 					</p>
-					<h2 className="mt-3 font-playfair text-3xl text-sand-50 lg:text-4xl">
+					<h2 className="mt-3 font-playfair text-3xl text-charcoal-900 lg:text-4xl">
 						Where the Wild Begins and Ends
 					</h2>
 					<div className="mx-auto mt-5 h-px w-16 bg-sunset-500/40" />
@@ -320,28 +320,28 @@ function BoundariesSection() {
 					{/* Left: area figures */}
 					<div className="w-full lg:w-[32%]">
 						<div>
-							<p className="font-display text-xs uppercase tracking-display text-sunset-500/70">
+							<p className="font-display text-xs uppercase tracking-display text-sunset-500">
 								Core Zone
 							</p>
-							<p className="mt-2 font-playfair text-5xl font-semibold text-sand-50 leading-none">
+							<p className="mt-2 font-playfair text-5xl font-semibold text-charcoal-900 leading-none">
 								392 km²
 							</p>
-							<p className="mt-3 font-body text-sm text-charcoal-300 leading-relaxed">
+							<p className="mt-3 font-body text-sm text-charcoal-600 leading-relaxed">
 								The protected heart of the park — the zone from which no human
 								settlement is permitted.
 							</p>
 						</div>
 
-						<div className="my-8 h-px w-24 bg-sunset-500/20" />
+						<div className="my-8 h-px w-24 bg-muted-300" />
 
 						<div>
-							<p className="font-display text-xs uppercase tracking-display text-sunset-500/70">
+							<p className="font-display text-xs uppercase tracking-display text-sunset-500">
 								Tiger Reserve Total
 							</p>
-							<p className="mt-2 font-playfair text-5xl font-semibold text-sand-50 leading-none">
+							<p className="mt-2 font-playfair text-5xl font-semibold text-charcoal-900 leading-none">
 								1,334 km²
 							</p>
-							<p className="mt-3 font-body text-sm text-charcoal-300 leading-relaxed">
+							<p className="mt-3 font-body text-sm text-charcoal-600 leading-relaxed">
 								Including buffer zones — one of the most complete tiger
 								ecosystems in India.
 							</p>
@@ -350,11 +350,11 @@ function BoundariesSection() {
 
 					{/* Right: compass grid */}
 					<div className="w-full lg:flex-1">
-						<div className="grid grid-cols-2 gap-px bg-sunset-500/10 overflow-hidden rounded-sm">
+						<div className="grid grid-cols-2 gap-px bg-muted-300 overflow-hidden rounded-sm">
 							{CARDINAL_BOUNDARIES.map((b) => (
-								<div key={b.direction} className="bg-forest-900 p-8 relative">
+								<div key={b.direction} className="bg-cream-100 p-8 relative">
 									<p
-										className="absolute top-4 right-5 font-playfair text-7xl lg:text-8xl font-semibold italic text-sunset-500/15 leading-none select-none"
+										className="absolute top-4 right-5 font-playfair text-7xl lg:text-8xl font-semibold italic text-charcoal-900/8 leading-none select-none"
 										aria-hidden
 									>
 										{b.direction}
@@ -362,10 +362,10 @@ function BoundariesSection() {
 									<p className="font-display text-xs uppercase tracking-display text-sunset-500">
 										{b.label}
 									</p>
-									<p className="mt-2 font-playfair text-xl text-sand-50">
+									<p className="mt-2 font-playfair text-xl text-charcoal-900">
 										{b.boundary}
 									</p>
-									<p className="mt-2 font-body text-sm text-charcoal-300 leading-relaxed">
+									<p className="mt-2 font-body text-sm text-charcoal-600 leading-relaxed">
 										{b.description}
 									</p>
 								</div>
@@ -381,7 +381,7 @@ function BoundariesSection() {
 function LakesSection() {
 	return (
 		<section
-			className="bg-forest-900 px-6 py-24 lg:px-8 lg:py-32"
+			className="bg-sand-50 px-6 py-24 lg:px-8 lg:py-32"
 			aria-label="Landscape and lakes"
 		>
 			<div className="mx-auto max-w-7xl">
@@ -389,13 +389,13 @@ function LakesSection() {
 					<p className="font-display text-xs uppercase tracking-display text-sunset-500">
 						Landscape & Water
 					</p>
-					<h2 className="mt-3 font-playfair text-3xl text-sand-50 lg:text-4xl">
+					<h2 className="mt-3 font-playfair text-3xl text-charcoal-900 lg:text-4xl">
 						Three Lakes, One Living Wilderness
 					</h2>
 					<div className="mx-auto mt-5 h-px w-16 bg-sunset-500/40" />
 				</div>
 
-				<p className="mx-auto mt-5 max-w-2xl font-body text-base text-charcoal-300 text-center leading-relaxed">
+				<p className="mx-auto mt-5 max-w-2xl font-body text-base text-charcoal-600 text-center leading-relaxed">
 					Ranthambore's three lakes are the ecological pulse of the park —
 					drawing tigers, crocodiles, and hundreds of bird species. In the dry
 					summer months, the lakes become the only reliable water source,
@@ -407,34 +407,34 @@ function LakesSection() {
 					{LAKES.map((lake) => (
 						<div
 							key={lake.name}
-							className="relative flex flex-col overflow-hidden rounded-sm bg-charcoal-950 ring-1 ring-sunset-500/15 min-h-[420px] lg:min-h-[500px]"
+							className="relative flex flex-col overflow-hidden rounded-sm bg-cream-100 ring-1 ring-muted-300 min-h-[380px]"
 						>
 							<div className="flex-1 p-8 flex flex-col">
-								<p className="absolute top-6 right-6 font-display text-xs uppercase tracking-display text-sunset-500/50">
+								<p className="absolute top-6 right-6 font-display text-xs uppercase tracking-display text-sunset-500/60">
 									{lake.index}
 								</p>
 								<p className="font-display text-xs uppercase tracking-display text-sunset-500">
 									{lake.position}
 								</p>
-								<h3 className="mt-3 font-playfair text-2xl text-sand-50 lg:text-3xl">
+								<h3 className="mt-3 font-playfair text-2xl text-charcoal-900 lg:text-3xl">
 									{lake.name}
 								</h3>
-								<p className="mt-1 font-playfair text-sm italic text-charcoal-300">
+								<p className="mt-1 font-playfair text-sm italic text-charcoal-500">
 									{lake.meaning}
 								</p>
 								<div className="mt-5 h-px w-10 bg-sunset-500/40" />
-								<p className="mt-6 font-body text-sm leading-relaxed text-charcoal-300 flex-1">
+								<p className="mt-6 font-body text-sm leading-relaxed text-charcoal-600 flex-1">
 									{lake.note}
 								</p>
 							</div>
-							<div className="border-t border-sunset-500/10 px-8 py-5 flex items-center justify-between">
+							<div className="border-t border-muted-300 px-8 py-5 flex items-center justify-between">
 								<div className="flex items-center gap-2">
-									<span className="size-1.5 rotate-45 bg-sunset-500/50 shrink-0" />
-									<p className="font-display text-xs uppercase tracking-display text-charcoal-500">
+									<span className="size-1.5 rotate-45 bg-sunset-500/60 shrink-0" />
+									<p className="font-display text-xs uppercase tracking-display text-charcoal-400">
 										Lake
 									</p>
 								</div>
-								<p className="font-playfair text-xs text-charcoal-700">
+								<p className="font-playfair text-xs text-charcoal-400">
 									{lake.index} / 03
 								</p>
 							</div>
@@ -534,4 +534,3 @@ function VegetationSection() {
 		</section>
 	);
 }
-

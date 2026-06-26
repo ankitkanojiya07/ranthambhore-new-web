@@ -11,7 +11,40 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as mainRouteRouteImport } from './routes/(main)/route'
 import { Route as mainIndexRouteImport } from './routes/(main)/index'
+import { Route as mainWildlifeIndexRouteImport } from './routes/(main)/wildlife/index'
+import { Route as mainStayIndexRouteImport } from './routes/(main)/stay/index'
+import { Route as mainSafariIndexRouteImport } from './routes/(main)/safari/index'
+import { Route as mainPlanIndexRouteImport } from './routes/(main)/plan/index'
+import { Route as mainNearbyPlacesIndexRouteImport } from './routes/(main)/nearby-places/index'
+import { Route as mainContactIndexRouteImport } from './routes/(main)/contact/index'
+import { Route as mainBlogIndexRouteImport } from './routes/(main)/blog/index'
+import { Route as mainAboutIndexRouteImport } from './routes/(main)/about/index'
+import { Route as mainWildlifeTigersRouteImport } from './routes/(main)/wildlife/tigers'
+import { Route as mainWildlifeTigerIdentificationRouteImport } from './routes/(main)/wildlife/tiger-identification'
+import { Route as mainWildlifeReptilesAndAmphibiansRouteImport } from './routes/(main)/wildlife/reptiles-and-amphibians'
+import { Route as mainWildlifePhotographyRouteImport } from './routes/(main)/wildlife/photography'
+import { Route as mainWildlifeMammalsRouteImport } from './routes/(main)/wildlife/mammals'
+import { Route as mainWildlifeFloraRouteImport } from './routes/(main)/wildlife/flora'
+import { Route as mainWildlifeConservationRouteImport } from './routes/(main)/wildlife/conservation'
+import { Route as mainWildlifeBirdsRouteImport } from './routes/(main)/wildlife/birds'
+import { Route as mainStayHotelsRouteImport } from './routes/(main)/stay/hotels'
+import { Route as mainStayGuideRouteImport } from './routes/(main)/stay/guide'
+import { Route as mainSafariZonesRouteImport } from './routes/(main)/safari/zones'
+import { Route as mainSafariTimingAndFeesRouteImport } from './routes/(main)/safari/timing-and-fees'
+import { Route as mainSafariJeepRouteImport } from './routes/(main)/safari/jeep'
+import { Route as mainSafariChambalBoatRouteImport } from './routes/(main)/safari/chambal-boat'
+import { Route as mainSafariCanterRouteImport } from './routes/(main)/safari/canter'
+import { Route as mainSafariBookingGuidelinesRouteImport } from './routes/(main)/safari/booking-guidelines'
+import { Route as mainSafariBookRouteImport } from './routes/(main)/safari/book'
+import { Route as mainPlanTravelTipsRouteImport } from './routes/(main)/plan/travel-tips'
+import { Route as mainPlanTourPackagesRouteImport } from './routes/(main)/plan/tour-packages'
+import { Route as mainPlanHowToReachRouteImport } from './routes/(main)/plan/how-to-reach'
+import { Route as mainPlanFaqsRouteImport } from './routes/(main)/plan/faqs'
+import { Route as mainPlanDosAndDontsRouteImport } from './routes/(main)/plan/dos-and-donts'
+import { Route as mainPlanCabHireRouteImport } from './routes/(main)/plan/cab-hire'
+import { Route as mainPlanBestTimeRouteImport } from './routes/(main)/plan/best-time'
 import { Route as mainAboutTigersRouteImport } from './routes/(main)/about/tigers'
+import { Route as mainAboutTemplesAndMuseumsRouteImport } from './routes/(main)/about/temples-and-museums'
 import { Route as mainAboutNationalParkRouteImport } from './routes/(main)/about/national-park'
 import { Route as mainAboutHistoryRouteImport } from './routes/(main)/about/history'
 import { Route as mainAboutFortRouteImport } from './routes/(main)/about/fort'
@@ -27,11 +60,181 @@ const mainIndexRoute = mainIndexRouteImport.update({
   path: '/',
   getParentRoute: () => mainRouteRoute,
 } as any)
+const mainWildlifeIndexRoute = mainWildlifeIndexRouteImport.update({
+  id: '/wildlife/',
+  path: '/wildlife/',
+  getParentRoute: () => mainRouteRoute,
+} as any)
+const mainStayIndexRoute = mainStayIndexRouteImport.update({
+  id: '/stay/',
+  path: '/stay/',
+  getParentRoute: () => mainRouteRoute,
+} as any)
+const mainSafariIndexRoute = mainSafariIndexRouteImport.update({
+  id: '/safari/',
+  path: '/safari/',
+  getParentRoute: () => mainRouteRoute,
+} as any)
+const mainPlanIndexRoute = mainPlanIndexRouteImport.update({
+  id: '/plan/',
+  path: '/plan/',
+  getParentRoute: () => mainRouteRoute,
+} as any)
+const mainNearbyPlacesIndexRoute = mainNearbyPlacesIndexRouteImport.update({
+  id: '/nearby-places/',
+  path: '/nearby-places/',
+  getParentRoute: () => mainRouteRoute,
+} as any)
+const mainContactIndexRoute = mainContactIndexRouteImport.update({
+  id: '/contact/',
+  path: '/contact/',
+  getParentRoute: () => mainRouteRoute,
+} as any)
+const mainBlogIndexRoute = mainBlogIndexRouteImport.update({
+  id: '/blog/',
+  path: '/blog/',
+  getParentRoute: () => mainRouteRoute,
+} as any)
+const mainAboutIndexRoute = mainAboutIndexRouteImport.update({
+  id: '/about/',
+  path: '/about/',
+  getParentRoute: () => mainRouteRoute,
+} as any)
+const mainWildlifeTigersRoute = mainWildlifeTigersRouteImport.update({
+  id: '/wildlife/tigers',
+  path: '/wildlife/tigers',
+  getParentRoute: () => mainRouteRoute,
+} as any)
+const mainWildlifeTigerIdentificationRoute =
+  mainWildlifeTigerIdentificationRouteImport.update({
+    id: '/wildlife/tiger-identification',
+    path: '/wildlife/tiger-identification',
+    getParentRoute: () => mainRouteRoute,
+  } as any)
+const mainWildlifeReptilesAndAmphibiansRoute =
+  mainWildlifeReptilesAndAmphibiansRouteImport.update({
+    id: '/wildlife/reptiles-and-amphibians',
+    path: '/wildlife/reptiles-and-amphibians',
+    getParentRoute: () => mainRouteRoute,
+  } as any)
+const mainWildlifePhotographyRoute = mainWildlifePhotographyRouteImport.update({
+  id: '/wildlife/photography',
+  path: '/wildlife/photography',
+  getParentRoute: () => mainRouteRoute,
+} as any)
+const mainWildlifeMammalsRoute = mainWildlifeMammalsRouteImport.update({
+  id: '/wildlife/mammals',
+  path: '/wildlife/mammals',
+  getParentRoute: () => mainRouteRoute,
+} as any)
+const mainWildlifeFloraRoute = mainWildlifeFloraRouteImport.update({
+  id: '/wildlife/flora',
+  path: '/wildlife/flora',
+  getParentRoute: () => mainRouteRoute,
+} as any)
+const mainWildlifeConservationRoute =
+  mainWildlifeConservationRouteImport.update({
+    id: '/wildlife/conservation',
+    path: '/wildlife/conservation',
+    getParentRoute: () => mainRouteRoute,
+  } as any)
+const mainWildlifeBirdsRoute = mainWildlifeBirdsRouteImport.update({
+  id: '/wildlife/birds',
+  path: '/wildlife/birds',
+  getParentRoute: () => mainRouteRoute,
+} as any)
+const mainStayHotelsRoute = mainStayHotelsRouteImport.update({
+  id: '/stay/hotels',
+  path: '/stay/hotels',
+  getParentRoute: () => mainRouteRoute,
+} as any)
+const mainStayGuideRoute = mainStayGuideRouteImport.update({
+  id: '/stay/guide',
+  path: '/stay/guide',
+  getParentRoute: () => mainRouteRoute,
+} as any)
+const mainSafariZonesRoute = mainSafariZonesRouteImport.update({
+  id: '/safari/zones',
+  path: '/safari/zones',
+  getParentRoute: () => mainRouteRoute,
+} as any)
+const mainSafariTimingAndFeesRoute = mainSafariTimingAndFeesRouteImport.update({
+  id: '/safari/timing-and-fees',
+  path: '/safari/timing-and-fees',
+  getParentRoute: () => mainRouteRoute,
+} as any)
+const mainSafariJeepRoute = mainSafariJeepRouteImport.update({
+  id: '/safari/jeep',
+  path: '/safari/jeep',
+  getParentRoute: () => mainRouteRoute,
+} as any)
+const mainSafariChambalBoatRoute = mainSafariChambalBoatRouteImport.update({
+  id: '/safari/chambal-boat',
+  path: '/safari/chambal-boat',
+  getParentRoute: () => mainRouteRoute,
+} as any)
+const mainSafariCanterRoute = mainSafariCanterRouteImport.update({
+  id: '/safari/canter',
+  path: '/safari/canter',
+  getParentRoute: () => mainRouteRoute,
+} as any)
+const mainSafariBookingGuidelinesRoute =
+  mainSafariBookingGuidelinesRouteImport.update({
+    id: '/safari/booking-guidelines',
+    path: '/safari/booking-guidelines',
+    getParentRoute: () => mainRouteRoute,
+  } as any)
+const mainSafariBookRoute = mainSafariBookRouteImport.update({
+  id: '/safari/book',
+  path: '/safari/book',
+  getParentRoute: () => mainRouteRoute,
+} as any)
+const mainPlanTravelTipsRoute = mainPlanTravelTipsRouteImport.update({
+  id: '/plan/travel-tips',
+  path: '/plan/travel-tips',
+  getParentRoute: () => mainRouteRoute,
+} as any)
+const mainPlanTourPackagesRoute = mainPlanTourPackagesRouteImport.update({
+  id: '/plan/tour-packages',
+  path: '/plan/tour-packages',
+  getParentRoute: () => mainRouteRoute,
+} as any)
+const mainPlanHowToReachRoute = mainPlanHowToReachRouteImport.update({
+  id: '/plan/how-to-reach',
+  path: '/plan/how-to-reach',
+  getParentRoute: () => mainRouteRoute,
+} as any)
+const mainPlanFaqsRoute = mainPlanFaqsRouteImport.update({
+  id: '/plan/faqs',
+  path: '/plan/faqs',
+  getParentRoute: () => mainRouteRoute,
+} as any)
+const mainPlanDosAndDontsRoute = mainPlanDosAndDontsRouteImport.update({
+  id: '/plan/dos-and-donts',
+  path: '/plan/dos-and-donts',
+  getParentRoute: () => mainRouteRoute,
+} as any)
+const mainPlanCabHireRoute = mainPlanCabHireRouteImport.update({
+  id: '/plan/cab-hire',
+  path: '/plan/cab-hire',
+  getParentRoute: () => mainRouteRoute,
+} as any)
+const mainPlanBestTimeRoute = mainPlanBestTimeRouteImport.update({
+  id: '/plan/best-time',
+  path: '/plan/best-time',
+  getParentRoute: () => mainRouteRoute,
+} as any)
 const mainAboutTigersRoute = mainAboutTigersRouteImport.update({
   id: '/about/tigers',
   path: '/about/tigers',
   getParentRoute: () => mainRouteRoute,
 } as any)
+const mainAboutTemplesAndMuseumsRoute =
+  mainAboutTemplesAndMuseumsRouteImport.update({
+    id: '/about/temples-and-museums',
+    path: '/about/temples-and-museums',
+    getParentRoute: () => mainRouteRoute,
+  } as any)
 const mainAboutNationalParkRoute = mainAboutNationalParkRouteImport.update({
   id: '/about/national-park',
   path: '/about/national-park',
@@ -65,7 +268,40 @@ export interface FileRoutesByFullPath {
   '/about/fort': typeof mainAboutFortRoute
   '/about/history': typeof mainAboutHistoryRoute
   '/about/national-park': typeof mainAboutNationalParkRoute
+  '/about/temples-and-museums': typeof mainAboutTemplesAndMuseumsRoute
   '/about/tigers': typeof mainAboutTigersRoute
+  '/plan/best-time': typeof mainPlanBestTimeRoute
+  '/plan/cab-hire': typeof mainPlanCabHireRoute
+  '/plan/dos-and-donts': typeof mainPlanDosAndDontsRoute
+  '/plan/faqs': typeof mainPlanFaqsRoute
+  '/plan/how-to-reach': typeof mainPlanHowToReachRoute
+  '/plan/tour-packages': typeof mainPlanTourPackagesRoute
+  '/plan/travel-tips': typeof mainPlanTravelTipsRoute
+  '/safari/book': typeof mainSafariBookRoute
+  '/safari/booking-guidelines': typeof mainSafariBookingGuidelinesRoute
+  '/safari/canter': typeof mainSafariCanterRoute
+  '/safari/chambal-boat': typeof mainSafariChambalBoatRoute
+  '/safari/jeep': typeof mainSafariJeepRoute
+  '/safari/timing-and-fees': typeof mainSafariTimingAndFeesRoute
+  '/safari/zones': typeof mainSafariZonesRoute
+  '/stay/guide': typeof mainStayGuideRoute
+  '/stay/hotels': typeof mainStayHotelsRoute
+  '/wildlife/birds': typeof mainWildlifeBirdsRoute
+  '/wildlife/conservation': typeof mainWildlifeConservationRoute
+  '/wildlife/flora': typeof mainWildlifeFloraRoute
+  '/wildlife/mammals': typeof mainWildlifeMammalsRoute
+  '/wildlife/photography': typeof mainWildlifePhotographyRoute
+  '/wildlife/reptiles-and-amphibians': typeof mainWildlifeReptilesAndAmphibiansRoute
+  '/wildlife/tiger-identification': typeof mainWildlifeTigerIdentificationRoute
+  '/wildlife/tigers': typeof mainWildlifeTigersRoute
+  '/about/': typeof mainAboutIndexRoute
+  '/blog/': typeof mainBlogIndexRoute
+  '/contact/': typeof mainContactIndexRoute
+  '/nearby-places/': typeof mainNearbyPlacesIndexRoute
+  '/plan/': typeof mainPlanIndexRoute
+  '/safari/': typeof mainSafariIndexRoute
+  '/stay/': typeof mainStayIndexRoute
+  '/wildlife/': typeof mainWildlifeIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof mainIndexRoute
@@ -74,7 +310,40 @@ export interface FileRoutesByTo {
   '/about/fort': typeof mainAboutFortRoute
   '/about/history': typeof mainAboutHistoryRoute
   '/about/national-park': typeof mainAboutNationalParkRoute
+  '/about/temples-and-museums': typeof mainAboutTemplesAndMuseumsRoute
   '/about/tigers': typeof mainAboutTigersRoute
+  '/plan/best-time': typeof mainPlanBestTimeRoute
+  '/plan/cab-hire': typeof mainPlanCabHireRoute
+  '/plan/dos-and-donts': typeof mainPlanDosAndDontsRoute
+  '/plan/faqs': typeof mainPlanFaqsRoute
+  '/plan/how-to-reach': typeof mainPlanHowToReachRoute
+  '/plan/tour-packages': typeof mainPlanTourPackagesRoute
+  '/plan/travel-tips': typeof mainPlanTravelTipsRoute
+  '/safari/book': typeof mainSafariBookRoute
+  '/safari/booking-guidelines': typeof mainSafariBookingGuidelinesRoute
+  '/safari/canter': typeof mainSafariCanterRoute
+  '/safari/chambal-boat': typeof mainSafariChambalBoatRoute
+  '/safari/jeep': typeof mainSafariJeepRoute
+  '/safari/timing-and-fees': typeof mainSafariTimingAndFeesRoute
+  '/safari/zones': typeof mainSafariZonesRoute
+  '/stay/guide': typeof mainStayGuideRoute
+  '/stay/hotels': typeof mainStayHotelsRoute
+  '/wildlife/birds': typeof mainWildlifeBirdsRoute
+  '/wildlife/conservation': typeof mainWildlifeConservationRoute
+  '/wildlife/flora': typeof mainWildlifeFloraRoute
+  '/wildlife/mammals': typeof mainWildlifeMammalsRoute
+  '/wildlife/photography': typeof mainWildlifePhotographyRoute
+  '/wildlife/reptiles-and-amphibians': typeof mainWildlifeReptilesAndAmphibiansRoute
+  '/wildlife/tiger-identification': typeof mainWildlifeTigerIdentificationRoute
+  '/wildlife/tigers': typeof mainWildlifeTigersRoute
+  '/about': typeof mainAboutIndexRoute
+  '/blog': typeof mainBlogIndexRoute
+  '/contact': typeof mainContactIndexRoute
+  '/nearby-places': typeof mainNearbyPlacesIndexRoute
+  '/plan': typeof mainPlanIndexRoute
+  '/safari': typeof mainSafariIndexRoute
+  '/stay': typeof mainStayIndexRoute
+  '/wildlife': typeof mainWildlifeIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -85,7 +354,40 @@ export interface FileRoutesById {
   '/(main)/about/fort': typeof mainAboutFortRoute
   '/(main)/about/history': typeof mainAboutHistoryRoute
   '/(main)/about/national-park': typeof mainAboutNationalParkRoute
+  '/(main)/about/temples-and-museums': typeof mainAboutTemplesAndMuseumsRoute
   '/(main)/about/tigers': typeof mainAboutTigersRoute
+  '/(main)/plan/best-time': typeof mainPlanBestTimeRoute
+  '/(main)/plan/cab-hire': typeof mainPlanCabHireRoute
+  '/(main)/plan/dos-and-donts': typeof mainPlanDosAndDontsRoute
+  '/(main)/plan/faqs': typeof mainPlanFaqsRoute
+  '/(main)/plan/how-to-reach': typeof mainPlanHowToReachRoute
+  '/(main)/plan/tour-packages': typeof mainPlanTourPackagesRoute
+  '/(main)/plan/travel-tips': typeof mainPlanTravelTipsRoute
+  '/(main)/safari/book': typeof mainSafariBookRoute
+  '/(main)/safari/booking-guidelines': typeof mainSafariBookingGuidelinesRoute
+  '/(main)/safari/canter': typeof mainSafariCanterRoute
+  '/(main)/safari/chambal-boat': typeof mainSafariChambalBoatRoute
+  '/(main)/safari/jeep': typeof mainSafariJeepRoute
+  '/(main)/safari/timing-and-fees': typeof mainSafariTimingAndFeesRoute
+  '/(main)/safari/zones': typeof mainSafariZonesRoute
+  '/(main)/stay/guide': typeof mainStayGuideRoute
+  '/(main)/stay/hotels': typeof mainStayHotelsRoute
+  '/(main)/wildlife/birds': typeof mainWildlifeBirdsRoute
+  '/(main)/wildlife/conservation': typeof mainWildlifeConservationRoute
+  '/(main)/wildlife/flora': typeof mainWildlifeFloraRoute
+  '/(main)/wildlife/mammals': typeof mainWildlifeMammalsRoute
+  '/(main)/wildlife/photography': typeof mainWildlifePhotographyRoute
+  '/(main)/wildlife/reptiles-and-amphibians': typeof mainWildlifeReptilesAndAmphibiansRoute
+  '/(main)/wildlife/tiger-identification': typeof mainWildlifeTigerIdentificationRoute
+  '/(main)/wildlife/tigers': typeof mainWildlifeTigersRoute
+  '/(main)/about/': typeof mainAboutIndexRoute
+  '/(main)/blog/': typeof mainBlogIndexRoute
+  '/(main)/contact/': typeof mainContactIndexRoute
+  '/(main)/nearby-places/': typeof mainNearbyPlacesIndexRoute
+  '/(main)/plan/': typeof mainPlanIndexRoute
+  '/(main)/safari/': typeof mainSafariIndexRoute
+  '/(main)/stay/': typeof mainStayIndexRoute
+  '/(main)/wildlife/': typeof mainWildlifeIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -96,7 +398,40 @@ export interface FileRouteTypes {
     | '/about/fort'
     | '/about/history'
     | '/about/national-park'
+    | '/about/temples-and-museums'
     | '/about/tigers'
+    | '/plan/best-time'
+    | '/plan/cab-hire'
+    | '/plan/dos-and-donts'
+    | '/plan/faqs'
+    | '/plan/how-to-reach'
+    | '/plan/tour-packages'
+    | '/plan/travel-tips'
+    | '/safari/book'
+    | '/safari/booking-guidelines'
+    | '/safari/canter'
+    | '/safari/chambal-boat'
+    | '/safari/jeep'
+    | '/safari/timing-and-fees'
+    | '/safari/zones'
+    | '/stay/guide'
+    | '/stay/hotels'
+    | '/wildlife/birds'
+    | '/wildlife/conservation'
+    | '/wildlife/flora'
+    | '/wildlife/mammals'
+    | '/wildlife/photography'
+    | '/wildlife/reptiles-and-amphibians'
+    | '/wildlife/tiger-identification'
+    | '/wildlife/tigers'
+    | '/about/'
+    | '/blog/'
+    | '/contact/'
+    | '/nearby-places/'
+    | '/plan/'
+    | '/safari/'
+    | '/stay/'
+    | '/wildlife/'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -105,7 +440,40 @@ export interface FileRouteTypes {
     | '/about/fort'
     | '/about/history'
     | '/about/national-park'
+    | '/about/temples-and-museums'
     | '/about/tigers'
+    | '/plan/best-time'
+    | '/plan/cab-hire'
+    | '/plan/dos-and-donts'
+    | '/plan/faqs'
+    | '/plan/how-to-reach'
+    | '/plan/tour-packages'
+    | '/plan/travel-tips'
+    | '/safari/book'
+    | '/safari/booking-guidelines'
+    | '/safari/canter'
+    | '/safari/chambal-boat'
+    | '/safari/jeep'
+    | '/safari/timing-and-fees'
+    | '/safari/zones'
+    | '/stay/guide'
+    | '/stay/hotels'
+    | '/wildlife/birds'
+    | '/wildlife/conservation'
+    | '/wildlife/flora'
+    | '/wildlife/mammals'
+    | '/wildlife/photography'
+    | '/wildlife/reptiles-and-amphibians'
+    | '/wildlife/tiger-identification'
+    | '/wildlife/tigers'
+    | '/about'
+    | '/blog'
+    | '/contact'
+    | '/nearby-places'
+    | '/plan'
+    | '/safari'
+    | '/stay'
+    | '/wildlife'
   id:
     | '__root__'
     | '/(main)'
@@ -115,7 +483,40 @@ export interface FileRouteTypes {
     | '/(main)/about/fort'
     | '/(main)/about/history'
     | '/(main)/about/national-park'
+    | '/(main)/about/temples-and-museums'
     | '/(main)/about/tigers'
+    | '/(main)/plan/best-time'
+    | '/(main)/plan/cab-hire'
+    | '/(main)/plan/dos-and-donts'
+    | '/(main)/plan/faqs'
+    | '/(main)/plan/how-to-reach'
+    | '/(main)/plan/tour-packages'
+    | '/(main)/plan/travel-tips'
+    | '/(main)/safari/book'
+    | '/(main)/safari/booking-guidelines'
+    | '/(main)/safari/canter'
+    | '/(main)/safari/chambal-boat'
+    | '/(main)/safari/jeep'
+    | '/(main)/safari/timing-and-fees'
+    | '/(main)/safari/zones'
+    | '/(main)/stay/guide'
+    | '/(main)/stay/hotels'
+    | '/(main)/wildlife/birds'
+    | '/(main)/wildlife/conservation'
+    | '/(main)/wildlife/flora'
+    | '/(main)/wildlife/mammals'
+    | '/(main)/wildlife/photography'
+    | '/(main)/wildlife/reptiles-and-amphibians'
+    | '/(main)/wildlife/tiger-identification'
+    | '/(main)/wildlife/tigers'
+    | '/(main)/about/'
+    | '/(main)/blog/'
+    | '/(main)/contact/'
+    | '/(main)/nearby-places/'
+    | '/(main)/plan/'
+    | '/(main)/safari/'
+    | '/(main)/stay/'
+    | '/(main)/wildlife/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -138,11 +539,242 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof mainIndexRouteImport
       parentRoute: typeof mainRouteRoute
     }
+    '/(main)/wildlife/': {
+      id: '/(main)/wildlife/'
+      path: '/wildlife'
+      fullPath: '/wildlife/'
+      preLoaderRoute: typeof mainWildlifeIndexRouteImport
+      parentRoute: typeof mainRouteRoute
+    }
+    '/(main)/stay/': {
+      id: '/(main)/stay/'
+      path: '/stay'
+      fullPath: '/stay/'
+      preLoaderRoute: typeof mainStayIndexRouteImport
+      parentRoute: typeof mainRouteRoute
+    }
+    '/(main)/safari/': {
+      id: '/(main)/safari/'
+      path: '/safari'
+      fullPath: '/safari/'
+      preLoaderRoute: typeof mainSafariIndexRouteImport
+      parentRoute: typeof mainRouteRoute
+    }
+    '/(main)/plan/': {
+      id: '/(main)/plan/'
+      path: '/plan'
+      fullPath: '/plan/'
+      preLoaderRoute: typeof mainPlanIndexRouteImport
+      parentRoute: typeof mainRouteRoute
+    }
+    '/(main)/nearby-places/': {
+      id: '/(main)/nearby-places/'
+      path: '/nearby-places'
+      fullPath: '/nearby-places/'
+      preLoaderRoute: typeof mainNearbyPlacesIndexRouteImport
+      parentRoute: typeof mainRouteRoute
+    }
+    '/(main)/contact/': {
+      id: '/(main)/contact/'
+      path: '/contact'
+      fullPath: '/contact/'
+      preLoaderRoute: typeof mainContactIndexRouteImport
+      parentRoute: typeof mainRouteRoute
+    }
+    '/(main)/blog/': {
+      id: '/(main)/blog/'
+      path: '/blog'
+      fullPath: '/blog/'
+      preLoaderRoute: typeof mainBlogIndexRouteImport
+      parentRoute: typeof mainRouteRoute
+    }
+    '/(main)/about/': {
+      id: '/(main)/about/'
+      path: '/about'
+      fullPath: '/about/'
+      preLoaderRoute: typeof mainAboutIndexRouteImport
+      parentRoute: typeof mainRouteRoute
+    }
+    '/(main)/wildlife/tigers': {
+      id: '/(main)/wildlife/tigers'
+      path: '/wildlife/tigers'
+      fullPath: '/wildlife/tigers'
+      preLoaderRoute: typeof mainWildlifeTigersRouteImport
+      parentRoute: typeof mainRouteRoute
+    }
+    '/(main)/wildlife/tiger-identification': {
+      id: '/(main)/wildlife/tiger-identification'
+      path: '/wildlife/tiger-identification'
+      fullPath: '/wildlife/tiger-identification'
+      preLoaderRoute: typeof mainWildlifeTigerIdentificationRouteImport
+      parentRoute: typeof mainRouteRoute
+    }
+    '/(main)/wildlife/reptiles-and-amphibians': {
+      id: '/(main)/wildlife/reptiles-and-amphibians'
+      path: '/wildlife/reptiles-and-amphibians'
+      fullPath: '/wildlife/reptiles-and-amphibians'
+      preLoaderRoute: typeof mainWildlifeReptilesAndAmphibiansRouteImport
+      parentRoute: typeof mainRouteRoute
+    }
+    '/(main)/wildlife/photography': {
+      id: '/(main)/wildlife/photography'
+      path: '/wildlife/photography'
+      fullPath: '/wildlife/photography'
+      preLoaderRoute: typeof mainWildlifePhotographyRouteImport
+      parentRoute: typeof mainRouteRoute
+    }
+    '/(main)/wildlife/mammals': {
+      id: '/(main)/wildlife/mammals'
+      path: '/wildlife/mammals'
+      fullPath: '/wildlife/mammals'
+      preLoaderRoute: typeof mainWildlifeMammalsRouteImport
+      parentRoute: typeof mainRouteRoute
+    }
+    '/(main)/wildlife/flora': {
+      id: '/(main)/wildlife/flora'
+      path: '/wildlife/flora'
+      fullPath: '/wildlife/flora'
+      preLoaderRoute: typeof mainWildlifeFloraRouteImport
+      parentRoute: typeof mainRouteRoute
+    }
+    '/(main)/wildlife/conservation': {
+      id: '/(main)/wildlife/conservation'
+      path: '/wildlife/conservation'
+      fullPath: '/wildlife/conservation'
+      preLoaderRoute: typeof mainWildlifeConservationRouteImport
+      parentRoute: typeof mainRouteRoute
+    }
+    '/(main)/wildlife/birds': {
+      id: '/(main)/wildlife/birds'
+      path: '/wildlife/birds'
+      fullPath: '/wildlife/birds'
+      preLoaderRoute: typeof mainWildlifeBirdsRouteImport
+      parentRoute: typeof mainRouteRoute
+    }
+    '/(main)/stay/hotels': {
+      id: '/(main)/stay/hotels'
+      path: '/stay/hotels'
+      fullPath: '/stay/hotels'
+      preLoaderRoute: typeof mainStayHotelsRouteImport
+      parentRoute: typeof mainRouteRoute
+    }
+    '/(main)/stay/guide': {
+      id: '/(main)/stay/guide'
+      path: '/stay/guide'
+      fullPath: '/stay/guide'
+      preLoaderRoute: typeof mainStayGuideRouteImport
+      parentRoute: typeof mainRouteRoute
+    }
+    '/(main)/safari/zones': {
+      id: '/(main)/safari/zones'
+      path: '/safari/zones'
+      fullPath: '/safari/zones'
+      preLoaderRoute: typeof mainSafariZonesRouteImport
+      parentRoute: typeof mainRouteRoute
+    }
+    '/(main)/safari/timing-and-fees': {
+      id: '/(main)/safari/timing-and-fees'
+      path: '/safari/timing-and-fees'
+      fullPath: '/safari/timing-and-fees'
+      preLoaderRoute: typeof mainSafariTimingAndFeesRouteImport
+      parentRoute: typeof mainRouteRoute
+    }
+    '/(main)/safari/jeep': {
+      id: '/(main)/safari/jeep'
+      path: '/safari/jeep'
+      fullPath: '/safari/jeep'
+      preLoaderRoute: typeof mainSafariJeepRouteImport
+      parentRoute: typeof mainRouteRoute
+    }
+    '/(main)/safari/chambal-boat': {
+      id: '/(main)/safari/chambal-boat'
+      path: '/safari/chambal-boat'
+      fullPath: '/safari/chambal-boat'
+      preLoaderRoute: typeof mainSafariChambalBoatRouteImport
+      parentRoute: typeof mainRouteRoute
+    }
+    '/(main)/safari/canter': {
+      id: '/(main)/safari/canter'
+      path: '/safari/canter'
+      fullPath: '/safari/canter'
+      preLoaderRoute: typeof mainSafariCanterRouteImport
+      parentRoute: typeof mainRouteRoute
+    }
+    '/(main)/safari/booking-guidelines': {
+      id: '/(main)/safari/booking-guidelines'
+      path: '/safari/booking-guidelines'
+      fullPath: '/safari/booking-guidelines'
+      preLoaderRoute: typeof mainSafariBookingGuidelinesRouteImport
+      parentRoute: typeof mainRouteRoute
+    }
+    '/(main)/safari/book': {
+      id: '/(main)/safari/book'
+      path: '/safari/book'
+      fullPath: '/safari/book'
+      preLoaderRoute: typeof mainSafariBookRouteImport
+      parentRoute: typeof mainRouteRoute
+    }
+    '/(main)/plan/travel-tips': {
+      id: '/(main)/plan/travel-tips'
+      path: '/plan/travel-tips'
+      fullPath: '/plan/travel-tips'
+      preLoaderRoute: typeof mainPlanTravelTipsRouteImport
+      parentRoute: typeof mainRouteRoute
+    }
+    '/(main)/plan/tour-packages': {
+      id: '/(main)/plan/tour-packages'
+      path: '/plan/tour-packages'
+      fullPath: '/plan/tour-packages'
+      preLoaderRoute: typeof mainPlanTourPackagesRouteImport
+      parentRoute: typeof mainRouteRoute
+    }
+    '/(main)/plan/how-to-reach': {
+      id: '/(main)/plan/how-to-reach'
+      path: '/plan/how-to-reach'
+      fullPath: '/plan/how-to-reach'
+      preLoaderRoute: typeof mainPlanHowToReachRouteImport
+      parentRoute: typeof mainRouteRoute
+    }
+    '/(main)/plan/faqs': {
+      id: '/(main)/plan/faqs'
+      path: '/plan/faqs'
+      fullPath: '/plan/faqs'
+      preLoaderRoute: typeof mainPlanFaqsRouteImport
+      parentRoute: typeof mainRouteRoute
+    }
+    '/(main)/plan/dos-and-donts': {
+      id: '/(main)/plan/dos-and-donts'
+      path: '/plan/dos-and-donts'
+      fullPath: '/plan/dos-and-donts'
+      preLoaderRoute: typeof mainPlanDosAndDontsRouteImport
+      parentRoute: typeof mainRouteRoute
+    }
+    '/(main)/plan/cab-hire': {
+      id: '/(main)/plan/cab-hire'
+      path: '/plan/cab-hire'
+      fullPath: '/plan/cab-hire'
+      preLoaderRoute: typeof mainPlanCabHireRouteImport
+      parentRoute: typeof mainRouteRoute
+    }
+    '/(main)/plan/best-time': {
+      id: '/(main)/plan/best-time'
+      path: '/plan/best-time'
+      fullPath: '/plan/best-time'
+      preLoaderRoute: typeof mainPlanBestTimeRouteImport
+      parentRoute: typeof mainRouteRoute
+    }
     '/(main)/about/tigers': {
       id: '/(main)/about/tigers'
       path: '/about/tigers'
       fullPath: '/about/tigers'
       preLoaderRoute: typeof mainAboutTigersRouteImport
+      parentRoute: typeof mainRouteRoute
+    }
+    '/(main)/about/temples-and-museums': {
+      id: '/(main)/about/temples-and-museums'
+      path: '/about/temples-and-museums'
+      fullPath: '/about/temples-and-museums'
+      preLoaderRoute: typeof mainAboutTemplesAndMuseumsRouteImport
       parentRoute: typeof mainRouteRoute
     }
     '/(main)/about/national-park': {
@@ -190,7 +822,40 @@ interface mainRouteRouteChildren {
   mainAboutFortRoute: typeof mainAboutFortRoute
   mainAboutHistoryRoute: typeof mainAboutHistoryRoute
   mainAboutNationalParkRoute: typeof mainAboutNationalParkRoute
+  mainAboutTemplesAndMuseumsRoute: typeof mainAboutTemplesAndMuseumsRoute
   mainAboutTigersRoute: typeof mainAboutTigersRoute
+  mainPlanBestTimeRoute: typeof mainPlanBestTimeRoute
+  mainPlanCabHireRoute: typeof mainPlanCabHireRoute
+  mainPlanDosAndDontsRoute: typeof mainPlanDosAndDontsRoute
+  mainPlanFaqsRoute: typeof mainPlanFaqsRoute
+  mainPlanHowToReachRoute: typeof mainPlanHowToReachRoute
+  mainPlanTourPackagesRoute: typeof mainPlanTourPackagesRoute
+  mainPlanTravelTipsRoute: typeof mainPlanTravelTipsRoute
+  mainSafariBookRoute: typeof mainSafariBookRoute
+  mainSafariBookingGuidelinesRoute: typeof mainSafariBookingGuidelinesRoute
+  mainSafariCanterRoute: typeof mainSafariCanterRoute
+  mainSafariChambalBoatRoute: typeof mainSafariChambalBoatRoute
+  mainSafariJeepRoute: typeof mainSafariJeepRoute
+  mainSafariTimingAndFeesRoute: typeof mainSafariTimingAndFeesRoute
+  mainSafariZonesRoute: typeof mainSafariZonesRoute
+  mainStayGuideRoute: typeof mainStayGuideRoute
+  mainStayHotelsRoute: typeof mainStayHotelsRoute
+  mainWildlifeBirdsRoute: typeof mainWildlifeBirdsRoute
+  mainWildlifeConservationRoute: typeof mainWildlifeConservationRoute
+  mainWildlifeFloraRoute: typeof mainWildlifeFloraRoute
+  mainWildlifeMammalsRoute: typeof mainWildlifeMammalsRoute
+  mainWildlifePhotographyRoute: typeof mainWildlifePhotographyRoute
+  mainWildlifeReptilesAndAmphibiansRoute: typeof mainWildlifeReptilesAndAmphibiansRoute
+  mainWildlifeTigerIdentificationRoute: typeof mainWildlifeTigerIdentificationRoute
+  mainWildlifeTigersRoute: typeof mainWildlifeTigersRoute
+  mainAboutIndexRoute: typeof mainAboutIndexRoute
+  mainBlogIndexRoute: typeof mainBlogIndexRoute
+  mainContactIndexRoute: typeof mainContactIndexRoute
+  mainNearbyPlacesIndexRoute: typeof mainNearbyPlacesIndexRoute
+  mainPlanIndexRoute: typeof mainPlanIndexRoute
+  mainSafariIndexRoute: typeof mainSafariIndexRoute
+  mainStayIndexRoute: typeof mainStayIndexRoute
+  mainWildlifeIndexRoute: typeof mainWildlifeIndexRoute
 }
 
 const mainRouteRouteChildren: mainRouteRouteChildren = {
@@ -200,7 +865,41 @@ const mainRouteRouteChildren: mainRouteRouteChildren = {
   mainAboutFortRoute: mainAboutFortRoute,
   mainAboutHistoryRoute: mainAboutHistoryRoute,
   mainAboutNationalParkRoute: mainAboutNationalParkRoute,
+  mainAboutTemplesAndMuseumsRoute: mainAboutTemplesAndMuseumsRoute,
   mainAboutTigersRoute: mainAboutTigersRoute,
+  mainPlanBestTimeRoute: mainPlanBestTimeRoute,
+  mainPlanCabHireRoute: mainPlanCabHireRoute,
+  mainPlanDosAndDontsRoute: mainPlanDosAndDontsRoute,
+  mainPlanFaqsRoute: mainPlanFaqsRoute,
+  mainPlanHowToReachRoute: mainPlanHowToReachRoute,
+  mainPlanTourPackagesRoute: mainPlanTourPackagesRoute,
+  mainPlanTravelTipsRoute: mainPlanTravelTipsRoute,
+  mainSafariBookRoute: mainSafariBookRoute,
+  mainSafariBookingGuidelinesRoute: mainSafariBookingGuidelinesRoute,
+  mainSafariCanterRoute: mainSafariCanterRoute,
+  mainSafariChambalBoatRoute: mainSafariChambalBoatRoute,
+  mainSafariJeepRoute: mainSafariJeepRoute,
+  mainSafariTimingAndFeesRoute: mainSafariTimingAndFeesRoute,
+  mainSafariZonesRoute: mainSafariZonesRoute,
+  mainStayGuideRoute: mainStayGuideRoute,
+  mainStayHotelsRoute: mainStayHotelsRoute,
+  mainWildlifeBirdsRoute: mainWildlifeBirdsRoute,
+  mainWildlifeConservationRoute: mainWildlifeConservationRoute,
+  mainWildlifeFloraRoute: mainWildlifeFloraRoute,
+  mainWildlifeMammalsRoute: mainWildlifeMammalsRoute,
+  mainWildlifePhotographyRoute: mainWildlifePhotographyRoute,
+  mainWildlifeReptilesAndAmphibiansRoute:
+    mainWildlifeReptilesAndAmphibiansRoute,
+  mainWildlifeTigerIdentificationRoute: mainWildlifeTigerIdentificationRoute,
+  mainWildlifeTigersRoute: mainWildlifeTigersRoute,
+  mainAboutIndexRoute: mainAboutIndexRoute,
+  mainBlogIndexRoute: mainBlogIndexRoute,
+  mainContactIndexRoute: mainContactIndexRoute,
+  mainNearbyPlacesIndexRoute: mainNearbyPlacesIndexRoute,
+  mainPlanIndexRoute: mainPlanIndexRoute,
+  mainSafariIndexRoute: mainSafariIndexRoute,
+  mainStayIndexRoute: mainStayIndexRoute,
+  mainWildlifeIndexRoute: mainWildlifeIndexRoute,
 }
 
 const mainRouteRouteWithChildren = mainRouteRoute._addFileChildren(

@@ -9,7 +9,22 @@ import { TaglineSection } from "#/components/home/TaglineSection";
 import { ThingsToDoSection } from "#/components/home/ThingsToDoSection";
 import { ZoneSection } from "#/components/home/ZoneSection";
 
-export const Route = createFileRoute("/(main)/")({ component: Home });
+export const Route = createFileRoute("/(main)/")({
+	head: () => ({
+		meta: [
+			{
+				title:
+					"Ranthambore Safari & Tiger Reserve | Book Jeep Safari | Ranthambhor.com",
+			},
+			{
+				name: "description",
+				content:
+					"Plan your Ranthambore trip with expert help. Book jeep & canter safaris, find top hotels, and explore India's most famous tiger reserve in Rajasthan.",
+			},
+		],
+	}),
+	component: Home,
+});
 
 function Home() {
 	return (

@@ -19,7 +19,6 @@ const itemVariants = {
 	},
 };
 
-
 const ZONES = [
 	{
 		zone: 1,

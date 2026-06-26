@@ -184,12 +184,13 @@ function NavDrawerContent({ onClose }: { onClose: () => void }) {
 					</div>
 
 					{/* Plan My Safari CTA */}
-					<button
-						type="button"
-						className="w-full cursor-pointer rounded border border-golden-400 px-4 py-2.5 font-display text-sm uppercase tracking-display text-golden-300 transition-colors duration-200 hover:bg-golden-400/10"
+					<Link
+						to="/safari/book"
+						onClick={onClose}
+						className="block w-full rounded border border-golden-400 px-4 py-2.5 text-center font-display text-sm uppercase tracking-display text-golden-300 transition-colors duration-200 hover:bg-golden-400/10"
 					>
 						Plan My Safari
-					</button>
+					</Link>
 				</div>
 			</Dialog.Popup>
 		</>
