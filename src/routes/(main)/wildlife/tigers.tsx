@@ -70,9 +70,6 @@ function WildlifeTigersPage() {
 				{ value: "5", unit: "", label: "Famous Individuals", index: "04" },
 			]}
 			sections={SECTIONS}
-			ctaTitle="Spot a Tiger in the Wild"
-			ctaDescription="Book a jeep safari in Zones 2–4 for the best chance of a daylight Bengal tiger encounter."
-			ctaButtonText="Book a Safari"
 		/>
 	);
 }

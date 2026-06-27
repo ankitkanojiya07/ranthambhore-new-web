@@ -45,9 +45,6 @@ function StayGuidePage() {
 					],
 				},
 			]}
-			ctaTitle="Not Sure Where to Stay?"
-			ctaDescription="Tell us which zones you want to safari in and we'll recommend the best area and hotels for your trip."
-			ctaButtonText="Get Expert Advice"
 		/>
 	);
 }

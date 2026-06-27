@@ -55,8 +55,6 @@ function DosAndDontsPage() {
 					],
 				},
 			]}
-			ctaTitle="Book with Confidence"
-			ctaDescription="We are an authorised operator — every safari we arrange follows park rules and best practices."
 		/>
 	);
 }

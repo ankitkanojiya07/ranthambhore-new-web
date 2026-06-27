@@ -56,9 +56,6 @@ function CabHirePage() {
 					body: "Contact our cab desk at Ranthambhor.com to get a quote and confirm your booking in advance. All our driver-partners are police-verified, licensed, and fluent in Hindi and basic English.",
 				},
 			]}
-			ctaTitle="Get a Cab Quote"
-			ctaDescription="Tell us your pickup point, destination, and travel dates — we'll confirm a verified driver and vehicle."
-			ctaButtonText="Request a Quote"
 		/>
 	);
 }

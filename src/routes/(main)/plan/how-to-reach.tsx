@@ -56,9 +56,6 @@ function HowToReachPage() {
 					body: "Taxis, auto-rickshaws, and e-rickshaws are available in Sawai Madhopur town. For the most comfort and flexibility, we recommend pre-booking a private cab with your hotel or through Ranthambhor.com. See our Cab Hire in Ranthambore page for details.",
 				},
 			]}
-			ctaTitle="Need a Transfer?"
-			ctaDescription="We arrange station pickups, airport transfers, and inter-city cabs with verified local drivers."
-			ctaButtonText="Book a Cab"
 		/>
 	);
 }

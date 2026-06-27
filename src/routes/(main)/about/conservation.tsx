@@ -52,8 +52,6 @@ function ConservationPage() {
 			subtitle="From Project Tiger to community partnerships — how Ranthambore became one of India's greatest conservation success stories."
 			image="/tiger-footstep.png"
 			sections={SECTIONS}
-			ctaTitle="Support Conservation Through Your Visit"
-			ctaDescription="Every responsible safari contributes to local livelihoods and the ongoing protection of Ranthambore's tigers and forests."
 		/>
 	);
 }

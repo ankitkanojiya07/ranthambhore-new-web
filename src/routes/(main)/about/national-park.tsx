@@ -1,5 +1,4 @@
 import { createFileRoute } from "@tanstack/react-router";
-import CTASection from "#/components/cta";
 import { TrustBar } from "#/components/pages/TrustBar";
 import { WhyChooseSection } from "#/components/pages/WhyChooseSection";
 
@@ -195,9 +194,6 @@ function NationalParkPage() {
 			<LakesSection />
 
 			<WhyChooseSection />
-
-			{/* ── CTA ── */}
-			<CTASection />
 		</div>
 	);
 }

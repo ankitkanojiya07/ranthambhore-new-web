@@ -56,9 +56,6 @@ function NearbyPlacesPage() {
 					body: "An authentic, little-visited Rajasthan town with a stunning maharaja's palace, ancient temples, and a strong cultural identity. The city god, Kaila Devi, is worshipped in a grand temple that draws thousands of pilgrims during the Navratri festival.",
 				},
 			]}
-			ctaTitle="Plan a Multi-Destination Trip"
-			ctaDescription="Combine Ranthambore with Jaipur, Agra, Bharatpur, or the Chambal valley — we'll design the perfect Rajasthan itinerary."
-			ctaButtonText="Get a Custom Itinerary"
 		/>
 	);
 }

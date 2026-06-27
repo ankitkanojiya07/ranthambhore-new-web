@@ -1,0 +1,381 @@
+import { Link } from "@tanstack/react-router";
+import { AnimatePresence, motion } from "motion/react";
+import { useEffect, useState } from "react";
+import { Button } from "#/components/ui/button";
+import { Image } from "#/util/Image";
+
+type SafariHighlight = {
+	id: string;
+	title: string;
+	zone: string;
+	date: string;
+	description: string;
+	image: {
+		src: string;
+		alt: string;
+		width: number;
+		height: number;
+	};
+};
+
+type HighlightCard = {
+	id: string;
+	title: string;
+	description: string;
+	href: string;
+	image: {
+		src: string;
+		alt: string;
+		width: number;
+		height: number;
+	};
+	isNew?: boolean;
+};
+
+const SAFARI_HIGHLIGHTS: SafariHighlight[] = [
+	{
+		id: "t109-cubs",
+		title: "Tigress T-109 With Three Cubs",
+		zone: "Zone 6",
+		date: "June 15, 2026",
+		description:
+			"Park rangers confirmed a healthy tigress with three cubs near Rajbagh lake — a strong sign for the breeding season.",
+		image: {
+			src: "/hero/9.webp",
+			alt: "Tiger with cubs in Ranthambore National Park",
+			width: 2048,
+			height: 1365,
+		},
+	},
+	{
+		id: "arrowhead-sighting",
+		title: "Arrowhead Spotted At Padam Talab",
+		zone: "Zone 2",
+		date: "June 12, 2026",
+		description:
+			"The park's most photographed tigress was seen hunting at dawn along the lakeside trail.",
+		image: {
+			src: "/hero/1.webp",
+			alt: "Tiger at Padam Talab in Ranthambore",
+			width: 2048,
+			height: 1365,
+		},
+	},
+	{
+		id: "leopard-zone-4",
+		title: "Leopard On Rocky Outcrop",
+		zone: "Zone 4",
+		date: "June 8, 2026",
+		description:
+			"A leopard was photographed at dusk in Kachida Valley — one of the park's rarer daylight encounters.",
+		image: {
+			src: "/hero/10.webp",
+			alt: "Leopard habitat in Ranthambore rocky terrain",
+			width: 2048,
+			height: 1365,
+		},
+	},
+	{
+		id: "sloth-bear-cubs",
+		title: "Sloth Bear Family Near Fort Trail",
+		zone: "Zone 3",
+		date: "June 4, 2026",
+		description:
+			"Visitors on the morning safari reported a mother sloth bear with two cubs crossing the fort approach road.",
+		image: {
+			src: "/hero/7.webp",
+			alt: "Forest trail in Ranthambore near the fort",
+			width: 2048,
+			height: 1365,
+		},
+	},
+];
+
+const HIGHLIGHT_SLIDES: { id: string; cards: HighlightCard[] }[] = [
+	{
+		id: "plan-and-visitors",
+		cards: [
+			{
+				id: "plan-trip",
+				title: "Why Plan A Trip To Ranthambore?",
+				description:
+					"If you are a wildlife lover wishing to know more about tigers in the wild, you must visit Ranthambore — one of India's finest tiger reserves.",
+				href: "/about/national-park",
+				image: {
+					src: "/hero/8.webp",
+					alt: "Scenic lake view at Ranthambore National Park",
+					width: 2048,
+					height: 1365,
+				},
+			},
+			{
+				id: "record-visitors",
+				title: "Record Visitors – 7.27 Lakh Tourists In 2025",
+				description:
+					"Ranthambore crossed 727,000 visitors in the 2025 season, making it one of India's most visited tiger reserves.",
+				href: "/blog",
+				isNew: true,
+				image: {
+					src: "/hero/9.webp",
+					alt: "Tiger walking past a safari vehicle in Ranthambore",
+					width: 2048,
+					height: 1365,
+				},
+			},
+		],
+	},
+	{
+		id: "safari-and-zones",
+		cards: [
+			{
+				id: "jeep-safari",
+				title: "Book A Gypsy Safari For The Best Sightings",
+				description:
+					"Travel in a 6-seater open jeep with an expert naturalist guide for an intimate, flexible wildlife experience.",
+				href: "/safari/jeep",
+				image: {
+					src: "/hero/7.webp",
+					alt: "Jeep safari through Ranthambore forest trails",
+					width: 2048,
+					height: 1365,
+				},
+			},
+			{
+				id: "safari-zones",
+				title: "Explore All 10 Ranthambore Safari Zones",
+				description:
+					"From the iconic lakes of Zones 1–5 to the quieter buffer zones — find the right territory for your goals.",
+				href: "/safari/zones",
+				image: {
+					src: "/hero/10.webp",
+					alt: "Golden sunset over Ranthambore wilderness",
+					width: 2048,
+					height: 1365,
+				},
+			},
+		],
+	},
+	{
+		id: "season-and-booking",
+		cards: [
+			{
+				id: "best-season",
+				title: "Best Time To Visit Ranthambore",
+				description:
+					"October to April offers peak tiger sightings, while summer months concentrate wildlife around the lakes.",
+				href: "/plan/best-time",
+				image: {
+					src: "/hero/1.webp",
+					alt: "Tiger in golden light at Ranthambore",
+					width: 2048,
+					height: 1365,
+				},
+			},
+			{
+				id: "booking-guide",
+				title: "Things To Know Before Safari Booking",
+				description:
+					"Park rules, ID requirements, zone selection, and booking timelines — everything you need before you go.",
+				href: "/safari/booking-guidelines",
+				image: {
+					src: "/hero/8.webp",
+					alt: "Safari briefing at Ranthambore gate",
+					width: 2048,
+					height: 1365,
+				},
+			},
+		],
+	},
+];
+
+const SLIDE_INTERVAL_MS = 6000;
+
+function HighlightCardItem({ card }: { card: HighlightCard }) {
+	return (
+		<Link
+			to={card.href}
+			className="group flex h-full flex-col overflow-hidden rounded-xl bg-cream-50 shadow-md ring-1 ring-muted-300/60 transition-shadow hover:shadow-lg"
+		>
+			<div className="relative aspect-4/3 overflow-hidden">
+				<Image
+					src={card.image.src}
+					alt={card.image.alt}
+					width={card.image.width}
+					height={card.image.height}
+					className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+				/>
+				{card.isNew ? (
+					<span className="absolute left-3 top-3 rounded-sm bg-sunset-600 px-2.5 py-1 font-display text-[10px] font-bold uppercase tracking-display text-sand-50 shadow-sm">
+						New
+					</span>
+				) : null}
+			</div>
+			<div className="flex flex-1 flex-col p-4 lg:p-5">
+				<h3 className="font-display text-sm font-semibold uppercase leading-snug tracking-display text-charcoal-900 lg:text-base">
+					{card.title}
+				</h3>
+				<p className="mt-2 line-clamp-3 font-body text-sm leading-relaxed text-charcoal-600">
+					{card.description}
+				</p>
+			</div>
+		</Link>
+	);
+}
+
+export function QuickLinksHighlightsSection() {
+	const [safariIndex, setSafariIndex] = useState(0);
+	const [highlightIndex, setHighlightIndex] = useState(0);
+	const safariHighlight = SAFARI_HIGHLIGHTS[safariIndex];
+	const highlightSlide = HIGHLIGHT_SLIDES[highlightIndex];
+
+	useEffect(() => {
+		const timer = setInterval(() => {
+			setSafariIndex((current) => (current + 1) % SAFARI_HIGHLIGHTS.length);
+		}, SLIDE_INTERVAL_MS);
+
+		return () => clearInterval(timer);
+	}, []);
+
+	useEffect(() => {
+		const timer = setInterval(() => {
+			setHighlightIndex((current) => (current + 1) % HIGHLIGHT_SLIDES.length);
+		}, SLIDE_INTERVAL_MS);
+
+		return () => clearInterval(timer);
+	}, []);
+
+	return (
+		<section
+			className="bg-sand-50 px-6 pb-4 pt-10 lg:px-8 lg:pt-14"
+			aria-label="Safari highlights and park updates"
+		>
+			<div className="mx-auto grid max-w-7xl gap-5 lg:grid-cols-3 lg:gap-6">
+				{/* Safari highlights carousel */}
+				<aside className="flex flex-col overflow-hidden rounded-2xl bg-tiger-900 lg:col-span-1">
+					<div className="border-b border-tiger-800 px-5 py-4">
+						<h2 className="font-display text-sm font-bold uppercase tracking-display text-sand-50">
+							Safari Highlights
+						</h2>
+					</div>
+
+					<div className="relative flex-1 overflow-hidden px-4 pt-4">
+						<AnimatePresence mode="wait">
+							<motion.article
+								key={safariHighlight.id}
+								initial={{ opacity: 0, y: 16 }}
+								animate={{ opacity: 1, y: 0 }}
+								exit={{ opacity: 0, y: -16 }}
+								transition={{ duration: 0.45, ease: "easeOut" }}
+								className="overflow-hidden rounded-xl bg-tiger-950/40 ring-1 ring-tiger-800/60"
+							>
+								<div className="relative aspect-4/3 overflow-hidden">
+									<Image
+										src={safariHighlight.image.src}
+										alt={safariHighlight.image.alt}
+										width={safariHighlight.image.width}
+										height={safariHighlight.image.height}
+										className="h-full w-full object-cover"
+									/>
+									<span className="absolute left-3 top-3 rounded-sm bg-tiger-800/90 px-2 py-1 font-display text-[10px] font-semibold uppercase tracking-display text-sand-50">
+										{safariHighlight.zone}
+									</span>
+								</div>
+								<div className="p-4">
+									<p className="font-body text-xs text-tiger-200">
+										{safariHighlight.date}
+									</p>
+									<h3 className="mt-1 font-display text-sm font-semibold uppercase leading-snug tracking-display text-sand-50">
+										{safariHighlight.title}
+									</h3>
+									<p className="mt-2 line-clamp-3 font-body text-sm leading-relaxed text-sand-200/90">
+										{safariHighlight.description}
+									</p>
+								</div>
+							</motion.article>
+						</AnimatePresence>
+					</div>
+
+					<div className="mt-4 flex items-center justify-center gap-2 px-4">
+						{SAFARI_HIGHLIGHTS.map((highlight, index) => (
+							<button
+								key={highlight.id}
+								type="button"
+								aria-label={`Go to safari highlight ${index + 1}`}
+								aria-current={index === safariIndex ? "true" : undefined}
+								onClick={() => setSafariIndex(index)}
+								className={`h-2 rounded-full transition-all ${
+									index === safariIndex
+										? "w-7 bg-sand-100"
+										: "w-2 bg-tiger-700 hover:bg-tiger-500"
+								}`}
+							/>
+						))}
+					</div>
+
+					<div className="p-4 pt-3">
+						<Button
+							variant="secondary"
+							size="lg"
+							className="w-full rounded-lg"
+							render={
+								<Link
+									to="/contact"
+									className="no-underline"
+									aria-label="Add your sightings update"
+								/>
+							}
+						>
+							Add Your Sightings Update
+						</Button>
+					</div>
+				</aside>
+
+				{/* Highlights carousel */}
+				<div className="flex flex-col rounded-2xl bg-tiger-50 px-5 py-5 lg:col-span-2 lg:px-6 lg:py-6">
+					<div>
+						<p className="font-display text-xs font-semibold uppercase tracking-display text-earth-500">
+							What&apos;s New
+						</p>
+						<h2 className="mt-1 font-display text-xl font-bold uppercase tracking-display text-charcoal-900 lg:text-2xl">
+							Ranthambore Highlights
+						</h2>
+					</div>
+
+					<div className="relative mt-5 flex-1 overflow-hidden">
+						<AnimatePresence mode="wait">
+							<motion.div
+								key={highlightSlide.id}
+								initial={{ opacity: 0, x: 24 }}
+								animate={{ opacity: 1, x: 0 }}
+								exit={{ opacity: 0, x: -24 }}
+								transition={{ duration: 0.45, ease: "easeOut" }}
+								className="grid grid-cols-1 gap-4 sm:grid-cols-2"
+							>
+								{highlightSlide.cards.map((card) => (
+									<HighlightCardItem key={card.id} card={card} />
+								))}
+							</motion.div>
+						</AnimatePresence>
+					</div>
+
+					<div className="mt-6 flex items-center justify-center gap-2">
+						{HIGHLIGHT_SLIDES.map((slide, index) => (
+							<button
+								key={slide.id}
+								type="button"
+								aria-label={`Go to highlight slide ${index + 1}`}
+								aria-current={index === highlightIndex ? "true" : undefined}
+								onClick={() => setHighlightIndex(index)}
+								className={`h-2 rounded-full transition-all ${
+									index === highlightIndex
+										? "w-7 bg-tiger-700"
+										: "w-2 bg-tiger-300 hover:bg-tiger-500"
+								}`}
+							/>
+						))}
+					</div>
+				</div>
+			</div>
+		</section>
+	);
+}

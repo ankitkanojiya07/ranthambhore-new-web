@@ -5,6 +5,7 @@ import { FaqSection } from "#/components/home/FaqSection";
 // import { FeaturesSection } from "#/components/home/FeaturesSection";
 import { HeroSection } from "#/components/home/HeroSection";
 import { NewsSection } from "#/components/home/NewsSection";
+import { QuickLinksHighlightsSection } from "#/components/home/QuickLinksHighlightsSection";
 import { TaglineSection } from "#/components/home/TaglineSection";
 import { ThingsToDoSection } from "#/components/home/ThingsToDoSection";
 import { ZoneSection } from "#/components/home/ZoneSection";
@@ -31,7 +32,7 @@ function Home() {
 		<div>
 			<HeroSection />
 
-			{/* <div className="mx-auto max-w-5xl my-10 border-t border-muted-300" /> */}
+			<QuickLinksHighlightsSection />
 
 			<AboutSection />
 

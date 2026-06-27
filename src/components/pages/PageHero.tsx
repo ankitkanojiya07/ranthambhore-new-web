@@ -22,7 +22,7 @@ export function PageHero({
 	eyebrow,
 	title,
 	subtitle,
-	image = "/tiger.png",
+	image = "/tiger.jpg",
 	badge,
 	className,
 	primaryCta,

@@ -60,8 +60,6 @@ function TemplesAndMuseumsPage() {
 			subtitle="Beyond the safari — temples, museums, and riverside ghats that reveal the spiritual and cultural heart of Sawai Madhopur."
 			image="/house.png"
 			sections={SECTIONS}
-			ctaTitle="Explore Beyond the Safari"
-			ctaDescription="Add a temple visit or museum stop to your Ranthambore itinerary for a richer understanding of this remarkable region."
 		/>
 	);
 }

@@ -47,10 +47,6 @@ function BookSafariPage() {
 					body: "Fill in the enquiry form with your preferred dates, number of travellers, and safari type. Our team will respond within a few hours with available slots and pricing. For urgent bookings or last-minute availability, call or WhatsApp us directly.",
 				},
 			]}
-			ctaTitle="Start Your Safari Journey"
-			ctaDescription="Contact us with your preferred dates, number of travellers, and safari type — we'll respond within a few hours with available slots and pricing."
-			ctaButtonText="Contact Us"
-			ctaButtonLink="/contact"
 		/>
 	);
 }

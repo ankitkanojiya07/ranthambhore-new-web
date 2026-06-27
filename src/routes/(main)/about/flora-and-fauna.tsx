@@ -1,5 +1,4 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import CTASection from "#/components/cta";
 import { TrustBar } from "#/components/pages/TrustBar";
 import { WhyChooseSection } from "#/components/pages/WhyChooseSection";
 
@@ -239,10 +238,6 @@ function FloraAndFaunaPage() {
 			<BirdlifeSection />
 			<RelatedSection />
 			<WhyChooseSection />
-			<CTASection
-				title="Witness the Wild Up Close"
-				description="From dawn tiger tracks to storks wading at Padam Talab — Ranthambore's flora and fauna come alive on every safari. Spot sloth bears, crocodiles, and over 300 bird species in their natural habitat."
-			/>
 		</div>
 	);
 }

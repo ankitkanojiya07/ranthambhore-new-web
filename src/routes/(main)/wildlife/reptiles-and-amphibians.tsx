@@ -63,9 +63,6 @@ function ReptilesPage() {
 				{ value: "6", unit: "+", label: "Snake Species", index: "04" },
 			]}
 			sections={SECTIONS}
-			ctaTitle="See Reptiles in the Wild"
-			ctaDescription="Summer safaris around Padam Talab offer the best chance of spotting mugger crocodiles basking on mudbanks."
-			ctaButtonText="Book a Safari"
 		/>
 	);
 }

@@ -76,9 +76,6 @@ function BirdsPage() {
 				{ value: "3", unit: "", label: "Major Lakes", index: "04" },
 			]}
 			sections={SECTIONS}
-			ctaTitle="Birding at Dawn"
-			ctaDescription="The first morning safari slot offers the best light and the highest bird activity around the lakes and forest edges."
-			ctaButtonText="Book a Safari"
 		/>
 	);
 }

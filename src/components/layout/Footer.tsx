@@ -30,9 +30,9 @@ export function Footer() {
 						<Image
 							src="/logo.png"
 							alt="Ranthambhore logo"
-							width={64}
-							height={64}
-							className="w-40 object-contain opacity-90"
+							width={594}
+							height={420}
+							className="h-16 w-auto object-contain opacity-90 brightness-0"
 						/>
 						<h2 className="font-display text-4xl tracking-display text-charcoal-900">
 							RANTHAMBHORE

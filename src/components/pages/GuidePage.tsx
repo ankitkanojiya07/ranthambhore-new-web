@@ -1,4 +1,3 @@
-import CTASection from "#/components/cta";
 import type { ContentBlock } from "./ContentSection";
 import { ContentSection } from "./ContentSection";
 import type { FaqItem } from "./FaqAccordion";
@@ -29,11 +28,6 @@ interface GuidePageProps {
 	faqs?: FaqItem[];
 	features?: WhyChooseFeature[];
 	showWhyChoose?: boolean;
-	showCta?: boolean;
-	ctaTitle?: string;
-	ctaDescription?: string;
-	ctaButtonText?: string;
-	ctaButtonLink?: string;
 	imageOffset?: number;
 	heroPrimaryCta?: { label: string; href: string };
 	heroSecondaryCta?: { label: string; href: string };
@@ -52,11 +46,6 @@ export function GuidePage({
 	faqs,
 	features,
 	showWhyChoose = true,
-	showCta = true,
-	ctaTitle,
-	ctaDescription,
-	ctaButtonText,
-	ctaButtonLink,
 	imageOffset = 0,
 	heroPrimaryCta = { label: "Book a Safari", href: "/safari/book" },
 	heroSecondaryCta = { label: "Get Free Quote", href: "/contact" },
@@ -81,14 +70,6 @@ export function GuidePage({
 			<ContentSection blocks={sections} imageOffset={imageOffset} />
 			{showWhyChoose && <WhyChooseSection features={features} />}
 			{faqs && faqs.length > 0 && <FaqAccordion items={faqs} />}
-			{showCta && (
-				<CTASection
-					title={ctaTitle}
-					description={ctaDescription}
-					buttonText={ctaButtonText}
-					buttonLink={ctaButtonLink}
-				/>
-			)}
 		</div>
 	);
 }

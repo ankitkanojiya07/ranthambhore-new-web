@@ -51,8 +51,6 @@ function BestTimePage() {
 					],
 				},
 			]}
-			ctaTitle="Book for the Right Season"
-			ctaDescription="Share your travel dates and we'll recommend the best zones and safari schedule for your visit."
 		/>
 	);
 }

@@ -105,15 +105,15 @@ const NavigationBar = () => {
 
 					{/* Center: logo */}
 					<div className="flex justify-center">
-						<Link to="/" className="block aspect-video h-10 sm:h-12 lg:h-14">
+						<Link to="/" className="block h-10 sm:h-12 lg:h-14">
 							<img
 								src="/logo.png"
 								alt="Ranthambhore.com"
-								width={100}
-								height={100}
+								width={594}
+								height={420}
 								className={cn(
-									"h-full w-full object-contain",
-									navOverlay && "invert",
+									"h-full w-auto object-contain",
+									!navOverlay && "brightness-0",
 								)}
 							/>
 						</Link>

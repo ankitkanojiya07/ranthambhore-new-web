@@ -1,5 +1,4 @@
 import { createFileRoute } from "@tanstack/react-router";
-import CTASection from "#/components/cta";
 import { ContentSection } from "#/components/pages/ContentSection";
 import { FeaturedHotelsSection } from "#/components/pages/FeaturedHotelsSection";
 import { IntroSection } from "#/components/pages/IntroSection";
@@ -72,12 +71,6 @@ function HotelsPage() {
 			/>
 
 			<WhyChooseSection />
-
-			<CTASection
-				title="Book Your Stay"
-				description="We work with the best hotels and resorts in Ranthambore. Share your dates and preferences — we'll handle the rest."
-				buttonText="Get a Free Quote"
-			/>
 		</div>
 	);
 }

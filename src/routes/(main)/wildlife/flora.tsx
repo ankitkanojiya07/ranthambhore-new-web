@@ -74,9 +74,6 @@ function FloraPage() {
 				{ value: "Feb", unit: "", label: "Peak Leaf Shed", index: "04" },
 			]}
 			sections={SECTIONS}
-			ctaTitle="Walk the Forest"
-			ctaDescription="A guided safari through Ranthambore reveals how the forest changes with every season — and why dhok leaf-fall is prime tiger-tracking time."
-			ctaButtonText="Book a Safari"
 		/>
 	);
 }

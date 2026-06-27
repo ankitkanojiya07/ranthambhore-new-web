@@ -1,7 +1,9 @@
+import { HeroCarousel } from "#/components/home/HeroCarousel";
+
 const TRUST_BADGES = [
 	"Expert Local Guides",
 	"60+ Tigers in the Wild",
-	"Open October to June",
+	"Unforgettable Wildlife Adventures",
 ];
 
 export function HeroSection() {
@@ -19,12 +21,8 @@ export function HeroSection() {
 					</h1>
 					<div className="relative mt-10 w-full max-w-sm">
 						<div className="absolute left-1/2 top-[-6%] h-[106%] w-[80%] -translate-x-1/2 rounded-t-full bg-tiger-50" />
-						<div className="hero-frame-mask relative aspect-square w-full">
-							<img
-								src="/hero/3.webp"
-								alt="Ranthambhore"
-								className="size-full object-cover"
-							/>
+						<div className="hero-frame-mask relative aspect-square w-full overflow-hidden">
+							<HeroCarousel />
 						</div>
 					</div>
 					<div className="mt-10 flex flex-col items-center text-center">
@@ -41,12 +39,8 @@ export function HeroSection() {
 				<div className="hidden md:block">
 					<div className="relative max-w-4xl mx-auto">
 						<div className="h-[70dvh] relative mx-auto bg-tiger-50 rounded-t-full w-[60%]" />
-						<div className="absolute aspect-square max-w-[550px] max-h-[550px] -bottom-20  mx-auto left-0 hero-frame-mask size-full">
-							<img
-								src="/gallery/9.jpg"
-								alt="Ranthambhore"
-								className="size-full object-cover"
-							/>
+						<div className="absolute aspect-square max-w-[550px] max-h-[550px] -bottom-20 mx-auto left-0 hero-frame-mask size-full overflow-hidden">
+							<HeroCarousel />
 						</div>
 						<h1 className="absolute -top-4 left-1/2 -translate-x-1/2 whitespace-nowrap text-5xl lg:text-7xl text-center font-medium font-display tracking-display text-tiger-900">
 							WELCOME TO

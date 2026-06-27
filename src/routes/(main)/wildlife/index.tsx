@@ -31,8 +31,6 @@ function WildlifeLandingPage() {
 			intro="Ranthambore is far more than a tiger park. Step inside and you enter a complete, functioning ecosystem — predators and prey, birds and insects, trees and rivers all interlocked in a web of life that has evolved over thousands of years. This section is your encyclopaedia of Ranthambore's wildlife: use it before your safari to learn what to look for, and after your visit to identify what you saw."
 			links={wildlifeNav?.children ?? []}
 			image="/tiger.png"
-			ctaTitle="Ready to See It for Yourself?"
-			ctaDescription="Book a safari and put this encyclopaedia to work in the field — with a naturalist guide who knows every call, track, and territory."
 		/>
 	);
 }

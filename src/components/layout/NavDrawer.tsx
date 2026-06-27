@@ -139,12 +139,14 @@ function NavDrawerContent({ onClose }: { onClose: () => void }) {
 					<Link
 						to="/"
 						onClick={onClose}
-						className="block aspect-video h-10 focus-visible:outline-none"
+						className="block h-10 focus-visible:outline-none"
 					>
 						<img
 							src="/logo.png"
 							alt="Ranthambhore.com"
-							className="h-full w-full object-contain"
+							width={594}
+							height={420}
+							className="h-full w-auto object-contain"
 						/>
 					</Link>
 

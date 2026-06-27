@@ -57,10 +57,6 @@ function ZonesPage() {
 					body: "Zone allocation is made at the time of booking and is largely determined by the online booking system. You may request a preferred zone, but it cannot be guaranteed. If tiger sightings are your primary goal, prioritise Zones 1, 2, and 3 during booking.",
 				},
 			]}
-			ctaTitle="Need Help Choosing a Zone?"
-			ctaDescription="Our local naturalists can advise on the best zones for your travel dates and wildlife priorities."
-			ctaButtonText="Get Zone Advice"
-			ctaButtonLink="/safari/book"
 		/>
 	);
 }

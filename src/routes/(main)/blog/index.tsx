@@ -1,5 +1,4 @@
 import { createFileRoute } from "@tanstack/react-router";
-import CTASection from "#/components/cta";
 import { ContentSection } from "#/components/pages/ContentSection";
 import { IntroSection } from "#/components/pages/IntroSection";
 import { PageHero } from "#/components/pages/PageHero";
@@ -66,13 +65,6 @@ function BlogPage() {
 			/>
 
 			<WhyChooseSection dark />
-
-			<CTASection
-				title="Want to Be Notified?"
-				description="Get in touch and we'll let you know when our first safari stories and photography journals go live."
-				buttonText="Contact Us"
-				buttonLink="/contact"
-			/>
 		</div>
 	);
 }

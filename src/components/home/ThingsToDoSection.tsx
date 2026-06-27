@@ -129,7 +129,7 @@ const ACTIVITIES: Activity[] = [
 			width: 2048,
 			height: 1365,
 		},
-		props_img: "/tiger.png",
+		props_img: "/tiger.jpg",
 	},
 ];
 

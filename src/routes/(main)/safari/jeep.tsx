@@ -64,10 +64,6 @@ function JeepSafariPage() {
 					body: "Jeep safari slots are limited and fill up quickly, especially during peak season (October to March). Book at least 30–45 days in advance. Government online booking opens 90 days ahead. Zone allocation is done by the booking system — you can express a preference but zone assignment is not guaranteed. Our team at Ranthambhor.com can assist with pre-booking and on-ground guidance.",
 				},
 			]}
-			ctaTitle="Book Your Jeep Safari"
-			ctaDescription="Secure your Gypsy safari slot with expert zone advice and hassle-free booking assistance."
-			ctaButtonText="Book a Safari"
-			ctaButtonLink="/safari/book"
 		/>
 	);
 }

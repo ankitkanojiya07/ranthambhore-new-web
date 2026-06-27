@@ -74,9 +74,6 @@ function ConservationPage() {
 				},
 			]}
 			sections={SECTIONS}
-			ctaTitle="Support Conservation Through Tourism"
-			ctaDescription="Responsible safari tourism funds local employment and community conservation — your visit directly supports the protection of Ranthambore's tigers."
-			ctaButtonText="Book a Safari"
 		/>
 	);
 }

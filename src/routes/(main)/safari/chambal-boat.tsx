@@ -48,10 +48,6 @@ function ChambalBoatSafariPage() {
 					body: "Most Ranthambore itineraries include the Chambal boat safari as a half-day add-on. The nearest departure points are at Kundal and Jawahar Sagar, about 45–60 km from Sawai Madhopur. We recommend combining a morning forest safari with an afternoon Chambal river ride for a full day of exceptional wildlife.",
 				},
 			]}
-			ctaTitle="Add Chambal to Your Itinerary"
-			ctaDescription="Combine a morning forest safari with an afternoon river ride for a full day of exceptional wildlife."
-			ctaButtonText="Plan Your Trip"
-			ctaButtonLink="/safari/book"
 		/>
 	);
 }

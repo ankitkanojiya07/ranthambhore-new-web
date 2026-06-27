@@ -59,10 +59,6 @@ function CanterSafariPage() {
 					body: "If you are travelling with a large group or on a tighter budget, the Canter is an excellent option. Tiger sightings are possible on Canters too — many visitors have had their best-ever tiger encounters on Canter safaris. However, for wildlife photography (especially with long lenses), the jeep is preferable due to fewer people and better vehicle positioning.",
 				},
 			]}
-			ctaTitle="Book Your Canter Safari"
-			ctaDescription="Perfect for groups and families — let us help you secure canter slots for your travel dates."
-			ctaButtonText="Book a Safari"
-			ctaButtonLink="/safari/book"
 		/>
 	);
 }

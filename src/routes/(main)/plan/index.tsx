@@ -31,8 +31,6 @@ function PlanLandingPage() {
 			intro="Planning a trip to Ranthambore is easier than you might think — but doing it right makes all the difference. The difference between a mediocre visit and an unforgettable one often comes down to timing, zone selection, and a well-organised itinerary. This section covers everything from the best months to visit to how to get here, what to pack, and what not to do."
 			links={planNav?.children ?? []}
 			image="/gallery/9.jpg"
-			ctaTitle="Ready to Start Planning?"
-			ctaDescription="Our Sawai Madhopur-based team can help with safaris, hotels, transfers, and custom itineraries — all in one place."
 		/>
 	);
 }

@@ -81,9 +81,6 @@ function PhotographyPage() {
 				{ value: "3", unit: "", label: "Top Photo Zones", index: "04" },
 			]}
 			sections={SECTIONS}
-			ctaTitle="Capture Your Tiger Moment"
-			ctaDescription="Book the first morning safari slot for the best light and the highest chance of an open, unobstructed sighting."
-			ctaButtonText="Book a Safari"
 		/>
 	);
 }

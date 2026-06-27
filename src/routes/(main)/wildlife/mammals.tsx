@@ -73,9 +73,6 @@ function MammalsPage() {
 				{ value: "5", unit: "", label: "Ungulate Species", index: "04" },
 			]}
 			sections={SECTIONS}
-			ctaTitle="Track Mammals on Safari"
-			ctaDescription="A morning jeep safari with an experienced naturalist is the best way to encounter Ranthambore's full mammalian diversity."
-			ctaButtonText="Book a Safari"
 		/>
 	);
 }

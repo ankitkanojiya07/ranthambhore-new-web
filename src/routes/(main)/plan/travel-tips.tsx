@@ -71,7 +71,6 @@ function TravelTipsPage() {
 					],
 				},
 			]}
-			showCta={false}
 		/>
 	);
 }

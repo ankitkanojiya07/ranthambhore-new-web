@@ -1,5 +1,4 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import CTASection from "#/components/cta";
 import { TrustBar } from "#/components/pages/TrustBar";
 import { WhyChooseSection } from "#/components/pages/WhyChooseSection";
 
@@ -131,12 +130,6 @@ function TigersPage() {
 			<IdentificationSection />
 			<RelatedSection />
 			<WhyChooseSection />
-			<CTASection
-				title="Track the Stripes in Person"
-				description="From dawn patrols at Padam Talab to fort-country sightings — Ranthambore's tigers reveal themselves in daylight like nowhere else in India. Your safari begins with a single booking."
-				buttonText="Book a Safari"
-				buttonLink="/safari/book"
-			/>
 		</div>
 	);
 }

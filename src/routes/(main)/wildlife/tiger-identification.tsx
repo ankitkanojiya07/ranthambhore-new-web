@@ -65,9 +65,6 @@ function TigerIdentificationPage() {
 				{ value: "3", unit: "", label: "Notable Residents", index: "04" },
 			]}
 			sections={SECTIONS}
-			ctaTitle="Identify Tigers on Safari"
-			ctaDescription="Travel with an experienced naturalist who knows every stripe pattern, territory, and recent sighting in the park."
-			ctaButtonText="Book a Safari"
 		/>
 	);
 }

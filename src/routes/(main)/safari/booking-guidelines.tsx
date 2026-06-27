@@ -59,10 +59,6 @@ function BookingGuidelinesPage() {
 					body: "Government bookings: Cancellations made 48 hours before the safari are generally eligible for a refund (less processing fees). Last-minute cancellations are typically non-refundable. Operator-arranged bookings may have different terms — confirm with your booking agent.",
 				},
 			]}
-			ctaTitle="Ready to Book?"
-			ctaDescription="Let our team handle the booking process — from zone selection to gate arrival instructions."
-			ctaButtonText="Book a Safari"
-			ctaButtonLink="/safari/book"
 		/>
 	);
 }

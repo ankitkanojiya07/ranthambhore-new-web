@@ -1,5 +1,4 @@
 import { createFileRoute } from "@tanstack/react-router";
-import CTASection from "#/components/cta";
 import type { FaqItem } from "#/components/pages/FaqAccordion";
 import { FaqAccordion } from "#/components/pages/FaqAccordion";
 import { PageHero } from "#/components/pages/PageHero";
@@ -85,12 +84,6 @@ function FaqsPage() {
 				title="Frequently Asked Questions"
 			/>
 			<WhyChooseSection />
-			<CTASection
-				title="Still Have Questions?"
-				description="Our Sawai Madhopur-based team is available seven days a week to help with safari bookings, hotels, and custom itineraries."
-				buttonText="Contact Us"
-				buttonLink="/contact"
-			/>
 		</div>
 	);
 }

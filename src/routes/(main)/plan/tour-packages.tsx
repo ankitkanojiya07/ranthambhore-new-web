@@ -48,9 +48,6 @@ function TourPackagesPage() {
 					body: "No two travellers are the same. Tell us your interests, budget, group size, and travel dates, and we will craft a custom itinerary specifically for you. Fill in the enquiry form on our Contact page or call us directly.",
 				},
 			]}
-			ctaTitle="Build Your Package"
-			ctaDescription="Share your travel dates, group size, and interests — we'll design a custom Ranthambore itinerary."
-			ctaButtonText="Enquire Now"
 		/>
 	);
 }

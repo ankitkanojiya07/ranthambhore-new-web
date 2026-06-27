@@ -36,8 +36,6 @@ function SafariLandingPage() {
 			intro="A safari in Ranthambore is unlike any other wildlife experience in India. This is one of the few places where you can encounter a wild Bengal tiger at close range — not through luck alone, but because of the park's open landscape, bold tigers, and expertly managed safari system. Whether you opt for the intimate Jeep safari, the sociable Canter ride, or the unique Chambal river experience, every safari here holds the promise of the extraordinary."
 			links={safariNav?.children ?? []}
 			image="/hero/1.webp"
-			ctaTitle="Ready to Book Your Safari?"
-			ctaDescription="Secure your jeep or canter slot, get zone advice from local naturalists, and enjoy a hassle-free Ranthambore experience."
 		/>
 	);
 }

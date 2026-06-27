@@ -10,7 +10,7 @@
 
 ## Learned Workspace Facts
 
-- Hero section is a two-column layout: text/content on the left, carousel on the right. Carousel uses `AnimatePresence` without `mode="wait"` so images crossfade simultaneously (no blank frame between slides).
+- Hero section uses `HeroCarousel` (`src/components/home/HeroCarousel.tsx`) inside `hero-frame-mask` on both mobile (stacked, centered) and desktop (overlay on cream `bg-tiger-50` arch). Slides cycle `/hero/7.webp`–`/hero/10.webp` every 5s. `AnimatePresence` without `mode="wait"` crossfades slides (no blank frame).
 - `HeroScrollIndicator` component sits at the bottom of the hero section, centered across the full width via `left-1/2 -translate-x-1/2`. It shows "Your Journey / Starts Below" in `font-display` uppercase white, a rotated diamond, and a vertical line. Uses Motion fade-in.
 - Navbar layout: white background, `grid-cols-3`. Left cell: Menu button + social icons (Facebook, Instagram, X) using `currentColor` mono icons with `text-charcoal-700 hover:text-forest-600`. Center cell: logo. Right cell: "Get Free Quote" CTA — `forest-500`, `rounded-lg`, semibold uppercase. Search icon has been removed.
 - `ThingsToDoSection` uses a bento layout: featured card on the left with `lg:h-[440px]` to cap height, and an activity grid on the right with `grid-rows-2`. Inner activity cards use `h-full` (not `aspect-4/3`) so they fill the grid row height cleanly.

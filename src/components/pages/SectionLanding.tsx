@@ -1,7 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import { Image } from "@unpic/react";
 import { ArrowUpRight, ChevronRight } from "lucide-react";
-import CTASection from "#/components/cta";
 import type { NavItem } from "#/lib/navigation";
 import { getPageDescription } from "#/lib/page-descriptions";
 import { getPageImage } from "#/lib/page-images";
@@ -17,8 +16,6 @@ interface SectionLandingProps {
 	intro: string;
 	links: NavItem[];
 	image?: string;
-	ctaTitle?: string;
-	ctaDescription?: string;
 }
 
 export function SectionLanding({
@@ -28,8 +25,6 @@ export function SectionLanding({
 	intro,
 	links,
 	image,
-	ctaTitle,
-	ctaDescription,
 }: SectionLandingProps) {
 	return (
 		<div className="bg-sand-50">
@@ -114,7 +109,6 @@ export function SectionLanding({
 			</section>
 
 			<WhyChooseSection />
-			<CTASection title={ctaTitle} description={ctaDescription} />
 		</div>
 	);
 }

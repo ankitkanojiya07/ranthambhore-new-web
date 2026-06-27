@@ -1,5 +1,4 @@
 import { createFileRoute } from "@tanstack/react-router";
-import CTASection from "#/components/cta";
 import { ContactSection } from "#/components/home/ContactSection";
 import { ContentSection } from "#/components/pages/ContentSection";
 import { IntroSection } from "#/components/pages/IntroSection";
@@ -80,14 +79,6 @@ function ContactPage() {
 			</div>
 
 			<WhyChooseSection />
-
-			<CTASection
-				eyebrowLabel="Start Planning"
-				title="Your Ranthambore Adventure Awaits"
-				description="Whether it's your first safari or your tenth, our local team is ready to help you plan every detail."
-				buttonText="Book a Safari"
-				buttonLink="/safari/book"
-			/>
 		</div>
 	);
 }

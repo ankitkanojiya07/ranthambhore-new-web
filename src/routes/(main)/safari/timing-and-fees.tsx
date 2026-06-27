@@ -48,10 +48,6 @@ function TimingAndFeesPage() {
 					],
 				},
 			]}
-			ctaTitle="Check Availability for Your Dates"
-			ctaDescription="Timings and fees vary by season — contact us for current rates and open safari slots."
-			ctaButtonText="Book a Safari"
-			ctaButtonLink="/safari/book"
 		/>
 	);
 }

@@ -55,8 +55,6 @@ function FortPage() {
 			image="/gallery/5.jpg"
 			badge="UNESCO World Heritage Site — Hill Forts of Rajasthan (2013)"
 			sections={SECTIONS}
-			ctaTitle="Walk Through History on Your Visit"
-			ctaDescription="Combine a fort visit with your safari for the ultimate Ranthambore experience — ancient heritage and wild tigers in a single unforgettable day."
 		/>
 	);
 }
