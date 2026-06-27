@@ -144,8 +144,8 @@ function NavDrawerContent({ onClose }: { onClose: () => void }) {
 						<img
 							src="/logo.png"
 							alt="Ranthambhore.com"
-							width={594}
-							height={420}
+							width={323}
+							height={186}
 							className="h-full w-auto object-contain"
 						/>
 					</Link>

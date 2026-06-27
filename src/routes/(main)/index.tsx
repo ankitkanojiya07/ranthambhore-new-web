@@ -49,19 +49,17 @@ function Home() {
 
 			<ZoneSection />
 
-			<div className="mx-auto max-w-7xl">
-				{/* <div className="mx-auto max-w-5xl border-t border-muted-300" /> */}
+			{/* <div className="mx-auto max-w-5xl border-t border-muted-300" /> */}
 
-				{/* <FeaturesSection /> */}
+			{/* <FeaturesSection /> */}
 
-				{/* <div className="mx-auto max-w-5xl border-t border-muted-300" /> */}
+			{/* <div className="mx-auto max-w-5xl border-t border-muted-300" /> */}
 
-				<ContactSection />
+			<ContactSection />
 
-				<div className="mx-auto max-w-5xl border-t border-muted-300" />
+			<div className="mx-auto max-w-5xl border-t border-muted-300" />
 
-				<FaqSection />
-			</div>
+			<FaqSection />
 		</div>
 	);
 }

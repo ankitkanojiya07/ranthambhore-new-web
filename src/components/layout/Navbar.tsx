@@ -17,10 +17,10 @@ const NavigationBar = () => {
 		<NavDrawerRoot>
 			<header
 				className={cn(
-					"px-4 py-3 sm:px-6 sm:py-4 lg:px-10 lg:py-5",
+					"px-4 py-3 sm:px-6 sticky top-0 z-100 sm:py-4 lg:px-10 lg:py-2",
 					navOverlay
-						? "absolute inset-x-0 top-0 z-50 bg-transparent"
-						: "bg-sand-50",
+						? "absolute inset-x-0 top-0 z-50 bg-transparent backdrop-blur-sm"
+						: "bg-sand-50/80 backdrop-blur-sm",
 				)}
 			>
 				<div className="grid grid-cols-3 items-center gap-2">
@@ -105,12 +105,12 @@ const NavigationBar = () => {
 
 					{/* Center: logo */}
 					<div className="flex justify-center">
-						<Link to="/" className="block h-10 sm:h-12 lg:h-14">
+						<Link to="/" className="block h-14 sm:h-16 lg:h-15">
 							<img
 								src="/logo.png"
 								alt="Ranthambhore.com"
-								width={594}
-								height={420}
+								width={323}
+								height={186}
 								className={cn(
 									"h-full w-auto object-contain",
 									!navOverlay && "brightness-0",
