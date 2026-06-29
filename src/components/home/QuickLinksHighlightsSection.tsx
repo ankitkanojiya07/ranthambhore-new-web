@@ -1,7 +1,10 @@
+import { useSuspenseQuery } from "@tanstack/react-query";
 import { Link } from "@tanstack/react-router";
 import { ArrowRight } from "lucide-react";
 import { AnimatePresence, motion } from "motion/react";
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
+import { mapPostToSafariHighlight } from "#/components/daily-updates/map-safari-highlight";
+import { homeSafariHighlightsQueryOptions } from "#/components/daily-updates/queries/daily-updates.queries";
 import { Button } from "#/components/ui/button";
 import { SAFARI_HIGHLIGHTS } from "#/lib/highlights-data";
 import { Image } from "#/util/Image";
@@ -117,8 +120,127 @@ const HIGHLIGHT_SLIDES: { id: string; cards: HighlightCard[] }[] = [
 	},
 ];
 
-const HOME_SAFARI_HIGHLIGHTS = SAFARI_HIGHLIGHTS.slice(0, 4);
+const HOME_SAFARI_HIGHLIGHTS_FALLBACK = SAFARI_HIGHLIGHTS.slice(0, 4);
 const SLIDE_INTERVAL_MS = 6000;
+
+function SafariHighlightsCarousel() {
+	const { data: posts } = useSuspenseQuery(homeSafariHighlightsQueryOptions());
+	const safariHighlights = useMemo(
+		() =>
+			posts.data.length > 0
+				? posts.data.map(mapPostToSafariHighlight)
+				: HOME_SAFARI_HIGHLIGHTS_FALLBACK,
+		[posts.data],
+	);
+	const [safariIndex, setSafariIndex] = useState(0);
+	const safariHighlight = safariHighlights[safariIndex] ?? safariHighlights[0];
+
+	useEffect(() => {
+		if (safariHighlights.length <= 1) {
+			return;
+		}
+
+		const timer = setInterval(() => {
+			setSafariIndex((current) => (current + 1) % safariHighlights.length);
+		}, SLIDE_INTERVAL_MS);
+
+		return () => clearInterval(timer);
+	}, [safariHighlights.length]);
+
+	if (!safariHighlight) {
+		return null;
+	}
+
+	return (
+		<aside className="flex flex-col overflow-hidden rounded-2xl bg-tiger-900 lg:col-span-1">
+			<div className="flex items-center justify-between border-b border-tiger-800 px-5 py-4">
+				<h2 className="font-display text-sm font-bold uppercase tracking-display text-sand-50">
+					Safari Highlights
+				</h2>
+				<Link
+					to="/highlights/safari-insights"
+					aria-label="View all safari highlights"
+					className="flex size-8 items-center justify-center rounded-full text-sand-200 transition-colors hover:bg-tiger-800 hover:text-sand-50"
+				>
+					<ArrowRight className="size-4" />
+				</Link>
+			</div>
+
+			<div className="relative flex-1 overflow-hidden px-4 pt-4">
+				<AnimatePresence mode="wait">
+					<motion.article
+						key={safariHighlight.id}
+						initial={{ opacity: 0, y: 16 }}
+						animate={{ opacity: 1, y: 0 }}
+						exit={{ opacity: 0, y: -16 }}
+						transition={{ duration: 0.45, ease: "easeOut" }}
+						className="overflow-hidden rounded-xl bg-tiger-950/40 ring-1 ring-tiger-800/60"
+					>
+						<div className="relative aspect-4/3 overflow-hidden">
+							<Image
+								src={safariHighlight.image.src}
+								alt={safariHighlight.image.alt}
+								width={safariHighlight.image.width}
+								height={safariHighlight.image.height}
+								className="h-full w-full object-cover"
+							/>
+							<span className="absolute left-3 top-3 rounded-sm bg-tiger-800/90 px-2 py-1 font-display text-[10px] font-semibold uppercase tracking-display text-sand-50">
+								{safariHighlight.zone}
+							</span>
+						</div>
+						<div className="p-4">
+							<p className="font-body text-xs text-tiger-200">
+								{safariHighlight.date}
+							</p>
+							<h3 className="mt-1 font-display text-sm font-semibold uppercase leading-snug tracking-display text-sand-50">
+								{safariHighlight.title}
+							</h3>
+							<p className="mt-2 line-clamp-3 font-body text-sm leading-relaxed text-sand-200/90">
+								{safariHighlight.description}
+							</p>
+						</div>
+					</motion.article>
+				</AnimatePresence>
+			</div>
+
+			{safariHighlights.length > 1 ? (
+				<div className="mt-4 flex items-center justify-center gap-2 px-4">
+					{safariHighlights.map((highlight, index) => (
+						<button
+							key={highlight.id}
+							type="button"
+							aria-label={`Go to safari highlight ${index + 1}`}
+							aria-current={index === safariIndex ? "true" : undefined}
+							onClick={() => setSafariIndex(index)}
+							className={`h-2 rounded-full transition-all ${
+								index === safariIndex
+									? "w-7 bg-sand-100"
+									: "w-2 bg-tiger-700 hover:bg-tiger-500"
+							}`}
+						/>
+					))}
+				</div>
+			) : null}
+
+			<div className="p-4 pt-3">
+				<Button
+					variant="secondary"
+					size="lg"
+					className="w-full rounded-lg"
+					render={
+						<Link
+							to="/daily-updates/new"
+							className="no-underline"
+							aria-label="Add your sightings update"
+						/>
+					}
+				>
+					Add Your Sightings Update
+				</Button>
+			</div>
+		</aside>
+	);
+}
 
 function HighlightCardItem({ card }: { card: HighlightCard }) {
 	return (
@@ -153,20 +275,8 @@ function HighlightCardItem({ card }: { card: HighlightCard }) {
 }
 
 export function QuickLinksHighlightsSection() {
-	const [safariIndex, setSafariIndex] = useState(0);
 	const [highlightIndex, setHighlightIndex] = useState(0);
-	const safariHighlight = HOME_SAFARI_HIGHLIGHTS[safariIndex];
 	const highlightSlide = HIGHLIGHT_SLIDES[highlightIndex];
-
-	useEffect(() => {
-		const timer = setInterval(() => {
-			setSafariIndex(
-				(current) => (current + 1) % HOME_SAFARI_HIGHLIGHTS.length,
-			);
-		}, SLIDE_INTERVAL_MS);
-
-		return () => clearInterval(timer);
-	}, []);
 
 	useEffect(() => {
 		const timer = setInterval(() => {
@@ -182,92 +292,7 @@ export function QuickLinksHighlightsSection() {
 			aria-label="Safari highlights and park updates"
 		>
 			<div className="mx-auto grid max-w-7xl gap-5 lg:grid-cols-3 lg:gap-6">
-				{/* Safari highlights carousel */}
-				<aside className="flex flex-col overflow-hidden rounded-2xl bg-tiger-900 lg:col-span-1">
-					<div className="flex items-center justify-between border-b border-tiger-800 px-5 py-4">
-						<h2 className="font-display text-sm font-bold uppercase tracking-display text-sand-50">
-							Safari Highlights
-						</h2>
-						<Link
-							to="/highlights/safari-insights"
-							aria-label="View all safari highlights"
-							className="flex size-8 items-center justify-center rounded-full text-sand-200 transition-colors hover:bg-tiger-800 hover:text-sand-50"
-						>
-							<ArrowRight className="size-4" />
-						</Link>
-					</div>
-
-					<div className="relative flex-1 overflow-hidden px-4 pt-4">
-						<AnimatePresence mode="wait">
-							<motion.article
-								key={safariHighlight.id}
-								initial={{ opacity: 0, y: 16 }}
-								animate={{ opacity: 1, y: 0 }}
-								exit={{ opacity: 0, y: -16 }}
-								transition={{ duration: 0.45, ease: "easeOut" }}
-								className="overflow-hidden rounded-xl bg-tiger-950/40 ring-1 ring-tiger-800/60"
-							>
-								<div className="relative aspect-4/3 overflow-hidden">
-									<Image
-										src={safariHighlight.image.src}
-										alt={safariHighlight.image.alt}
-										width={safariHighlight.image.width}
-										height={safariHighlight.image.height}
-										className="h-full w-full object-cover"
-									/>
-									<span className="absolute left-3 top-3 rounded-sm bg-tiger-800/90 px-2 py-1 font-display text-[10px] font-semibold uppercase tracking-display text-sand-50">
-										{safariHighlight.zone}
-									</span>
-								</div>
-								<div className="p-4">
-									<p className="font-body text-xs text-tiger-200">
-										{safariHighlight.date}
-									</p>
-									<h3 className="mt-1 font-display text-sm font-semibold uppercase leading-snug tracking-display text-sand-50">
-										{safariHighlight.title}
-									</h3>
-									<p className="mt-2 line-clamp-3 font-body text-sm leading-relaxed text-sand-200/90">
-										{safariHighlight.description}
-									</p>
-								</div>
-							</motion.article>
-						</AnimatePresence>
-					</div>
-
-					<div className="mt-4 flex items-center justify-center gap-2 px-4">
-						{HOME_SAFARI_HIGHLIGHTS.map((highlight, index) => (
-							<button
-								key={highlight.id}
-								type="button"
-								aria-label={`Go to safari highlight ${index + 1}`}
-								aria-current={index === safariIndex ? "true" : undefined}
-								onClick={() => setSafariIndex(index)}
-								className={`h-2 rounded-full transition-all ${
-									index === safariIndex
-										? "w-7 bg-sand-100"
-										: "w-2 bg-tiger-700 hover:bg-tiger-500"
-								}`}
-							/>
-						))}
-					</div>
-
-					<div className="p-4 pt-3">
-						<Button
-							variant="secondary"
-							size="lg"
-							className="w-full rounded-lg"
-							render={
-								<Link
-									to="/contact"
-									className="no-underline"
-									aria-label="Add your sightings update"
-								/>
-							}
-						>
-							Add Your Sightings Update
-						</Button>
-					</div>
-				</aside>
+				<SafariHighlightsCarousel />
 
 				{/* Highlights carousel */}
 				<div className="flex flex-col rounded-2xl bg-tiger-50 px-5 py-5 lg:col-span-2 lg:px-6 lg:py-6">

@@ -4,8 +4,6 @@ import { MultiSelectDropdown } from "#/components/ui/multi-select-dropdown";
 import { Image } from "#/util/Image";
 
 const WEB3FORMS_ACCESS_KEY = "80b057d5-9cb6-4677-a700-5b7a7bfc0876";
-const WEB3FORMS_CC_EMAILS =
-	"akanojiya550@gmail.com; ranthambhoreregency@gmail.com; ravindra2007@icloud.com";
 
 const containerVariants = {
 	hidden: {},
@@ -101,7 +99,6 @@ export function ContactSection() {
 		const data = new FormData(form);
 
 		data.set("access_key", WEB3FORMS_ACCESS_KEY);
-		data.set("ccemail", WEB3FORMS_CC_EMAILS);
 		data.set("subject", "Booking Enquiry for the Regency Hotel");
 		data.set("from_name", "Regency Hotel");
 		data.set("name", data.get("fullName")?.toString() ?? "");

@@ -1,4 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { homeSafariHighlightsQueryOptions } from "#/components/daily-updates/queries/daily-updates.queries";
 import { AboutSection } from "#/components/home/AboutSection";
 import { ContactSection } from "#/components/home/ContactSection";
 import { FaqSection } from "#/components/home/FaqSection";
@@ -11,6 +12,9 @@ import { ThingsToDoSection } from "#/components/home/ThingsToDoSection";
 import { ZoneSection } from "#/components/home/ZoneSection";
 
 export const Route = createFileRoute("/(main)/")({
+	loader: async ({ context: { queryClient } }) => {
+		await queryClient.ensureQueryData(homeSafariHighlightsQueryOptions());
+	},
 	head: () => ({
 		meta: [
 			{
