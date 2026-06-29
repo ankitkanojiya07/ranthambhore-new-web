@@ -6,11 +6,11 @@ export const blogPostTagTable = pgTable(
 	"blog_post_tag",
 	(t) => ({
 		postId: t
-			.text("post_id")
+			.uuid("post_id")
 			.notNull()
 			.references(() => blogPostTable.id, { onDelete: "cascade" }),
 		tagId: t
-			.text("tag_id")
+			.uuid("tag_id")
 			.notNull()
 			.references(() => blogTagTable.id, { onDelete: "cascade" }),
 	}),

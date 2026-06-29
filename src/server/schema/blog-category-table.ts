@@ -1,9 +1,10 @@
 import { index, pgTable } from "drizzle-orm/pg-core";
+import { id } from "./columns";
 
 export const blogCategoryTable = pgTable(
 	"blog_category",
 	(t) => ({
-		id: t.text("id").primaryKey(),
+		id,
 		name: t.text("name").notNull(),
 		slug: t.text("slug").notNull().unique(),
 		description: t.text("description"),

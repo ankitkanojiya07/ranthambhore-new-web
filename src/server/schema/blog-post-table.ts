@@ -1,6 +1,7 @@
 import { index, pgEnum, pgTable } from "drizzle-orm/pg-core";
 import { blogCategoryTable } from "./blog-category-table";
 import { blogZoneTable } from "./blog-zone-table";
+import { id } from "./columns";
 import { userTable } from "./user-table";
 
 export const blogPostStatusEnum = pgEnum("blog_post_status", [
@@ -17,7 +18,7 @@ export const blogPostTypeEnum = pgEnum("blog_post_type", [
 export const blogPostTable = pgTable(
 	"blog_post",
 	(t) => ({
-		id: t.text("id").primaryKey(),
+		id,
 		title: t.text("title").notNull(),
 		slug: t.text("slug").notNull().unique(),
 		excerpt: t.text("excerpt"),
@@ -32,11 +33,12 @@ export const blogPostTable = pgTable(
 			.text("author_id")
 			.references(() => userTable.id, { onDelete: "set null" }),
 		categoryId: t
-			.text("category_id")
+			.uuid("category_id")
 			.references(() => blogCategoryTable.id, { onDelete: "set null" }),
 		zoneId: t
 			.text("zone_id")
 			.references(() => blogZoneTable.id, { onDelete: "set null" }),
+		spottedDate: t.date("spotted_date", { mode: "date" }),
 		createdAt: t.timestamp("created_at").defaultNow().notNull(),
 		updatedAt: t
 			.timestamp("updated_at")
@@ -52,5 +54,6 @@ export const blogPostTable = pgTable(
 		index("blog_post_status_idx").on(table.status),
 		index("blog_post_type_idx").on(table.type),
 		index("blog_post_publishedAt_idx").on(table.publishedAt),
+		index("blog_post_spottedDate_idx").on(table.spottedDate),
 	],
 );
