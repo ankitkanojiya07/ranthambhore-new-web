@@ -53,6 +53,9 @@ import { Route as mainAboutHistoryRouteImport } from './routes/(main)/about/hist
 import { Route as mainAboutFortRouteImport } from './routes/(main)/about/fort'
 import { Route as mainAboutFloraAndFaunaRouteImport } from './routes/(main)/about/flora-and-fauna'
 import { Route as mainAboutConservationRouteImport } from './routes/(main)/about/conservation'
+import { Route as mainHighlightsSafariInsightsIndexRouteImport } from './routes/(main)/highlights/safari-insights/index'
+import { Route as mainHighlightsRanthambhoreInsightsIndexRouteImport } from './routes/(main)/highlights/ranthambhore-insights/index'
+import { Route as mainHighlightsSafariInsightsZoneZoneIdRouteImport } from './routes/(main)/highlights/safari-insights/zone.$zoneId'
 
 const mainRouteRoute = mainRouteRouteImport.update({
   id: '/(main)',
@@ -278,6 +281,24 @@ const mainAboutConservationRoute = mainAboutConservationRouteImport.update({
   path: '/about/conservation',
   getParentRoute: () => mainRouteRoute,
 } as any)
+const mainHighlightsSafariInsightsIndexRoute =
+  mainHighlightsSafariInsightsIndexRouteImport.update({
+    id: '/highlights/safari-insights/',
+    path: '/highlights/safari-insights/',
+    getParentRoute: () => mainRouteRoute,
+  } as any)
+const mainHighlightsRanthambhoreInsightsIndexRoute =
+  mainHighlightsRanthambhoreInsightsIndexRouteImport.update({
+    id: '/highlights/ranthambhore-insights/',
+    path: '/highlights/ranthambhore-insights/',
+    getParentRoute: () => mainRouteRoute,
+  } as any)
+const mainHighlightsSafariInsightsZoneZoneIdRoute =
+  mainHighlightsSafariInsightsZoneZoneIdRouteImport.update({
+    id: '/highlights/safari-insights/zone/$zoneId',
+    path: '/highlights/safari-insights/zone/$zoneId',
+    getParentRoute: () => mainRouteRoute,
+  } as any)
 
 export interface FileRoutesByFullPath {
   '/sign-in': typeof mainSignInRoute
@@ -323,6 +344,9 @@ export interface FileRoutesByFullPath {
   '/safari/': typeof mainSafariIndexRoute
   '/stay/': typeof mainStayIndexRoute
   '/wildlife/': typeof mainWildlifeIndexRoute
+  '/highlights/ranthambhore-insights/': typeof mainHighlightsRanthambhoreInsightsIndexRoute
+  '/highlights/safari-insights/': typeof mainHighlightsSafariInsightsIndexRoute
+  '/highlights/safari-insights/zone/$zoneId': typeof mainHighlightsSafariInsightsZoneZoneIdRoute
 }
 export interface FileRoutesByTo {
   '/sign-in': typeof mainSignInRoute
@@ -368,6 +392,9 @@ export interface FileRoutesByTo {
   '/safari': typeof mainSafariIndexRoute
   '/stay': typeof mainStayIndexRoute
   '/wildlife': typeof mainWildlifeIndexRoute
+  '/highlights/ranthambhore-insights': typeof mainHighlightsRanthambhoreInsightsIndexRoute
+  '/highlights/safari-insights': typeof mainHighlightsSafariInsightsIndexRoute
+  '/highlights/safari-insights/zone/$zoneId': typeof mainHighlightsSafariInsightsZoneZoneIdRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -415,6 +442,9 @@ export interface FileRoutesById {
   '/(main)/safari/': typeof mainSafariIndexRoute
   '/(main)/stay/': typeof mainStayIndexRoute
   '/(main)/wildlife/': typeof mainWildlifeIndexRoute
+  '/(main)/highlights/ranthambhore-insights/': typeof mainHighlightsRanthambhoreInsightsIndexRoute
+  '/(main)/highlights/safari-insights/': typeof mainHighlightsSafariInsightsIndexRoute
+  '/(main)/highlights/safari-insights/zone/$zoneId': typeof mainHighlightsSafariInsightsZoneZoneIdRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -462,6 +492,9 @@ export interface FileRouteTypes {
     | '/safari/'
     | '/stay/'
     | '/wildlife/'
+    | '/highlights/ranthambhore-insights/'
+    | '/highlights/safari-insights/'
+    | '/highlights/safari-insights/zone/$zoneId'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/sign-in'
@@ -507,6 +540,9 @@ export interface FileRouteTypes {
     | '/safari'
     | '/stay'
     | '/wildlife'
+    | '/highlights/ranthambhore-insights'
+    | '/highlights/safari-insights'
+    | '/highlights/safari-insights/zone/$zoneId'
   id:
     | '__root__'
     | '/(main)'
@@ -553,6 +589,9 @@ export interface FileRouteTypes {
     | '/(main)/safari/'
     | '/(main)/stay/'
     | '/(main)/wildlife/'
+    | '/(main)/highlights/ranthambhore-insights/'
+    | '/(main)/highlights/safari-insights/'
+    | '/(main)/highlights/safari-insights/zone/$zoneId'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -870,6 +909,27 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof mainAboutConservationRouteImport
       parentRoute: typeof mainRouteRoute
     }
+    '/(main)/highlights/safari-insights/': {
+      id: '/(main)/highlights/safari-insights/'
+      path: '/highlights/safari-insights'
+      fullPath: '/highlights/safari-insights/'
+      preLoaderRoute: typeof mainHighlightsSafariInsightsIndexRouteImport
+      parentRoute: typeof mainRouteRoute
+    }
+    '/(main)/highlights/ranthambhore-insights/': {
+      id: '/(main)/highlights/ranthambhore-insights/'
+      path: '/highlights/ranthambhore-insights'
+      fullPath: '/highlights/ranthambhore-insights/'
+      preLoaderRoute: typeof mainHighlightsRanthambhoreInsightsIndexRouteImport
+      parentRoute: typeof mainRouteRoute
+    }
+    '/(main)/highlights/safari-insights/zone/$zoneId': {
+      id: '/(main)/highlights/safari-insights/zone/$zoneId'
+      path: '/highlights/safari-insights/zone/$zoneId'
+      fullPath: '/highlights/safari-insights/zone/$zoneId'
+      preLoaderRoute: typeof mainHighlightsSafariInsightsZoneZoneIdRouteImport
+      parentRoute: typeof mainRouteRoute
+    }
   }
 }
 
@@ -916,6 +976,9 @@ interface mainRouteRouteChildren {
   mainSafariIndexRoute: typeof mainSafariIndexRoute
   mainStayIndexRoute: typeof mainStayIndexRoute
   mainWildlifeIndexRoute: typeof mainWildlifeIndexRoute
+  mainHighlightsRanthambhoreInsightsIndexRoute: typeof mainHighlightsRanthambhoreInsightsIndexRoute
+  mainHighlightsSafariInsightsIndexRoute: typeof mainHighlightsSafariInsightsIndexRoute
+  mainHighlightsSafariInsightsZoneZoneIdRoute: typeof mainHighlightsSafariInsightsZoneZoneIdRoute
 }
 
 const mainRouteRouteChildren: mainRouteRouteChildren = {
@@ -962,6 +1025,12 @@ const mainRouteRouteChildren: mainRouteRouteChildren = {
   mainSafariIndexRoute: mainSafariIndexRoute,
   mainStayIndexRoute: mainStayIndexRoute,
   mainWildlifeIndexRoute: mainWildlifeIndexRoute,
+  mainHighlightsRanthambhoreInsightsIndexRoute:
+    mainHighlightsRanthambhoreInsightsIndexRoute,
+  mainHighlightsSafariInsightsIndexRoute:
+    mainHighlightsSafariInsightsIndexRoute,
+  mainHighlightsSafariInsightsZoneZoneIdRoute:
+    mainHighlightsSafariInsightsZoneZoneIdRoute,
 }
 
 const mainRouteRouteWithChildren = mainRouteRoute._addFileChildren(

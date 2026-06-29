@@ -1,22 +1,10 @@
 import { Link } from "@tanstack/react-router";
+import { ArrowRight } from "lucide-react";
 import { AnimatePresence, motion } from "motion/react";
 import { useEffect, useState } from "react";
 import { Button } from "#/components/ui/button";
+import { SAFARI_HIGHLIGHTS } from "#/lib/highlights-data";
 import { Image } from "#/util/Image";
-
-type SafariHighlight = {
-	id: string;
-	title: string;
-	zone: string;
-	date: string;
-	description: string;
-	image: {
-		src: string;
-		alt: string;
-		width: number;
-		height: number;
-	};
-};
 
 type HighlightCard = {
 	id: string;
@@ -32,65 +20,6 @@ type HighlightCard = {
 	isNew?: boolean;
 };
 
-const SAFARI_HIGHLIGHTS: SafariHighlight[] = [
-	{
-		id: "t109-cubs",
-		title: "Tigress T-109 With Three Cubs",
-		zone: "Zone 6",
-		date: "June 15, 2026",
-		description:
-			"Park rangers confirmed a healthy tigress with three cubs near Rajbagh lake — a strong sign for the breeding season.",
-		image: {
-			src: "/hero/9.webp",
-			alt: "Tiger with cubs in Ranthambore National Park",
-			width: 2048,
-			height: 1365,
-		},
-	},
-	{
-		id: "arrowhead-sighting",
-		title: "Arrowhead Spotted At Padam Talab",
-		zone: "Zone 2",
-		date: "June 12, 2026",
-		description:
-			"The park's most photographed tigress was seen hunting at dawn along the lakeside trail.",
-		image: {
-			src: "/hero/1.webp",
-			alt: "Tiger at Padam Talab in Ranthambore",
-			width: 2048,
-			height: 1365,
-		},
-	},
-	{
-		id: "leopard-zone-4",
-		title: "Leopard On Rocky Outcrop",
-		zone: "Zone 4",
-		date: "June 8, 2026",
-		description:
-			"A leopard was photographed at dusk in Kachida Valley — one of the park's rarer daylight encounters.",
-		image: {
-			src: "/hero/10.webp",
-			alt: "Leopard habitat in Ranthambore rocky terrain",
-			width: 2048,
-			height: 1365,
-		},
-	},
-	{
-		id: "sloth-bear-cubs",
-		title: "Sloth Bear Family Near Fort Trail",
-		zone: "Zone 3",
-		date: "June 4, 2026",
-		description:
-			"Visitors on the morning safari reported a mother sloth bear with two cubs crossing the fort approach road.",
-		image: {
-			src: "/hero/7.webp",
-			alt: "Forest trail in Ranthambore near the fort",
-			width: 2048,
-			height: 1365,
-		},
-	},
-];
-
 const HIGHLIGHT_SLIDES: { id: string; cards: HighlightCard[] }[] = [
 	{
 		id: "plan-and-visitors",
@@ -100,7 +29,7 @@ const HIGHLIGHT_SLIDES: { id: string; cards: HighlightCard[] }[] = [
 				title: "Why Plan A Trip To Ranthambore?",
 				description:
 					"If you are a wildlife lover wishing to know more about tigers in the wild, you must visit Ranthambore — one of India's finest tiger reserves.",
-				href: "/about/national-park",
+				href: "/highlights/ranthambhore-insights",
 				image: {
 					src: "/hero/8.webp",
 					alt: "Scenic lake view at Ranthambore National Park",
@@ -113,7 +42,7 @@ const HIGHLIGHT_SLIDES: { id: string; cards: HighlightCard[] }[] = [
 				title: "Record Visitors – 7.27 Lakh Tourists In 2025",
 				description:
 					"Ranthambore crossed 727,000 visitors in the 2025 season, making it one of India's most visited tiger reserves.",
-				href: "/blog",
+				href: "/highlights/ranthambhore-insights",
 				isNew: true,
 				image: {
 					src: "/hero/9.webp",
@@ -132,7 +61,7 @@ const HIGHLIGHT_SLIDES: { id: string; cards: HighlightCard[] }[] = [
 				title: "Book A Gypsy Safari For The Best Sightings",
 				description:
 					"Travel in a 6-seater open jeep with an expert naturalist guide for an intimate, flexible wildlife experience.",
-				href: "/safari/jeep",
+				href: "/highlights/ranthambhore-insights",
 				image: {
 					src: "/hero/7.webp",
 					alt: "Jeep safari through Ranthambore forest trails",
@@ -145,7 +74,7 @@ const HIGHLIGHT_SLIDES: { id: string; cards: HighlightCard[] }[] = [
 				title: "Explore All 10 Ranthambore Safari Zones",
 				description:
 					"From the iconic lakes of Zones 1–5 to the quieter buffer zones — find the right territory for your goals.",
-				href: "/safari/zones",
+				href: "/highlights/ranthambhore-insights",
 				image: {
 					src: "/hero/10.webp",
 					alt: "Golden sunset over Ranthambore wilderness",
@@ -163,7 +92,7 @@ const HIGHLIGHT_SLIDES: { id: string; cards: HighlightCard[] }[] = [
 				title: "Best Time To Visit Ranthambore",
 				description:
 					"October to April offers peak tiger sightings, while summer months concentrate wildlife around the lakes.",
-				href: "/plan/best-time",
+				href: "/highlights/ranthambhore-insights",
 				image: {
 					src: "/hero/1.webp",
 					alt: "Tiger in golden light at Ranthambore",
@@ -176,7 +105,7 @@ const HIGHLIGHT_SLIDES: { id: string; cards: HighlightCard[] }[] = [
 				title: "Things To Know Before Safari Booking",
 				description:
 					"Park rules, ID requirements, zone selection, and booking timelines — everything you need before you go.",
-				href: "/safari/booking-guidelines",
+				href: "/highlights/ranthambhore-insights",
 				image: {
 					src: "/hero/8.webp",
 					alt: "Safari briefing at Ranthambore gate",
@@ -188,6 +117,7 @@ const HIGHLIGHT_SLIDES: { id: string; cards: HighlightCard[] }[] = [
 	},
 ];
 
+const HOME_SAFARI_HIGHLIGHTS = SAFARI_HIGHLIGHTS.slice(0, 4);
 const SLIDE_INTERVAL_MS = 6000;
 
 function HighlightCardItem({ card }: { card: HighlightCard }) {
@@ -225,12 +155,14 @@ function HighlightCardItem({ card }: { card: HighlightCard }) {
 export function QuickLinksHighlightsSection() {
 	const [safariIndex, setSafariIndex] = useState(0);
 	const [highlightIndex, setHighlightIndex] = useState(0);
-	const safariHighlight = SAFARI_HIGHLIGHTS[safariIndex];
+	const safariHighlight = HOME_SAFARI_HIGHLIGHTS[safariIndex];
 	const highlightSlide = HIGHLIGHT_SLIDES[highlightIndex];
 
 	useEffect(() => {
 		const timer = setInterval(() => {
-			setSafariIndex((current) => (current + 1) % SAFARI_HIGHLIGHTS.length);
+			setSafariIndex(
+				(current) => (current + 1) % HOME_SAFARI_HIGHLIGHTS.length,
+			);
 		}, SLIDE_INTERVAL_MS);
 
 		return () => clearInterval(timer);
@@ -252,10 +184,17 @@ export function QuickLinksHighlightsSection() {
 			<div className="mx-auto grid max-w-7xl gap-5 lg:grid-cols-3 lg:gap-6">
 				{/* Safari highlights carousel */}
 				<aside className="flex flex-col overflow-hidden rounded-2xl bg-tiger-900 lg:col-span-1">
-					<div className="border-b border-tiger-800 px-5 py-4">
+					<div className="flex items-center justify-between border-b border-tiger-800 px-5 py-4">
 						<h2 className="font-display text-sm font-bold uppercase tracking-display text-sand-50">
 							Safari Highlights
 						</h2>
+						<Link
+							to="/highlights/safari-insights"
+							aria-label="View all safari highlights"
+							className="flex size-8 items-center justify-center rounded-full text-sand-200 transition-colors hover:bg-tiger-800 hover:text-sand-50"
+						>
+							<ArrowRight className="size-4" />
+						</Link>
 					</div>
 
 					<div className="relative flex-1 overflow-hidden px-4 pt-4">
@@ -296,7 +235,7 @@ export function QuickLinksHighlightsSection() {
 					</div>
 
 					<div className="mt-4 flex items-center justify-center gap-2 px-4">
-						{SAFARI_HIGHLIGHTS.map((highlight, index) => (
+						{HOME_SAFARI_HIGHLIGHTS.map((highlight, index) => (
 							<button
 								key={highlight.id}
 								type="button"
@@ -332,13 +271,22 @@ export function QuickLinksHighlightsSection() {
 
 				{/* Highlights carousel */}
 				<div className="flex flex-col rounded-2xl bg-tiger-50 px-5 py-5 lg:col-span-2 lg:px-6 lg:py-6">
-					<div>
-						<p className="font-display text-xs font-semibold uppercase tracking-display text-earth-500">
-							What&apos;s New
-						</p>
-						<h2 className="mt-1 font-display text-xl font-bold uppercase tracking-display text-charcoal-900 lg:text-2xl">
-							Ranthambore Highlights
-						</h2>
+					<div className="flex items-start justify-between gap-4">
+						<div>
+							<p className="font-display text-xs font-semibold uppercase tracking-display text-earth-500">
+								What&apos;s New
+							</p>
+							<h2 className="mt-1 font-display text-xl font-bold uppercase tracking-display text-charcoal-900 lg:text-2xl">
+								Ranthambore Highlights
+							</h2>
+						</div>
+						<Link
+							to="/highlights/ranthambhore-insights"
+							aria-label="View all Ranthambhore highlights"
+							className="flex size-9 shrink-0 items-center justify-center rounded-full border border-tiger-300 text-charcoal-700 transition-colors hover:border-tiger-600 hover:text-tiger-800"
+						>
+							<ArrowRight className="size-4" />
+						</Link>
 					</div>
 
 					<div className="relative mt-5 flex-1 overflow-hidden">

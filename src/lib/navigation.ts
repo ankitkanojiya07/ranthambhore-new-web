@@ -77,6 +77,17 @@ export const NAV_ITEMS: NavItem[] = [
 		],
 	},
 	{
+		label: "Highlights",
+		href: "/highlights/safari-insights",
+		children: [
+			{ label: "Safari Highlights", href: "/highlights/safari-insights" },
+			{
+				label: "Ranthambhore Highlights",
+				href: "/highlights/ranthambhore-insights",
+			},
+		],
+	},
+	{
 		label: "Nearby Places",
 		href: "/nearby-places",
 	},

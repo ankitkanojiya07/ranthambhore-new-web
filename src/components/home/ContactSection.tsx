@@ -1,6 +1,11 @@
 import { motion } from "motion/react";
+import { useState } from "react";
 import { MultiSelectDropdown } from "#/components/ui/multi-select-dropdown";
 import { Image } from "#/util/Image";
+
+const WEB3FORMS_ACCESS_KEY = "80b057d5-9cb6-4677-a700-5b7a7bfc0876";
+const WEB3FORMS_CC_EMAILS =
+	"akanojiya550@gmail.com; ranthambhoreregency@gmail.com; ravindra2007@icloud.com";
 
 const containerVariants = {
 	hidden: {},
@@ -42,8 +47,24 @@ const GUEST_OPTIONS = [
 const inputClasses =
 	"w-full rounded border border-muted-300 bg-sand-50 px-4 py-3 font-body text-sm text-charcoal-800 placeholder:text-charcoal-400 focus:border-sunset-500 focus:outline-none";
 
+const dateInputClasses = `${inputClasses} [&::-webkit-calendar-picker-indicator]:cursor-pointer [&::-webkit-calendar-picker-indicator]:opacity-70`;
+
 const labelClasses =
 	"mb-1.5 block font-display text-[10px] uppercase tracking-display text-charcoal-700";
+
+function todayIsoDate(): string {
+	const now = new Date();
+	const year = now.getFullYear();
+	const month = String(now.getMonth() + 1).padStart(2, "0");
+	const day = String(now.getDate()).padStart(2, "0");
+	return `${year}-${month}-${day}`;
+}
+
+function formatIsoDateDisplay(isoDate: string): string {
+	const [year, month, day] = isoDate.split("-");
+	if (!year || !month || !day) return isoDate;
+	return `${day}/${month}/${year}`;
+}
 
 function FieldLabel({
 	htmlFor,
@@ -63,6 +84,66 @@ function FieldLabel({
 }
 
 export function ContactSection() {
+	const [loading, setLoading] = useState(false);
+	const [error, setError] = useState<string | null>(null);
+	const [success, setSuccess] = useState(false);
+	const [checkInDate, setCheckInDate] = useState("");
+	const [checkOutDate, setCheckOutDate] = useState("");
+	const today = todayIsoDate();
+
+	async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
+		event.preventDefault();
+		setError(null);
+		setSuccess(false);
+		setLoading(true);
+
+		const form = event.currentTarget;
+		const data = new FormData(form);
+
+		data.set("access_key", WEB3FORMS_ACCESS_KEY);
+		data.set("ccemail", WEB3FORMS_CC_EMAILS);
+		data.set("subject", "Booking Enquiry for the Regency Hotel");
+		data.set("from_name", "Regency Hotel");
+		data.set("name", data.get("fullName")?.toString() ?? "");
+		data.set(
+			"message",
+			[
+				`Check-in: ${formatIsoDateDisplay(data.get("checkInDate")?.toString() ?? "")}`,
+				`Check-out: ${formatIsoDateDisplay(data.get("checkOutDate")?.toString() ?? "")}`,
+				`Guests: ${data.get("guests")}`,
+				`Query about: ${data.getAll("queryAbout").join(", ")}`,
+				`Phone: ${data.get("phone") || "Not provided"}`,
+				"",
+				data.get("specialRequests")?.toString() || "No special requests.",
+			].join("\n"),
+		);
+
+		try {
+			const response = await fetch("https://api.web3forms.com/submit", {
+				method: "POST",
+				body: data,
+			});
+			const result = (await response.json()) as {
+				success: boolean;
+				message?: string;
+			};
+
+			if (!response.ok || !result.success) {
+				setError(result.message ?? "Unable to send enquiry. Please try again.");
+				return;
+			}
+
+			setSuccess(true);
+			form.reset();
+			setCheckInDate("");
+			setCheckOutDate("");
+		} catch {
+			setError("Unable to send enquiry. Please try again.");
+		} finally {
+			setLoading(false);
+		}
+	}
+
 	return (
 		<section
 			className="bg-sand-50 relative px-6 py-16 lg:px-8 lg:py-20 border-t border-muted-300"
@@ -103,14 +184,22 @@ export function ContactSection() {
 								variants={itemVariants}
 								className="mt-2 text-2xl text-charcoal-800 lg:text-3xl"
 							>
-								Let Us Help You In Your Journey
+								Booking Enquiry for the Regency Hotel
 							</motion.h3>
 
 							<motion.form
 								variants={itemVariants}
-								onSubmit={(e) => e.preventDefault()}
+								onSubmit={handleSubmit}
 								className="mt-8 space-y-4"
 							>
+								<input
+									type="checkbox"
+									name="botcheck"
+									tabIndex={-1}
+									autoComplete="off"
+									className="hidden"
+									style={{ display: "none" }}
+								/>
 								<div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
 									<div>
 										<FieldLabel htmlFor="check-in-date" required>
@@ -119,13 +208,18 @@ export function ContactSection() {
 										<input
 											id="check-in-date"
 											name="checkInDate"
-											type="text"
+											type="date"
 											required
-											placeholder="dd/mm/yyyy"
-											inputMode="numeric"
-											pattern="(0[1-9]|[12][0-9]|3[01])/(0[1-9]|1[0-2])/[0-9]{4}"
-											title="Date format: dd/mm/yyyy"
-											className={inputClasses}
+											min={today}
+											value={checkInDate}
+											onChange={(event) => {
+												const nextCheckIn = event.target.value;
+												setCheckInDate(nextCheckIn);
+												if (checkOutDate && checkOutDate <= nextCheckIn) {
+													setCheckOutDate("");
+												}
+											}}
+											className={dateInputClasses}
 										/>
 									</div>
 									<div>
@@ -135,13 +229,12 @@ export function ContactSection() {
 										<input
 											id="check-out-date"
 											name="checkOutDate"
-											type="text"
+											type="date"
 											required
-											placeholder="dd/mm/yyyy"
-											inputMode="numeric"
-											pattern="(0[1-9]|[12][0-9]|3[01])/(0[1-9]|1[0-2])/[0-9]{4}"
-											title="Date format: dd/mm/yyyy"
-											className={inputClasses}
+											min={checkInDate || today}
+											value={checkOutDate}
+											onChange={(event) => setCheckOutDate(event.target.value)}
+											className={dateInputClasses}
 										/>
 									</div>
 								</div>
@@ -235,12 +328,25 @@ export function ContactSection() {
 									/>
 								</div>
 
+								{error && (
+									<p role="alert" className="font-body text-sm text-sunset-700">
+										{error}
+									</p>
+								)}
+								{success && (
+									<output className="block font-body text-sm text-forest-700">
+										Thank you! Your enquiry has been sent. We will get back to
+										you shortly.
+									</output>
+								)}
+
 								<div>
 									<button
 										type="submit"
-										className="rounded bg-sunset-500 px-8 py-3 font-display text-xs uppercase tracking-display text-sand-50 transition-colors hover:bg-sunset-600"
+										disabled={loading}
+										className="rounded bg-sunset-500 px-8 py-3 font-display text-xs uppercase tracking-display text-sand-50 transition-colors hover:bg-sunset-600 disabled:cursor-not-allowed disabled:opacity-60"
 									>
-										Send Enquiry
+										{loading ? "Sending…" : "Send Enquiry"}
 									</button>
 								</div>
 							</motion.form>
