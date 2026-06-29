@@ -11,6 +11,8 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as mainRouteRouteImport } from './routes/(main)/route'
 import { Route as mainIndexRouteImport } from './routes/(main)/index'
+import { Route as mainSignUpRouteImport } from './routes/(main)/sign-up'
+import { Route as mainSignInRouteImport } from './routes/(main)/sign-in'
 import { Route as mainWildlifeIndexRouteImport } from './routes/(main)/wildlife/index'
 import { Route as mainStayIndexRouteImport } from './routes/(main)/stay/index'
 import { Route as mainSafariIndexRouteImport } from './routes/(main)/safari/index'
@@ -19,6 +21,7 @@ import { Route as mainNearbyPlacesIndexRouteImport } from './routes/(main)/nearb
 import { Route as mainContactIndexRouteImport } from './routes/(main)/contact/index'
 import { Route as mainBlogIndexRouteImport } from './routes/(main)/blog/index'
 import { Route as mainAboutIndexRouteImport } from './routes/(main)/about/index'
+import { Route as ApiAuthSplatRouteImport } from './routes/api/auth/$'
 import { Route as mainWildlifeTigersRouteImport } from './routes/(main)/wildlife/tigers'
 import { Route as mainWildlifeTigerIdentificationRouteImport } from './routes/(main)/wildlife/tiger-identification'
 import { Route as mainWildlifeReptilesAndAmphibiansRouteImport } from './routes/(main)/wildlife/reptiles-and-amphibians'
@@ -60,6 +63,16 @@ const mainIndexRoute = mainIndexRouteImport.update({
   path: '/',
   getParentRoute: () => mainRouteRoute,
 } as any)
+const mainSignUpRoute = mainSignUpRouteImport.update({
+  id: '/sign-up',
+  path: '/sign-up',
+  getParentRoute: () => mainRouteRoute,
+} as any)
+const mainSignInRoute = mainSignInRouteImport.update({
+  id: '/sign-in',
+  path: '/sign-in',
+  getParentRoute: () => mainRouteRoute,
+} as any)
 const mainWildlifeIndexRoute = mainWildlifeIndexRouteImport.update({
   id: '/wildlife/',
   path: '/wildlife/',
@@ -99,6 +112,11 @@ const mainAboutIndexRoute = mainAboutIndexRouteImport.update({
   id: '/about/',
   path: '/about/',
   getParentRoute: () => mainRouteRoute,
+} as any)
+const ApiAuthSplatRoute = ApiAuthSplatRouteImport.update({
+  id: '/api/auth/$',
+  path: '/api/auth/$',
+  getParentRoute: () => rootRouteImport,
 } as any)
 const mainWildlifeTigersRoute = mainWildlifeTigersRouteImport.update({
   id: '/wildlife/tigers',
@@ -262,6 +280,8 @@ const mainAboutConservationRoute = mainAboutConservationRouteImport.update({
 } as any)
 
 export interface FileRoutesByFullPath {
+  '/sign-in': typeof mainSignInRoute
+  '/sign-up': typeof mainSignUpRoute
   '/': typeof mainIndexRoute
   '/about/conservation': typeof mainAboutConservationRoute
   '/about/flora-and-fauna': typeof mainAboutFloraAndFaunaRoute
@@ -294,6 +314,7 @@ export interface FileRoutesByFullPath {
   '/wildlife/reptiles-and-amphibians': typeof mainWildlifeReptilesAndAmphibiansRoute
   '/wildlife/tiger-identification': typeof mainWildlifeTigerIdentificationRoute
   '/wildlife/tigers': typeof mainWildlifeTigersRoute
+  '/api/auth/$': typeof ApiAuthSplatRoute
   '/about/': typeof mainAboutIndexRoute
   '/blog/': typeof mainBlogIndexRoute
   '/contact/': typeof mainContactIndexRoute
@@ -304,6 +325,8 @@ export interface FileRoutesByFullPath {
   '/wildlife/': typeof mainWildlifeIndexRoute
 }
 export interface FileRoutesByTo {
+  '/sign-in': typeof mainSignInRoute
+  '/sign-up': typeof mainSignUpRoute
   '/': typeof mainIndexRoute
   '/about/conservation': typeof mainAboutConservationRoute
   '/about/flora-and-fauna': typeof mainAboutFloraAndFaunaRoute
@@ -336,6 +359,7 @@ export interface FileRoutesByTo {
   '/wildlife/reptiles-and-amphibians': typeof mainWildlifeReptilesAndAmphibiansRoute
   '/wildlife/tiger-identification': typeof mainWildlifeTigerIdentificationRoute
   '/wildlife/tigers': typeof mainWildlifeTigersRoute
+  '/api/auth/$': typeof ApiAuthSplatRoute
   '/about': typeof mainAboutIndexRoute
   '/blog': typeof mainBlogIndexRoute
   '/contact': typeof mainContactIndexRoute
@@ -348,6 +372,8 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/(main)': typeof mainRouteRouteWithChildren
+  '/(main)/sign-in': typeof mainSignInRoute
+  '/(main)/sign-up': typeof mainSignUpRoute
   '/(main)/': typeof mainIndexRoute
   '/(main)/about/conservation': typeof mainAboutConservationRoute
   '/(main)/about/flora-and-fauna': typeof mainAboutFloraAndFaunaRoute
@@ -380,6 +406,7 @@ export interface FileRoutesById {
   '/(main)/wildlife/reptiles-and-amphibians': typeof mainWildlifeReptilesAndAmphibiansRoute
   '/(main)/wildlife/tiger-identification': typeof mainWildlifeTigerIdentificationRoute
   '/(main)/wildlife/tigers': typeof mainWildlifeTigersRoute
+  '/api/auth/$': typeof ApiAuthSplatRoute
   '/(main)/about/': typeof mainAboutIndexRoute
   '/(main)/blog/': typeof mainBlogIndexRoute
   '/(main)/contact/': typeof mainContactIndexRoute
@@ -392,6 +419,8 @@ export interface FileRoutesById {
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
+    | '/sign-in'
+    | '/sign-up'
     | '/'
     | '/about/conservation'
     | '/about/flora-and-fauna'
@@ -424,6 +453,7 @@ export interface FileRouteTypes {
     | '/wildlife/reptiles-and-amphibians'
     | '/wildlife/tiger-identification'
     | '/wildlife/tigers'
+    | '/api/auth/$'
     | '/about/'
     | '/blog/'
     | '/contact/'
@@ -434,6 +464,8 @@ export interface FileRouteTypes {
     | '/wildlife/'
   fileRoutesByTo: FileRoutesByTo
   to:
+    | '/sign-in'
+    | '/sign-up'
     | '/'
     | '/about/conservation'
     | '/about/flora-and-fauna'
@@ -466,6 +498,7 @@ export interface FileRouteTypes {
     | '/wildlife/reptiles-and-amphibians'
     | '/wildlife/tiger-identification'
     | '/wildlife/tigers'
+    | '/api/auth/$'
     | '/about'
     | '/blog'
     | '/contact'
@@ -477,6 +510,8 @@ export interface FileRouteTypes {
   id:
     | '__root__'
     | '/(main)'
+    | '/(main)/sign-in'
+    | '/(main)/sign-up'
     | '/(main)/'
     | '/(main)/about/conservation'
     | '/(main)/about/flora-and-fauna'
@@ -509,6 +544,7 @@ export interface FileRouteTypes {
     | '/(main)/wildlife/reptiles-and-amphibians'
     | '/(main)/wildlife/tiger-identification'
     | '/(main)/wildlife/tigers'
+    | '/api/auth/$'
     | '/(main)/about/'
     | '/(main)/blog/'
     | '/(main)/contact/'
@@ -521,6 +557,7 @@ export interface FileRouteTypes {
 }
 export interface RootRouteChildren {
   mainRouteRoute: typeof mainRouteRouteWithChildren
+  ApiAuthSplatRoute: typeof ApiAuthSplatRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -537,6 +574,20 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof mainIndexRouteImport
+      parentRoute: typeof mainRouteRoute
+    }
+    '/(main)/sign-up': {
+      id: '/(main)/sign-up'
+      path: '/sign-up'
+      fullPath: '/sign-up'
+      preLoaderRoute: typeof mainSignUpRouteImport
+      parentRoute: typeof mainRouteRoute
+    }
+    '/(main)/sign-in': {
+      id: '/(main)/sign-in'
+      path: '/sign-in'
+      fullPath: '/sign-in'
+      preLoaderRoute: typeof mainSignInRouteImport
       parentRoute: typeof mainRouteRoute
     }
     '/(main)/wildlife/': {
@@ -594,6 +645,13 @@ declare module '@tanstack/react-router' {
       fullPath: '/about/'
       preLoaderRoute: typeof mainAboutIndexRouteImport
       parentRoute: typeof mainRouteRoute
+    }
+    '/api/auth/$': {
+      id: '/api/auth/$'
+      path: '/api/auth/$'
+      fullPath: '/api/auth/$'
+      preLoaderRoute: typeof ApiAuthSplatRouteImport
+      parentRoute: typeof rootRouteImport
     }
     '/(main)/wildlife/tigers': {
       id: '/(main)/wildlife/tigers'
@@ -816,6 +874,8 @@ declare module '@tanstack/react-router' {
 }
 
 interface mainRouteRouteChildren {
+  mainSignInRoute: typeof mainSignInRoute
+  mainSignUpRoute: typeof mainSignUpRoute
   mainIndexRoute: typeof mainIndexRoute
   mainAboutConservationRoute: typeof mainAboutConservationRoute
   mainAboutFloraAndFaunaRoute: typeof mainAboutFloraAndFaunaRoute
@@ -859,6 +919,8 @@ interface mainRouteRouteChildren {
 }
 
 const mainRouteRouteChildren: mainRouteRouteChildren = {
+  mainSignInRoute: mainSignInRoute,
+  mainSignUpRoute: mainSignUpRoute,
   mainIndexRoute: mainIndexRoute,
   mainAboutConservationRoute: mainAboutConservationRoute,
   mainAboutFloraAndFaunaRoute: mainAboutFloraAndFaunaRoute,
@@ -908,6 +970,7 @@ const mainRouteRouteWithChildren = mainRouteRoute._addFileChildren(
 
 const rootRouteChildren: RootRouteChildren = {
   mainRouteRoute: mainRouteRouteWithChildren,
+  ApiAuthSplatRoute: ApiAuthSplatRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

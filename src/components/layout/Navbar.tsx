@@ -1,4 +1,5 @@
 import { Link, useRouterState } from "@tanstack/react-router";
+import { AuthNavActions } from "#/components/auth/AuthNavActions";
 import { FacebookIcon } from "#/icons/facebook.icon";
 import { InstagramIcon } from "#/icons/instagram.icon";
 import { MenuIcon } from "#/icons/menu.icon";
@@ -119,8 +120,9 @@ const NavigationBar = () => {
 						</Link>
 					</div>
 
-					{/* Right: CTA */}
-					<div className="flex justify-end">
+					{/* Right: auth + CTA */}
+					<div className="flex items-center justify-end gap-2 sm:gap-3">
+						<AuthNavActions navOverlay={navOverlay} />
 						<Button
 							variant="outline"
 							className={cn(
