@@ -18,6 +18,7 @@ import { Route as mainStayIndexRouteImport } from './routes/(main)/stay/index'
 import { Route as mainSafariIndexRouteImport } from './routes/(main)/safari/index'
 import { Route as mainPlanIndexRouteImport } from './routes/(main)/plan/index'
 import { Route as mainNearbyPlacesIndexRouteImport } from './routes/(main)/nearby-places/index'
+import { Route as mainDailyUpdatesIndexRouteImport } from './routes/(main)/daily-updates/index'
 import { Route as mainContactIndexRouteImport } from './routes/(main)/contact/index'
 import { Route as mainBlogIndexRouteImport } from './routes/(main)/blog/index'
 import { Route as mainAboutIndexRouteImport } from './routes/(main)/about/index'
@@ -46,6 +47,7 @@ import { Route as mainPlanFaqsRouteImport } from './routes/(main)/plan/faqs'
 import { Route as mainPlanDosAndDontsRouteImport } from './routes/(main)/plan/dos-and-donts'
 import { Route as mainPlanCabHireRouteImport } from './routes/(main)/plan/cab-hire'
 import { Route as mainPlanBestTimeRouteImport } from './routes/(main)/plan/best-time'
+import { Route as mainDailyUpdatesNewRouteImport } from './routes/(main)/daily-updates/new'
 import { Route as mainAboutTigersRouteImport } from './routes/(main)/about/tigers'
 import { Route as mainAboutTemplesAndMuseumsRouteImport } from './routes/(main)/about/temples-and-museums'
 import { Route as mainAboutNationalParkRouteImport } from './routes/(main)/about/national-park'
@@ -99,6 +101,11 @@ const mainPlanIndexRoute = mainPlanIndexRouteImport.update({
 const mainNearbyPlacesIndexRoute = mainNearbyPlacesIndexRouteImport.update({
   id: '/nearby-places/',
   path: '/nearby-places/',
+  getParentRoute: () => mainRouteRoute,
+} as any)
+const mainDailyUpdatesIndexRoute = mainDailyUpdatesIndexRouteImport.update({
+  id: '/daily-updates/',
+  path: '/daily-updates/',
   getParentRoute: () => mainRouteRoute,
 } as any)
 const mainContactIndexRoute = mainContactIndexRouteImport.update({
@@ -245,6 +252,11 @@ const mainPlanBestTimeRoute = mainPlanBestTimeRouteImport.update({
   path: '/plan/best-time',
   getParentRoute: () => mainRouteRoute,
 } as any)
+const mainDailyUpdatesNewRoute = mainDailyUpdatesNewRouteImport.update({
+  id: '/daily-updates/new',
+  path: '/daily-updates/new',
+  getParentRoute: () => mainRouteRoute,
+} as any)
 const mainAboutTigersRoute = mainAboutTigersRouteImport.update({
   id: '/about/tigers',
   path: '/about/tigers',
@@ -311,6 +323,7 @@ export interface FileRoutesByFullPath {
   '/about/national-park': typeof mainAboutNationalParkRoute
   '/about/temples-and-museums': typeof mainAboutTemplesAndMuseumsRoute
   '/about/tigers': typeof mainAboutTigersRoute
+  '/daily-updates/new': typeof mainDailyUpdatesNewRoute
   '/plan/best-time': typeof mainPlanBestTimeRoute
   '/plan/cab-hire': typeof mainPlanCabHireRoute
   '/plan/dos-and-donts': typeof mainPlanDosAndDontsRoute
@@ -339,6 +352,7 @@ export interface FileRoutesByFullPath {
   '/about/': typeof mainAboutIndexRoute
   '/blog/': typeof mainBlogIndexRoute
   '/contact/': typeof mainContactIndexRoute
+  '/daily-updates/': typeof mainDailyUpdatesIndexRoute
   '/nearby-places/': typeof mainNearbyPlacesIndexRoute
   '/plan/': typeof mainPlanIndexRoute
   '/safari/': typeof mainSafariIndexRoute
@@ -359,6 +373,7 @@ export interface FileRoutesByTo {
   '/about/national-park': typeof mainAboutNationalParkRoute
   '/about/temples-and-museums': typeof mainAboutTemplesAndMuseumsRoute
   '/about/tigers': typeof mainAboutTigersRoute
+  '/daily-updates/new': typeof mainDailyUpdatesNewRoute
   '/plan/best-time': typeof mainPlanBestTimeRoute
   '/plan/cab-hire': typeof mainPlanCabHireRoute
   '/plan/dos-and-donts': typeof mainPlanDosAndDontsRoute
@@ -387,6 +402,7 @@ export interface FileRoutesByTo {
   '/about': typeof mainAboutIndexRoute
   '/blog': typeof mainBlogIndexRoute
   '/contact': typeof mainContactIndexRoute
+  '/daily-updates': typeof mainDailyUpdatesIndexRoute
   '/nearby-places': typeof mainNearbyPlacesIndexRoute
   '/plan': typeof mainPlanIndexRoute
   '/safari': typeof mainSafariIndexRoute
@@ -409,6 +425,7 @@ export interface FileRoutesById {
   '/(main)/about/national-park': typeof mainAboutNationalParkRoute
   '/(main)/about/temples-and-museums': typeof mainAboutTemplesAndMuseumsRoute
   '/(main)/about/tigers': typeof mainAboutTigersRoute
+  '/(main)/daily-updates/new': typeof mainDailyUpdatesNewRoute
   '/(main)/plan/best-time': typeof mainPlanBestTimeRoute
   '/(main)/plan/cab-hire': typeof mainPlanCabHireRoute
   '/(main)/plan/dos-and-donts': typeof mainPlanDosAndDontsRoute
@@ -437,6 +454,7 @@ export interface FileRoutesById {
   '/(main)/about/': typeof mainAboutIndexRoute
   '/(main)/blog/': typeof mainBlogIndexRoute
   '/(main)/contact/': typeof mainContactIndexRoute
+  '/(main)/daily-updates/': typeof mainDailyUpdatesIndexRoute
   '/(main)/nearby-places/': typeof mainNearbyPlacesIndexRoute
   '/(main)/plan/': typeof mainPlanIndexRoute
   '/(main)/safari/': typeof mainSafariIndexRoute
@@ -459,6 +477,7 @@ export interface FileRouteTypes {
     | '/about/national-park'
     | '/about/temples-and-museums'
     | '/about/tigers'
+    | '/daily-updates/new'
     | '/plan/best-time'
     | '/plan/cab-hire'
     | '/plan/dos-and-donts'
@@ -487,6 +506,7 @@ export interface FileRouteTypes {
     | '/about/'
     | '/blog/'
     | '/contact/'
+    | '/daily-updates/'
     | '/nearby-places/'
     | '/plan/'
     | '/safari/'
@@ -507,6 +527,7 @@ export interface FileRouteTypes {
     | '/about/national-park'
     | '/about/temples-and-museums'
     | '/about/tigers'
+    | '/daily-updates/new'
     | '/plan/best-time'
     | '/plan/cab-hire'
     | '/plan/dos-and-donts'
@@ -535,6 +556,7 @@ export interface FileRouteTypes {
     | '/about'
     | '/blog'
     | '/contact'
+    | '/daily-updates'
     | '/nearby-places'
     | '/plan'
     | '/safari'
@@ -556,6 +578,7 @@ export interface FileRouteTypes {
     | '/(main)/about/national-park'
     | '/(main)/about/temples-and-museums'
     | '/(main)/about/tigers'
+    | '/(main)/daily-updates/new'
     | '/(main)/plan/best-time'
     | '/(main)/plan/cab-hire'
     | '/(main)/plan/dos-and-donts'
@@ -584,6 +607,7 @@ export interface FileRouteTypes {
     | '/(main)/about/'
     | '/(main)/blog/'
     | '/(main)/contact/'
+    | '/(main)/daily-updates/'
     | '/(main)/nearby-places/'
     | '/(main)/plan/'
     | '/(main)/safari/'
@@ -662,6 +686,13 @@ declare module '@tanstack/react-router' {
       path: '/nearby-places'
       fullPath: '/nearby-places/'
       preLoaderRoute: typeof mainNearbyPlacesIndexRouteImport
+      parentRoute: typeof mainRouteRoute
+    }
+    '/(main)/daily-updates/': {
+      id: '/(main)/daily-updates/'
+      path: '/daily-updates'
+      fullPath: '/daily-updates/'
+      preLoaderRoute: typeof mainDailyUpdatesIndexRouteImport
       parentRoute: typeof mainRouteRoute
     }
     '/(main)/contact/': {
@@ -860,6 +891,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof mainPlanBestTimeRouteImport
       parentRoute: typeof mainRouteRoute
     }
+    '/(main)/daily-updates/new': {
+      id: '/(main)/daily-updates/new'
+      path: '/daily-updates/new'
+      fullPath: '/daily-updates/new'
+      preLoaderRoute: typeof mainDailyUpdatesNewRouteImport
+      parentRoute: typeof mainRouteRoute
+    }
     '/(main)/about/tigers': {
       id: '/(main)/about/tigers'
       path: '/about/tigers'
@@ -944,6 +982,7 @@ interface mainRouteRouteChildren {
   mainAboutNationalParkRoute: typeof mainAboutNationalParkRoute
   mainAboutTemplesAndMuseumsRoute: typeof mainAboutTemplesAndMuseumsRoute
   mainAboutTigersRoute: typeof mainAboutTigersRoute
+  mainDailyUpdatesNewRoute: typeof mainDailyUpdatesNewRoute
   mainPlanBestTimeRoute: typeof mainPlanBestTimeRoute
   mainPlanCabHireRoute: typeof mainPlanCabHireRoute
   mainPlanDosAndDontsRoute: typeof mainPlanDosAndDontsRoute
@@ -971,6 +1010,7 @@ interface mainRouteRouteChildren {
   mainAboutIndexRoute: typeof mainAboutIndexRoute
   mainBlogIndexRoute: typeof mainBlogIndexRoute
   mainContactIndexRoute: typeof mainContactIndexRoute
+  mainDailyUpdatesIndexRoute: typeof mainDailyUpdatesIndexRoute
   mainNearbyPlacesIndexRoute: typeof mainNearbyPlacesIndexRoute
   mainPlanIndexRoute: typeof mainPlanIndexRoute
   mainSafariIndexRoute: typeof mainSafariIndexRoute
@@ -992,6 +1032,7 @@ const mainRouteRouteChildren: mainRouteRouteChildren = {
   mainAboutNationalParkRoute: mainAboutNationalParkRoute,
   mainAboutTemplesAndMuseumsRoute: mainAboutTemplesAndMuseumsRoute,
   mainAboutTigersRoute: mainAboutTigersRoute,
+  mainDailyUpdatesNewRoute: mainDailyUpdatesNewRoute,
   mainPlanBestTimeRoute: mainPlanBestTimeRoute,
   mainPlanCabHireRoute: mainPlanCabHireRoute,
   mainPlanDosAndDontsRoute: mainPlanDosAndDontsRoute,
@@ -1020,6 +1061,7 @@ const mainRouteRouteChildren: mainRouteRouteChildren = {
   mainAboutIndexRoute: mainAboutIndexRoute,
   mainBlogIndexRoute: mainBlogIndexRoute,
   mainContactIndexRoute: mainContactIndexRoute,
+  mainDailyUpdatesIndexRoute: mainDailyUpdatesIndexRoute,
   mainNearbyPlacesIndexRoute: mainNearbyPlacesIndexRoute,
   mainPlanIndexRoute: mainPlanIndexRoute,
   mainSafariIndexRoute: mainSafariIndexRoute,

@@ -2,7 +2,7 @@ import { AnimatePresence, motion } from "motion/react";
 import { useEffect, useState } from "react";
 import { Image } from "#/util/Image";
 
-const MotionImage = motion(Image);
+const MotionImage = motion.create(Image);
 
 const HERO_SLIDES = [
 	{
