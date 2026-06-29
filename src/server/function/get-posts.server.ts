@@ -100,6 +100,15 @@ function mapZone<T extends { id: string | null }>(zone: T | null) {
 	return zone?.id ? zone : null;
 }
 
+function mapTags(
+	postTags: { tag: { id: string; name: string; slug: string } | null }[],
+) {
+	return postTags
+		.map((postTag) => postTag.tag)
+		.filter((tag): tag is NonNullable<typeof tag> => tag !== null)
+		.sort((a, b) => a.name.localeCompare(b.name));
+}
+
 export async function handleGetPosts({ data }: { data: ListPostsInput }) {
 	const { page, limit } = data;
 	const offset = (page - 1) * limit;
@@ -128,6 +137,14 @@ export async function handleGetPosts({ data }: { data: ListPostsInput }) {
 				zone: {
 					columns: { id: true, name: true, number: true },
 				},
+				postTags: {
+					columns: {},
+					with: {
+						tag: {
+							columns: { id: true, name: true, slug: true },
+						},
+					},
+				},
 			},
 			orderBy: { [data.sortBy]: data.sortOrder },
 			limit,
@@ -137,11 +154,15 @@ export async function handleGetPosts({ data }: { data: ListPostsInput }) {
 	]);
 
 	return {
-		data: posts.map((post) => ({
-			...post,
-			category: mapCategory(post.category),
-			zone: mapZone(post.zone),
-		})),
+		data: posts.map((post) => {
+			const { postTags, ...postFields } = post;
+			return {
+				...postFields,
+				category: mapCategory(post.category),
+				zone: mapZone(post.zone),
+				tags: mapTags(postTags),
+			};
+		}),
 		total,
 		page,
 		limit,
@@ -175,16 +196,12 @@ export async function handleGetPost({ data }: { data: GetPostInput }) {
 	}
 
 	const { postTags, ...postFields } = post;
-	const tags = postTags
-		.map((postTag) => postTag.tag)
-		.filter((tag): tag is NonNullable<typeof tag> => tag !== null)
-		.sort((a, b) => a.name.localeCompare(b.name));
 
 	return {
 		...postFields,
 		category: mapCategory(post.category),
 		zone: mapZone(post.zone),
-		tags,
+		tags: mapTags(postTags),
 	};
 }
 
