@@ -1,147 +1,51 @@
+import { useSuspenseQuery } from "@tanstack/react-query";
 import { createFileRoute } from "@tanstack/react-router";
+import { useMemo } from "react";
+import {
+	dailyUpdateDetailQueryOptions,
+	ranthambhoreInsightsQueryOptions,
+} from "#/components/daily-updates/queries/daily-updates.queries";
+import {
+	buildQuickLinks,
+	mapPostsToParkTrendingColumns,
+	mapPostToRanthambhoreArticle,
+} from "#/components/highlights/map-ranthambhore-highlight";
 import {
 	ArticleSpotlightSection,
 	FeaturedArticleSection,
 	HighlightsCardGrid,
 	RanthambhoreTrendingSection,
 } from "#/components/highlights/RanthambhoreHighlightsSections";
-import { RANTHAMBHORE_ARTICLES } from "#/lib/highlights-data";
+import type { RanthambhoreArticle } from "#/components/highlights/ranthambhore-highlight.types";
 
-const PARK_TRENDING = [
-	{
-		id: "visitors",
-		image: {
-			src: "/hero/9.webp",
-			alt: "Visitors at Ranthambore",
-			width: 2048,
-			height: 1365,
-		},
-		items: [
-			{
-				id: "v1",
-				date: "May 20, 2026",
-				title: "Record 7.27 Lakh Visitors In 2025 Season",
-				featured: true,
-			},
-			{
-				id: "v2",
-				date: "May 15, 2026",
-				title: "New Online Booking Portal Launched",
-			},
-			{
-				id: "v3",
-				date: "May 10, 2026",
-				title: "Peak Season Slots Filling Fast",
-			},
-			{
-				id: "v4",
-				date: "May 5, 2026",
-				title: "International Tourist Numbers Rise 18%",
-			},
-		],
-	},
-	{
-		id: "season",
-		image: {
-			src: "/hero/1.webp",
-			alt: "Tiger in golden light",
-			width: 2048,
-			height: 1365,
-		},
-		items: [
-			{
-				id: "s1",
-				date: "June 1, 2026",
-				title: "Best Time To Visit: October To April",
-				featured: true,
-			},
-			{
-				id: "s2",
-				date: "May 28, 2026",
-				title: "Summer Sightings Concentrate At Lakes",
-			},
-			{
-				id: "s3",
-				date: "May 22, 2026",
-				title: "Monsoon Closure Dates Announced",
-			},
-			{
-				id: "s4",
-				date: "May 18, 2026",
-				title: "Winter Photography Season Guide",
-			},
-		],
-	},
-	{
-		id: "booking",
-		image: {
-			src: "/hero/8.webp",
-			alt: "Safari gate at Ranthambore",
-			width: 2048,
-			height: 1365,
-		},
-		items: [
-			{
-				id: "b1",
-				date: "May 28, 2026",
-				title: "Things To Know Before Safari Booking",
-				featured: true,
-			},
-			{
-				id: "b2",
-				date: "May 25, 2026",
-				title: "ID Requirements For Foreign Visitors",
-			},
-			{
-				id: "b3",
-				date: "May 20, 2026",
-				title: "How Zone Allocation Works",
-			},
-			{
-				id: "b4",
-				date: "May 15, 2026",
-				title: "Cancellation & Refund Policy Update",
-			},
-		],
-	},
-	{
-		id: "heritage",
-		image: {
-			src: "/hero/7.webp",
-			alt: "Ranthambore Fort",
-			width: 2048,
-			height: 1365,
-		},
-		items: [
-			{
-				id: "h1",
-				date: "April 20, 2026",
-				title: "Ranthambore Fort: 1,000 Years Of History",
-				featured: true,
-			},
-			{
-				id: "h2",
-				date: "April 15, 2026",
-				title: "Jogi Mahal Restoration Complete",
-			},
-			{
-				id: "h3",
-				date: "April 10, 2026",
-				title: "New Museum Exhibit Opens At Fort",
-			},
-			{
-				id: "h4",
-				date: "April 5, 2026",
-				title: "Heritage Walks Now Available",
-			},
-		],
-	},
+const QUICK_LINK_LABELS = [
+	"Best Time To Visit",
+	"Safari Booking",
+	"Zone Guide",
+	"Travel Tips",
+	"Fort Heritage",
+	"Conservation",
+	"Hotels & Stay",
+	"How To Reach",
+	...Array.from({ length: 10 }, (_, i) => `Zone ${i + 1}`),
 ];
 
 export const Route = createFileRoute(
 	"/(main)/highlights/ranthambhore-insights/",
 )({
 	staticData: { navOverlay: false },
+	loader: async ({ context: { queryClient } }) => {
+		const posts = await queryClient.ensureQueryData(
+			ranthambhoreInsightsQueryOptions(),
+		);
+
+		const spotlightSlug = posts.data[1]?.slug;
+		if (spotlightSlug) {
+			await queryClient.ensureQueryData(
+				dailyUpdateDetailQueryOptions({ slug: spotlightSlug }),
+			);
+		}
+	},
 	head: () => ({
 		meta: [
 			{
@@ -158,35 +62,82 @@ export const Route = createFileRoute(
 	component: RanthambhoreHighlightsPage,
 });
 
+function ArticleSpotlight({
+	article,
+	slug,
+	related,
+	quickLinks,
+}: {
+	article: RanthambhoreArticle;
+	slug: string;
+	related: { id: string; title: string }[];
+	quickLinks: { label: string; slug?: string }[];
+}) {
+	const { data: post } = useSuspenseQuery(
+		dailyUpdateDetailQueryOptions({ slug }),
+	);
+
+	return (
+		<ArticleSpotlightSection
+			article={article}
+			content={post.content}
+			related={related}
+			quickLinks={quickLinks}
+		/>
+	);
+}
+
 function RanthambhoreHighlightsPage() {
-	const featured = RANTHAMBHORE_ARTICLES[0];
-	const sidebar = RANTHAMBHORE_ARTICLES.slice(1, 7);
-	const spotlight = RANTHAMBHORE_ARTICLES[1];
-	const related = RANTHAMBHORE_ARTICLES.slice(2, 6).map((a) => ({
-		title: a.title,
+	const { data: posts } = useSuspenseQuery(ranthambhoreInsightsQueryOptions());
+
+	const articles = useMemo(
+		() => posts.data.map(mapPostToRanthambhoreArticle),
+		[posts.data],
+	);
+	const trendingColumns = useMemo(
+		() => mapPostsToParkTrendingColumns(posts.data),
+		[posts.data],
+	);
+	const quickLinks = useMemo(
+		() => buildQuickLinks(QUICK_LINK_LABELS, articles),
+		[articles],
+	);
+
+	if (articles.length === 0) {
+		return (
+			<div className="bg-sand-50 px-6 py-24 text-center">
+				<p className="font-body text-charcoal-600">
+					No highlights published yet. Check back soon for park news and travel
+					guides.
+				</p>
+			</div>
+		);
+	}
+
+	const featured = articles[0];
+	const sidebar = articles.slice(1, 7);
+	const spotlight = articles[1];
+	const spotlightSlug = posts.data[1]?.slug;
+	const related = articles.slice(2, 6).map((article) => ({
+		id: article.id,
+		title: article.title,
 	}));
-	const quickLinks = [
-		"Best Time To Visit",
-		"Safari Booking",
-		"Zone Guide",
-		"Travel Tips",
-		"Fort Heritage",
-		"Conservation",
-		"Hotels & Stay",
-		"How To Reach",
-		...Array.from({ length: 10 }, (_, i) => `Zone ${i + 1}`),
-	];
 
 	return (
 		<div className="bg-sand-50">
 			<FeaturedArticleSection featured={featured} sidebar={sidebar} />
-			<ArticleSpotlightSection
-				article={spotlight}
-				related={related}
-				quickLinks={quickLinks}
-			/>
-			<RanthambhoreTrendingSection columns={PARK_TRENDING} />
-			<HighlightsCardGrid articles={RANTHAMBHORE_ARTICLES} />
+			{spotlight && spotlightSlug ? (
+				<ArticleSpotlight
+					article={spotlight}
+					slug={spotlightSlug}
+					related={related}
+					quickLinks={quickLinks}
+				/>
+			) : null}
+			{trendingColumns.length > 0 ? (
+				<RanthambhoreTrendingSection columns={trendingColumns} />
+			) : null}
+			<HighlightsCardGrid articles={articles} />
 		</div>
 	);
 }

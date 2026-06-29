@@ -45,6 +45,18 @@ export const safariInsightsListInput = {
 export const safariInsightsQueryOptions = () =>
 	dailyUpdatesListQueryOptions(safariInsightsListInput);
 
+export const ranthambhoreInsightsListInput = {
+	page: 1,
+	limit: 50,
+	status: "published",
+	type: "ranthambhore_update",
+	sortBy: "publishedAt",
+	sortOrder: "desc",
+} satisfies ListPostsInput;
+
+export const ranthambhoreInsightsQueryOptions = () =>
+	dailyUpdatesListQueryOptions(ranthambhoreInsightsListInput);
+
 export const dailyUpdatesListQueryOptions = (
 	input: ListPostsInput = defaultDailyUpdatesListInput,
 ) =>
