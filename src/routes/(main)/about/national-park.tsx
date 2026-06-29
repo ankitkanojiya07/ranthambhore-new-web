@@ -1,5 +1,4 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { TrustBar } from "#/components/pages/TrustBar";
 import { WhyChooseSection } from "#/components/pages/WhyChooseSection";
 
 export const Route = createFileRoute("/(main)/about/national-park")({
@@ -175,8 +174,6 @@ function NationalParkPage() {
 					</p>
 				</div>
 			</section>
-
-			<TrustBar />
 
 			{/* ── Stats Banner ── */}
 			<StatsBanner />

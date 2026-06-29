@@ -29,7 +29,7 @@ export function PageHero({
 	secondaryCta,
 	trustBadges,
 	tall = true,
-	showTrustBar = true,
+	showTrustBar = false,
 }: PageHeroProps) {
 	return (
 		<>

@@ -1,5 +1,4 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { TrustBar } from "#/components/pages/TrustBar";
 import { WhyChooseSection } from "#/components/pages/WhyChooseSection";
 
 export const Route = createFileRoute("/(main)/about/history")({
@@ -93,8 +92,6 @@ function HistoryPage() {
 					</div>
 				</div>
 			</section>
-
-			<TrustBar />
 
 			{/* ── Timeline ── */}
 			<section

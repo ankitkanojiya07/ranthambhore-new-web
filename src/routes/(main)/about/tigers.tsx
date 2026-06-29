@@ -1,5 +1,4 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { TrustBar } from "#/components/pages/TrustBar";
 import { WhyChooseSection } from "#/components/pages/WhyChooseSection";
 
 export const Route = createFileRoute("/(main)/about/tigers")({
@@ -122,7 +121,6 @@ function TigersPage() {
 	return (
 		<div className="bg-sand-50">
 			<HeroSection />
-			<TrustBar />
 			<StatsBanner />
 			<RoyalBengalSection />
 			<TigerRegistrySection />
