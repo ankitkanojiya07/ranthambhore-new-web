@@ -92,10 +92,6 @@ export const NAV_ITEMS: NavItem[] = [
 		href: "/nearby-places",
 	},
 	{
-		label: "Blog / Stories",
-		href: "/blog",
-	},
-	{
 		label: "Contact",
 		href: "/contact",
 	},

@@ -20,7 +20,6 @@ import { Route as mainPlanIndexRouteImport } from './routes/(main)/plan/index'
 import { Route as mainNearbyPlacesIndexRouteImport } from './routes/(main)/nearby-places/index'
 import { Route as mainDailyUpdatesIndexRouteImport } from './routes/(main)/daily-updates/index'
 import { Route as mainContactIndexRouteImport } from './routes/(main)/contact/index'
-import { Route as mainBlogIndexRouteImport } from './routes/(main)/blog/index'
 import { Route as mainAboutIndexRouteImport } from './routes/(main)/about/index'
 import { Route as ApiAuthSplatRouteImport } from './routes/api/auth/$'
 import { Route as mainWildlifeTigersRouteImport } from './routes/(main)/wildlife/tigers'
@@ -111,11 +110,6 @@ const mainDailyUpdatesIndexRoute = mainDailyUpdatesIndexRouteImport.update({
 const mainContactIndexRoute = mainContactIndexRouteImport.update({
   id: '/contact/',
   path: '/contact/',
-  getParentRoute: () => mainRouteRoute,
-} as any)
-const mainBlogIndexRoute = mainBlogIndexRouteImport.update({
-  id: '/blog/',
-  path: '/blog/',
   getParentRoute: () => mainRouteRoute,
 } as any)
 const mainAboutIndexRoute = mainAboutIndexRouteImport.update({
@@ -350,7 +344,6 @@ export interface FileRoutesByFullPath {
   '/wildlife/tigers': typeof mainWildlifeTigersRoute
   '/api/auth/$': typeof ApiAuthSplatRoute
   '/about/': typeof mainAboutIndexRoute
-  '/blog/': typeof mainBlogIndexRoute
   '/contact/': typeof mainContactIndexRoute
   '/daily-updates/': typeof mainDailyUpdatesIndexRoute
   '/nearby-places/': typeof mainNearbyPlacesIndexRoute
@@ -400,7 +393,6 @@ export interface FileRoutesByTo {
   '/wildlife/tigers': typeof mainWildlifeTigersRoute
   '/api/auth/$': typeof ApiAuthSplatRoute
   '/about': typeof mainAboutIndexRoute
-  '/blog': typeof mainBlogIndexRoute
   '/contact': typeof mainContactIndexRoute
   '/daily-updates': typeof mainDailyUpdatesIndexRoute
   '/nearby-places': typeof mainNearbyPlacesIndexRoute
@@ -452,7 +444,6 @@ export interface FileRoutesById {
   '/(main)/wildlife/tigers': typeof mainWildlifeTigersRoute
   '/api/auth/$': typeof ApiAuthSplatRoute
   '/(main)/about/': typeof mainAboutIndexRoute
-  '/(main)/blog/': typeof mainBlogIndexRoute
   '/(main)/contact/': typeof mainContactIndexRoute
   '/(main)/daily-updates/': typeof mainDailyUpdatesIndexRoute
   '/(main)/nearby-places/': typeof mainNearbyPlacesIndexRoute
@@ -504,7 +495,6 @@ export interface FileRouteTypes {
     | '/wildlife/tigers'
     | '/api/auth/$'
     | '/about/'
-    | '/blog/'
     | '/contact/'
     | '/daily-updates/'
     | '/nearby-places/'
@@ -554,7 +544,6 @@ export interface FileRouteTypes {
     | '/wildlife/tigers'
     | '/api/auth/$'
     | '/about'
-    | '/blog'
     | '/contact'
     | '/daily-updates'
     | '/nearby-places'
@@ -605,7 +594,6 @@ export interface FileRouteTypes {
     | '/(main)/wildlife/tigers'
     | '/api/auth/$'
     | '/(main)/about/'
-    | '/(main)/blog/'
     | '/(main)/contact/'
     | '/(main)/daily-updates/'
     | '/(main)/nearby-places/'
@@ -700,13 +688,6 @@ declare module '@tanstack/react-router' {
       path: '/contact'
       fullPath: '/contact/'
       preLoaderRoute: typeof mainContactIndexRouteImport
-      parentRoute: typeof mainRouteRoute
-    }
-    '/(main)/blog/': {
-      id: '/(main)/blog/'
-      path: '/blog'
-      fullPath: '/blog/'
-      preLoaderRoute: typeof mainBlogIndexRouteImport
       parentRoute: typeof mainRouteRoute
     }
     '/(main)/about/': {
@@ -1008,7 +989,6 @@ interface mainRouteRouteChildren {
   mainWildlifeTigerIdentificationRoute: typeof mainWildlifeTigerIdentificationRoute
   mainWildlifeTigersRoute: typeof mainWildlifeTigersRoute
   mainAboutIndexRoute: typeof mainAboutIndexRoute
-  mainBlogIndexRoute: typeof mainBlogIndexRoute
   mainContactIndexRoute: typeof mainContactIndexRoute
   mainDailyUpdatesIndexRoute: typeof mainDailyUpdatesIndexRoute
   mainNearbyPlacesIndexRoute: typeof mainNearbyPlacesIndexRoute
@@ -1059,7 +1039,6 @@ const mainRouteRouteChildren: mainRouteRouteChildren = {
   mainWildlifeTigerIdentificationRoute: mainWildlifeTigerIdentificationRoute,
   mainWildlifeTigersRoute: mainWildlifeTigersRoute,
   mainAboutIndexRoute: mainAboutIndexRoute,
-  mainBlogIndexRoute: mainBlogIndexRoute,
   mainContactIndexRoute: mainContactIndexRoute,
   mainDailyUpdatesIndexRoute: mainDailyUpdatesIndexRoute,
   mainNearbyPlacesIndexRoute: mainNearbyPlacesIndexRoute,

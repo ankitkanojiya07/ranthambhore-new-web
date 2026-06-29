@@ -3,8 +3,10 @@ import { useState } from "react";
 import { MultiSelectDropdown } from "#/components/ui/multi-select-dropdown";
 import { Image } from "#/util/Image";
 
-const WEB3FORMS_ACCESS_KEY = "80b057d5-9cb6-4677-a700-5b7a7bfc0876";
-
+const FORMSUBMIT_RECEIVER_EMAIL = "akanojiya550@gmail.com";
+const FORMSUBMIT_CC_EMAILS =
+	"ravindra2007@icloud.com,ranthambhoreregency@gmail.com";
+const FORMSUBMIT_ENDPOINT = `https://formsubmit.co/ajax/${FORMSUBMIT_RECEIVER_EMAIL}`;
 const containerVariants = {
 	hidden: {},
 	visible: {
@@ -96,36 +98,51 @@ export function ContactSection() {
 		setLoading(true);
 
 		const form = event.currentTarget;
-		const data = new FormData(form);
+		const formData = new FormData(form);
 
-		data.set("access_key", WEB3FORMS_ACCESS_KEY);
-		data.set("subject", "Booking Enquiry for the Regency Hotel");
-		data.set("from_name", "Regency Hotel");
-		data.set("name", data.get("fullName")?.toString() ?? "");
-		data.set(
-			"message",
-			[
-				`Check-in: ${formatIsoDateDisplay(data.get("checkInDate")?.toString() ?? "")}`,
-				`Check-out: ${formatIsoDateDisplay(data.get("checkOutDate")?.toString() ?? "")}`,
-				`Guests: ${data.get("guests")}`,
-				`Query about: ${data.getAll("queryAbout").join(", ")}`,
-				`Phone: ${data.get("phone") || "Not provided"}`,
-				"",
-				data.get("specialRequests")?.toString() || "No special requests.",
-			].join("\n"),
-		);
+		if (formData.get("_honey")) {
+			setLoading(false);
+			return;
+		}
+
+		const payload = {
+			_subject: "Booking Enquiry for the Regency Hotel",
+			_cc: FORMSUBMIT_CC_EMAILS,
+			_captcha: "false",
+			name: formData.get("fullName")?.toString() ?? "",
+			email: formData.get("email")?.toString() ?? "",
+			checkInDate: formatIsoDateDisplay(
+				formData.get("checkInDate")?.toString() ?? "",
+			),
+			checkOutDate: formatIsoDateDisplay(
+				formData.get("checkOutDate")?.toString() ?? "",
+			),
+			guests: formData.get("guests")?.toString() ?? "",
+			queryAbout: formData.getAll("queryAbout").join(", "),
+			phone: formData.get("phone")?.toString() || "Not provided",
+			specialRequests:
+				formData.get("specialRequests")?.toString() || "No special requests.",
+		};
 
 		try {
-			const response = await fetch("https://api.web3forms.com/submit", {
+			const response = await fetch(FORMSUBMIT_ENDPOINT, {
 				method: "POST",
-				body: data,
+				headers: {
+					"Content-Type": "application/json",
+					Accept: "application/json",
+				},
+				body: JSON.stringify(payload),
 			});
 			const result = (await response.json()) as {
-				success: boolean;
+				success?: string | boolean;
 				message?: string;
 			};
 
-			if (!response.ok || !result.success) {
+			if (
+				!response.ok ||
+				result.success === false ||
+				result.success === "false"
+			) {
 				setError(result.message ?? "Unable to send enquiry. Please try again.");
 				return;
 			}
@@ -190,8 +207,8 @@ export function ContactSection() {
 								className="mt-8 space-y-4"
 							>
 								<input
-									type="checkbox"
-									name="botcheck"
+									type="text"
+									name="_honey"
 									tabIndex={-1}
 									autoComplete="off"
 									className="hidden"
