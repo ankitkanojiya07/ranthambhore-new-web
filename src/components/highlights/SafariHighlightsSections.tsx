@@ -79,7 +79,7 @@ export function SafariHighlightsGrid({
 						</h2>
 					</div>
 					<Link
-						to="/contact"
+						to="/daily-updates/new"
 						className="hidden items-center gap-2 font-display text-xs uppercase tracking-display text-forest-600 transition-colors hover:text-forest-700 sm:inline-flex"
 					>
 						Share Your Sighting
@@ -88,36 +88,51 @@ export function SafariHighlightsGrid({
 				</div>
 
 				<div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-					{highlights.map((highlight) => (
-						<article
-							key={highlight.id}
-							className="group flex flex-col overflow-hidden rounded-xl bg-cream-50 shadow-sm ring-1 ring-muted-300/60 transition-shadow hover:shadow-md"
-						>
-							<div className="relative aspect-4/3 overflow-hidden">
-								<Image
-									src={highlight.image.src}
-									alt={highlight.image.alt}
-									width={highlight.image.width}
-									height={highlight.image.height}
-									className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
-								/>
-								<span className="absolute left-3 top-3 rounded-sm bg-forest-600/90 px-2 py-1 font-display text-[10px] font-semibold uppercase tracking-display text-sand-50">
-									{highlight.zone}
-								</span>
-							</div>
-							<div className="flex flex-1 flex-col p-5">
-								<p className="font-body text-xs text-muted-500">
-									{highlight.date}
-								</p>
-								<h3 className="mt-1 font-display text-sm font-semibold uppercase leading-snug tracking-display text-charcoal-900">
-									{highlight.title}
-								</h3>
-								<p className="mt-2 line-clamp-3 flex-1 font-body text-sm leading-relaxed text-charcoal-600">
-									{highlight.description}
-								</p>
-							</div>
-						</article>
-					))}
+					{highlights.length > 0 ? (
+						highlights.map((highlight) => (
+							<article
+								key={highlight.id}
+								className="group flex flex-col overflow-hidden rounded-xl bg-cream-50 shadow-sm ring-1 ring-muted-300/60 transition-shadow hover:shadow-md"
+							>
+								<div className="relative aspect-4/3 overflow-hidden">
+									<Image
+										src={highlight.image.src}
+										alt={highlight.image.alt}
+										width={highlight.image.width}
+										height={highlight.image.height}
+										className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+									/>
+									<span className="absolute left-3 top-3 rounded-sm bg-forest-600/90 px-2 py-1 font-display text-[10px] font-semibold uppercase tracking-display text-sand-50">
+										{highlight.zone}
+									</span>
+								</div>
+								<div className="flex flex-1 flex-col p-5">
+									<p className="font-body text-xs text-muted-500">
+										{highlight.date}
+									</p>
+									<h3 className="mt-1 font-display text-sm font-semibold uppercase leading-snug tracking-display text-charcoal-900">
+										{highlight.title}
+									</h3>
+									<p className="mt-2 line-clamp-3 flex-1 font-body text-sm leading-relaxed text-charcoal-600">
+										{highlight.description}
+									</p>
+								</div>
+							</article>
+						))
+					) : (
+						<div className="col-span-full rounded-xl bg-cream-50 p-10 text-center ring-1 ring-muted-300/60">
+							<p className="font-body text-base text-charcoal-600">
+								No safari highlights yet. Be the first to{" "}
+								<Link
+									to="/daily-updates/new"
+									className="text-forest-600 underline-offset-2 hover:underline"
+								>
+									share a sighting update
+								</Link>
+								.
+							</p>
+						</div>
+					)}
 				</div>
 			</div>
 		</section>

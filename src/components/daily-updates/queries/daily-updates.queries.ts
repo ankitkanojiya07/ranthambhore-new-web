@@ -21,6 +21,30 @@ export const defaultDailyUpdatesListInput = {
 	sortOrder: "desc",
 } satisfies ListPostsInput;
 
+export const homeSafariHighlightsListInput = {
+	page: 1,
+	limit: 4,
+	status: "published",
+	type: "daily_update",
+	sortBy: "spottedDate",
+	sortOrder: "desc",
+} satisfies ListPostsInput;
+
+export const homeSafariHighlightsQueryOptions = () =>
+	dailyUpdatesListQueryOptions(homeSafariHighlightsListInput);
+
+export const safariInsightsListInput = {
+	page: 1,
+	limit: 50,
+	status: "published",
+	type: "daily_update",
+	sortBy: "spottedDate",
+	sortOrder: "desc",
+} satisfies ListPostsInput;
+
+export const safariInsightsQueryOptions = () =>
+	dailyUpdatesListQueryOptions(safariInsightsListInput);
+
 export const dailyUpdatesListQueryOptions = (
 	input: ListPostsInput = defaultDailyUpdatesListInput,
 ) =>
