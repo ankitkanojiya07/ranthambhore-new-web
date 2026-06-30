@@ -10,6 +10,7 @@ const SECTIONS: ContentBlock[] = [
 	{
 		heading: "What to See",
 		body: "The fort complex rewards explorers with centuries of architecture, devotion, and panoramic views over the national park.",
+		layout: "card",
 		items: [
 			"Ganesh Temple (Trinetra Ganesh Mandir): Located inside the fort, this temple is one of the most revered Ganesh shrines in India. Devotees send wedding invitation cards here before any other guest — a unique tradition that draws thousands of pilgrims.",
 			"Shiva and Ramlalaji Temples: Ancient temples that have been in continuous use for centuries.",
@@ -20,6 +21,10 @@ const SECTIONS: ContentBlock[] = [
 	{
 		heading: "Visiting the Fort",
 		body: "The fort can be visited as part of the safari (the approach road passes through the forest) or as a standalone trip. Since the route passes through the national park, safari rules apply. The climb to the top involves a steep but manageable walk through the ruins. Early morning visits are best — cooler, quieter, and with wildlife often visible along the way.",
+		layout: "split",
+		image: "/Home/8.webp",
+		imageAlt: "Stone pathway leading up to Ranthambore Fort through the hills",
+		stretchImage: true,
 	},
 ];
 
@@ -52,9 +57,10 @@ function FortPage() {
 				</>
 			}
 			subtitle="Few places in the world can match the drama of Ranthambore Fort. This ancient stronghold, perched on a rocky hill 481 metres above sea level, rises directly from the heart of the national park. Tigers roam its base, leopards stalk its walls, and sambar deer graze in its courtyards."
-			image="/gallery/5.jpg"
+			image="/Home/fort1.jpg"
 			badge="UNESCO World Heritage Site — Hill Forts of Rajasthan (2013)"
 			sections={SECTIONS}
+			showWhyChoose={false}
 		/>
 	);
 }

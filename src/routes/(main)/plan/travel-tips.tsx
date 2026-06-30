@@ -25,10 +25,12 @@ function TravelTipsPage() {
 			eyebrow="Plan Your Visit"
 			title="Travel Tips"
 			subtitle="Packing, health, connectivity, and responsible tourism advice for your Ranthambore trip."
-			image="/gallery/3.jpg"
+			image={false}
+			showWhyChoose={false}
 			sections={[
 				{
 					heading: "Packing List",
+					layout: "full",
 					body: "Everything you need for comfortable safaris and a smooth stay in tiger country.",
 					items: [
 						"Light, earth-toned clothing (avoid bright colours on safari)",
@@ -44,6 +46,7 @@ function TravelTipsPage() {
 				},
 				{
 					heading: "Health & Safety",
+					layout: "full",
 					body: "Stay healthy and prepared throughout your Ranthambore visit.",
 					items: [
 						"Malaria prophylaxis is recommended — consult your doctor before travel if visiting during or just after monsoon.",
@@ -54,14 +57,17 @@ function TravelTipsPage() {
 				},
 				{
 					heading: "Mobile & Internet",
+					layout: "full",
 					body: "Airtel and Jio have the best mobile coverage in the Ranthambore area. Coverage inside the forest is generally non-existent, which is actually refreshing — it forces a complete digital detox during safari hours. Most hotels and resorts offer Wi-Fi.",
 				},
 				{
 					heading: "Money",
+					layout: "full",
 					body: "Carry sufficient cash. While most hotels and resorts accept cards, many local dhabas, guides, and transport operators work primarily in cash. ATMs are available in Sawai Madhopur town, though queues can be long during peak season.",
 				},
 				{
 					heading: "Responsible Tourism",
+					layout: "full",
 					body: "Help preserve Ranthambore's wilderness for future generations.",
 					items: [
 						"Do not purchase wildlife products — ivory, tiger skin, turtle shell items, or any other products derived from wild animals are illegal and harmful.",

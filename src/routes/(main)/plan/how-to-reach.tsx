@@ -25,10 +25,11 @@ function HowToReachPage() {
 			eyebrow="Plan Your Visit"
 			title="How to Reach Ranthambore"
 			subtitle="By train, road, and air — your complete transport guide to Sawai Madhopur."
-			image="/gallery/8.jpg"
+			image={false}
 			sections={[
 				{
 					heading: "By Train — Recommended",
+					layout: "full",
 					body: "Sawai Madhopur Railway Station is the gateway to Ranthambore and is excellently connected to India's major cities. The station is just 14 km from the park's main entrance.",
 					items: [
 						"From Delhi (Hazrat Nizamuddin): The Rajasthan Sampark Kranti Express and Intercity Express cover the journey in approximately 4.5–5 hours.",
@@ -39,6 +40,7 @@ function HowToReachPage() {
 				},
 				{
 					heading: "By Road",
+					layout: "full",
 					body: "Ranthambore is well connected by road from all major Rajasthan cities. Rajasthan State Road Transport Corporation (RSRTC) operates bus services to Sawai Madhopur from Jaipur and other major cities.",
 					items: [
 						"From Jaipur: 183 km via NH-48. Approximately 3–3.5 hours by car.",
@@ -49,10 +51,12 @@ function HowToReachPage() {
 				},
 				{
 					heading: "By Air",
+					layout: "full",
 					body: "The nearest airport is Jaipur International Airport (JAI), approximately 176 km from Sawai Madhopur. Jaipur is connected to Delhi, Mumbai, Bengaluru, Kolkata, and other major cities. From the airport, hire a cab directly to Sawai Madhopur (approximately 3 hours) or take a connecting train.",
 				},
 				{
 					heading: "Local Transport in Ranthambore",
+					layout: "full",
 					body: "Taxis, auto-rickshaws, and e-rickshaws are available in Sawai Madhopur town. For the most comfort and flexibility, we recommend pre-booking a private cab with your hotel or through Ranthambhor.com. See our Cab Hire in Ranthambore page for details.",
 				},
 			]}

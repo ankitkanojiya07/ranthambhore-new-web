@@ -2,12 +2,10 @@ import { createFileRoute } from "@tanstack/react-router";
 import { ContentSection } from "#/components/pages/ContentSection";
 import { FeaturedHotelsSection } from "#/components/pages/FeaturedHotelsSection";
 import { IntroSection } from "#/components/pages/IntroSection";
-import { PageHero } from "#/components/pages/PageHero";
-import { StatsBanner } from "#/components/pages/StatsBanner";
 import { WhyChooseSection } from "#/components/pages/WhyChooseSection";
 
 export const Route = createFileRoute("/(main)/stay/hotels")({
-	staticData: { navOverlay: true },
+	staticData: { navOverlay: false },
 	head: () => ({
 		meta: [
 			{
@@ -27,24 +25,6 @@ export const Route = createFileRoute("/(main)/stay/hotels")({
 function HotelsPage() {
 	return (
 		<div className="bg-sand-50">
-			<PageHero
-				eyebrow="Stay"
-				title="Hotels & Resorts"
-				subtitle="Handpicked accommodation near Ranthambore National Park — from luxury jungle resorts to intimate boutique farmstays."
-				image="/gallery/2.jpg"
-				primaryCta={{ label: "Get a Free Quote", href: "/contact" }}
-				secondaryCta={{ label: "Where to Stay Guide", href: "/stay/guide" }}
-			/>
-
-			<StatsBanner
-				stats={[
-					{ value: "3", unit: "", label: "Handpicked Properties", index: "01" },
-					{ value: "5", unit: "min", label: "From Park Gates", index: "02" },
-					{ value: "4", unit: "", label: "Budget Tiers Covered", index: "03" },
-					{ value: "7", unit: "", label: "Day Booking Support", index: "04" },
-				]}
-			/>
-
 			<IntroSection eyebrow="Accommodation" title="Stay Close to the Forest">
 				Where you stay in Ranthambore is as important as where you safari. The
 				right hotel puts you close to the forest gates, ensures you reach the

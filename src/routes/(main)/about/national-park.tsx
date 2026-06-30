@@ -151,7 +151,7 @@ function NationalParkPage() {
 			>
 				<div className="absolute inset-0">
 					<img
-						src="/tiger.png"
+						src="/Home/ran1.jpg"
 						alt=""
 						aria-hidden
 						className="size-full object-cover object-center"

@@ -9,8 +9,11 @@ export interface ContentBlock {
 	items?: string[];
 	image?: string;
 	imageAlt?: string;
-	/** full = centered prose only; split = image + text side by side; card = highlighted card grid for items */
-	layout?: "full" | "split" | "card";
+	imageClassName?: string;
+	imageWrapperClassName?: string;
+	stretchImage?: boolean;
+	/** full = centered prose only; split = image + text side by side; card = highlighted card grid for items; card-text = text-only card (groups side by side) */
+	layout?: "full" | "split" | "card" | "card-text";
 	eyebrow?: string;
 	dark?: boolean;
 }
@@ -82,6 +85,61 @@ function DetailGrid({
 				);
 			})}
 		</dl>
+	);
+}
+
+function CardTextBlock({ block }: { block: ContentBlock }) {
+	const paragraphs = Array.isArray(block.body) ? block.body : [block.body];
+	const dark = block.dark ?? false;
+
+	return (
+		<article
+			className={cn(
+				"flex h-full flex-col rounded-sm px-6 py-8 ring-1 lg:px-8 lg:py-10",
+				dark
+					? "bg-charcoal-900 ring-charcoal-700"
+					: "bg-cream-100 ring-muted-300",
+			)}
+		>
+			{block.eyebrow && (
+				<p
+					className={cn(
+						"font-display text-xs uppercase tracking-display",
+						dark ? "text-sunset-400" : "text-earth-500",
+					)}
+				>
+					{block.eyebrow}
+				</p>
+			)}
+			<h2
+				className={cn(
+					"font-playfair text-2xl lg:text-3xl",
+					block.eyebrow ? "mt-2" : "",
+					dark ? "text-sand-50" : "text-charcoal-900",
+				)}
+			>
+				{block.heading}
+			</h2>
+			<div
+				className={cn(
+					"mt-3 h-px w-12",
+					dark ? "bg-sunset-500/50" : "bg-sunset-500/40",
+				)}
+			/>
+			<div className="mt-5 flex-1 space-y-4">
+				{paragraphs.map((paragraph) => (
+					<p
+						key={paragraph.slice(0, 40)}
+						className={cn(
+							"font-body text-base leading-[1.85]",
+							dark ? "text-sand-200/85" : "text-charcoal-700",
+						)}
+					>
+						{paragraph}
+					</p>
+				))}
+			</div>
+		</article>
 	);
 }
 
@@ -199,33 +257,51 @@ function ContentBlockArticle({
 	);
 
 	const imageContent = (
-		<div className="overflow-hidden rounded-sm ring-1 ring-muted-300">
+		<div
+			className={cn(
+				"overflow-hidden rounded-sm ring-1 ring-muted-300",
+				block.stretchImage && "h-full",
+				block.imageWrapperClassName,
+			)}
+		>
 			<Image
 				src={imageSrc}
 				alt={imageAlt}
 				layout="fullWidth"
-				className="aspect-4/3 w-full object-cover"
+				className={cn(
+					block.imageClassName ??
+						(block.stretchImage
+							? "h-full min-h-[280px] w-full object-cover lg:min-h-0"
+							: "aspect-4/3 w-full object-cover"),
+				)}
 			/>
 		</div>
+	);
+
+	const imageColumnClass = cn(
+		"flex items-center justify-center",
+		imageFirst ? "lg:justify-end lg:pr-4" : "lg:justify-start lg:pl-4",
+		block.stretchImage && "h-full lg:items-stretch",
 	);
 
 	return (
 		<article
 			className={cn(
-				"grid items-center gap-10 rounded-sm lg:gap-16",
+				"grid gap-10 rounded-sm lg:gap-16",
+				block.stretchImage ? "items-stretch" : "items-center",
 				dark && "bg-charcoal-900 px-6 py-12 lg:px-12",
 				"lg:grid-cols-2",
 			)}
 		>
 			{imageFirst ? (
 				<>
-					{imageContent}
+					<div className={imageColumnClass}>{imageContent}</div>
 					{textContent}
 				</>
 			) : (
 				<>
 					{textContent}
-					{imageContent}
+					<div className={imageColumnClass}>{imageContent}</div>
 				</>
 			)}
 		</article>
@@ -251,14 +327,56 @@ export function ContentSection({
 				)}
 
 				<div className="space-y-24 lg:space-y-32">
-					{blocks.map((block, index) => (
-						<ContentBlockArticle
-							key={block.heading}
-							block={block}
-							index={index}
-							imageOffset={imageOffset}
-						/>
-					))}
+					{(() => {
+						const elements: React.ReactNode[] = [];
+						let index = 0;
+
+						while (index < blocks.length) {
+							const block = blocks[index];
+							const layout =
+								block.layout ?? (index === 0 ? "full" : "split");
+
+							if (layout === "card-text") {
+								const group: ContentBlock[] = [];
+								let groupIndex = index;
+
+								while (groupIndex < blocks.length) {
+									const groupBlock = blocks[groupIndex];
+									const groupLayout =
+										groupBlock.layout ??
+										(groupIndex === 0 ? "full" : "split");
+									if (groupLayout !== "card-text") break;
+									group.push(groupBlock);
+									groupIndex++;
+								}
+
+								elements.push(
+									<div
+										key={group.map((item) => item.heading).join("-")}
+										className="grid items-stretch gap-6 lg:grid-cols-2 lg:gap-8"
+									>
+										{group.map((item) => (
+											<CardTextBlock key={item.heading} block={item} />
+										))}
+									</div>,
+								);
+								index = groupIndex;
+								continue;
+							}
+
+							elements.push(
+								<ContentBlockArticle
+									key={block.heading}
+									block={block}
+									index={index}
+									imageOffset={imageOffset}
+								/>,
+							);
+							index++;
+						}
+
+						return elements;
+					})()}
 				</div>
 			</div>
 		</section>

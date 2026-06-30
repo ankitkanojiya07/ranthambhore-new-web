@@ -1,7 +1,6 @@
-import { createFileRoute, redirect } from "@tanstack/react-router";
+import { createFileRoute } from "@tanstack/react-router";
 import { lazy, Suspense } from "react";
 import { Spinner } from "#/components/ui/spinner";
-import { getSession } from "#/lib/auth.functions";
 
 const DailyUpdateForm = lazy(() =>
 	import("#/components/daily-updates/DailyUpdateForm").then((module) => ({
@@ -10,15 +9,6 @@ const DailyUpdateForm = lazy(() =>
 );
 
 export const Route = createFileRoute("/(main)/daily-updates/new")({
-	beforeLoad: async () => {
-		const session = await getSession();
-		if (!session) {
-			throw redirect({
-				to: "/sign-in",
-				search: { redirect: "/daily-updates/new" },
-			});
-		}
-	},
 	component: NewDailyUpdatePage,
 	pendingComponent: DailyUpdateFormPending,
 	head: () => ({

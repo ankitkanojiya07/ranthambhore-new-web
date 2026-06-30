@@ -2,7 +2,6 @@ import { createFileRoute } from "@tanstack/react-router";
 import type { FaqItem } from "#/components/pages/FaqAccordion";
 import { FaqAccordion } from "#/components/pages/FaqAccordion";
 import { PageHero } from "#/components/pages/PageHero";
-import { WhyChooseSection } from "#/components/pages/WhyChooseSection";
 
 export const Route = createFileRoute("/(main)/plan/faqs")({
 	staticData: { navOverlay: true },
@@ -83,7 +82,6 @@ function FaqsPage() {
 				eyebrow="Wildlife & Safari"
 				title="Frequently Asked Questions"
 			/>
-			<WhyChooseSection />
 		</div>
 	);
 }

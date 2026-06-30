@@ -14,7 +14,6 @@ import { Route as mainIndexRouteImport } from './routes/(main)/index'
 import { Route as mainTravelInfoRouteImport } from './routes/(main)/travel-info'
 import { Route as mainSignUpRouteImport } from './routes/(main)/sign-up'
 import { Route as mainSignInRouteImport } from './routes/(main)/sign-in'
-import { Route as mainWildlifeIndexRouteImport } from './routes/(main)/wildlife/index'
 import { Route as mainStayIndexRouteImport } from './routes/(main)/stay/index'
 import { Route as mainSafariIndexRouteImport } from './routes/(main)/safari/index'
 import { Route as mainPlanIndexRouteImport } from './routes/(main)/plan/index'
@@ -23,14 +22,6 @@ import { Route as mainDailyUpdatesIndexRouteImport } from './routes/(main)/daily
 import { Route as mainContactIndexRouteImport } from './routes/(main)/contact/index'
 import { Route as mainAboutIndexRouteImport } from './routes/(main)/about/index'
 import { Route as ApiAuthSplatRouteImport } from './routes/api/auth/$'
-import { Route as mainWildlifeTigersRouteImport } from './routes/(main)/wildlife/tigers'
-import { Route as mainWildlifeTigerIdentificationRouteImport } from './routes/(main)/wildlife/tiger-identification'
-import { Route as mainWildlifeReptilesAndAmphibiansRouteImport } from './routes/(main)/wildlife/reptiles-and-amphibians'
-import { Route as mainWildlifePhotographyRouteImport } from './routes/(main)/wildlife/photography'
-import { Route as mainWildlifeMammalsRouteImport } from './routes/(main)/wildlife/mammals'
-import { Route as mainWildlifeFloraRouteImport } from './routes/(main)/wildlife/flora'
-import { Route as mainWildlifeConservationRouteImport } from './routes/(main)/wildlife/conservation'
-import { Route as mainWildlifeBirdsRouteImport } from './routes/(main)/wildlife/birds'
 import { Route as mainStayHotelsRouteImport } from './routes/(main)/stay/hotels'
 import { Route as mainStayGuideRouteImport } from './routes/(main)/stay/guide'
 import { Route as mainSafariZonesRouteImport } from './routes/(main)/safari/zones'
@@ -57,11 +48,8 @@ import { Route as mainAboutFloraAndFaunaRouteImport } from './routes/(main)/abou
 import { Route as mainAboutConservationRouteImport } from './routes/(main)/about/conservation'
 import { Route as mainHighlightsSafariInsightsIndexRouteImport } from './routes/(main)/highlights/safari-insights/index'
 import { Route as mainHighlightsRanthambhoreInsightsIndexRouteImport } from './routes/(main)/highlights/ranthambhore-insights/index'
-<<<<<<< HEAD
-import { Route as mainHighlightsRanthambhoreInsightsNewRouteImport } from './routes/(main)/highlights/ranthambhore-insights/new'
-=======
 import { Route as mainHighlightsSafariInsightsSlugRouteImport } from './routes/(main)/highlights/safari-insights/$slug'
->>>>>>> 68aa026aae6891c3963c2e7294d881985442a20f
+import { Route as mainHighlightsRanthambhoreInsightsNewRouteImport } from './routes/(main)/highlights/ranthambhore-insights/new'
 import { Route as mainHighlightsRanthambhoreInsightsSlugRouteImport } from './routes/(main)/highlights/ranthambhore-insights/$slug'
 import { Route as mainHighlightsSafariInsightsZoneZoneIdRouteImport } from './routes/(main)/highlights/safari-insights/zone.$zoneId'
 
@@ -87,11 +75,6 @@ const mainSignUpRoute = mainSignUpRouteImport.update({
 const mainSignInRoute = mainSignInRouteImport.update({
   id: '/sign-in',
   path: '/sign-in',
-  getParentRoute: () => mainRouteRoute,
-} as any)
-const mainWildlifeIndexRoute = mainWildlifeIndexRouteImport.update({
-  id: '/wildlife/',
-  path: '/wildlife/',
   getParentRoute: () => mainRouteRoute,
 } as any)
 const mainStayIndexRoute = mainStayIndexRouteImport.update({
@@ -133,49 +116,6 @@ const ApiAuthSplatRoute = ApiAuthSplatRouteImport.update({
   id: '/api/auth/$',
   path: '/api/auth/$',
   getParentRoute: () => rootRouteImport,
-} as any)
-const mainWildlifeTigersRoute = mainWildlifeTigersRouteImport.update({
-  id: '/wildlife/tigers',
-  path: '/wildlife/tigers',
-  getParentRoute: () => mainRouteRoute,
-} as any)
-const mainWildlifeTigerIdentificationRoute =
-  mainWildlifeTigerIdentificationRouteImport.update({
-    id: '/wildlife/tiger-identification',
-    path: '/wildlife/tiger-identification',
-    getParentRoute: () => mainRouteRoute,
-  } as any)
-const mainWildlifeReptilesAndAmphibiansRoute =
-  mainWildlifeReptilesAndAmphibiansRouteImport.update({
-    id: '/wildlife/reptiles-and-amphibians',
-    path: '/wildlife/reptiles-and-amphibians',
-    getParentRoute: () => mainRouteRoute,
-  } as any)
-const mainWildlifePhotographyRoute = mainWildlifePhotographyRouteImport.update({
-  id: '/wildlife/photography',
-  path: '/wildlife/photography',
-  getParentRoute: () => mainRouteRoute,
-} as any)
-const mainWildlifeMammalsRoute = mainWildlifeMammalsRouteImport.update({
-  id: '/wildlife/mammals',
-  path: '/wildlife/mammals',
-  getParentRoute: () => mainRouteRoute,
-} as any)
-const mainWildlifeFloraRoute = mainWildlifeFloraRouteImport.update({
-  id: '/wildlife/flora',
-  path: '/wildlife/flora',
-  getParentRoute: () => mainRouteRoute,
-} as any)
-const mainWildlifeConservationRoute =
-  mainWildlifeConservationRouteImport.update({
-    id: '/wildlife/conservation',
-    path: '/wildlife/conservation',
-    getParentRoute: () => mainRouteRoute,
-  } as any)
-const mainWildlifeBirdsRoute = mainWildlifeBirdsRouteImport.update({
-  id: '/wildlife/birds',
-  path: '/wildlife/birds',
-  getParentRoute: () => mainRouteRoute,
 } as any)
 const mainStayHotelsRoute = mainStayHotelsRouteImport.update({
   id: '/stay/hotels',
@@ -311,17 +251,16 @@ const mainHighlightsRanthambhoreInsightsIndexRoute =
     path: '/highlights/ranthambhore-insights/',
     getParentRoute: () => mainRouteRoute,
   } as any)
-<<<<<<< HEAD
-const mainHighlightsRanthambhoreInsightsNewRoute =
-  mainHighlightsRanthambhoreInsightsNewRouteImport.update({
-    id: '/highlights/ranthambhore-insights/new',
-    path: '/highlights/ranthambhore-insights/new',
-=======
 const mainHighlightsSafariInsightsSlugRoute =
   mainHighlightsSafariInsightsSlugRouteImport.update({
     id: '/highlights/safari-insights/$slug',
     path: '/highlights/safari-insights/$slug',
->>>>>>> 68aa026aae6891c3963c2e7294d881985442a20f
+    getParentRoute: () => mainRouteRoute,
+  } as any)
+const mainHighlightsRanthambhoreInsightsNewRoute =
+  mainHighlightsRanthambhoreInsightsNewRouteImport.update({
+    id: '/highlights/ranthambhore-insights/new',
+    path: '/highlights/ranthambhore-insights/new',
     getParentRoute: () => mainRouteRoute,
   } as any)
 const mainHighlightsRanthambhoreInsightsSlugRoute =
@@ -366,14 +305,6 @@ export interface FileRoutesByFullPath {
   '/safari/zones': typeof mainSafariZonesRoute
   '/stay/guide': typeof mainStayGuideRoute
   '/stay/hotels': typeof mainStayHotelsRoute
-  '/wildlife/birds': typeof mainWildlifeBirdsRoute
-  '/wildlife/conservation': typeof mainWildlifeConservationRoute
-  '/wildlife/flora': typeof mainWildlifeFloraRoute
-  '/wildlife/mammals': typeof mainWildlifeMammalsRoute
-  '/wildlife/photography': typeof mainWildlifePhotographyRoute
-  '/wildlife/reptiles-and-amphibians': typeof mainWildlifeReptilesAndAmphibiansRoute
-  '/wildlife/tiger-identification': typeof mainWildlifeTigerIdentificationRoute
-  '/wildlife/tigers': typeof mainWildlifeTigersRoute
   '/api/auth/$': typeof ApiAuthSplatRoute
   '/about/': typeof mainAboutIndexRoute
   '/contact/': typeof mainContactIndexRoute
@@ -382,13 +313,9 @@ export interface FileRoutesByFullPath {
   '/plan/': typeof mainPlanIndexRoute
   '/safari/': typeof mainSafariIndexRoute
   '/stay/': typeof mainStayIndexRoute
-  '/wildlife/': typeof mainWildlifeIndexRoute
   '/highlights/ranthambhore-insights/$slug': typeof mainHighlightsRanthambhoreInsightsSlugRoute
-<<<<<<< HEAD
   '/highlights/ranthambhore-insights/new': typeof mainHighlightsRanthambhoreInsightsNewRoute
-=======
   '/highlights/safari-insights/$slug': typeof mainHighlightsSafariInsightsSlugRoute
->>>>>>> 68aa026aae6891c3963c2e7294d881985442a20f
   '/highlights/ranthambhore-insights/': typeof mainHighlightsRanthambhoreInsightsIndexRoute
   '/highlights/safari-insights/': typeof mainHighlightsSafariInsightsIndexRoute
   '/highlights/safari-insights/zone/$zoneId': typeof mainHighlightsSafariInsightsZoneZoneIdRoute
@@ -422,14 +349,6 @@ export interface FileRoutesByTo {
   '/safari/zones': typeof mainSafariZonesRoute
   '/stay/guide': typeof mainStayGuideRoute
   '/stay/hotels': typeof mainStayHotelsRoute
-  '/wildlife/birds': typeof mainWildlifeBirdsRoute
-  '/wildlife/conservation': typeof mainWildlifeConservationRoute
-  '/wildlife/flora': typeof mainWildlifeFloraRoute
-  '/wildlife/mammals': typeof mainWildlifeMammalsRoute
-  '/wildlife/photography': typeof mainWildlifePhotographyRoute
-  '/wildlife/reptiles-and-amphibians': typeof mainWildlifeReptilesAndAmphibiansRoute
-  '/wildlife/tiger-identification': typeof mainWildlifeTigerIdentificationRoute
-  '/wildlife/tigers': typeof mainWildlifeTigersRoute
   '/api/auth/$': typeof ApiAuthSplatRoute
   '/about': typeof mainAboutIndexRoute
   '/contact': typeof mainContactIndexRoute
@@ -438,13 +357,9 @@ export interface FileRoutesByTo {
   '/plan': typeof mainPlanIndexRoute
   '/safari': typeof mainSafariIndexRoute
   '/stay': typeof mainStayIndexRoute
-  '/wildlife': typeof mainWildlifeIndexRoute
   '/highlights/ranthambhore-insights/$slug': typeof mainHighlightsRanthambhoreInsightsSlugRoute
-<<<<<<< HEAD
   '/highlights/ranthambhore-insights/new': typeof mainHighlightsRanthambhoreInsightsNewRoute
-=======
   '/highlights/safari-insights/$slug': typeof mainHighlightsSafariInsightsSlugRoute
->>>>>>> 68aa026aae6891c3963c2e7294d881985442a20f
   '/highlights/ranthambhore-insights': typeof mainHighlightsRanthambhoreInsightsIndexRoute
   '/highlights/safari-insights': typeof mainHighlightsSafariInsightsIndexRoute
   '/highlights/safari-insights/zone/$zoneId': typeof mainHighlightsSafariInsightsZoneZoneIdRoute
@@ -480,14 +395,6 @@ export interface FileRoutesById {
   '/(main)/safari/zones': typeof mainSafariZonesRoute
   '/(main)/stay/guide': typeof mainStayGuideRoute
   '/(main)/stay/hotels': typeof mainStayHotelsRoute
-  '/(main)/wildlife/birds': typeof mainWildlifeBirdsRoute
-  '/(main)/wildlife/conservation': typeof mainWildlifeConservationRoute
-  '/(main)/wildlife/flora': typeof mainWildlifeFloraRoute
-  '/(main)/wildlife/mammals': typeof mainWildlifeMammalsRoute
-  '/(main)/wildlife/photography': typeof mainWildlifePhotographyRoute
-  '/(main)/wildlife/reptiles-and-amphibians': typeof mainWildlifeReptilesAndAmphibiansRoute
-  '/(main)/wildlife/tiger-identification': typeof mainWildlifeTigerIdentificationRoute
-  '/(main)/wildlife/tigers': typeof mainWildlifeTigersRoute
   '/api/auth/$': typeof ApiAuthSplatRoute
   '/(main)/about/': typeof mainAboutIndexRoute
   '/(main)/contact/': typeof mainContactIndexRoute
@@ -496,13 +403,9 @@ export interface FileRoutesById {
   '/(main)/plan/': typeof mainPlanIndexRoute
   '/(main)/safari/': typeof mainSafariIndexRoute
   '/(main)/stay/': typeof mainStayIndexRoute
-  '/(main)/wildlife/': typeof mainWildlifeIndexRoute
   '/(main)/highlights/ranthambhore-insights/$slug': typeof mainHighlightsRanthambhoreInsightsSlugRoute
-<<<<<<< HEAD
   '/(main)/highlights/ranthambhore-insights/new': typeof mainHighlightsRanthambhoreInsightsNewRoute
-=======
   '/(main)/highlights/safari-insights/$slug': typeof mainHighlightsSafariInsightsSlugRoute
->>>>>>> 68aa026aae6891c3963c2e7294d881985442a20f
   '/(main)/highlights/ranthambhore-insights/': typeof mainHighlightsRanthambhoreInsightsIndexRoute
   '/(main)/highlights/safari-insights/': typeof mainHighlightsSafariInsightsIndexRoute
   '/(main)/highlights/safari-insights/zone/$zoneId': typeof mainHighlightsSafariInsightsZoneZoneIdRoute
@@ -538,14 +441,6 @@ export interface FileRouteTypes {
     | '/safari/zones'
     | '/stay/guide'
     | '/stay/hotels'
-    | '/wildlife/birds'
-    | '/wildlife/conservation'
-    | '/wildlife/flora'
-    | '/wildlife/mammals'
-    | '/wildlife/photography'
-    | '/wildlife/reptiles-and-amphibians'
-    | '/wildlife/tiger-identification'
-    | '/wildlife/tigers'
     | '/api/auth/$'
     | '/about/'
     | '/contact/'
@@ -554,13 +449,9 @@ export interface FileRouteTypes {
     | '/plan/'
     | '/safari/'
     | '/stay/'
-    | '/wildlife/'
     | '/highlights/ranthambhore-insights/$slug'
-<<<<<<< HEAD
     | '/highlights/ranthambhore-insights/new'
-=======
     | '/highlights/safari-insights/$slug'
->>>>>>> 68aa026aae6891c3963c2e7294d881985442a20f
     | '/highlights/ranthambhore-insights/'
     | '/highlights/safari-insights/'
     | '/highlights/safari-insights/zone/$zoneId'
@@ -594,14 +485,6 @@ export interface FileRouteTypes {
     | '/safari/zones'
     | '/stay/guide'
     | '/stay/hotels'
-    | '/wildlife/birds'
-    | '/wildlife/conservation'
-    | '/wildlife/flora'
-    | '/wildlife/mammals'
-    | '/wildlife/photography'
-    | '/wildlife/reptiles-and-amphibians'
-    | '/wildlife/tiger-identification'
-    | '/wildlife/tigers'
     | '/api/auth/$'
     | '/about'
     | '/contact'
@@ -610,13 +493,9 @@ export interface FileRouteTypes {
     | '/plan'
     | '/safari'
     | '/stay'
-    | '/wildlife'
     | '/highlights/ranthambhore-insights/$slug'
-<<<<<<< HEAD
     | '/highlights/ranthambhore-insights/new'
-=======
     | '/highlights/safari-insights/$slug'
->>>>>>> 68aa026aae6891c3963c2e7294d881985442a20f
     | '/highlights/ranthambhore-insights'
     | '/highlights/safari-insights'
     | '/highlights/safari-insights/zone/$zoneId'
@@ -651,14 +530,6 @@ export interface FileRouteTypes {
     | '/(main)/safari/zones'
     | '/(main)/stay/guide'
     | '/(main)/stay/hotels'
-    | '/(main)/wildlife/birds'
-    | '/(main)/wildlife/conservation'
-    | '/(main)/wildlife/flora'
-    | '/(main)/wildlife/mammals'
-    | '/(main)/wildlife/photography'
-    | '/(main)/wildlife/reptiles-and-amphibians'
-    | '/(main)/wildlife/tiger-identification'
-    | '/(main)/wildlife/tigers'
     | '/api/auth/$'
     | '/(main)/about/'
     | '/(main)/contact/'
@@ -667,13 +538,9 @@ export interface FileRouteTypes {
     | '/(main)/plan/'
     | '/(main)/safari/'
     | '/(main)/stay/'
-    | '/(main)/wildlife/'
     | '/(main)/highlights/ranthambhore-insights/$slug'
-<<<<<<< HEAD
     | '/(main)/highlights/ranthambhore-insights/new'
-=======
     | '/(main)/highlights/safari-insights/$slug'
->>>>>>> 68aa026aae6891c3963c2e7294d881985442a20f
     | '/(main)/highlights/ranthambhore-insights/'
     | '/(main)/highlights/safari-insights/'
     | '/(main)/highlights/safari-insights/zone/$zoneId'
@@ -719,13 +586,6 @@ declare module '@tanstack/react-router' {
       path: '/sign-in'
       fullPath: '/sign-in'
       preLoaderRoute: typeof mainSignInRouteImport
-      parentRoute: typeof mainRouteRoute
-    }
-    '/(main)/wildlife/': {
-      id: '/(main)/wildlife/'
-      path: '/wildlife'
-      fullPath: '/wildlife/'
-      preLoaderRoute: typeof mainWildlifeIndexRouteImport
       parentRoute: typeof mainRouteRoute
     }
     '/(main)/stay/': {
@@ -783,62 +643,6 @@ declare module '@tanstack/react-router' {
       fullPath: '/api/auth/$'
       preLoaderRoute: typeof ApiAuthSplatRouteImport
       parentRoute: typeof rootRouteImport
-    }
-    '/(main)/wildlife/tigers': {
-      id: '/(main)/wildlife/tigers'
-      path: '/wildlife/tigers'
-      fullPath: '/wildlife/tigers'
-      preLoaderRoute: typeof mainWildlifeTigersRouteImport
-      parentRoute: typeof mainRouteRoute
-    }
-    '/(main)/wildlife/tiger-identification': {
-      id: '/(main)/wildlife/tiger-identification'
-      path: '/wildlife/tiger-identification'
-      fullPath: '/wildlife/tiger-identification'
-      preLoaderRoute: typeof mainWildlifeTigerIdentificationRouteImport
-      parentRoute: typeof mainRouteRoute
-    }
-    '/(main)/wildlife/reptiles-and-amphibians': {
-      id: '/(main)/wildlife/reptiles-and-amphibians'
-      path: '/wildlife/reptiles-and-amphibians'
-      fullPath: '/wildlife/reptiles-and-amphibians'
-      preLoaderRoute: typeof mainWildlifeReptilesAndAmphibiansRouteImport
-      parentRoute: typeof mainRouteRoute
-    }
-    '/(main)/wildlife/photography': {
-      id: '/(main)/wildlife/photography'
-      path: '/wildlife/photography'
-      fullPath: '/wildlife/photography'
-      preLoaderRoute: typeof mainWildlifePhotographyRouteImport
-      parentRoute: typeof mainRouteRoute
-    }
-    '/(main)/wildlife/mammals': {
-      id: '/(main)/wildlife/mammals'
-      path: '/wildlife/mammals'
-      fullPath: '/wildlife/mammals'
-      preLoaderRoute: typeof mainWildlifeMammalsRouteImport
-      parentRoute: typeof mainRouteRoute
-    }
-    '/(main)/wildlife/flora': {
-      id: '/(main)/wildlife/flora'
-      path: '/wildlife/flora'
-      fullPath: '/wildlife/flora'
-      preLoaderRoute: typeof mainWildlifeFloraRouteImport
-      parentRoute: typeof mainRouteRoute
-    }
-    '/(main)/wildlife/conservation': {
-      id: '/(main)/wildlife/conservation'
-      path: '/wildlife/conservation'
-      fullPath: '/wildlife/conservation'
-      preLoaderRoute: typeof mainWildlifeConservationRouteImport
-      parentRoute: typeof mainRouteRoute
-    }
-    '/(main)/wildlife/birds': {
-      id: '/(main)/wildlife/birds'
-      path: '/wildlife/birds'
-      fullPath: '/wildlife/birds'
-      preLoaderRoute: typeof mainWildlifeBirdsRouteImport
-      parentRoute: typeof mainRouteRoute
     }
     '/(main)/stay/hotels': {
       id: '/(main)/stay/hotels'
@@ -1022,19 +826,18 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof mainHighlightsRanthambhoreInsightsIndexRouteImport
       parentRoute: typeof mainRouteRoute
     }
-<<<<<<< HEAD
-    '/(main)/highlights/ranthambhore-insights/new': {
-      id: '/(main)/highlights/ranthambhore-insights/new'
-      path: '/highlights/ranthambhore-insights/new'
-      fullPath: '/highlights/ranthambhore-insights/new'
-      preLoaderRoute: typeof mainHighlightsRanthambhoreInsightsNewRouteImport
-=======
     '/(main)/highlights/safari-insights/$slug': {
       id: '/(main)/highlights/safari-insights/$slug'
       path: '/highlights/safari-insights/$slug'
       fullPath: '/highlights/safari-insights/$slug'
       preLoaderRoute: typeof mainHighlightsSafariInsightsSlugRouteImport
->>>>>>> 68aa026aae6891c3963c2e7294d881985442a20f
+      parentRoute: typeof mainRouteRoute
+    }
+    '/(main)/highlights/ranthambhore-insights/new': {
+      id: '/(main)/highlights/ranthambhore-insights/new'
+      path: '/highlights/ranthambhore-insights/new'
+      fullPath: '/highlights/ranthambhore-insights/new'
+      preLoaderRoute: typeof mainHighlightsRanthambhoreInsightsNewRouteImport
       parentRoute: typeof mainRouteRoute
     }
     '/(main)/highlights/ranthambhore-insights/$slug': {
@@ -1083,14 +886,6 @@ interface mainRouteRouteChildren {
   mainSafariZonesRoute: typeof mainSafariZonesRoute
   mainStayGuideRoute: typeof mainStayGuideRoute
   mainStayHotelsRoute: typeof mainStayHotelsRoute
-  mainWildlifeBirdsRoute: typeof mainWildlifeBirdsRoute
-  mainWildlifeConservationRoute: typeof mainWildlifeConservationRoute
-  mainWildlifeFloraRoute: typeof mainWildlifeFloraRoute
-  mainWildlifeMammalsRoute: typeof mainWildlifeMammalsRoute
-  mainWildlifePhotographyRoute: typeof mainWildlifePhotographyRoute
-  mainWildlifeReptilesAndAmphibiansRoute: typeof mainWildlifeReptilesAndAmphibiansRoute
-  mainWildlifeTigerIdentificationRoute: typeof mainWildlifeTigerIdentificationRoute
-  mainWildlifeTigersRoute: typeof mainWildlifeTigersRoute
   mainAboutIndexRoute: typeof mainAboutIndexRoute
   mainContactIndexRoute: typeof mainContactIndexRoute
   mainDailyUpdatesIndexRoute: typeof mainDailyUpdatesIndexRoute
@@ -1098,13 +893,9 @@ interface mainRouteRouteChildren {
   mainPlanIndexRoute: typeof mainPlanIndexRoute
   mainSafariIndexRoute: typeof mainSafariIndexRoute
   mainStayIndexRoute: typeof mainStayIndexRoute
-  mainWildlifeIndexRoute: typeof mainWildlifeIndexRoute
   mainHighlightsRanthambhoreInsightsSlugRoute: typeof mainHighlightsRanthambhoreInsightsSlugRoute
-<<<<<<< HEAD
   mainHighlightsRanthambhoreInsightsNewRoute: typeof mainHighlightsRanthambhoreInsightsNewRoute
-=======
   mainHighlightsSafariInsightsSlugRoute: typeof mainHighlightsSafariInsightsSlugRoute
->>>>>>> 68aa026aae6891c3963c2e7294d881985442a20f
   mainHighlightsRanthambhoreInsightsIndexRoute: typeof mainHighlightsRanthambhoreInsightsIndexRoute
   mainHighlightsSafariInsightsIndexRoute: typeof mainHighlightsSafariInsightsIndexRoute
   mainHighlightsSafariInsightsZoneZoneIdRoute: typeof mainHighlightsSafariInsightsZoneZoneIdRoute
@@ -1139,15 +930,6 @@ const mainRouteRouteChildren: mainRouteRouteChildren = {
   mainSafariZonesRoute: mainSafariZonesRoute,
   mainStayGuideRoute: mainStayGuideRoute,
   mainStayHotelsRoute: mainStayHotelsRoute,
-  mainWildlifeBirdsRoute: mainWildlifeBirdsRoute,
-  mainWildlifeConservationRoute: mainWildlifeConservationRoute,
-  mainWildlifeFloraRoute: mainWildlifeFloraRoute,
-  mainWildlifeMammalsRoute: mainWildlifeMammalsRoute,
-  mainWildlifePhotographyRoute: mainWildlifePhotographyRoute,
-  mainWildlifeReptilesAndAmphibiansRoute:
-    mainWildlifeReptilesAndAmphibiansRoute,
-  mainWildlifeTigerIdentificationRoute: mainWildlifeTigerIdentificationRoute,
-  mainWildlifeTigersRoute: mainWildlifeTigersRoute,
   mainAboutIndexRoute: mainAboutIndexRoute,
   mainContactIndexRoute: mainContactIndexRoute,
   mainDailyUpdatesIndexRoute: mainDailyUpdatesIndexRoute,
@@ -1155,15 +937,11 @@ const mainRouteRouteChildren: mainRouteRouteChildren = {
   mainPlanIndexRoute: mainPlanIndexRoute,
   mainSafariIndexRoute: mainSafariIndexRoute,
   mainStayIndexRoute: mainStayIndexRoute,
-  mainWildlifeIndexRoute: mainWildlifeIndexRoute,
   mainHighlightsRanthambhoreInsightsSlugRoute:
     mainHighlightsRanthambhoreInsightsSlugRoute,
-<<<<<<< HEAD
   mainHighlightsRanthambhoreInsightsNewRoute:
     mainHighlightsRanthambhoreInsightsNewRoute,
-=======
   mainHighlightsSafariInsightsSlugRoute: mainHighlightsSafariInsightsSlugRoute,
->>>>>>> 68aa026aae6891c3963c2e7294d881985442a20f
   mainHighlightsRanthambhoreInsightsIndexRoute:
     mainHighlightsRanthambhoreInsightsIndexRoute,
   mainHighlightsSafariInsightsIndexRoute:

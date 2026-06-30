@@ -51,6 +51,7 @@ function BestTimePage() {
 					],
 				},
 			]}
+			showWhyChoose={false}
 		/>
 	);
 }

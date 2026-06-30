@@ -27,22 +27,6 @@ export const PAGE_DESCRIPTIONS: Record<string, string> = {
 		"How to book online, ID requirements, and what to expect at the gate.",
 	"/safari/book":
 		"Reserve your jeep or canter safari with our Sawai Madhopur team.",
-	"/wildlife/tigers":
-		"Meet Ranthambore's famous tigers — Machhli, Arrowhead, and more.",
-	"/wildlife/mammals":
-		"Leopards, sloth bears, sambar, and the park's full mammal roster.",
-	"/wildlife/birds":
-		"300+ species from painted storks to crested serpent eagles.",
-	"/wildlife/reptiles-and-amphibians":
-		"Crocodiles, monitor lizards, and the park's reptile diversity.",
-	"/wildlife/flora":
-		"Dhok forests, banyans, and the dry deciduous plant communities.",
-	"/wildlife/photography":
-		"Lens choices, zone tips, and golden-hour strategies for tiger country.",
-	"/wildlife/tiger-identification":
-		"Read stripe patterns, facial marks, and ID Ranthambore's individuals.",
-	"/wildlife/conservation":
-		"Active projects protecting tigers, habitat, and local communities.",
 	"/stay/hotels":
 		"Handpicked resorts and lodges minutes from the forest gates.",
 	"/stay/guide": "Where to stay by budget, zone proximity, and travel style.",

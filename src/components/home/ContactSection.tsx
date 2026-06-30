@@ -27,12 +27,8 @@ const itemVariants = {
 };
 
 const QUERY_OPTIONS = [
-	"Tiger Safari",
-	"Jeep Safari",
-	"Canter Safari",
-	"Boat Safari",
-	"Hotels & Resorts",
-	"Tour Packages",
+	 "Safari",
+	"Hotels & Resorts"
 ];
 
 const GUEST_OPTIONS = [
@@ -198,7 +194,7 @@ export function ContactSection() {
 								variants={itemVariants}
 								className="mt-2 text-2xl text-charcoal-800 lg:text-3xl"
 							>
-								Booking Enquiry for the Regency Hotel
+								Explore Ranthambore With Us Fill The Form
 							</motion.h3>
 
 							<motion.form

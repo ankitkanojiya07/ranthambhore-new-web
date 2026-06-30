@@ -1,3 +1,4 @@
+import { Link } from "@tanstack/react-router";
 import { Mail, MapPin } from "lucide-react";
 import { FacebookIcon } from "#/icons/facebook.icon";
 import { InstagramIcon } from "#/icons/instagram.icon";
@@ -6,12 +7,13 @@ import { Button } from "../ui/button";
 
 const QUICK_LINKS: { label: string; href: string }[] = [
 	{ label: "Home", href: "/" },
-	{ label: "About", href: "/about" },
-	{ label: "Wildlife", href: "/wildlife" },
-	{ label: "Park Zones", href: "/park-zones" },
-	{ label: "Safari Information", href: "/safari" },
-	{ label: "Book Safari", href: "/book" },
-	{ label: "Photo Gallery", href: "/gallery" },
+	{ label: "About Ranthambore", href: "/about" },
+	{ label: "Safari", href: "/safari" },
+	{ label: "Plan Your Visit", href: "/plan" },
+	{ label: "Safari Highlights", href: "/highlights/safari-insights" },
+	{ label: "Stay", href: "/stay/hotels" },
+	{ label: "Nearby Places", href: "/nearby-places" },
+	{ label: "Contact", href: "/contact" },
 ];
 
 const RESOURCES: { label: string; href: string }[] = [
@@ -108,59 +110,51 @@ export function Footer() {
 						</div>
 					</div>
 
-					{/* Column 3 — Newsletter */}
+					{/* Column 3 — Sighting Updates */}
 					<div>
 						<h3 className="mb-2 font-display uppercase tracking-display text-charcoal-900">
-							Sign Up For Our Newsletter
+							+ Add Your Sighting Update
 						</h3>
 						<p className="mb-5 font-body font-medium text-sm text-charcoal-700">
-							Receive safari updates, wildlife stories, and travel inspiration
-							directly in your inbox.
+							Share your latest tiger sighting or wildlife update from the park
+							and help fellow visitors plan their safari.
 						</p>
-
-						{/* Name inputs */}
-						<div className="mb-4 grid grid-cols-2 gap-4">
-							<div>
-								<input
-									type="text"
-									placeholder="Your Name"
-									className="w-full border-b border-muted-300 bg-transparent pb-2 font-body font-medium text-sm text-charcoal-800 placeholder:text-charcoal-400 focus:border-sunset-500 focus:outline-none"
-								/>
-							</div>
-							<div>
-								<input
-									type="email"
-									placeholder="Your Email"
-									className="w-full border-b border-muted-300 bg-transparent pb-2 font-body font-medium text-sm text-charcoal-800 placeholder:text-charcoal-400 focus:border-sunset-500 focus:outline-none"
-								/>
-							</div>
-						</div>
-
-						{/* Checkbox */}
-						<label className="mb-5 flex cursor-pointer items-start gap-3">
-							<input
-								type="checkbox"
-								className="mt-0.5 h-3.5 w-3.5 shrink-0 accent-sunset-500"
-							/>
-							<span className="font-body font-medium text-sm text-charcoal-700">
-								By signing up for our mailing list, you agree to our{" "}
-								<a
-									href="/privacy-policy"
-									className="underline transition-colors hover:text-earth-700"
-								>
-									privacy policy
-								</a>
-								.
-							</span>
-						</label>
-
-						{/* Sign up button */}
 						<Button
-							variant="default"
-							className="w-full h-auto px-3 py-2 text-base font-medium"
+							variant="secondary"
+							className="h-auto w-full px-3 py-2 text-base font-medium"
+							render={
+								<Link
+									to="/daily-updates/new"
+									className="no-underline"
+									aria-label="Add your sighting update"
+								/>
+							}
 						>
-							Sign Up
+							+ Add Your Sighting Update
 						</Button>
+
+						<div className="mt-8 border-t border-muted-300 pt-8">
+							<h3 className="mb-2 font-display uppercase tracking-display text-charcoal-900">
+								Ranthambhore Highlights
+							</h3>
+							<p className="mb-5 font-body font-medium text-sm text-charcoal-700">
+								Read the latest park news, conservation updates, and stories
+								from Ranthambhore.
+							</p>
+							<Button
+								variant="outline"
+								className="h-auto w-full px-3 py-2 text-base font-medium"
+								render={
+									<Link
+										to="/highlights/ranthambhore-insights"
+										className="no-underline"
+										aria-label="View Ranthambhore highlights"
+									/>
+								}
+							>
+								Ranthambhore Highlights
+							</Button>
+						</div>
 					</div>
 				</div>
 
@@ -171,22 +165,6 @@ export function Footer() {
 						&copy; {new Date().getFullYear()} Ranthambhore Wildlife Hotel. All
 						rights reserved.
 					</p>
-
-					{/* Legal links */}
-					<div className="flex items-center gap-6">
-						<a
-							href="/terms"
-							className="font-body font-medium text-sm text-charcoal-700 transition-colors hover:text-earth-700"
-						>
-							&rsaquo; Terms &amp; Conditions
-						</a>
-						<a
-							href="/privacy-policy"
-							className="font-body font-medium text-sm text-charcoal-700 transition-colors hover:text-earth-700"
-						>
-							Privacy Policy
-						</a>
-					</div>
 
 					{/* Social icons */}
 					<div className="flex items-center gap-3">

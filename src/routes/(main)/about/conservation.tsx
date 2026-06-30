@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import type { ContentBlock } from "#/components/pages/ContentSection";
-import { GuidePage } from "#/components/pages/GuidePage";
+import { ContentSection } from "#/components/pages/ContentSection";
 
 const SECTIONS: ContentBlock[] = [
 	{
@@ -10,19 +10,26 @@ const SECTIONS: ContentBlock[] = [
 	{
 		heading: "Anti-Poaching Measures",
 		body: "The Forest Department of Rajasthan maintains a round-the-clock anti-poaching network within the reserve. Camera traps, GPS-tagged tigers (in select cases), forest guard patrols, and collaboration with intelligence agencies form a multi-layered defence. Poaching remains a concern across India, but Ranthambore's track record of protection is among the best in the country.",
+		image: "/Home/poach.png",
+		imageAlt: "Protect not poach — anti-poaching conservation emblem",
+		imageWrapperClassName:
+			"mx-auto w-full max-w-[220px] overflow-visible rounded-none ring-0 sm:max-w-[260px]",
+		imageClassName: "aspect-auto w-full object-contain",
 	},
 	{
 		heading: "Community Conservation",
 		body: "No conservation effort succeeds without the support of local communities. Ranthambore has been at the forefront of eco-development, creating economic opportunities for villages around the buffer zone through eco-tourism, guided nature walks, cultural experiences, and organic farming. Several resorts and safari operators actively support local employment and community conservation funds.",
+		layout: "card-text",
 	},
 	{
 		heading: "NGOs & Research",
 		body: "Organisations like the Wildlife Institute of India (WII), WWF India, and the Tiger Conservation Society have conducted extensive research on tiger ecology, prey dynamics, and corridor management in and around Ranthambore. This research informs management decisions and helps ensure the long-term viability of the tiger population.",
+		layout: "card-text",
 	},
 ];
 
 export const Route = createFileRoute("/(main)/about/conservation")({
-	staticData: { navOverlay: true },
+	staticData: { navOverlay: false },
 	head: () => ({
 		meta: [
 			{
@@ -41,17 +48,8 @@ export const Route = createFileRoute("/(main)/about/conservation")({
 
 function ConservationPage() {
 	return (
-		<GuidePage
-			eyebrow="About Ranthambore"
-			title={
-				<>
-					Protecting the
-					<br className="hidden lg:block" /> Royal Bengal Tiger
-				</>
-			}
-			subtitle="From Project Tiger to community partnerships — how Ranthambore became one of India's greatest conservation success stories."
-			image="/tiger-footstep.png"
-			sections={SECTIONS}
-		/>
+		<div className="bg-sand-50">
+			<ContentSection blocks={SECTIONS} />
+		</div>
 	);
 }

@@ -1,15 +1,8 @@
 {
   "version": 1,
-<<<<<<< HEAD
-  "lastRunAtMs": 1782745369817,
-  "turnsSinceLastRun": 13,
-  "lastTranscriptMtimeMs": 1782745369762.8965,
-  "lastProcessedGenerationId": "ac92fc0f-95af-4063-adf5-d65873dd2874",
-=======
-  "lastRunAtMs": 1782728616715,
-  "turnsSinceLastRun": 5,
-  "lastTranscriptMtimeMs": 1782728616654.731,
-  "lastProcessedGenerationId": "cb584e77-1342-4d8e-9e5d-64888022329c",
->>>>>>> 68aa026aae6891c3963c2e7294d881985442a20f
+  "lastRunAtMs": 1782828008860,
+  "turnsSinceLastRun": 3,
+  "lastTranscriptMtimeMs": 1782828008666.0994,
+  "lastProcessedGenerationId": "c6c38cb0-af2a-4c25-a8e7-0e909ea1a5a9",
   "trialStartedAtMs": null
 }

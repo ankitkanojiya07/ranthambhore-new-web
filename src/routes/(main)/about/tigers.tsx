@@ -19,13 +19,6 @@ export const Route = createFileRoute("/(main)/about/tigers")({
 	component: TigersPage,
 });
 
-interface PageStat {
-	value: string;
-	unit: string;
-	label: string;
-	index: string;
-}
-
 interface FamousTiger {
 	id: string;
 	name: string;
@@ -42,13 +35,6 @@ interface ZoneCard {
 	landmark: string;
 	note: string;
 }
-
-const PAGE_STATS: PageStat[] = [
-	{ value: "60", unit: "+", label: "Bengal Tigers", index: "01" },
-	{ value: "Top", unit: "", label: "Sighting Density in India", index: "02" },
-	{ value: "3", unit: "", label: "Prime Zones (2, 3, 4)", index: "03" },
-	{ value: "5", unit: "", label: "Famous Individuals", index: "04" },
-];
 
 const TRAIT_CHIPS = [
 	"Daylight Activity",
@@ -121,7 +107,6 @@ function TigersPage() {
 	return (
 		<div className="bg-sand-50">
 			<HeroSection />
-			<StatsBanner />
 			<RoyalBengalSection />
 			<TigerRegistrySection />
 			<PrimeZonesSection />
@@ -172,38 +157,6 @@ function HeroSection() {
 	);
 }
 
-function StatsBanner() {
-	return (
-		<section className="bg-sand-100" aria-label="Tiger statistics">
-			<div className="mx-auto max-w-7xl grid grid-cols-2 lg:grid-cols-4 divide-y divide-muted-300 lg:divide-y-0 lg:divide-x">
-				{PAGE_STATS.map((stat) => (
-					<div
-						key={stat.index}
-						className="px-8 py-12 lg:py-16 flex flex-col gap-3"
-					>
-						<p className="font-display text-xs uppercase tracking-display text-sunset-500/70">
-							{stat.index}
-						</p>
-						<div className="flex items-end gap-1.5">
-							<span className="font-playfair text-6xl lg:text-7xl font-semibold text-charcoal-900 whitespace-nowrap leading-none">
-								{stat.value}
-							</span>
-							{stat.unit && (
-								<span className="font-playfair text-2xl lg:text-3xl text-earth-600 pb-1.5">
-									{stat.unit}
-								</span>
-							)}
-						</div>
-						<p className="font-display text-xs uppercase tracking-display text-earth-500">
-							{stat.label}
-						</p>
-					</div>
-				))}
-			</div>
-		</section>
-	);
-}
-
 function RoyalBengalSection() {
 	return (
 		<section
@@ -211,8 +164,8 @@ function RoyalBengalSection() {
 			aria-label="The Royal Bengal Tiger"
 		>
 			<div className="mx-auto max-w-7xl">
-				<div className="flex flex-col gap-16 lg:flex-row lg:items-start lg:gap-20">
-					<div className="w-full lg:w-[55%]">
+				<div className="flex flex-col gap-16 lg:flex-row lg:items-stretch lg:gap-20">
+					<div className="w-full lg:w-[55%] lg:flex lg:flex-col lg:justify-center">
 						<p className="font-display text-xs uppercase tracking-display text-sunset-500">
 							Apex Predator
 						</p>
@@ -246,22 +199,22 @@ function RoyalBengalSection() {
 						</div>
 					</div>
 
-					<div className="relative w-full lg:w-[45%]">
+					<div className="relative flex w-full lg:w-[45%] lg:min-h-0">
 						<div
-							className="pointer-events-none absolute -right-4 top-0 bottom-0 w-3 opacity-20"
+							className="pointer-events-none absolute -right-4 inset-y-0 w-3 opacity-20"
 							style={{
 								backgroundImage:
 									"repeating-linear-gradient(-12deg, transparent, transparent 8px, #4e3020 8px, #4e3020 20px, transparent 20px, transparent 36px, #6f3f15 36px, #6f3f15 48px)",
 							}}
 							aria-hidden
 						/>
-						<div className="relative overflow-hidden rounded-sm ring-1 ring-muted-300">
+						<div className="relative flex min-h-[360px] flex-1 flex-col overflow-hidden rounded-sm ring-1 ring-muted-300">
 							<img
 								src="/gallery/14.jpg"
 								alt="Bengal tiger walking through the grasslands of Ranthambore"
-								className="aspect-3/4 w-full object-cover object-center"
+								className="absolute inset-0 size-full object-cover object-center"
 							/>
-							<div className="absolute inset-x-0 bottom-0 bg-charcoal-950/90 px-6 py-5">
+							<div className="relative z-10 mt-auto bg-charcoal-950/90 px-6 py-5">
 								<blockquote>
 									<p className="font-playfair text-base italic text-sand-200 lg:text-lg">
 										&ldquo;Unusually tolerant of safari vehicles — experiences
@@ -314,7 +267,7 @@ function FeaturedTigerDossier({ tiger }: { tiger: FamousTiger }) {
 		<div className="relative overflow-hidden rounded-sm ring-1 ring-sunset-500/30 lg:flex">
 			<div className="w-full shrink-0 lg:w-[45%] aspect-square">
 				<img
-					src="/tiger.png"
+					src="/Home/machli.jpg"
 					alt="Machhli — the legendary Queen of Ranthambore"
 					className="size-full min-h-[300px] object-cover object-center lg:min-h-[480px]"
 				/>
@@ -479,16 +432,9 @@ function IdentificationSection() {
 					<div className="w-full lg:w-1/2">
 						<p className="font-body text-base leading-relaxed text-charcoal-700">
 							Every tiger has a unique stripe pattern, just like human
-							fingerprints. Our Tiger Identification Guide helps you identify
-							individual tigers by their markings during and after your safari.
+							fingerprints. Use facial markings, flank stripes, and body shape
+							to identify individual tigers during and after your safari.
 						</p>
-						<a
-							href="/wildlife/tiger-identification"
-							className="mt-8 inline-flex items-center gap-2 font-display text-xs uppercase tracking-display text-tiger-700 transition-colors hover:text-tiger-600"
-						>
-							Explore the Identification Guide
-							<span aria-hidden>→</span>
-						</a>
 					</div>
 
 					<div className="w-full lg:w-1/2">

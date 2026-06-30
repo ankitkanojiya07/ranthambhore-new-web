@@ -16,6 +16,7 @@ interface SectionLandingProps {
 	intro: string;
 	links: NavItem[];
 	image?: string;
+	showWhyChoose?: boolean;
 }
 
 export function SectionLanding({
@@ -25,6 +26,7 @@ export function SectionLanding({
 	intro,
 	links,
 	image,
+	showWhyChoose = true,
 }: SectionLandingProps) {
 	return (
 		<div className="bg-sand-50">
@@ -108,7 +110,7 @@ export function SectionLanding({
 				</div>
 			</section>
 
-			<WhyChooseSection />
+			{showWhyChoose && <WhyChooseSection />}
 		</div>
 	);
 }

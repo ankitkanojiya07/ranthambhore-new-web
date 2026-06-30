@@ -2,7 +2,6 @@ import { createFileRoute } from "@tanstack/react-router";
 import { ContactSection } from "#/components/home/ContactSection";
 import { ContentSection } from "#/components/pages/ContentSection";
 import { IntroSection } from "#/components/pages/IntroSection";
-import { PageHero } from "#/components/pages/PageHero";
 import { WhyChooseSection } from "#/components/pages/WhyChooseSection";
 
 export const Route = createFileRoute("/(main)/contact/")({
@@ -26,16 +25,8 @@ export const Route = createFileRoute("/(main)/contact/")({
 function ContactPage() {
 	return (
 		<div className="bg-sand-50">
-			<PageHero
-				eyebrow="Contact"
-				title="Get in Touch"
-				subtitle="Safari bookings, hotel reservations, tour packages, and custom Rajasthan itineraries."
-				image="/gallery/7.jpg"
-				primaryCta={{ label: "Send Enquiry", href: "#contact-form" }}
-				secondaryCta={{ label: "Book a Safari", href: "/safari/book" }}
-			/>
-
 			<IntroSection
+				className="pt-28 lg:pt-32"
 				eyebrow="Local Experts"
 				title="Sawai Madhopur-Based Wildlife Team"
 			>
@@ -47,18 +38,8 @@ function ContactPage() {
 			</IntroSection>
 
 			<ContentSection
+				className="pt-0"
 				blocks={[
-					{
-						heading: "How to Reach Us",
-						body: "Reach our Sawai Madhopur booking desk by phone, email, or through the enquiry form below.",
-						items: [
-							"Website: ranthambhor.com",
-							"Email: [your contact email]",
-							"Phone / WhatsApp: [your contact number]",
-							"Office Address: [your address], Sawai Madhopur, Rajasthan",
-							"Office Hours: 8:00 AM to 8:00 PM (IST), Monday to Sunday",
-						],
-					},
 					{
 						heading: "What We Can Help With",
 						body: "From a single safari booking to a full Rajasthan itinerary — we handle every detail.",

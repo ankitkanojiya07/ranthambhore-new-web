@@ -13,7 +13,10 @@ import {
 } from "lucide-react";
 import { motion } from "motion/react";
 import { useEffect, useRef, useState } from "react";
+import { useInterval } from "#/hooks/useInterval";
 import { Image } from "#/util/Image";
+
+const AUTO_ADVANCE_MS = 4500;
 
 const containerVariants = {
 	hidden: {},
@@ -57,7 +60,7 @@ const ATTRACTIONS: Attraction[] = [
 		icon: Castle,
 		href: "/about/fort",
 		image: {
-			src: "/gallery/7.jpg",
+			src: "/Home/fort.jpg",
 			alt: "Ranthambore Fort overlooking the national park",
 			width: 2048,
 			height: 1365,
@@ -71,7 +74,7 @@ const ATTRACTIONS: Attraction[] = [
 		icon: Church,
 		href: "/about/temples-and-museums",
 		image: {
-			src: "/gallery/8.jpg",
+			src: "/Home/ganesh.webp",
 			alt: "Trinetra Ganesh Temple inside Ranthambore Fort",
 			width: 2048,
 			height: 1365,
@@ -85,7 +88,7 @@ const ATTRACTIONS: Attraction[] = [
 		icon: Waves,
 		href: "/about/national-park",
 		image: {
-			src: "/gallery/9.jpg",
+			src: "/Home/padam.jpg",
 			alt: "Padam Talao lake with water lilies in Ranthambore",
 			width: 2048,
 			height: 1365,
@@ -99,26 +102,26 @@ const ATTRACTIONS: Attraction[] = [
 		icon: Landmark,
 		href: "/safari/zones",
 		image: {
-			src: "/gallery/10.jpg",
+			src: "/Home/raj.webp",
 			alt: "Raj Bagh ruins beside a lake in Ranthambore",
 			width: 2048,
 			height: 1365,
 		},
 	},
-	{
-		id: "rajbagh-talao",
-		title: "Rajbagh Talao",
-		description:
-			"Most famous lake for tiger sightings; deer and predators create natural dramas here.",
-		icon: Waves,
-		href: "/safari/zones",
-		image: {
-			src: "/gallery/11.jpg",
-			alt: "Rajbagh Talao lake in Ranthambore National Park",
-			width: 2048,
-			height: 1365,
-		},
-	},
+	// {
+	// 	id: "rajbagh-talao",
+	// 	title: "Rajbagh Talao",
+	// 	description:
+	// 		"Most famous lake for tiger sightings; deer and predators create natural dramas here.",
+	// 	icon: Waves,
+	// 	href: "/safari/zones",
+	// 	image: {
+	// 		src: "/gallery/11.jpg",
+	// 		alt: "Rajbagh Talao lake in Ranthambore National Park",
+	// 		width: 2048,
+	// 		height: 1365,
+	// 	},
+	// },
 	{
 		id: "malik-talao",
 		title: "Malik Talao",
@@ -127,7 +130,7 @@ const ATTRACTIONS: Attraction[] = [
 		icon: Waves,
 		href: "/safari/zones",
 		image: {
-			src: "/gallery/12.jpg",
+			src: "/Home/malik-talao.jpg",
 			alt: "Malik Talao with wading birds and crocodiles",
 			width: 2048,
 			height: 1365,
@@ -141,7 +144,7 @@ const ATTRACTIONS: Attraction[] = [
 		icon: Building2,
 		href: "/safari/zones",
 		image: {
-			src: "/gallery/13.jpg",
+			src: "/Home/jogi.webp",
 			alt: "Jogi Mahal hunting lodge beside Padam Talao",
 			width: 2048,
 			height: 1365,
@@ -155,7 +158,7 @@ const ATTRACTIONS: Attraction[] = [
 		icon: Mountain,
 		href: "/safari/zones",
 		image: {
-			src: "/gallery/14.jpg",
+			src: "/Home/kachida.jpg",
 			alt: "Kachida Valley rocky terrain in Ranthambore",
 			width: 2048,
 			height: 1365,
@@ -169,7 +172,7 @@ const ATTRACTIONS: Attraction[] = [
 		icon: Library,
 		href: "/about/temples-and-museums",
 		image: {
-			src: "/gallery/1.jpg",
+			src: "/Home/rajeev.webp",
 			alt: "Rajiv Gandhi Regional Museum of Natural History",
 			width: 2048,
 			height: 1365,
@@ -184,6 +187,7 @@ const TOTAL_TRACK_W = ATTRACTIONS.length * STEP - GAP;
 
 export function ThingsToDoSection() {
 	const [index, setIndex] = useState(0);
+	const [paused, setPaused] = useState(false);
 	const viewportRef = useRef<HTMLDivElement>(null);
 	const [viewportW, setViewportW] = useState(0);
 
@@ -205,10 +209,32 @@ export function ThingsToDoSection() {
 	const prev = () => setIndex((i) => Math.max(0, i - 1));
 	const next = () => setIndex((i) => Math.min(ATTRACTIONS.length - 1, i + 1));
 
+	useInterval(
+		() => {
+			setIndex((current) => {
+				const max = Math.max(0, TOTAL_TRACK_W - viewportW);
+				const nextOffset = Math.min((current + 1) * STEP, max);
+				if (nextOffset >= max) {
+					return 0;
+				}
+				return current + 1;
+			});
+		},
+		paused || viewportW === 0 ? null : AUTO_ADVANCE_MS,
+	);
+
 	return (
 		<section
 			className="overflow-hidden bg-sand-50 px-6 py-16 lg:px-8 lg:py-20"
 			aria-label="Top tourist attractions in Ranthambore"
+			onMouseEnter={() => setPaused(true)}
+			onMouseLeave={() => setPaused(false)}
+			onFocusCapture={() => setPaused(true)}
+			onBlurCapture={(event) => {
+				if (!event.currentTarget.contains(event.relatedTarget)) {
+					setPaused(false);
+				}
+			}}
 		>
 			<div className="mx-auto max-w-7xl">
 				{/* Header */}
@@ -265,15 +291,6 @@ export function ThingsToDoSection() {
 												className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-105 group-focus-within:scale-105"
 											/>
 											<div className="absolute inset-0 bg-charcoal-900/5 transition-colors duration-500 group-hover:bg-tiger-900/30 group-focus-within:bg-tiger-900/30" />
-
-											<div className="pointer-events-none absolute inset-0 flex items-center justify-center opacity-0 transition-[opacity,transform] duration-300 ease-out group-hover:pointer-events-auto group-hover:opacity-100 group-focus-within:pointer-events-auto group-focus-within:opacity-100">
-												<Link
-													to={attraction.href}
-													className="scale-[0.92] rounded-full bg-tiger-900 px-8 py-3 font-display text-xs uppercase tracking-display text-sand-50 transition-[transform,background-color] duration-300 ease-out group-hover:scale-100 group-focus-within:scale-100 hover:bg-tiger-800"
-												>
-													Know More
-												</Link>
-											</div>
 										</div>
 
 										{/* Icon circle — protrudes on the outer edge */}

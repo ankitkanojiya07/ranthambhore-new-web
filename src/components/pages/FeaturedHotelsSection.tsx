@@ -23,7 +23,7 @@ const FEATURED_HOTELS: FeaturedHotel[] = [
 			"Spa, pool, and curated wildlife experiences",
 		],
 		href: "https://ranthamboreregency.com/",
-		image: "/gallery/5.jpg",
+		image: "/Home/h1.webp",
 		tier: "Luxury Resort",
 	},
 	{
@@ -37,7 +37,7 @@ const FEATURED_HOTELS: FeaturedHotel[] = [
 			"Authentic Rajasthani cuisine and safari-focused service",
 		],
 		href: "https://ranthamboreaangan.com/",
-		image: "/gallery/7.jpg",
+		image: "/Home/h2.jpg",
 		tier: "Boutique Farmstay",
 	},
 	{
@@ -51,7 +51,7 @@ const FEATURED_HOTELS: FeaturedHotel[] = [
 			"Ideal for travellers seeking premium comfort",
 		],
 		href: "https://www.tajhotels.com/en-in/hotels/taj-sawai-ranthambore",
-		image: "/gallery/9.jpg",
+		image: "/Home/h3.png",
 		tier: "Luxury Lodge",
 	},
 ];

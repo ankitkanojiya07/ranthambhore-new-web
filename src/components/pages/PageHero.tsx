@@ -8,7 +8,7 @@ interface PageHeroProps {
 	eyebrow: string;
 	title: React.ReactNode;
 	subtitle?: string;
-	image?: string;
+	image?: string | false;
 	badge?: string;
 	className?: string;
 	primaryCta?: { label: string; href: string };
@@ -44,17 +44,28 @@ export function PageHero({
 				aria-label="Page hero"
 			>
 				<div className="absolute inset-0">
-					<Image
-						src={image}
-						alt=""
-						aria-hidden
-						layout="fullWidth"
-						className="size-full object-cover object-center"
-					/>
-					<div className="absolute inset-0 bg-linear-to-t from-charcoal-900/92 via-charcoal-900/50 to-charcoal-900/25" />
+					{image !== false ? (
+						<>
+							<Image
+								src={image}
+								alt=""
+								aria-hidden
+								layout="fullWidth"
+								className="size-full object-cover object-center"
+							/>
+							<div className="absolute inset-0 bg-linear-to-t from-charcoal-900/92 via-charcoal-900/50 to-charcoal-900/25" />
+						</>
+					) : (
+						<div className="size-full bg-linear-to-br from-charcoal-900 via-forest-950 to-charcoal-800" />
+					)}
 				</div>
 
-				<div className="relative z-10 mx-auto w-full max-w-7xl px-6 pb-16 pt-32 lg:px-8 lg:pb-24 lg:pt-40">
+				<div
+					className={cn(
+						"relative z-10 mx-auto w-full max-w-7xl px-6 pb-16 pt-32 lg:px-8 lg:pb-24 lg:pt-40",
+						image === false && "text-center",
+					)}
+				>
 					<p className="font-display text-xs uppercase tracking-display text-sunset-400">
 						{badge ?? eyebrow}
 					</p>
@@ -62,12 +73,22 @@ export function PageHero({
 						{title}
 					</h1>
 					{subtitle && (
-						<p className="mt-5 max-w-2xl font-body text-base leading-relaxed text-sand-200/90 lg:text-lg">
+						<p
+							className={cn(
+								"mt-5 max-w-2xl font-body text-base leading-relaxed text-sand-200/90 lg:text-lg",
+								image === false && "mx-auto",
+							)}
+						>
 							{subtitle}
 						</p>
 					)}
 					{(primaryCta || secondaryCta) && (
-						<div className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center">
+						<div
+							className={cn(
+								"mt-8 flex flex-col gap-3 sm:flex-row sm:items-center",
+								image === false && "sm:justify-center",
+							)}
+						>
 							{primaryCta && (
 								<Button
 									render={

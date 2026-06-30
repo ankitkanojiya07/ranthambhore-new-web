@@ -45,7 +45,7 @@ export function DailyUpdateForm() {
 				onMutateResult,
 				context,
 			);
-			await navigate({ to: "/daily-updates" });
+			await navigate({ to: "/" });
 		},
 	});
 

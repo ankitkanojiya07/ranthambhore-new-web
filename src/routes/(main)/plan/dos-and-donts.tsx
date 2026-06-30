@@ -2,7 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { GuidePage } from "#/components/pages/GuidePage";
 
 export const Route = createFileRoute("/(main)/plan/dos-and-donts")({
-	staticData: { navOverlay: true },
+	staticData: { navOverlay: false },
 	head: () => ({
 		meta: [
 			{
@@ -21,10 +21,8 @@ export const Route = createFileRoute("/(main)/plan/dos-and-donts")({
 function DosAndDontsPage() {
 	return (
 		<GuidePage
-			eyebrow="Plan Your Visit"
-			title="Do's & Don'ts"
-			subtitle="Park rules, safari etiquette, and responsible tourism guidelines for Ranthambore."
-			image="/gallery/6.jpg"
+			showHero={false}
+			showWhyChoose={false}
 			sections={[
 				{
 					heading: "Do's",
@@ -42,6 +40,7 @@ function DosAndDontsPage() {
 				},
 				{
 					heading: "Don'ts",
+					layout: "full",
 					body: "These rules protect wildlife, preserve the forest, and keep every visitor safe.",
 					items: [
 						"Don't bring or use plastic bags inside the park — they are prohibited.",

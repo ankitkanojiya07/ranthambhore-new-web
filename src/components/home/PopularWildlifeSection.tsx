@@ -1,27 +1,11 @@
 import { Link } from "@tanstack/react-router";
-import { ArrowLeft, ArrowRight, FileText } from "lucide-react";
-import { motion } from "motion/react";
+import { ArrowLeft, ArrowRight } from "lucide-react";
+import { AnimatePresence, motion } from "motion/react";
 import { useEffect, useMemo, useState } from "react";
+import { useInterval } from "#/hooks/useInterval";
 import { Image } from "#/util/Image";
 
-const containerVariants = {
-	hidden: {},
-	visible: {
-		transition: {
-			staggerChildren: 0.15,
-			delayChildren: 0.2,
-		},
-	},
-};
-
-const itemVariants = {
-	hidden: { opacity: 0, y: 30 },
-	visible: {
-		opacity: 1,
-		y: 0,
-		transition: { duration: 0.6, ease: "easeOut" as const },
-	},
-};
+const AUTO_ADVANCE_MS = 6000;
 
 const POPULAR_ANIMALS = [
 	{
@@ -38,7 +22,7 @@ const POPULAR_ANIMALS = [
 		description:
 			"Star of the reserve — 80+ tigers roam Ranthambore's lakes and open terrain.",
 		badge: "Apex Predator",
-		href: "/wildlife/tigers",
+		href: "/about/tigers",
 	},
 	{
 		id: "leopard",
@@ -54,7 +38,7 @@ const POPULAR_ANIMALS = [
 		description:
 			"Often spotted in Kachida Valley — stealthy and elusive among rocky escarpments.",
 		badge: "Kachida Valley",
-		href: "/wildlife/mammals",
+		href: "/about/flora-and-fauna",
 	},
 	{
 		id: "sloth-bear",
@@ -70,7 +54,7 @@ const POPULAR_ANIMALS = [
 		description:
 			"100+ in the reserve — frequently seen shuffling through forest at dawn and dusk.",
 		badge: "Rocky Terrain",
-		href: "/wildlife/mammals",
+		href: "/about/flora-and-fauna",
 	},
 	{
 		id: "spotted-deer",
@@ -86,7 +70,7 @@ const POPULAR_ANIMALS = [
 		description:
 			"Most commonly seen on safari — graceful herds in open clearings and forest edges.",
 		badge: "Open Clearings",
-		href: "/wildlife/mammals",
+		href: "/about/flora-and-fauna",
 	},
 	{
 		id: "sambar-deer",
@@ -102,7 +86,7 @@ const POPULAR_ANIMALS = [
 		description:
 			"Largest deer species in India — the tiger's preferred prey, found across the reserve.",
 		badge: "Forest Edge",
-		href: "/wildlife/mammals",
+		href: "/about/flora-and-fauna",
 	},
 	{
 		id: "marsh-crocodile",
@@ -118,7 +102,7 @@ const POPULAR_ANIMALS = [
 		description:
 			"Found in all 3 major lakes — often seen basking on the banks of Padam Talao.",
 		badge: "Padam Talao",
-		href: "/wildlife/reptiles-and-amphibians",
+		href: "/about/flora-and-fauna",
 	},
 	{
 		id: "chinkara",
@@ -134,7 +118,7 @@ const POPULAR_ANIMALS = [
 		description:
 			"Indian Gazelle — shy and rare, adapted to the park's open savannah buffer zones.",
 		badge: "Buffer Zones",
-		href: "/wildlife/mammals",
+		href: "/about/flora-and-fauna",
 	},
 	{
 		id: "wild-boar",
@@ -150,7 +134,7 @@ const POPULAR_ANIMALS = [
 		description:
 			"Frequently spotted near lakes — robust populations rooting through undergrowth year-round.",
 		badge: "Lake Shores",
-		href: "/wildlife/mammals",
+		href: "/about/flora-and-fauna",
 	},
 ] as const;
 
@@ -167,6 +151,7 @@ function getItemsPerPage(width: number) {
 export function PopularWildlifeSection() {
 	const [pageIndex, setPageIndex] = useState(0);
 	const [itemsPerPage, setItemsPerPage] = useState(3);
+	const [paused, setPaused] = useState(false);
 
 	useEffect(() => {
 		const updateItemsPerPage = () => {
@@ -192,10 +177,25 @@ export function PopularWildlifeSection() {
 	const canGoPrev = pageIndex > 0;
 	const canGoNext = pageIndex < totalPages - 1;
 
+	useInterval(
+		() => {
+			setPageIndex((current) => (current + 1) % totalPages);
+		},
+		paused || totalPages <= 1 ? null : AUTO_ADVANCE_MS,
+	);
+
 	return (
 		<section
 			className="bg-sand-100 px-6 py-16 lg:px-8 lg:py-20"
 			aria-label="Popular wildlife"
+			onMouseEnter={() => setPaused(true)}
+			onMouseLeave={() => setPaused(false)}
+			onFocusCapture={() => setPaused(true)}
+			onBlurCapture={(event) => {
+				if (!event.currentTarget.contains(event.relatedTarget)) {
+					setPaused(false);
+				}
+			}}
 		>
 			<div className="mx-auto max-w-7xl">
 				<div className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
@@ -234,69 +234,67 @@ export function PopularWildlifeSection() {
 					</div>
 				</div>
 
-				<motion.div
-					key={`${pageIndex}-${itemsPerPage}`}
-					className="mt-12 grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3"
-					variants={containerVariants}
-					initial="hidden"
-					whileInView="visible"
-					viewport={{ once: true, amount: 0.2 }}
-				>
-					{visibleAnimals.map((animal) => (
-						<motion.article
-							key={animal.id}
-							variants={itemVariants}
-							className="flex flex-col overflow-hidden rounded-2xl bg-cream-100 shadow-sm ring-1 ring-muted-300"
+				<div className="mt-12 overflow-hidden">
+					<AnimatePresence mode="wait" initial={false}>
+						<motion.div
+							key={`${pageIndex}-${itemsPerPage}`}
+							className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3"
+							initial={{ opacity: 0, x: 48 }}
+							animate={{ opacity: 1, x: 0 }}
+							exit={{ opacity: 0, x: -48 }}
+							transition={{ duration: 0.55, ease: "easeOut" }}
 						>
-							<div className="relative aspect-4/3 w-full overflow-hidden">
-								<Image
-									src={animal.image.src}
-									alt={animal.image.alt}
-									width={animal.image.width}
-									height={animal.image.height}
-									className="absolute inset-0 h-full w-full object-cover"
-								/>
-							</div>
+							{visibleAnimals.map((animal) => (
+								<article
+									key={animal.id}
+									className="flex flex-col overflow-hidden rounded-2xl bg-cream-100 shadow-sm ring-1 ring-muted-300"
+								>
+									<div className="relative aspect-4/3 w-full overflow-hidden">
+										<Image
+											src={animal.image.src}
+											alt={animal.image.alt}
+											width={animal.image.width}
+											height={animal.image.height}
+											className="absolute inset-0 h-full w-full object-cover"
+										/>
+									</div>
 
-							<div className="flex flex-1 flex-col p-6">
-								<h3 className="text-xl text-charcoal-800">{animal.title}</h3>
+									<div className="flex flex-1 flex-col p-6">
+										<h3 className="text-xl text-charcoal-800">
+											{animal.title}
+										</h3>
 
-								<p className="mt-2">
-									<span className="font-display text-xs font-bold uppercase tracking-display text-sunset-500">
-										{animal.category}
-									</span>
-									<span className="ml-2 font-body text-sm text-charcoal-500">
-										{animal.fameTag}
-									</span>
-								</p>
+										<p className="mt-2">
+											<span className="font-display text-xs font-bold uppercase tracking-display text-sunset-500">
+												{animal.category}
+											</span>
+											<span className="ml-2 font-body text-sm text-charcoal-500">
+												{animal.fameTag}
+											</span>
+										</p>
 
-								<p className="mt-3 flex-1 font-body text-sm leading-relaxed text-charcoal-600">
-									{animal.description}
-								</p>
+										<p className="mt-3 flex-1 font-body text-sm leading-relaxed text-charcoal-600">
+											{animal.description}
+										</p>
 
-								<div className="mt-5 flex items-center justify-between gap-4">
-									<span className="inline-block rounded bg-sunset-500/20 px-3 py-1.5 font-display text-xs font-semibold uppercase tracking-display text-sunset-700 ring-1 ring-sunset-500/30">
-										{animal.badge}
-									</span>
-									<Link
-										to={animal.href}
-										className="inline-flex items-center gap-2 border border-charcoal-800 px-5 py-2.5 font-display text-xs uppercase tracking-display text-charcoal-800 transition-colors hover:bg-charcoal-800 hover:text-sand-50"
-									>
-										<FileText className="size-3.5" />
-										Read More
-									</Link>
-								</div>
-							</div>
-						</motion.article>
-					))}
-				</motion.div>
+										<div className="mt-5">
+											<span className="inline-block rounded bg-sunset-500/20 px-3 py-1.5 font-display text-xs font-semibold uppercase tracking-display text-sunset-700 ring-1 ring-sunset-500/30">
+												{animal.badge}
+											</span>
+										</div>
+									</div>
+								</article>
+							))}
+						</motion.div>
+					</AnimatePresence>
+				</div>
 
 				<div className="mt-10 flex justify-center lg:justify-end">
 					<Link
-						to="/wildlife"
+						to="/about/flora-and-fauna"
 						className="inline-flex items-center gap-2 font-display text-xs uppercase tracking-display text-forest-600 transition-colors hover:text-forest-700"
 					>
-						Explore Full Wildlife Guide
+						Explore Flora &amp; Fauna
 						<ArrowRight className="size-4" />
 					</Link>
 				</div>

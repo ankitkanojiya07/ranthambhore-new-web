@@ -16,12 +16,14 @@ interface Stat {
 }
 
 interface GuidePageProps {
-	eyebrow: string;
-	title: React.ReactNode;
+	showHero?: boolean;
+	eyebrow?: string;
+	title?: React.ReactNode;
 	subtitle?: string;
-	image?: string;
+	image?: string | false;
 	badge?: string;
 	stats?: Stat[];
+	statsSize?: "default" | "compact";
 	intro?: string;
 	introTitle?: string;
 	sections: ContentBlock[];
@@ -34,12 +36,14 @@ interface GuidePageProps {
 }
 
 export function GuidePage({
-	eyebrow,
-	title,
+	showHero = true,
+	eyebrow = "",
+	title = "",
 	subtitle,
 	image,
 	badge,
 	stats,
+	statsSize,
 	intro,
 	introTitle,
 	sections,
@@ -52,22 +56,31 @@ export function GuidePage({
 }: GuidePageProps) {
 	return (
 		<div className="bg-sand-50">
-			<PageHero
-				eyebrow={eyebrow}
-				title={title}
-				subtitle={subtitle}
-				image={image}
-				badge={badge}
-				primaryCta={heroPrimaryCta}
-				secondaryCta={heroSecondaryCta}
-			/>
-			{stats && stats.length > 0 && <StatsBanner stats={stats} />}
+			{showHero && (
+				<PageHero
+					eyebrow={eyebrow}
+					title={title}
+					subtitle={subtitle}
+					image={image}
+					badge={badge}
+					tall={image !== false}
+					primaryCta={heroPrimaryCta}
+					secondaryCta={heroSecondaryCta}
+				/>
+			)}
+			{stats && stats.length > 0 && (
+				<StatsBanner stats={stats} size={statsSize} />
+			)}
 			{intro && (
 				<IntroSection eyebrow="Overview" title={introTitle}>
 					{intro}
 				</IntroSection>
 			)}
-			<ContentSection blocks={sections} imageOffset={imageOffset} />
+			<ContentSection
+				blocks={sections}
+				imageOffset={imageOffset}
+				className={!showHero ? "pt-28 lg:pt-32" : undefined}
+			/>
 			{showWhyChoose && <WhyChooseSection features={features} />}
 			{faqs && faqs.length > 0 && <FaqAccordion items={faqs} />}
 		</div>

@@ -39,6 +39,7 @@ function TimingAndFeesPage() {
 				},
 				{
 					heading: "Entry Fees (Approximate — Please Verify Current Rates)",
+					layout: "full",
 					body: "Fees are set by the Rajasthan Forest Department and are revised periodically. Always confirm current rates when booking. All fees include park entry, vehicle, and a certified naturalist guide.",
 					items: [
 						"Indian nationals (Jeep): INR 1,300–1,500 per person approximately",
@@ -48,6 +49,7 @@ function TimingAndFeesPage() {
 					],
 				},
 			]}
+			showWhyChoose={false}
 		/>
 	);
 }

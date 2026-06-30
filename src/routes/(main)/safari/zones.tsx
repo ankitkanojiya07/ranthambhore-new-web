@@ -27,6 +27,7 @@ function ZonesPage() {
 			subtitle="Ten designated safari zones — each with its own landscape, wildlife, and character."
 			image="/gallery/3.jpg"
 			badge="Zones 1–10"
+			showWhyChoose={false}
 			sections={[
 				{
 					heading: "Understanding Ranthambore's Zones",

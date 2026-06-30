@@ -67,7 +67,7 @@ function HistoryPage() {
 			>
 				<div className="absolute inset-0">
 					<img
-						src="/tiger.png"
+						src="/Home/fort1.jpg"
 						alt=""
 						aria-hidden
 						className="size-full object-cover object-center"
@@ -194,7 +194,7 @@ function MachhliSection() {
 				<div className="overflow-hidden rounded-sm ring-1 ring-sunset-500/30 lg:flex">
 					<div className="w-full shrink-0 lg:w-[45%] aspect-square">
 						<img
-							src="/tiger.png"
+							src="/Home/machli.jpg"
 							alt="The legendary tigress Machhli at Ranthambore"
 							className="size-full min-h-[300px] object-cover object-center lg:min-h-[520px]"
 						/>

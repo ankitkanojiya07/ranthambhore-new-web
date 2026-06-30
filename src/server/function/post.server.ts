@@ -122,11 +122,17 @@ async function resolveTagIds(
 
 export async function handleCreatePost(ctx: CreatePostHandlerContext) {
 	const { data, context } = ctx;
+	const postType = data.type ?? "ranthambhore_update";
+
+	if (postType !== "daily_update" && !context.session) {
+		throw new Error("Unauthorized");
+	}
+
 	const status = data.status ?? "draft";
 	const publishedAt = status === "published" ? new Date() : null;
 	const excerpt = generateExcerpt(data.content);
 	const metaTitle = generateMetaTitle(data.title);
-	const authorId = data.authorId ?? context.session?.user.id;
+	const authorId = context.session?.user.id ?? null;
 
 	const post = await db.transaction(async (tx) => {
 		const category = data.category?.trim();

@@ -1,7 +1,6 @@
-import { createFileRoute, redirect } from "@tanstack/react-router";
+import { createFileRoute } from "@tanstack/react-router";
 import { lazy, Suspense } from "react";
 import { Spinner } from "#/components/ui/spinner";
-import { getSession } from "#/lib/auth.functions";
 
 const RanthambhoreUpdateForm = lazy(() =>
 	import("#/components/highlights/RanthambhoreUpdateForm").then((module) => ({
@@ -13,15 +12,6 @@ export const Route = createFileRoute(
 	"/(main)/highlights/ranthambhore-insights/new",
 )({
 	staticData: { navOverlay: false },
-	beforeLoad: async () => {
-		const session = await getSession();
-		if (!session) {
-			throw redirect({
-				to: "/sign-in",
-				search: { redirect: "/highlights/ranthambhore-insights/new" },
-			});
-		}
-	},
 	component: NewRanthambhoreUpdatePage,
 	pendingComponent: RanthambhoreUpdateFormPending,
 	head: () => ({

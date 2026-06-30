@@ -460,7 +460,7 @@ function MammalsSection() {
 					<div className="lg:col-span-6 overflow-hidden rounded-sm bg-cream-100 ring-1 ring-muted-300">
 						<div className="aspect-16/10 overflow-hidden">
 							<img
-								src="/tiger.png"
+								src="/Home/tiger.jpg"
 								alt="Bengal tiger in Ranthambore National Park"
 								className="size-full object-cover object-center"
 							/>
@@ -649,7 +649,7 @@ function BirdlifeSection() {
 
 					<div className="hidden w-full overflow-hidden rounded-sm ring-1 ring-muted-300 lg:block lg:w-[42%]">
 						<img
-							src="/gallery/3.jpg"
+							src="/Home/bird.jpg"
 							alt="Birdlife and open clearings in Ranthambore"
 							className="aspect-4/3 w-full object-cover"
 						/>
