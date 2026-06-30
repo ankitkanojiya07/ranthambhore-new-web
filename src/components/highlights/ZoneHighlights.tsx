@@ -1,9 +1,16 @@
 import { Link } from "@tanstack/react-router";
 import { ArrowRight } from "lucide-react";
-import type { ZoneData } from "#/lib/highlights-data";
+import { SafariArticleLink } from "#/components/highlights/safari-article-link";
+import type {
+	SafariHighlight,
+	SafariZoneCard,
+} from "#/components/highlights/safari-highlight.types";
 import { Image } from "#/util/Image";
 
-export function ZoneHighlightsGrid({ zones }: { zones: ZoneData[] }) {
+const titleLinkClass =
+	"transition-colors hover:text-tiger-500 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-tiger-500/40";
+
+export function ZoneHighlightsGrid({ zones }: { zones: SafariZoneCard[] }) {
 	return (
 		<section
 			className="bg-tiger-50 px-6 py-16 lg:px-8 lg:py-20"
@@ -26,7 +33,7 @@ export function ZoneHighlightsGrid({ zones }: { zones: ZoneData[] }) {
 				<div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
 					{zones.map((zone) => (
 						<Link
-							key={zone.zoneNumber}
+							key={zone.id}
 							to="/highlights/safari-insights/zone/$zoneId"
 							params={{ zoneId: String(zone.zoneNumber) }}
 							className="group flex flex-col overflow-hidden rounded-xl bg-cream-50 shadow-sm ring-1 ring-muted-300/60 transition-all hover:-translate-y-0.5 hover:shadow-md"
@@ -63,7 +70,13 @@ export function ZoneHighlightsGrid({ zones }: { zones: ZoneData[] }) {
 	);
 }
 
-export function ZoneDetailContent({ zone }: { zone: ZoneData }) {
+export function ZoneDetailContent({
+	zone,
+	highlights,
+}: {
+	zone: SafariZoneCard;
+	highlights: SafariHighlight[];
+}) {
 	return (
 		<div className="bg-sand-50">
 			<section className="px-6 py-16 lg:px-8 lg:py-20">
@@ -82,6 +95,11 @@ export function ZoneDetailContent({ zone }: { zone: ZoneData }) {
 							<p className="mt-3 font-display text-xs uppercase tracking-display text-forest-600">
 								Best for: {zone.bestFor}
 							</p>
+							{zone.safariType ? (
+								<p className="mt-2 font-body text-sm text-muted-500">
+									Safari type: {zone.safariType}
+								</p>
+							) : null}
 						</div>
 
 						<div className="overflow-hidden rounded-xl ring-1 ring-muted-300/60">
@@ -97,29 +115,31 @@ export function ZoneDetailContent({ zone }: { zone: ZoneData }) {
 				</div>
 			</section>
 
-			<section
-				className="border-t border-muted-300/40 bg-sand-100 px-6 py-16 lg:px-8 lg:py-20"
-				aria-label="Zone insights"
-			>
-				<div className="mx-auto max-w-7xl">
-					<h3 className="font-playfair text-2xl text-charcoal-900">
-						Safari Insights
-					</h3>
-					<ul className="mt-6 space-y-4">
-						{zone.insights.map((insight) => (
-							<li
-								key={insight}
-								className="flex gap-3 font-body text-base leading-relaxed text-charcoal-700"
-							>
-								<span className="mt-2 size-1.5 shrink-0 rounded-full bg-sunset-500" />
-								{insight}
-							</li>
-						))}
-					</ul>
-				</div>
-			</section>
+			{zone.insights.length > 0 ? (
+				<section
+					className="border-t border-muted-300/40 bg-sand-100 px-6 py-16 lg:px-8 lg:py-20"
+					aria-label="Zone insights"
+				>
+					<div className="mx-auto max-w-7xl">
+						<h3 className="font-playfair text-2xl text-charcoal-900">
+							Safari Insights
+						</h3>
+						<ul className="mt-6 space-y-4">
+							{zone.insights.map((insight) => (
+								<li
+									key={insight}
+									className="flex gap-3 font-body text-base leading-relaxed text-charcoal-700"
+								>
+									<span className="mt-2 size-1.5 shrink-0 rounded-full bg-sunset-500" />
+									{insight}
+								</li>
+							))}
+						</ul>
+					</div>
+				</section>
+			) : null}
 
-			{zone.highlights.length > 0 ? (
+			{highlights.length > 0 ? (
 				<section
 					className="border-t border-muted-300/40 px-6 py-16 lg:px-8 lg:py-20"
 					aria-label="Recent sightings in zone"
@@ -129,26 +149,34 @@ export function ZoneDetailContent({ zone }: { zone: ZoneData }) {
 							Recent Sightings
 						</h3>
 						<div className="mt-8 grid gap-6 sm:grid-cols-2">
-							{zone.highlights.map((highlight) => (
+							{highlights.map((highlight) => (
 								<article
 									key={highlight.id}
 									className="flex gap-4 overflow-hidden rounded-xl bg-cream-50 p-4 ring-1 ring-muted-300/60"
 								>
-									<div className="size-24 shrink-0 overflow-hidden rounded-lg">
+									<SafariArticleLink
+										slug={highlight.id}
+										className="size-24 shrink-0 overflow-hidden rounded-lg"
+									>
 										<Image
 											src={highlight.image.src}
 											alt={highlight.image.alt}
 											width={highlight.image.width}
 											height={highlight.image.height}
-											className="size-full object-cover"
+											className="size-full object-cover transition-transform duration-300 hover:scale-105"
 										/>
-									</div>
+									</SafariArticleLink>
 									<div className="min-w-0 flex-1">
 										<p className="font-body text-xs text-muted-500">
 											{highlight.date}
 										</p>
 										<h4 className="mt-1 font-display text-sm font-semibold uppercase tracking-display text-charcoal-900">
-											{highlight.title}
+											<SafariArticleLink
+												slug={highlight.id}
+												className={titleLinkClass}
+											>
+												{highlight.title}
+											</SafariArticleLink>
 										</h4>
 										<p className="mt-1 line-clamp-2 font-body text-sm text-charcoal-600">
 											{highlight.description}

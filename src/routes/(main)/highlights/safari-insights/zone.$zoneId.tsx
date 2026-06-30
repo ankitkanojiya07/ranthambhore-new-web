@@ -1,25 +1,57 @@
+import { useSuspenseQuery } from "@tanstack/react-query";
 import { createFileRoute, notFound } from "@tanstack/react-router";
+import { useMemo } from "react";
+import {
+	mapDbZoneToSafariZoneCard,
+	mapPostToSafariHighlight,
+} from "#/components/daily-updates/map-safari-highlight";
+import {
+	dailyUpdateZonesQueryOptions,
+	safariZonePostsQueryOptions,
+} from "#/components/daily-updates/queries/daily-updates.queries";
 import { ZoneDetailContent } from "#/components/highlights/ZoneHighlights";
 import { PageHero } from "#/components/pages/PageHero";
-import { getZoneByNumber } from "#/lib/highlights-data";
 
 export const Route = createFileRoute(
 	"/(main)/highlights/safari-insights/zone/$zoneId",
 )({
 	staticData: { navOverlay: true },
-	head: ({ params }) => {
-		const zone = getZoneByNumber(Number(params.zoneId));
+	loader: async ({ context: { queryClient }, params }) => {
+		const zones = await queryClient.ensureQueryData(
+			dailyUpdateZonesQueryOptions(),
+		);
+		const zoneNumber = Number(params.zoneId);
+		const zone = zones.find((entry) => entry.number === zoneNumber);
+
+		if (
+			!zone ||
+			Number.isNaN(zoneNumber) ||
+			zoneNumber < 1 ||
+			zoneNumber > 10
+		) {
+			throw notFound();
+		}
+
+		await queryClient.ensureQueryData(safariZonePostsQueryOptions(zone.id));
+
+		return { zone };
+	},
+	head: ({ loaderData }) => {
+		const zoneCard = loaderData?.zone
+			? mapDbZoneToSafariZoneCard(loaderData.zone)
+			: null;
+
 		return {
 			meta: [
 				{
-					title: zone
-						? `${zone.name} | Safari Highlights — Ranthambore`
+					title: zoneCard
+						? `${zoneCard.name} | Safari Highlights — Ranthambore`
 						: "Zone Not Found — Ranthambore Safari Highlights",
 				},
 				{
 					name: "description",
-					content: zone
-						? `Safari insights, recent sightings, and expert tips for ${zone.name} in Ranthambore National Park.`
+					content: zoneCard
+						? `Safari insights, recent sightings, and expert tips for ${zoneCard.name} in Ranthambore National Park.`
 						: "Zone not found.",
 				},
 			],
@@ -29,13 +61,19 @@ export const Route = createFileRoute(
 });
 
 function ZoneDetailPage() {
-	const { zoneId } = Route.useParams();
-	const zoneNumber = Number(zoneId);
-	const zone = getZoneByNumber(zoneNumber);
+	const { zone: loaderZone } = Route.useLoaderData();
+	const { data: posts } = useSuspenseQuery(
+		safariZonePostsQueryOptions(loaderZone.id),
+	);
 
-	if (!zone || Number.isNaN(zoneNumber) || zoneNumber < 1 || zoneNumber > 10) {
-		throw notFound();
-	}
+	const zone = useMemo(
+		() => mapDbZoneToSafariZoneCard(loaderZone),
+		[loaderZone],
+	);
+	const highlights = useMemo(
+		() => posts.data.map(mapPostToSafariHighlight),
+		[posts.data],
+	);
 
 	return (
 		<div className="bg-sand-50">
@@ -55,7 +93,7 @@ function ZoneDetailPage() {
 				}}
 				tall={false}
 			/>
-			<ZoneDetailContent zone={zone} />
+			<ZoneDetailContent zone={zone} highlights={highlights} />
 		</div>
 	);
 }
