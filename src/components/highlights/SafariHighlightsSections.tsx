@@ -1,7 +1,14 @@
 import { Link } from "@tanstack/react-router";
 import { ArrowRight } from "lucide-react";
-import type { TrendingColumn } from "#/lib/highlights-data";
+import { SafariArticleLink } from "#/components/highlights/safari-article-link";
+import type {
+	SafariHighlight,
+	TrendingColumn,
+} from "#/components/highlights/safari-highlight.types";
 import { Image } from "#/util/Image";
+
+const titleLinkClass =
+	"transition-colors hover:text-tiger-500 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-tiger-500/40";
 
 export function TrendingGrid({ columns }: { columns: TrendingColumn[] }) {
 	return (
@@ -17,15 +24,30 @@ export function TrendingGrid({ columns }: { columns: TrendingColumn[] }) {
 				<div className="mt-10 grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
 					{columns.map((column) => (
 						<article key={column.id} className="flex flex-col">
-							<div className="relative aspect-4/3 overflow-hidden">
-								<Image
-									src={column.image.src}
-									alt={column.image.alt}
-									width={column.image.width}
-									height={column.image.height}
-									className="h-full w-full object-cover"
-								/>
-							</div>
+							{column.items[0] ? (
+								<SafariArticleLink
+									slug={column.items[0].id}
+									className="group relative block aspect-4/3 overflow-hidden"
+								>
+									<Image
+										src={column.image.src}
+										alt={column.image.alt}
+										width={column.image.width}
+										height={column.image.height}
+										className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-[1.02]"
+									/>
+								</SafariArticleLink>
+							) : (
+								<div className="relative aspect-4/3 overflow-hidden">
+									<Image
+										src={column.image.src}
+										alt={column.image.alt}
+										width={column.image.width}
+										height={column.image.height}
+										className="h-full w-full object-cover"
+									/>
+								</div>
+							)}
 
 							<div className="mt-0 flex flex-col divide-y divide-muted-300/60">
 								{column.items.map((item) => (
@@ -38,7 +60,12 @@ export function TrendingGrid({ columns }: { columns: TrendingColumn[] }) {
 												item.featured ? "text-base font-semibold" : "text-sm"
 											}`}
 										>
-											{item.title}
+											<SafariArticleLink
+												slug={item.id}
+												className={titleLinkClass}
+											>
+												{item.title}
+											</SafariArticleLink>
 										</p>
 									</div>
 								))}
@@ -54,14 +81,7 @@ export function TrendingGrid({ columns }: { columns: TrendingColumn[] }) {
 export function SafariHighlightsGrid({
 	highlights,
 }: {
-	highlights: {
-		id: string;
-		title: string;
-		zone: string;
-		date: string;
-		description: string;
-		image: { src: string; alt: string; width: number; height: number };
-	}[];
+	highlights: SafariHighlight[];
 }) {
 	return (
 		<section
@@ -94,7 +114,10 @@ export function SafariHighlightsGrid({
 								key={highlight.id}
 								className="group flex flex-col overflow-hidden rounded-xl bg-cream-50 shadow-sm ring-1 ring-muted-300/60 transition-shadow hover:shadow-md"
 							>
-								<div className="relative aspect-4/3 overflow-hidden">
+								<SafariArticleLink
+									slug={highlight.id}
+									className="relative block aspect-4/3 overflow-hidden"
+								>
 									<Image
 										src={highlight.image.src}
 										alt={highlight.image.alt}
@@ -105,13 +128,18 @@ export function SafariHighlightsGrid({
 									<span className="absolute left-3 top-3 rounded-sm bg-forest-600/90 px-2 py-1 font-display text-[10px] font-semibold uppercase tracking-display text-sand-50">
 										{highlight.zone}
 									</span>
-								</div>
+								</SafariArticleLink>
 								<div className="flex flex-1 flex-col p-5">
 									<p className="font-body text-xs text-muted-500">
 										{highlight.date}
 									</p>
 									<h3 className="mt-1 font-display text-sm font-semibold uppercase leading-snug tracking-display text-charcoal-900">
-										{highlight.title}
+										<SafariArticleLink
+											slug={highlight.id}
+											className={titleLinkClass}
+										>
+											{highlight.title}
+										</SafariArticleLink>
 									</h3>
 									<p className="mt-2 line-clamp-3 flex-1 font-body text-sm leading-relaxed text-charcoal-600">
 										{highlight.description}

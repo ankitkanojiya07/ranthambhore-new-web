@@ -57,6 +57,20 @@ export const safariInsightsListInput = {
 export const safariInsightsQueryOptions = () =>
 	dailyUpdatesListQueryOptions(safariInsightsListInput);
 
+export const safariZonePostsListInput = (zoneId: string) =>
+	({
+		page: 1,
+		limit: 10,
+		status: "published",
+		type: "daily_update",
+		zoneId,
+		sortBy: "spottedDate",
+		sortOrder: "desc",
+	}) satisfies ListPostsInput;
+
+export const safariZonePostsQueryOptions = (zoneId: string) =>
+	dailyUpdatesListQueryOptions(safariZonePostsListInput(zoneId));
+
 export const ranthambhoreInsightsListInput = {
 	page: 1,
 	limit: 50,

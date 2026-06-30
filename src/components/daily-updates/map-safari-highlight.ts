@@ -1,6 +1,16 @@
-import type { handleGetPosts } from "#/server/function/get-posts.server";
+import type {
+	SafariHighlight,
+	SafariZoneCard,
+	TrendingColumn,
+} from "#/components/highlights/safari-highlight.types";
+import { getZoneByNumber } from "#/lib/highlights-data";
+import type {
+	handleGetPosts,
+	handleGetZones,
+} from "#/server/function/get-posts.server";
 
 type PostListItem = Awaited<ReturnType<typeof handleGetPosts>>["data"][number];
+type DbZone = Awaited<ReturnType<typeof handleGetZones>>[number];
 
 const FALLBACK_IMAGE = {
 	src: "/hero/9.webp",
@@ -31,11 +41,15 @@ function formatZoneLabel(
 	return `Zone ${zone.number}`;
 }
 
-export function mapPostToSafariHighlight(post: PostListItem) {
+function getZoneOverlay(zoneNumber: number) {
+	return getZoneByNumber(zoneNumber);
+}
+
+export function mapPostToSafariHighlight(post: PostListItem): SafariHighlight {
 	const displayDate = getPostDisplayDate(post);
 
 	return {
-		id: post.id,
+		id: post.slug,
 		title: post.title,
 		zone: formatZoneLabel(post.zone),
 		date: displayDate ? formatHighlightDate(displayDate) : "",
@@ -51,7 +65,9 @@ export function mapPostToSafariHighlight(post: PostListItem) {
 	};
 }
 
-export function mapPostsToTrendingColumns(posts: PostListItem[]) {
+export function mapPostsToTrendingColumns(
+	posts: PostListItem[],
+): TrendingColumn[] {
 	const postsByZone = new Map<string, PostListItem[]>();
 
 	for (const post of posts) {
@@ -88,7 +104,7 @@ export function mapPostsToTrendingColumns(posts: PostListItem[]) {
 					const displayDate = getPostDisplayDate(post);
 
 					return {
-						id: post.id,
+						id: post.slug,
 						date: displayDate ? formatHighlightDate(displayDate) : "",
 						title: post.title,
 						featured: index === 0,
@@ -101,4 +117,21 @@ export function mapPostsToTrendingColumns(posts: PostListItem[]) {
 		.sort((a, b) => b.latestDate - a.latestDate)
 		.slice(0, 4)
 		.map(({ latestDate: _latestDate, ...column }) => column);
+}
+
+export function mapDbZoneToSafariZoneCard(zone: DbZone): SafariZoneCard {
+	const overlay = getZoneOverlay(zone.number);
+
+	return {
+		id: zone.id,
+		zoneNumber: zone.number,
+		slug: zone.slug,
+		name: overlay?.name ?? `Zone ${zone.number} — ${zone.name}`,
+		tagline: overlay?.tagline ?? zone.description ?? "",
+		description: overlay?.description ?? zone.description ?? "",
+		safariType: zone.safariType,
+		image: overlay?.image ?? FALLBACK_IMAGE,
+		bestFor: overlay?.bestFor ?? zone.safariType ?? "Safari",
+		insights: overlay?.insights ?? [],
+	};
 }
