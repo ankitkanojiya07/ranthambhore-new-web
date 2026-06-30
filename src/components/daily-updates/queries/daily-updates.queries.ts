@@ -33,6 +33,18 @@ export const homeSafariHighlightsListInput = {
 export const homeSafariHighlightsQueryOptions = () =>
 	dailyUpdatesListQueryOptions(homeSafariHighlightsListInput);
 
+export const homeRanthambhoreHighlightsListInput = {
+	page: 1,
+	limit: 6,
+	status: "published",
+	type: "ranthambhore_update",
+	sortBy: "publishedAt",
+	sortOrder: "desc",
+} satisfies ListPostsInput;
+
+export const homeRanthambhoreHighlightsQueryOptions = () =>
+	dailyUpdatesListQueryOptions(homeRanthambhoreHighlightsListInput);
+
 export const safariInsightsListInput = {
 	page: 1,
 	limit: 50,

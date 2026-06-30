@@ -71,6 +71,60 @@ export function mapPostToRanthambhoreArticle(
 	};
 }
 
+export type HomeHighlightCard = {
+	id: string;
+	slug?: string;
+	title: string;
+	description: string;
+	image: {
+		src: string;
+		alt: string;
+		width: number;
+		height: number;
+	};
+	isNew?: boolean;
+};
+
+export type HomeHighlightSlide = {
+	id: string;
+	cards: HomeHighlightCard[];
+};
+
+export function mapPostToHomeHighlightCard(
+	post: PostListItem,
+): HomeHighlightCard {
+	const displayDate = getPostDisplayDate(post);
+
+	return {
+		id: post.slug,
+		slug: post.slug,
+		title: post.title,
+		description: post.excerpt ?? "",
+		image: mapPostImage(post),
+		...(isRecentPost(displayDate) ? { isNew: true } : {}),
+	};
+}
+
+export function groupHomeHighlightCardsIntoSlides(
+	cards: HomeHighlightCard[],
+): HomeHighlightSlide[] {
+	const slides: HomeHighlightSlide[] = [];
+
+	for (let index = 0; index < cards.length; index += 2) {
+		const slideCards = cards.slice(index, index + 2);
+		if (slideCards.length === 0) {
+			continue;
+		}
+
+		slides.push({
+			id: slideCards.map((card) => card.id).join("-"),
+			cards: slideCards,
+		});
+	}
+
+	return slides;
+}
+
 export function mapPostsToParkTrendingColumns(
 	posts: PostListItem[],
 ): ParkTrendingColumn[] {

@@ -1,13 +1,15 @@
+import { Link } from "@tanstack/react-router";
 import {
 	ArrowLeft,
 	ArrowRight,
-	Bird,
-	Compass,
+	Building2,
+	Castle,
+	Church,
+	Landmark,
+	Library,
 	type LucideIcon,
-	PawPrint,
-	Sailboat,
-	Tent,
-	TreePalm,
+	Mountain,
+	Waves,
 } from "lucide-react";
 import { motion } from "motion/react";
 import { useEffect, useRef, useState } from "react";
@@ -32,111 +34,153 @@ const itemVariants = {
 	},
 };
 
-type Activity = {
+type Attraction = {
 	id: string;
 	title: string;
 	description: string;
 	icon: LucideIcon;
+	href: string;
 	image: {
 		src: string;
 		alt: string;
 		width: number;
 		height: number;
 	};
-	props_img: string;
 };
 
-const ACTIVITIES: Activity[] = [
+const ATTRACTIONS: Attraction[] = [
 	{
-		id: "tiger-safari",
-		title: "Ranthambore Tiger Safari",
+		id: "ranthambore-fort",
+		title: "Ranthambore Fort",
 		description:
-			"Witness the beauty of Ranthambore's wildlife with our trusted Tiger Safari bookings.",
-		icon: PawPrint,
+			"10th-century Chauhan fort, UNESCO World Heritage Site, panoramic views over the jungle.",
+		icon: Castle,
+		href: "/about/fort",
+		image: {
+			src: "/gallery/7.jpg",
+			alt: "Ranthambore Fort overlooking the national park",
+			width: 2048,
+			height: 1365,
+		},
+	},
+	{
+		id: "trinetra-ganesh-temple",
+		title: "Trinetra Ganesh Temple",
+		description:
+			"Only temple where Lord Ganesha is seen with his complete family; inside the Fort, built in 1300 AD.",
+		icon: Church,
+		href: "/about/temples-and-museums",
+		image: {
+			src: "/gallery/8.jpg",
+			alt: "Trinetra Ganesh Temple inside Ranthambore Fort",
+			width: 2048,
+			height: 1365,
+		},
+	},
+	{
+		id: "padam-talao",
+		title: "Padam Talao",
+		description:
+			"Largest lake in the park, covered in water lilies, prime tiger and crocodile sighting location.",
+		icon: Waves,
+		href: "/about/national-park",
+		image: {
+			src: "/gallery/9.jpg",
+			alt: "Padam Talao lake with water lilies in Ranthambore",
+			width: 2048,
+			height: 1365,
+		},
+	},
+	{
+		id: "raj-bagh-ruins",
+		title: "Raj Bagh Ruins",
+		description:
+			"Ancient palace outhouses, arches and domes set beside a lake — tigers frequently rest among the ruins.",
+		icon: Landmark,
+		href: "/safari/zones",
+		image: {
+			src: "/gallery/10.jpg",
+			alt: "Raj Bagh ruins beside a lake in Ranthambore",
+			width: 2048,
+			height: 1365,
+		},
+	},
+	{
+		id: "rajbagh-talao",
+		title: "Rajbagh Talao",
+		description:
+			"Most famous lake for tiger sightings; deer and predators create natural dramas here.",
+		icon: Waves,
+		href: "/safari/zones",
+		image: {
+			src: "/gallery/11.jpg",
+			alt: "Rajbagh Talao lake in Ranthambore National Park",
+			width: 2048,
+			height: 1365,
+		},
+	},
+	{
+		id: "malik-talao",
+		title: "Malik Talao",
+		description:
+			"Smallest of the three lakes, rich in marsh crocodiles, kingfishers, and wading birds.",
+		icon: Waves,
+		href: "/safari/zones",
+		image: {
+			src: "/gallery/12.jpg",
+			alt: "Malik Talao with wading birds and crocodiles",
+			width: 2048,
+			height: 1365,
+		},
+	},
+	{
+		id: "jogi-mahal",
+		title: "Jogi Mahal",
+		description:
+			"Historic royal hunting lodge beside Padam Talao; second-largest banyan tree in India nearby.",
+		icon: Building2,
+		href: "/safari/zones",
+		image: {
+			src: "/gallery/13.jpg",
+			alt: "Jogi Mahal hunting lodge beside Padam Talao",
+			width: 2048,
+			height: 1365,
+		},
+	},
+	{
+		id: "kachida-valley",
+		title: "Kachida Valley",
+		description:
+			"Valley known for sunrise views, leopard sightings, and sloth bears at the park's edge.",
+		icon: Mountain,
+		href: "/safari/zones",
 		image: {
 			src: "/gallery/14.jpg",
-			alt: "Tiger walking through grasslands",
+			alt: "Kachida Valley rocky terrain in Ranthambore",
 			width: 2048,
 			height: 1365,
 		},
-		props_img: "/house.png",
 	},
 	{
-		id: "jeep-safari",
-		title: "Ranthambore Jeep Safari",
+		id: "rajiv-gandhi-museum",
+		title: "Rajiv Gandhi Regional Museum",
 		description:
-			"Experience the thrill of Ranthambore with our exclusive Jeep Safari. Limited seats left!",
-		icon: Compass,
+			"Natural history museum in Ramsinghpura village — wildlife, biodiversity, and Rajasthan heritage.",
+		icon: Library,
+		href: "/about/temples-and-museums",
 		image: {
-			src: "/gallery/2.jpg",
-			alt: "Jeep safari through the forest",
-			width: 2048,
-			height: 1093,
-		},
-		props_img: "/house.png",
-	},
-	{
-		id: "canter-safari",
-		title: "Ranthambore Canter Safari",
-		description:
-			"Explore Ranthambore in a budget-friendly Canter Safari. Perfect for groups and families.",
-		icon: Bird,
-		image: {
-			src: "/gallery/3.jpg",
-			alt: "Canter safari with group of visitors",
-			width: 2048,
-			height: 1381,
-		},
-		props_img: "/house.png",
-	},
-	{
-		id: "boat-safari",
-		title: "Chambal Boat Safari",
-		description:
-			"Sail through the calm Chambal River and spot gharials, crocodiles, and rare birds.",
-		icon: Sailboat,
-		image: {
-			src: "/gallery/4.jpg",
-			alt: "Boat safari on the Chambal River",
-			width: 2048,
-			height: 1480,
-		},
-		props_img: "/tiger-footstep.png",
-	},
-	{
-		id: "hotels",
-		title: "Ranthambore Hotels & Resorts",
-		description:
-			"Plan a comfortable stay near the jungle with our curated hotels and resorts.",
-		icon: Tent,
-		image: {
-			src: "/gallery/5.jpg",
-			alt: "Hotel resort near Ranthambore forest",
-			width: 1365,
-			height: 2048,
-		},
-		props_img: "/car.png",
-	},
-	{
-		id: "tour-packages",
-		title: "Ranthambore Tour Packages",
-		description:
-			"Complete Ranthambore Tour with all-inclusive safari, stay, and sightseeing covered.",
-		icon: TreePalm,
-		image: {
-			src: "/gallery/6.jpg",
-			alt: "Scenic view of Ranthambore National Park",
+			src: "/gallery/1.jpg",
+			alt: "Rajiv Gandhi Regional Museum of Natural History",
 			width: 2048,
 			height: 1365,
 		},
-		props_img: "/tiger.jpg",
 	},
 ];
 
 const CARD_W = 300;
 const GAP = 24;
 const STEP = CARD_W + GAP;
-const TOTAL_TRACK_W = ACTIVITIES.length * STEP - GAP;
+const TOTAL_TRACK_W = ATTRACTIONS.length * STEP - GAP;
 
 export function ThingsToDoSection() {
 	const [index, setIndex] = useState(0);
@@ -159,12 +203,12 @@ export function ThingsToDoSection() {
 	const canNext = offset < maxOffset;
 
 	const prev = () => setIndex((i) => Math.max(0, i - 1));
-	const next = () => setIndex((i) => Math.min(ACTIVITIES.length - 1, i + 1));
+	const next = () => setIndex((i) => Math.min(ATTRACTIONS.length - 1, i + 1));
 
 	return (
 		<section
 			className="overflow-hidden bg-sand-50 px-6 py-16 lg:px-8 lg:py-20"
-			aria-label="Things to Do"
+			aria-label="Top tourist attractions in Ranthambore"
 		>
 			<div className="mx-auto max-w-7xl">
 				{/* Header */}
@@ -179,13 +223,13 @@ export function ThingsToDoSection() {
 						variants={itemVariants}
 						className="font-playfair text-sm font-medium uppercase tracking-display text-earth-400"
 					>
-						Things To Do In Ranthambhore
+						Explore Inside the Park
 					</motion.p>
 					<motion.h2
 						variants={itemVariants}
 						className="mt-3 font-display text-4xl font-normal uppercase tracking-display text-charcoal-900 lg:text-6xl"
 					>
-						What We Offer
+						Attractions in Ranthambore
 					</motion.h2>
 				</motion.div>
 
@@ -201,11 +245,11 @@ export function ThingsToDoSection() {
 							transition={{ type: "spring", stiffness: 260, damping: 36 }}
 							className="flex gap-6"
 						>
-							{ACTIVITIES.map((activity, i) => {
-								const Icon = activity.icon;
+							{ATTRACTIONS.map((attraction, i) => {
+								const Icon = attraction.icon;
 								return (
 									<motion.article
-										key={activity.id}
+										key={attraction.id}
 										variants={itemVariants}
 										className={`group relative w-[280px] shrink-0 lg:w-[300px] ${
 											i % 2 === 0 ? "lg:-translate-y-8" : "lg:translate-y-8"
@@ -214,21 +258,21 @@ export function ThingsToDoSection() {
 										{/* Image wrapper — the only clipped layer */}
 										<div className="relative aspect-9/13 w-full overflow-hidden rounded-sm">
 											<Image
-												src={activity.image.src}
-												alt={activity.image.alt}
-												width={activity.image.width}
-												height={activity.image.height}
+												src={attraction.image.src}
+												alt={attraction.image.alt}
+												width={attraction.image.width}
+												height={attraction.image.height}
 												className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-105 group-focus-within:scale-105"
 											/>
 											<div className="absolute inset-0 bg-charcoal-900/5 transition-colors duration-500 group-hover:bg-tiger-900/30 group-focus-within:bg-tiger-900/30" />
 
 											<div className="pointer-events-none absolute inset-0 flex items-center justify-center opacity-0 transition-[opacity,transform] duration-300 ease-out group-hover:pointer-events-auto group-hover:opacity-100 group-focus-within:pointer-events-auto group-focus-within:opacity-100">
-												<button
-													type="button"
+												<Link
+													to={attraction.href}
 													className="scale-[0.92] rounded-full bg-tiger-900 px-8 py-3 font-display text-xs uppercase tracking-display text-sand-50 transition-[transform,background-color] duration-300 ease-out group-hover:scale-100 group-focus-within:scale-100 hover:bg-tiger-800"
 												>
 													Know More
-												</button>
+												</Link>
 											</div>
 										</div>
 
@@ -247,12 +291,12 @@ export function ThingsToDoSection() {
 										{/* Cream label box — overlaps below the image */}
 										<div className="absolute bottom-6 left-0 z-10 max-w-[80%] rounded-r-lg bg-cream-100 px-4 py-3 shadow-md ring-1 ring-muted-300 transition-[max-width] duration-300 ease-out group-hover:max-w-[88%] group-focus-within:max-w-[88%]">
 											<h3 className="font-display text-sm uppercase leading-snug tracking-display text-charcoal-900 drop-shadow-sm">
-												{activity.title}
+												{attraction.title}
 											</h3>
 											<div className="grid grid-rows-[0fr] transition-[grid-template-rows] duration-300 ease-out group-hover:grid-rows-[1fr] group-focus-within:grid-rows-[1fr]">
 												<p className="overflow-hidden font-body text-xs leading-relaxed text-charcoal-600 opacity-0 transition-opacity duration-300 ease-out group-hover:opacity-100 group-focus-within:opacity-100">
 													<span className="mt-2 block">
-														{activity.description}
+														{attraction.description}
 													</span>
 												</p>
 											</div>
@@ -269,7 +313,7 @@ export function ThingsToDoSection() {
 							type="button"
 							onClick={prev}
 							disabled={!canPrev}
-							aria-label="Previous offerings"
+							aria-label="Previous attractions"
 							className="flex size-11 items-center justify-center rounded-full border border-charcoal-300 text-charcoal-700 transition-colors hover:border-charcoal-800 hover:text-charcoal-800 disabled:cursor-not-allowed disabled:opacity-40"
 						>
 							<ArrowLeft className="size-5" />
@@ -278,12 +322,22 @@ export function ThingsToDoSection() {
 							type="button"
 							onClick={next}
 							disabled={!canNext}
-							aria-label="Next offerings"
+							aria-label="Next attractions"
 							className="flex size-11 items-center justify-center rounded-full border border-charcoal-300 text-charcoal-700 transition-colors hover:border-charcoal-800 hover:text-charcoal-800 disabled:cursor-not-allowed disabled:opacity-40"
 						>
 							<ArrowRight className="size-5" />
 						</button>
 					</div>
+				</div>
+
+				<div className="mt-10 flex justify-center">
+					<Link
+						to="/about/fort"
+						className="inline-flex items-center gap-2 font-display text-xs uppercase tracking-display text-forest-600 transition-colors hover:text-forest-700"
+					>
+						All Attractions
+						<ArrowRight className="size-4" />
+					</Link>
 				</div>
 			</div>
 		</section>

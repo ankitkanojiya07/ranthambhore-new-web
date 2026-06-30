@@ -7,9 +7,18 @@ import {
 } from "#/components/auth/AuthCard";
 import { Button } from "#/components/ui/button";
 import { authClient } from "#/lib/auth-client";
+import {
+	AUTH_DEFAULT_REDIRECT,
+	resolveAuthRedirect,
+} from "#/lib/auth-redirect";
 
-export function SignInForm() {
+export function SignInForm({
+	redirectTo = AUTH_DEFAULT_REDIRECT,
+}: {
+	redirectTo?: string;
+}) {
 	const navigate = useNavigate();
+	const destination = resolveAuthRedirect(redirectTo);
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
 	const [error, setError] = useState<string | null>(null);
@@ -23,7 +32,7 @@ export function SignInForm() {
 		const { error: signInError } = await authClient.signIn.email({
 			email,
 			password,
-			callbackURL: `${window.location.origin}/`,
+			callbackURL: `${window.location.origin}${destination}`,
 		});
 
 		setLoading(false);
@@ -33,7 +42,7 @@ export function SignInForm() {
 			return;
 		}
 
-		await navigate({ to: "/" });
+		await navigate({ href: destination });
 	}
 
 	return (

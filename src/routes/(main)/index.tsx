@@ -1,11 +1,15 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { homeSafariHighlightsQueryOptions } from "#/components/daily-updates/queries/daily-updates.queries";
+import {
+	homeRanthambhoreHighlightsQueryOptions,
+	homeSafariHighlightsQueryOptions,
+} from "#/components/daily-updates/queries/daily-updates.queries";
 import { AboutSection } from "#/components/home/AboutSection";
 import { ContactSection } from "#/components/home/ContactSection";
 import { FaqSection } from "#/components/home/FaqSection";
 // import { FeaturesSection } from "#/components/home/FeaturesSection";
 import { HeroSection } from "#/components/home/HeroSection";
-import { NewsSection } from "#/components/home/NewsSection";
+import { HowToReachSection } from "#/components/home/HowToReachSection";
+import { PopularWildlifeSection } from "#/components/home/PopularWildlifeSection";
 import { QuickLinksHighlightsSection } from "#/components/home/QuickLinksHighlightsSection";
 import { TaglineSection } from "#/components/home/TaglineSection";
 import { ThingsToDoSection } from "#/components/home/ThingsToDoSection";
@@ -13,7 +17,10 @@ import { ZoneSection } from "#/components/home/ZoneSection";
 
 export const Route = createFileRoute("/(main)/")({
 	loader: async ({ context: { queryClient } }) => {
-		await queryClient.ensureQueryData(homeSafariHighlightsQueryOptions());
+		await Promise.all([
+			queryClient.ensureQueryData(homeSafariHighlightsQueryOptions()),
+			queryClient.ensureQueryData(homeRanthambhoreHighlightsQueryOptions()),
+		]);
 	},
 	head: () => ({
 		meta: [
@@ -45,11 +52,15 @@ function Home() {
 
 			{/* <div className="mx-auto max-w-5xl border-t border-muted-300" /> */}
 
-			<NewsSection />
+			<PopularWildlifeSection />
 
 			<div className="mx-auto max-w-5xl border-t border-muted-300" />
 
 			<ThingsToDoSection />
+
+			<div className="mx-auto max-w-5xl border-t border-muted-300" />
+
+			<HowToReachSection />
 
 			<ZoneSection />
 

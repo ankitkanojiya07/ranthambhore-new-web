@@ -7,9 +7,18 @@ import {
 } from "#/components/auth/AuthCard";
 import { Button } from "#/components/ui/button";
 import { authClient } from "#/lib/auth-client";
+import {
+	AUTH_DEFAULT_REDIRECT,
+	resolveAuthRedirect,
+} from "#/lib/auth-redirect";
 
-export function SignUpForm() {
+export function SignUpForm({
+	redirectTo = AUTH_DEFAULT_REDIRECT,
+}: {
+	redirectTo?: string;
+}) {
 	const navigate = useNavigate();
+	const destination = resolveAuthRedirect(redirectTo);
 	const [name, setName] = useState("");
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
@@ -37,7 +46,7 @@ export function SignUpForm() {
 			name,
 			email,
 			password,
-			callbackURL: `${window.location.origin}/`,
+			callbackURL: `${window.location.origin}${destination}`,
 		});
 
 		setLoading(false);
@@ -47,7 +56,7 @@ export function SignUpForm() {
 			return;
 		}
 
-		await navigate({ to: "/" });
+		await navigate({ href: destination });
 	}
 
 	return (

@@ -22,7 +22,7 @@ export function TaglineSection() {
 							muted
 							loop
 							playsInline
-							src="/ASP_2993.mp4"
+							src="/Home/2.MP4"
 							className="size-full object-cover"
 						/>
 					</span>
