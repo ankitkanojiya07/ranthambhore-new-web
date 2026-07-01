@@ -49,7 +49,7 @@ function ContactPage() {
 							"Custom tour packages and itineraries",
 							"Private naturalist guide arrangements",
 							"Vehicle hire and airport/station transfers",
-							"Wedding and event photography packages in the forest zone",
+							// "Wedding and event photography packages in the forest zone",
 						],
 					},
 				]}
