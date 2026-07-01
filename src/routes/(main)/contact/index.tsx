@@ -44,7 +44,7 @@ function ContactPage() {
 						heading: "What We Can Help With",
 						body: "From a single safari booking to a full Rajasthan itinerary — we handle every detail.",
 						items: [
-							"Safari bookings (Jeep, Canter, Chambal river)",
+							"Safari bookings (Jeep, Canter)",
 							"Hotel and resort reservations",
 							"Custom tour packages and itineraries",
 							"Private naturalist guide arrangements",
