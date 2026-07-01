@@ -17,10 +17,14 @@ const QUICK_LINKS: { label: string; href: string }[] = [
 ];
 
 const RESOURCES: { label: string; href: string }[] = [
-	{ label: "Ranthambore Regency", href: "/ranthambore-regency" },
-	{ label: "Vanaashrya Resort", href: "/vanaashrya-resort" },
-	{ label: "Ranthambore Aangan", href: "/ranthambore-aangan" },
+	{ label: "Ranthambore Regency", href: "https://ranthamboreregency.com/" },
+	{ label: "Vanaashrya Resort", href: "https://www.vanaashrya.com/" },
+	{ label: "Ranthambore Aangan", href: "https://ranthamboreaangan.com/" },
 ];
+
+function openExternalLink(url: string) {
+	window.open(url, "_blank", "noopener,noreferrer");
+}
 
 export function Footer() {
 	return (
@@ -76,6 +80,12 @@ export function Footer() {
 								<li key={resource.label}>
 									<a
 										href={resource.href}
+										target="_blank"
+										rel="noopener noreferrer"
+										onClick={(event) => {
+											event.preventDefault();
+											openExternalLink(resource.href);
+										}}
 										className="font-body font-medium text-sm text-charcoal-700 transition-colors hover:text-earth-700"
 									>
 										{resource.label}
