@@ -34,9 +34,9 @@ export function ReachOutWidget() {
 			</Dialog.Trigger>
 
 			<Dialog.Portal>
-				<Dialog.Backdrop className="fixed inset-0 z-50 bg-charcoal-950/60 opacity-0 transition-opacity duration-300 ease-in-out data-open:opacity-100" />
+				<Dialog.Backdrop className="fixed inset-0 z-[150] bg-charcoal-950/60 opacity-0 transition-opacity duration-300 ease-in-out data-open:opacity-100" />
 
-				<Dialog.Popup className="fixed inset-x-4 bottom-4 top-auto z-50 mx-auto flex max-h-[min(90dvh,720px)] w-full max-w-lg flex-col overflow-hidden rounded-2xl bg-sand-50 shadow-2xl ring-1 ring-muted-300 opacity-0 transition-[opacity,transform] duration-300 ease-out data-open:opacity-100 data-open:translate-y-0 translate-y-4 data-starting-style:opacity-0 data-starting-style:translate-y-4 data-ending-style:opacity-0 data-ending-style:translate-y-4 sm:inset-x-auto sm:bottom-auto sm:left-1/2 sm:top-1/2 sm:-translate-x-1/2 sm:-translate-y-1/2 sm:data-open:translate-x-[-50%] sm:data-open:translate-y-[-50%] sm:data-starting-style:translate-x-[-50%] sm:data-starting-style:translate-y-[calc(-50%+1rem)] sm:data-ending-style:translate-x-[-50%] sm:data-ending-style:translate-y-[calc(-50%+1rem)]">
+				<Dialog.Popup className="fixed inset-x-4 bottom-4 top-auto z-[150] mx-auto flex max-h-[min(calc(100dvh-5rem),720px)] w-full max-w-lg flex-col overflow-hidden rounded-2xl bg-sand-50 shadow-2xl ring-1 ring-muted-300 opacity-0 transition-[opacity,transform] duration-300 ease-out data-open:opacity-100 data-open:translate-y-0 translate-y-4 data-starting-style:opacity-0 data-starting-style:translate-y-4 data-ending-style:opacity-0 data-ending-style:translate-y-4 sm:inset-x-auto sm:bottom-auto sm:left-1/2 sm:top-1/2 sm:max-h-[min(calc(100dvh-6rem),720px)] sm:-translate-x-1/2 sm:-translate-y-1/2 sm:data-open:translate-x-[-50%] sm:data-open:translate-y-[-50%] sm:data-starting-style:translate-x-[-50%] sm:data-starting-style:translate-y-[calc(-50%+1rem)] sm:data-ending-style:translate-x-[-50%] sm:data-ending-style:translate-y-[calc(-50%+1rem)]">
 					<div className="flex shrink-0 items-start justify-between gap-4 border-b border-muted-300 bg-cream-100 px-5 py-4 sm:px-6">
 						<div>
 							<p className="font-display text-[10px] uppercase tracking-display text-earth-400">

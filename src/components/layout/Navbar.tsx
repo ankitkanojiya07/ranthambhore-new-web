@@ -3,7 +3,7 @@ import { AuthNavActions } from "#/components/auth/AuthNavActions";
 import { FacebookIcon } from "#/icons/facebook.icon";
 import { InstagramIcon } from "#/icons/instagram.icon";
 import { MenuIcon } from "#/icons/menu.icon";
-import { XIcon } from "#/icons/x.icon";
+import { WhatsappIcon } from "#/icons/whatsapp.icon";
 import { cn } from "#/lib/utils";
 import { Button } from "../ui/button";
 import { NavDrawerRoot, NavDrawerTrigger } from "./NavDrawer";
@@ -73,7 +73,7 @@ const NavigationBar = () => {
 							render={
 								// biome-ignore lint/a11y/useAnchorContent: this is a custom button
 								<a
-									href="https://www.facebook.com/ranthambhore.com"
+									href="https://www.facebook.com/ranthambhoreregency"
 									aria-label="Follow us on Facebook"
 									target="_blank"
 									rel="noopener noreferrer"
@@ -93,14 +93,14 @@ const NavigationBar = () => {
 							render={
 								// biome-ignore lint/a11y/useAnchorContent: this is a custom button
 								<a
-									href="https://x.com/ranthambhore.com"
-									aria-label="Follow us on X"
+									href="https://wa.me/919983171934"
+									aria-label="Chat with us on WhatsApp"
 									target="_blank"
 									rel="noopener noreferrer"
 								/>
 							}
 						>
-							<XIcon className="size-4" />
+							<WhatsappIcon className="size-4" />
 						</Button>
 					</div>
 

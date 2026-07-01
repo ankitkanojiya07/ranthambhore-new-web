@@ -178,7 +178,7 @@ export function Footer() {
 							<InstagramIcon className="size-4" />
 						</a>
 						<a
-							href="https://www.facebook.com/"
+							href="https://www.facebook.com/ranthambhoreregency"
 							aria-label="Follow us on Facebook"
 							target="_blank"
 							rel="noopener noreferrer"

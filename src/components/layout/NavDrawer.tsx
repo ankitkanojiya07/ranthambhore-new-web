@@ -5,10 +5,7 @@ import { ChevronRight } from "lucide-react";
 import * as React from "react";
 import { FacebookIcon } from "#/icons/facebook.icon";
 import { InstagramIcon } from "#/icons/instagram.icon";
-import { LinkedinIcon } from "#/icons/linkedin.icon";
-import { TripadvisorIcon } from "#/icons/tripadvisor.icon";
 import { WhatsappIcon } from "#/icons/whatsapp.icon";
-import { YoutubeIcon } from "#/icons/youtube.icon";
 import type { NavItem } from "#/lib/navigation";
 import { NAV_ITEMS } from "#/lib/navigation";
 
@@ -38,7 +35,7 @@ function CloseIcon({ className }: { className?: string }) {
 const SOCIAL_LINKS = [
 	{
 		label: "Facebook",
-		href: "https://www.facebook.com/ranthambhore.com",
+		href: "https://www.facebook.com/ranthambhoreregency",
 		icon: FacebookIcon,
 		bg: "bg-[#1877F2]",
 	},
@@ -49,26 +46,8 @@ const SOCIAL_LINKS = [
 		bg: "bg-[#E4405F]",
 	},
 	{
-		label: "YouTube",
-		href: "https://www.youtube.com/@ranthambhore",
-		icon: YoutubeIcon,
-		bg: "bg-[#FF0000]",
-	},
-	{
-		label: "TripAdvisor",
-		href: "https://www.tripadvisor.com",
-		icon: TripadvisorIcon,
-		bg: "bg-[#34E0A1]",
-	},
-	{
-		label: "LinkedIn",
-		href: "https://www.linkedin.com",
-		icon: LinkedinIcon,
-		bg: "bg-[#0A66C2]",
-	},
-	{
 		label: "WhatsApp",
-		href: "https://wa.me/919876543210",
+		href: "https://wa.me/919983171934",
 		icon: WhatsappIcon,
 		bg: "bg-[#25D366]",
 	},
@@ -130,10 +109,10 @@ function NavDrawerContent({ onClose }: { onClose: () => void }) {
 	return (
 		<>
 			{/* Backdrop */}
-			<Dialog.Backdrop className="fixed inset-0 z-40 bg-charcoal-950/60 opacity-0 transition-opacity duration-300 ease-in-out data-open:opacity-100" />
+			<Dialog.Backdrop className="fixed inset-0 z-[140] bg-charcoal-950/60 opacity-0 transition-opacity duration-300 ease-in-out data-open:opacity-100" />
 
 			{/* Panel — slides in from right */}
-			<Dialog.Popup className="fixed inset-y-0 right-0 z-50 flex h-dvh w-[320px] sm:w-[360px] flex-col bg-charcoal-900 translate-x-full transition-transform duration-500 ease-[cubic-bezier(0.76,0,0.24,1)] data-open:translate-x-0 data-starting-style:translate-x-full data-ending-style:translate-x-full shadow-2xl">
+			<Dialog.Popup className="fixed inset-y-0 right-0 z-[150] flex h-dvh w-[320px] sm:w-[360px] flex-col bg-charcoal-900 translate-x-full transition-transform duration-500 ease-[cubic-bezier(0.76,0,0.24,1)] data-open:translate-x-0 data-starting-style:translate-x-full data-ending-style:translate-x-full shadow-2xl">
 				{/* Header */}
 				<div className="flex shrink-0 items-center justify-between px-6 py-5 border-b border-white/10">
 					<Link
