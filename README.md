@@ -1,1 +1,1 @@
-Welcome to your new TanStack
+Welcome to
