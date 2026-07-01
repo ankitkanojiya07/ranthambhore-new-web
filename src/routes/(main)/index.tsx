@@ -9,6 +9,7 @@ import { FaqSection } from "#/components/home/FaqSection";
 // import { FeaturesSection } from "#/components/home/FeaturesSection";
 import { HeroSection } from "#/components/home/HeroSection";
 import { HowToReachSection } from "#/components/home/HowToReachSection";
+import { StaySection } from "#/components/home/StaySection";
 import { PopularWildlifeSection } from "#/components/home/PopularWildlifeSection";
 import { QuickLinksHighlightsSection } from "#/components/home/QuickLinksHighlightsSection";
 import { TaglineSection } from "#/components/home/TaglineSection";
@@ -61,6 +62,8 @@ function Home() {
 			<div className="mx-auto max-w-5xl border-t border-muted-300" />
 
 			<HowToReachSection />
+
+			<StaySection />
 
 			<ZoneSection />
 

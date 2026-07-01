@@ -15,7 +15,7 @@ export const Route = createFileRoute("/(main)/stay/hotels")({
 			{
 				name: "description",
 				content:
-					"Find the best hotels and resorts near Ranthambore National Park — Ranthambore Regency, Ranthambhore Aangan, Taj Sawai Madhopur Lodge, and more.",
+					"Find the best hotels and resorts near Ranthambore National Park — Ranthambore Regency, Ranthambhore Aangan, Taj Sawai, Ranthambore, and more.",
 			},
 		],
 	}),
