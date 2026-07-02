@@ -88,7 +88,7 @@ const ATTRACTIONS: Attraction[] = [
 		icon: Waves,
 		href: "/about/national-park",
 		image: {
-			src: "/Home/padam.jpg",
+			src: "/Home/09.jpg",
 			alt: "Padam Talao lake with water lilies in Ranthambore",
 			width: 2048,
 			height: 1365,

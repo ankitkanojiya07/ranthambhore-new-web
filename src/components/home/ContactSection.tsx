@@ -42,7 +42,7 @@ export function ContactSection() {
 						>
 							<div className="hero-grunge-mask absolute inset-0">
 								<Image
-									src="/gallery/7.jpg"
+									src="/Home/10.webp"
 									alt="Tiger resting in the wild"
 									width={2048}
 									height={1365}

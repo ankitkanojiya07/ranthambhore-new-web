@@ -11,7 +11,7 @@ const POPULAR_ANIMALS = [
 	{
 		id: "bengal-tiger",
 		image: {
-			src: "/hero/1.webp",
+			src: "/Home/11.jpg",
 			alt: "Bengal tiger in Ranthambore National Park",
 			width: 2048,
 			height: 1365,
@@ -27,7 +27,7 @@ const POPULAR_ANIMALS = [
 	{
 		id: "leopard",
 		image: {
-			src: "/Home/leo.jpg",
+			src: "/Home/1111.webp",
 			alt: "Leopard in Kachida Valley, Ranthambore",
 			width: 2048,
 			height: 1365,

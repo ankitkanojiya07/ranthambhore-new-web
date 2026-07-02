@@ -119,7 +119,7 @@ export function ContactEnquiryForm() {
 				result.success === false ||
 				result.success === "false"
 			) {
-				setError(result.message ?? "Unable to send enquiry. Please try again.");
+				setError("Unable to send enquiry. Please try again.");
 				return;
 			}
 

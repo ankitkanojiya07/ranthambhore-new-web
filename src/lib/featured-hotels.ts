@@ -24,27 +24,35 @@ export const FEATURED_HOTELS: FeaturedHotel[] = [
 		href: "https://ranthamboreregency.com/",
 		images: [
 			{
-				src: "/stay/regency/exterior-night.jpg",
+				src: "/stay/regency/1.jpg",
 				alt: "Ranthambore Regency resort exterior at night",
 			},
 			{
-				src: "/stay/regency/fuchsia-lounge.jpg",
+				src: "/stay/regency/2.jpg",
 				alt: "Fuchsia Lounge seating area at Ranthambore Regency",
 			},
 			{
-				src: "/stay/regency/outdoor-grounds.jpg",
+				src: "/stay/regency/3.jpg",
 				alt: "Outdoor lawns, bar, and dining areas at Ranthambore Regency",
 			},
 			{
-				src: "/stay/regency/dining-room.jpg",
+				src: "/stay/regency/4.jpg",
 				alt: "Formal dining room at Ranthambore Regency",
 			},
 			{
-				src: "/stay/regency/restaurant.jpg",
+				src: "/stay/regency/5.jpg",
 				alt: "Guests dining at Ranthambore Regency restaurant",
 			},
 			{
-				src: "/stay/regency/pool-night.jpg",
+				src: "/stay/regency/6.jpg",
+				alt: "Swimming pool at Ranthambore Regency at night",
+			},
+			{
+				src: "/stay/regency/7.jpg",
+				alt: "Swimming pool at Ranthambore Regency at night",
+			},
+			{
+				src: "/stay/regency/8.jpg",
 				alt: "Swimming pool at Ranthambore Regency at night",
 			},
 		],
@@ -63,19 +71,39 @@ export const FEATURED_HOTELS: FeaturedHotel[] = [
 		href: "https://ranthamboreaangan.com/",
 		images: [
 			{
-				src: "/stay/aangan/outdoor-dining.jpg",
+				src: "/stay/aangan/1.jpg",
 				alt: "Outdoor dining patio at Ranthambhore Aangan at night",
 			},
 			{
-				src: "/stay/aangan/aravalli-verandah.jpg",
+				src: "/stay/aangan/2.jpg",
 				alt: "Aravalli hills view from a private verandah at Ranthambhore Aangan",
 			},
 			{
-				src: "/stay/aangan/interiors.jpg",
+				src: "/stay/aangan/3.jpg",
 				alt: "Guest rooms and arched lounge at Ranthambhore Aangan",
 			},
 			{
-				src: "/stay/aangan/exterior-grounds.jpg",
+				src: "/stay/aangan/4.jpg",
+				alt: "Resort grounds and traditional architecture at Ranthambhore Aangan",
+			},
+			{
+				src: "/stay/aangan/5.jpg",
+				alt: "Resort grounds and traditional architecture at Ranthambhore Aangan",
+			},
+			{
+				src: "/stay/aangan/6.jpg",
+				alt: "Resort grounds and traditional architecture at Ranthambhore Aangan",
+			},
+			{
+				src: "/stay/aangan/7.jpg",
+				alt: "Resort grounds and traditional architecture at Ranthambhore Aangan",
+			},
+			{
+				src: "/stay/aangan/8.jpg",
+				alt: "Resort grounds and traditional architecture at Ranthambhore Aangan",
+			},
+			{
+				src: "/stay/aangan/9.jpg",
 				alt: "Resort grounds and traditional architecture at Ranthambhore Aangan",
 			},
 		],

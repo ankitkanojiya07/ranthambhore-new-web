@@ -6,10 +6,6 @@ const MotionImage = motion.create(Image);
 
 const HERO_SLIDES = [
 	{
-		src: "/hero/7.webp",
-		alt: "Two tigers walking along a path in Ranthambhore National Park",
-	},
-	{
 		src: "/hero/8.webp",
 		alt: "Tiger portrait in dramatic golden light at Ranthambhore",
 	},
@@ -20,6 +16,22 @@ const HERO_SLIDES = [
 	{
 		src: "/hero/10.webp",
 		alt: "Bird silhouetted against an amber sunset sky in the wild",
+	},
+	{
+		src: "/hero/11.jpg",
+		alt: "Bengal tiger climbing through tree branches in Ranthambhore National Park",
+	},
+	// {
+	// 	src: "/hero/11.jpg",
+	// 	alt: "Bengal tiger climbing through tree branches in Ranthambhore National Park",
+	// },
+	{
+		src: "/hero/1.webp",
+		alt: "Bengal tiger climbing through tree branches in Ranthambhore National Park",
+	},
+	{
+		src: "/hero/t1.webp",
+		alt: "Bengal tiger climbing through tree branches in Ranthambhore National Park",
 	},
 ] as const;
 
