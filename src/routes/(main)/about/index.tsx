@@ -11,12 +11,12 @@ export const Route = createFileRoute("/(main)/about/")({
 		meta: [
 			{
 				title:
-					"About Ranthambore National Park | History, Geography & Wildlife Overview",
+					"About Ranthambore | National Park, Wildlife, Tigers, Conservation & Heritage",
 			},
 			{
 				name: "description",
 				content:
-					"Learn about Ranthambore National Park — its rich history, landscape, wildlife, and heritage. Your complete introduction to one of India's greatest wild places.",
+					"Explore Ranthambore National Park, wildlife, tigers, conservation, and heritage through detailed guides to one of India's greatest wild places.",
 			},
 		],
 	}),
@@ -30,14 +30,14 @@ function AboutLandingPage() {
 			eyebrow="About Ranthambore"
 			title={
 				<>
-					A Living Story of
-					<br className="hidden lg:block" /> Conservation &amp; Wild Beauty
+					Where History
+					<br className="hidden lg:block" /> Meets the Wild
 				</>
 			}
-			subtitle="History, geography, wildlife, and heritage in one of India's greatest wild places."
-			intro="Ranthambore is not just a national park — it is a living story of conservation, royalty, and the raw power of nature. Spread across roughly 1,334 sq km of protected forest in southeastern Rajasthan, this tiger reserve sits at the junction of the Aravalli and Vindhya hill ranges, creating a dramatic landscape of rocky ridges, seasonal rivers, and tranquil lakes. The name Ranthambore is derived from two Hindi words — 'Ran' (battle) and 'Stambha' (pillar), a nod to the legendary fort that has stood watch over this land for over a thousand years. Today the park is managed as part of Project Tiger and remains one of India's most successful examples of big-cat conservation."
+			subtitle="National park, wildlife, tigers, conservation, and heritage in one of India's most celebrated wild places."
+			intro="Nestled amidst the ancient Aravalli and Vindhya hill ranges in Rajasthan's Sawai Madhopur district, Ranthambore offers a rare blend of Royal Bengal Tigers, protected forests, historic lakes, and the 10th-century Ranthambore Fort. These guides bring together the national park story, flora and fauna, famous tigers, conservation work, and cultural heritage that make the destination unforgettable."
 			links={aboutChildren}
-			image="/Home/jogi.webp"
+			image="/Home/ran1.jpg"
 		/>
 	);
 }

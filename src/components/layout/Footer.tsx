@@ -12,7 +12,7 @@ const QUICK_LINKS: { label: string; href: string }[] = [
 	{ label: "Plan Your Visit", href: "/plan" },
 	{ label: "Safari Highlights", href: "/highlights/safari-insights" },
 	{ label: "Stay", href: "/stay/hotels" },
-	{ label: "Nearby Places", href: "/nearby-places" },
+	{ label: "Attractions", href: "/nearby-places" },
 	{ label: "Contact", href: "/contact" },
 ];
 

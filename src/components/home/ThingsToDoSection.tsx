@@ -1,19 +1,9 @@
 import { Link } from "@tanstack/react-router";
-import {
-	ArrowLeft,
-	ArrowRight,
-	Building2,
-	Castle,
-	Church,
-	Landmark,
-	Library,
-	type LucideIcon,
-	Mountain,
-	Waves,
-} from "lucide-react";
+import { ArrowLeft, ArrowRight } from "lucide-react";
 import { motion } from "motion/react";
 import { useEffect, useRef, useState } from "react";
 import { useInterval } from "#/hooks/useInterval";
+import { ATTRACTIONS, attractionHref } from "#/lib/attractions";
 import { Image } from "#/util/Image";
 
 const AUTO_ADVANCE_MS = 4500;
@@ -36,149 +26,6 @@ const itemVariants = {
 		transition: { duration: 0.6, ease: "easeOut" as const },
 	},
 };
-
-type Attraction = {
-	id: string;
-	title: string;
-	description: string;
-	icon: LucideIcon;
-	href: string;
-	image: {
-		src: string;
-		alt: string;
-		width: number;
-		height: number;
-	};
-};
-
-const ATTRACTIONS: Attraction[] = [
-	{
-		id: "ranthambore-fort",
-		title: "Ranthambore Fort",
-		description:
-			"10th-century Chauhan fort, UNESCO World Heritage Site, panoramic views over the jungle.",
-		icon: Castle,
-		href: "/about/fort",
-		image: {
-			src: "/Home/fort.jpg",
-			alt: "Ranthambore Fort overlooking the national park",
-			width: 2048,
-			height: 1365,
-		},
-	},
-	{
-		id: "trinetra-ganesh-temple",
-		title: "Trinetra Ganesh Temple",
-		description:
-			"Only temple where Lord Ganesha is seen with his complete family; inside the Fort, built in 1300 AD.",
-		icon: Church,
-		href: "/about/temples-and-museums",
-		image: {
-			src: "/Home/ganesh.webp",
-			alt: "Trinetra Ganesh Temple inside Ranthambore Fort",
-			width: 2048,
-			height: 1365,
-		},
-	},
-	{
-		id: "padam-talao",
-		title: "Padam Talao",
-		description:
-			"Largest lake in the park, covered in water lilies, prime tiger and crocodile sighting location.",
-		icon: Waves,
-		href: "/about/national-park",
-		image: {
-			src: "/Home/09.jpg",
-			alt: "Padam Talao lake with water lilies in Ranthambore",
-			width: 2048,
-			height: 1365,
-		},
-	},
-	{
-		id: "raj-bagh-ruins",
-		title: "Raj Bagh Ruins",
-		description:
-			"Ancient palace outhouses, arches and domes set beside a lake — tigers frequently rest among the ruins.",
-		icon: Landmark,
-		href: "/safari/zones",
-		image: {
-			src: "/Home/raj.webp",
-			alt: "Raj Bagh ruins beside a lake in Ranthambore",
-			width: 2048,
-			height: 1365,
-		},
-	},
-	// {
-	// 	id: "rajbagh-talao",
-	// 	title: "Rajbagh Talao",
-	// 	description:
-	// 		"Most famous lake for tiger sightings; deer and predators create natural dramas here.",
-	// 	icon: Waves,
-	// 	href: "/safari/zones",
-	// 	image: {
-	// 		src: "/gallery/11.jpg",
-	// 		alt: "Rajbagh Talao lake in Ranthambore National Park",
-	// 		width: 2048,
-	// 		height: 1365,
-	// 	},
-	// },
-	{
-		id: "malik-talao",
-		title: "Malik Talao",
-		description:
-			"Smallest of the three lakes, rich in marsh crocodiles, kingfishers, and wading birds.",
-		icon: Waves,
-		href: "/safari/zones",
-		image: {
-			src: "/Home/malik-talao.jpg",
-			alt: "Malik Talao with wading birds and crocodiles",
-			width: 2048,
-			height: 1365,
-		},
-	},
-	{
-		id: "jogi-mahal",
-		title: "Jogi Mahal",
-		description:
-			"Historic royal hunting lodge beside Padam Talao; second-largest banyan tree in India nearby.",
-		icon: Building2,
-		href: "/safari/zones",
-		image: {
-			src: "/Home/jogi.webp",
-			alt: "Jogi Mahal hunting lodge beside Padam Talao",
-			width: 2048,
-			height: 1365,
-		},
-	},
-	{
-		id: "kachida-valley",
-		title: "Kachida Valley",
-		description:
-			"Valley known for sunrise views, leopard sightings, and sloth bears at the park's edge.",
-		icon: Mountain,
-		href: "/safari/zones",
-		image: {
-			src: "/Home/kachida.jpg",
-			alt: "Kachida Valley rocky terrain in Ranthambore",
-			width: 2048,
-			height: 1365,
-		},
-	},
-	{
-		id: "rajiv-gandhi-museum",
-		title: "Rajiv Gandhi Regional Museum",
-		description:
-			"Natural history museum in Ramsinghpura village — wildlife, biodiversity, and Rajasthan heritage.",
-		icon: Library,
-		href: "/about/temples-and-museums",
-		image: {
-			src: "/Home/rajeev.webp",
-			alt: "Rajiv Gandhi Regional Museum of Natural History",
-			width: 2048,
-			height: 1365,
-		},
-	},
-];
 
 const CARD_W = 300;
 const GAP = 24;
@@ -311,11 +158,18 @@ export function ThingsToDoSection() {
 												{attraction.title}
 											</h3>
 											<div className="grid grid-rows-[0fr] transition-[grid-template-rows] duration-300 ease-out group-hover:grid-rows-[1fr] group-focus-within:grid-rows-[1fr]">
-												<p className="overflow-hidden font-body text-xs leading-relaxed text-charcoal-600 opacity-0 transition-opacity duration-300 ease-out group-hover:opacity-100 group-focus-within:opacity-100">
+												<div className="overflow-hidden font-body text-xs leading-relaxed text-charcoal-600 opacity-0 transition-opacity duration-300 ease-out group-hover:opacity-100 group-focus-within:opacity-100">
 													<span className="mt-2 block">
-														{attraction.description}
+														{attraction.shortDescription}
 													</span>
-												</p>
+													<a
+														href={attractionHref(attraction.id)}
+														className="mt-3 inline-flex items-center gap-1 font-display text-[10px] uppercase tracking-display text-forest-600 transition-colors hover:text-forest-700"
+													>
+														Know More
+														<ArrowRight className="size-3" />
+													</a>
+												</div>
 											</div>
 										</div>
 									</motion.article>
@@ -349,7 +203,7 @@ export function ThingsToDoSection() {
 
 				<div className="mt-10 flex justify-center">
 					<Link
-						to="/about/fort"
+						to="/nearby-places"
 						className="inline-flex items-center gap-2 font-display text-xs uppercase tracking-display text-forest-600 transition-colors hover:text-forest-700"
 					>
 						All Attractions

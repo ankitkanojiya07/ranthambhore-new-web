@@ -43,6 +43,7 @@ import { Route as mainAboutTigersRouteImport } from './routes/(main)/about/tiger
 import { Route as mainAboutTemplesAndMuseumsRouteImport } from './routes/(main)/about/temples-and-museums'
 import { Route as mainAboutNationalParkRouteImport } from './routes/(main)/about/national-park'
 import { Route as mainAboutHistoryRouteImport } from './routes/(main)/about/history'
+import { Route as mainAboutHeritageRouteImport } from './routes/(main)/about/heritage'
 import { Route as mainAboutFortRouteImport } from './routes/(main)/about/fort'
 import { Route as mainAboutFloraAndFaunaRouteImport } from './routes/(main)/about/flora-and-fauna'
 import { Route as mainAboutConservationRouteImport } from './routes/(main)/about/conservation'
@@ -224,6 +225,11 @@ const mainAboutHistoryRoute = mainAboutHistoryRouteImport.update({
   path: '/about/history',
   getParentRoute: () => mainRouteRoute,
 } as any)
+const mainAboutHeritageRoute = mainAboutHeritageRouteImport.update({
+  id: '/about/heritage',
+  path: '/about/heritage',
+  getParentRoute: () => mainRouteRoute,
+} as any)
 const mainAboutFortRoute = mainAboutFortRouteImport.update({
   id: '/about/fort',
   path: '/about/fort',
@@ -284,6 +290,7 @@ export interface FileRoutesByFullPath {
   '/about/conservation': typeof mainAboutConservationRoute
   '/about/flora-and-fauna': typeof mainAboutFloraAndFaunaRoute
   '/about/fort': typeof mainAboutFortRoute
+  '/about/heritage': typeof mainAboutHeritageRoute
   '/about/history': typeof mainAboutHistoryRoute
   '/about/national-park': typeof mainAboutNationalParkRoute
   '/about/temples-and-museums': typeof mainAboutTemplesAndMuseumsRoute
@@ -328,6 +335,7 @@ export interface FileRoutesByTo {
   '/about/conservation': typeof mainAboutConservationRoute
   '/about/flora-and-fauna': typeof mainAboutFloraAndFaunaRoute
   '/about/fort': typeof mainAboutFortRoute
+  '/about/heritage': typeof mainAboutHeritageRoute
   '/about/history': typeof mainAboutHistoryRoute
   '/about/national-park': typeof mainAboutNationalParkRoute
   '/about/temples-and-museums': typeof mainAboutTemplesAndMuseumsRoute
@@ -374,6 +382,7 @@ export interface FileRoutesById {
   '/(main)/about/conservation': typeof mainAboutConservationRoute
   '/(main)/about/flora-and-fauna': typeof mainAboutFloraAndFaunaRoute
   '/(main)/about/fort': typeof mainAboutFortRoute
+  '/(main)/about/heritage': typeof mainAboutHeritageRoute
   '/(main)/about/history': typeof mainAboutHistoryRoute
   '/(main)/about/national-park': typeof mainAboutNationalParkRoute
   '/(main)/about/temples-and-museums': typeof mainAboutTemplesAndMuseumsRoute
@@ -420,6 +429,7 @@ export interface FileRouteTypes {
     | '/about/conservation'
     | '/about/flora-and-fauna'
     | '/about/fort'
+    | '/about/heritage'
     | '/about/history'
     | '/about/national-park'
     | '/about/temples-and-museums'
@@ -464,6 +474,7 @@ export interface FileRouteTypes {
     | '/about/conservation'
     | '/about/flora-and-fauna'
     | '/about/fort'
+    | '/about/heritage'
     | '/about/history'
     | '/about/national-park'
     | '/about/temples-and-museums'
@@ -509,6 +520,7 @@ export interface FileRouteTypes {
     | '/(main)/about/conservation'
     | '/(main)/about/flora-and-fauna'
     | '/(main)/about/fort'
+    | '/(main)/about/heritage'
     | '/(main)/about/history'
     | '/(main)/about/national-park'
     | '/(main)/about/temples-and-museums'
@@ -791,6 +803,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof mainAboutHistoryRouteImport
       parentRoute: typeof mainRouteRoute
     }
+    '/(main)/about/heritage': {
+      id: '/(main)/about/heritage'
+      path: '/about/heritage'
+      fullPath: '/about/heritage'
+      preLoaderRoute: typeof mainAboutHeritageRouteImport
+      parentRoute: typeof mainRouteRoute
+    }
     '/(main)/about/fort': {
       id: '/(main)/about/fort'
       path: '/about/fort'
@@ -865,6 +884,7 @@ interface mainRouteRouteChildren {
   mainAboutConservationRoute: typeof mainAboutConservationRoute
   mainAboutFloraAndFaunaRoute: typeof mainAboutFloraAndFaunaRoute
   mainAboutFortRoute: typeof mainAboutFortRoute
+  mainAboutHeritageRoute: typeof mainAboutHeritageRoute
   mainAboutHistoryRoute: typeof mainAboutHistoryRoute
   mainAboutNationalParkRoute: typeof mainAboutNationalParkRoute
   mainAboutTemplesAndMuseumsRoute: typeof mainAboutTemplesAndMuseumsRoute
@@ -909,6 +929,7 @@ const mainRouteRouteChildren: mainRouteRouteChildren = {
   mainAboutConservationRoute: mainAboutConservationRoute,
   mainAboutFloraAndFaunaRoute: mainAboutFloraAndFaunaRoute,
   mainAboutFortRoute: mainAboutFortRoute,
+  mainAboutHeritageRoute: mainAboutHeritageRoute,
   mainAboutHistoryRoute: mainAboutHistoryRoute,
   mainAboutNationalParkRoute: mainAboutNationalParkRoute,
   mainAboutTemplesAndMuseumsRoute: mainAboutTemplesAndMuseumsRoute,

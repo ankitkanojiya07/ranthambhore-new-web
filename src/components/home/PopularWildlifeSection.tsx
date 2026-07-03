@@ -91,7 +91,7 @@ const POPULAR_ANIMALS = [
 	{
 		id: "marsh-crocodile",
 		image: {
-			src: "/Home/croc.jpg",
+			src: "/Home/14.webp",
 			alt: "Marsh crocodile basking at a Ranthambore lake",
 			width: 2048,
 			height: 1365,

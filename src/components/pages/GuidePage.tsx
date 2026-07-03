@@ -33,6 +33,7 @@ interface GuidePageProps {
 	imageOffset?: number;
 	heroPrimaryCta?: { label: string; href: string };
 	heroSecondaryCta?: { label: string; href: string };
+	beforeSections?: React.ReactNode;
 }
 
 export function GuidePage({
@@ -53,6 +54,7 @@ export function GuidePage({
 	imageOffset = 0,
 	heroPrimaryCta = { label: "Book a Safari", href: "/safari/book" },
 	heroSecondaryCta = { label: "Get Free Quote", href: "/contact" },
+	beforeSections,
 }: GuidePageProps) {
 	return (
 		<div className="bg-sand-50">
@@ -76,6 +78,7 @@ export function GuidePage({
 					{intro}
 				</IntroSection>
 			)}
+			{beforeSections}
 			<ContentSection
 				blocks={sections}
 				imageOffset={imageOffset}

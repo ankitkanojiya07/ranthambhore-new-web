@@ -13,13 +13,11 @@ export const NAV_ITEMS: NavItem[] = [
 		label: "About Ranthambore",
 		href: "/about",
 		children: [
-			{ label: "History", href: "/about/history" },
 			{ label: "National Park", href: "/about/national-park" },
-			{ label: "Flora & Fauna", href: "/about/flora-and-fauna" },
+			{ label: "Wildlife (Flora & Fauna)", href: "/about/flora-and-fauna" },
 			{ label: "Tigers", href: "/about/tigers" },
 			{ label: "Conservation", href: "/about/conservation" },
-			{ label: "Fort", href: "/about/fort" },
-			{ label: "Temples & Museums", href: "/about/temples-and-museums" },
+			{ label: "Heritage (Fort, Temples & Museums)", href: "/about/heritage" },
 		],
 	},
 	{
@@ -64,7 +62,7 @@ export const NAV_ITEMS: NavItem[] = [
 		href: "/stay/hotels",
 	},
 	{
-		label: "Nearby Places",
+		label: "Attractions",
 		href: "/nearby-places",
 	},
 	{

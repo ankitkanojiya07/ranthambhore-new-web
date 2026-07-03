@@ -9,13 +9,12 @@ import { FaqSection } from "#/components/home/FaqSection";
 // import { FeaturesSection } from "#/components/home/FeaturesSection";
 import { HeroSection } from "#/components/home/HeroSection";
 import { HowToReachSection } from "#/components/home/HowToReachSection";
-import { StaySection } from "#/components/home/StaySection";
 import { PopularWildlifeSection } from "#/components/home/PopularWildlifeSection";
 import { QuickLinksHighlightsSection } from "#/components/home/QuickLinksHighlightsSection";
+import { SafariInformationSection } from "#/components/home/SafariInformationSection";
+import { StaySection } from "#/components/home/StaySection";
 import { TaglineSection } from "#/components/home/TaglineSection";
 import { ThingsToDoSection } from "#/components/home/ThingsToDoSection";
-import { ZoneSection } from "#/components/home/ZoneSection";
-
 export const Route = createFileRoute("/(main)/")({
 	loader: async ({ context: { queryClient } }) => {
 		await Promise.all([
@@ -55,6 +54,8 @@ function Home() {
 
 			<PopularWildlifeSection />
 
+			<SafariInformationSection />
+
 			<div className="mx-auto max-w-5xl border-t border-muted-300" />
 
 			<ThingsToDoSection />
@@ -64,8 +65,6 @@ function Home() {
 			<HowToReachSection />
 
 			<StaySection />
-
-			<ZoneSection />
 
 			{/* <div className="mx-auto max-w-5xl border-t border-muted-300" /> */}
 

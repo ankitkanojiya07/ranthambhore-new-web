@@ -4,6 +4,7 @@ import { cn } from "#/lib/utils";
 import { SectionHeading } from "./SectionHeading";
 
 export interface ContentBlock {
+	id?: string;
 	heading: string;
 	body: string | string[];
 	items?: string[];
@@ -192,8 +193,9 @@ function ContentBlockArticle({
 	if (layout === "full") {
 		return (
 			<article
+				id={block.id}
 				className={cn(
-					"mx-auto max-w-3xl rounded-sm px-6 py-10 lg:px-10",
+					"mx-auto max-w-3xl scroll-mt-24 rounded-sm px-6 py-10 lg:px-10",
 					dark && "bg-charcoal-900",
 				)}
 			>
@@ -286,8 +288,9 @@ function ContentBlockArticle({
 
 	return (
 		<article
+			id={block.id}
 			className={cn(
-				"grid gap-10 rounded-sm lg:gap-16",
+				"grid scroll-mt-24 gap-10 rounded-sm lg:gap-16",
 				block.stretchImage ? "items-stretch" : "items-center",
 				dark && "bg-charcoal-900 px-6 py-12 lg:px-12",
 				"lg:grid-cols-2",
@@ -333,8 +336,7 @@ export function ContentSection({
 
 						while (index < blocks.length) {
 							const block = blocks[index];
-							const layout =
-								block.layout ?? (index === 0 ? "full" : "split");
+							const layout = block.layout ?? (index === 0 ? "full" : "split");
 
 							if (layout === "card-text") {
 								const group: ContentBlock[] = [];
@@ -343,8 +345,7 @@ export function ContentSection({
 								while (groupIndex < blocks.length) {
 									const groupBlock = blocks[groupIndex];
 									const groupLayout =
-										groupBlock.layout ??
-										(groupIndex === 0 ? "full" : "split");
+										groupBlock.layout ?? (groupIndex === 0 ? "full" : "split");
 									if (groupLayout !== "card-text") break;
 									group.push(groupBlock);
 									groupIndex++;
