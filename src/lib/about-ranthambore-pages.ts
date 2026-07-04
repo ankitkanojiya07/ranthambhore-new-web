@@ -418,13 +418,6 @@ export const ABOUT_PAGES: Record<string, AboutPageContent> = {
 				body: "Ranthambore evolved from near ecological disaster to conservation success. It was among the first nine tiger reserves under Project Tiger in 1973, and today supports more than 70 tigers through protection, monitoring, anti-poaching work, and community participation.",
 				layout: "card-text",
 			},
-			{
-				heading: "Temples, Museums and Cultural Sites",
-				body: "The heritage experience extends beyond the fort. Visitors can explore sacred temples, the Trinetra Ganesh shrine, natural history exhibits, and local cultural landmarks around Sawai Madhopur that deepen the story of Ranthambore.",
-				layout: "split",
-				image: "/Home/ganesh.webp",
-				imageAlt: "Ganesh temple heritage near Ranthambore",
-			},
 		],
 		showWhyChoose: false,
 	},

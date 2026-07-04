@@ -105,7 +105,7 @@ export const ATTRACTIONS: Attraction[] = [
 		body: "The school has artists from the adjacent villages. The students from the school visit the National Park to spread their thoughts of preserving natural biodiversity. The school has watercolor paintings, charcoal, poster color painting on silk, and black and white sketches as well. The paintings are placed on famous exhibitions through which amazing thoughts are being transferred to the public.",
 		icon: Palette,
 		image: {
-			src: "/Home/109.png",
+			src: "/Home/images.jpeg",
 			alt: "Artwork at the Ranthambore School of Art Society",
 			width: 2048,
 			height: 1365,
@@ -121,7 +121,7 @@ export const ATTRACTIONS: Attraction[] = [
 		body: "Different types of bags of different size and colour come to the market and they attract the young ladies visiting Ranthambore National Parks. These bags are really user-friendly due to their appealing size and alluring patterns. The particular self-help group was established in the year of 1989 and still continues to make a number of multi types of bags and totes. Since they are hand-made, they get more demand from local as well as tourists. You will get the opportunity to select from the wide range of designs — especially of wild animals, birds and forest creatures.",
 		icon: ShoppingBag,
 		image: {
-			src: "/Home/1.webp",
+			src: "/Home/dastart.jpg",
 			alt: "Handmade bags at Dastkar Ranthambhore",
 			width: 2048,
 			height: 1365,
@@ -171,7 +171,7 @@ export const ATTRACTIONS: Attraction[] = [
 		body: "The view of the lake, especially at sunrise and sunset is splendid, however, this lake isn't perennial and dries out in summer, so make sure you head here especially during the monsoon or in winter.",
 		icon: Waves,
 		image: {
-			src: "/Home/14.webp",
+			src: "/Home/surwal-lake.jpg",
 			alt: "Surwal Lake at sunrise near Ranthambore",
 			width: 2048,
 			height: 1365,
@@ -218,7 +218,7 @@ export const ATTRACTIONS: Attraction[] = [
 		body: "Apart from witnessing the varied wildlife in the park, one has the opportunity to explore the culture and tradition of Rajasthan as well. At Village Women Craft, which is situated at Gas Plant Road in Sawai Madhopur, one can find a variety of handmade carpets, woolen carpets, tribal rugs, wildlife paintings, shawls, bed covers and much more! Village Women Craft is a social initiative that supports rural women in Rajasthan to become independent and economically stable. It is an incredible place to shop in Rajasthan and definitely a perfect memento of Ranthambore National Park.",
 		icon: Shirt,
 		image: {
-			src: "/Home/h1.webp",
+			src: "/Home/kkk.jpeg",
 			alt: "Handmade crafts at Village Women Craft Ranthambore",
 			width: 2048,
 			height: 1365,
@@ -248,7 +248,7 @@ export const ATTRACTIONS: Attraction[] = [
 		body: "There are many incredible tourist places in Sawai Madhopur like the National Chambal Sanctuary and other places to visit in Ranthambore. National Chambal Sanctuary is one of the famous tourist places to visit in Sawai Madhopur. You can travel with your family or friends to enjoy the crocodile safari at Palighat in the National Chambal Sanctuary. Ranthambore National Park is a very good natural place to spend the holidays.",
 		icon: Ship,
 		image: {
-			src: "/Home/croc.jpg",
+			src: "/Home/chambal.jpg",
 			alt: "Gharial on the Chambal River near Ranthambore",
 			width: 2048,
 			height: 1365,
@@ -279,7 +279,7 @@ export const ATTRACTIONS: Attraction[] = [
 		body: "Wild Dragon Adventure Park is an amusement park, which is the best nearby place for thrill-seekers offering such activities as zorbing, ATV rides, and a horror house. It is the perfect place to complete your trip apart from the wildlife safaris.",
 		icon: FerrisWheel,
 		image: {
-			src: "/Home/wild.jpg",
+			src: "/Home/adv.webp",
 			alt: "Wild Dragon Adventure Park near Ranthambore",
 			width: 2048,
 			height: 1365,

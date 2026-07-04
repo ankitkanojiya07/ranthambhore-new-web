@@ -34,7 +34,7 @@ export const PAGE_DESCRIPTIONS: Record<string, string> = {
 	"/stay/guide": "Where to stay by budget, zone proximity, and travel style.",
 	"/plan/best-time":
 		"Season-by-season guide — tigers, weather, and crowd levels.",
-	"/plan/how-to-reach": "Trains, flights, and road routes to Sawai Madhopur.",
+	// "/plan/how-to-reach": "Trains, flights, and road routes to Sawai Madhopur.",
 	"/plan/dos-and-donts":
 		"Park rules, safari etiquette, and responsible wildlife viewing.",
 	"/plan/cab-hire":

@@ -1,5 +1,3 @@
-import { Link } from "@tanstack/react-router";
-import { ArrowRight } from "lucide-react";
 import { Image } from "#/util/Image";
 
 const HEADING_SIZE = "text-[clamp(2rem,4.5vw,5.5rem)]";
@@ -63,13 +61,13 @@ export function HowToReachSection() {
 								</article>
 							))}
 
-							<Link
+							{/* <Link
 								to="/travel-info"
 								className="inline-flex items-center gap-2 font-display text-xs uppercase tracking-display text-forest-600 transition-colors hover:text-forest-700"
 							>
 								Detailed Travel Guide
 								<ArrowRight className="size-4" />
-							</Link>
+							</Link> */}
 						</div>
 
 						{/* Travel route graphic */}

@@ -1,3 +1,4 @@
+// Route disabled — re-enable by renaming to how-to-reach.tsx and uncommenting nav entry.
 import { createFileRoute } from "@tanstack/react-router";
 import { GuidePage } from "#/components/pages/GuidePage";
 
