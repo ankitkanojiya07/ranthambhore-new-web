@@ -24,54 +24,50 @@ const itemVariants = {
 export function ContactSection() {
 	return (
 		<section
-			className="bg-sand-50 relative px-6 py-16 lg:px-8 lg:py-20 border-t border-muted-300"
+			className="relative overflow-hidden border-t border-muted-300 bg-cream-100"
 			aria-label="Contact"
 		>
-			<div className="mx-auto max-w-5xl">
+			<motion.div
+				className="grid min-h-0 lg:grid-cols-2 lg:min-h-[560px]"
+				variants={containerVariants}
+				initial="hidden"
+				whileInView="visible"
+				viewport={{ once: true, amount: 0.2 }}
+			>
 				<motion.div
-					className="overflow-hidden rounded-2xl bg-cream-100 shadow-sm ring-1 ring-muted-300"
-					variants={containerVariants}
-					initial="hidden"
-					whileInView="visible"
-					viewport={{ once: true, amount: 0.2 }}
+					variants={itemVariants}
+					className="relative min-h-[280px] sm:min-h-[360px] lg:min-h-full"
 				>
-					<div className="grid lg:grid-cols-[2fr_3fr]">
-						<motion.div
-							variants={itemVariants}
-							className="relative min-h-[240px] sm:min-h-[300px] lg:min-h-full"
-						>
-							<div className="hero-grunge-mask absolute inset-0">
-								<Image
-									src="/Home/10.webp"
-									alt="Tiger resting in the wild"
-									width={2048}
-									height={1365}
-									className="size-full object-cover"
-								/>
-							</div>
-						</motion.div>
-
-						<div className="p-8 lg:p-10">
-							<motion.p
-								variants={itemVariants}
-								className="font-display text-xs uppercase tracking-display text-earth-400"
-							>
-								Feel Free To Communicate With Us
-							</motion.p>
-							<motion.h3
-								variants={itemVariants}
-								className="mt-2 text-2xl text-charcoal-800 lg:text-3xl"
-							>
-								Explore Ranthambore With Us Fill The Form
-							</motion.h3>
-
-							<motion.div variants={itemVariants} className="mt-8">
-								<ContactEnquiryForm />
-							</motion.div>
-						</div>
+					<div className="hero-grunge-mask absolute inset-0">
+						<Image
+							src="/Home/10.webp"
+							alt="Tiger resting in the wild"
+							width={2048}
+							height={1365}
+							className="size-full object-cover"
+						/>
 					</div>
 				</motion.div>
-			</div>
+
+				<div className="flex flex-col justify-center px-6 py-10 sm:px-10 lg:px-12 lg:py-14 xl:px-16 xl:py-16">
+					<motion.p
+						variants={itemVariants}
+						className="font-display text-xs uppercase tracking-display text-earth-400"
+					>
+						Feel Free To Communicate With Us
+					</motion.p>
+					<motion.h3
+						variants={itemVariants}
+						className="mt-2 text-2xl text-charcoal-800 lg:text-3xl"
+					>
+						Explore Ranthambore With Us Fill The Form
+					</motion.h3>
+
+					<motion.div variants={itemVariants} className="mt-8">
+						<ContactEnquiryForm />
+					</motion.div>
+				</div>
+			</motion.div>
 		</section>
 	);
 }

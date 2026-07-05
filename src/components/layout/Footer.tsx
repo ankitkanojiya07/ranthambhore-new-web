@@ -59,12 +59,12 @@ export function Footer() {
 						<ul className="space-y-3">
 							{QUICK_LINKS.map((link) => (
 								<li key={link.label}>
-									<a
-										href={link.href}
+									<Link
+										to={link.href}
 										className="font-body font-medium text-sm text-charcoal-700 transition-colors hover:text-earth-700"
 									>
 										{link.label}
-									</a>
+									</Link>
 								</li>
 							))}
 						</ul>
