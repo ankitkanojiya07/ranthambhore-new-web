@@ -11,7 +11,6 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as mainRouteRouteImport } from './routes/(main)/route'
 import { Route as mainIndexRouteImport } from './routes/(main)/index'
-import { Route as mainTravelInfoRouteImport } from './routes/(main)/travel-info'
 import { Route as mainSignUpRouteImport } from './routes/(main)/sign-up'
 import { Route as mainSignInRouteImport } from './routes/(main)/sign-in'
 import { Route as mainStayIndexRouteImport } from './routes/(main)/stay/index'
@@ -33,7 +32,6 @@ import { Route as mainSafariBookingGuidelinesRouteImport } from './routes/(main)
 import { Route as mainSafariBookRouteImport } from './routes/(main)/safari/book'
 import { Route as mainPlanTravelTipsRouteImport } from './routes/(main)/plan/travel-tips'
 import { Route as mainPlanTourPackagesRouteImport } from './routes/(main)/plan/tour-packages'
-import { Route as mainPlanHowToReachRouteImport } from './routes/(main)/plan/how-to-reach'
 import { Route as mainPlanFaqsRouteImport } from './routes/(main)/plan/faqs'
 import { Route as mainPlanDosAndDontsRouteImport } from './routes/(main)/plan/dos-and-donts'
 import { Route as mainPlanCabHireRouteImport } from './routes/(main)/plan/cab-hire'
@@ -61,11 +59,6 @@ const mainRouteRoute = mainRouteRouteImport.update({
 const mainIndexRoute = mainIndexRouteImport.update({
   id: '/',
   path: '/',
-  getParentRoute: () => mainRouteRoute,
-} as any)
-const mainTravelInfoRoute = mainTravelInfoRouteImport.update({
-  id: '/travel-info',
-  path: '/travel-info',
   getParentRoute: () => mainRouteRoute,
 } as any)
 const mainSignUpRoute = mainSignUpRouteImport.update({
@@ -174,11 +167,6 @@ const mainPlanTourPackagesRoute = mainPlanTourPackagesRouteImport.update({
   path: '/plan/tour-packages',
   getParentRoute: () => mainRouteRoute,
 } as any)
-const mainPlanHowToReachRoute = mainPlanHowToReachRouteImport.update({
-  id: '/plan/how-to-reach',
-  path: '/plan/how-to-reach',
-  getParentRoute: () => mainRouteRoute,
-} as any)
 const mainPlanFaqsRoute = mainPlanFaqsRouteImport.update({
   id: '/plan/faqs',
   path: '/plan/faqs',
@@ -285,7 +273,6 @@ const mainHighlightsSafariInsightsZoneZoneIdRoute =
 export interface FileRoutesByFullPath {
   '/sign-in': typeof mainSignInRoute
   '/sign-up': typeof mainSignUpRoute
-  '/travel-info': typeof mainTravelInfoRoute
   '/': typeof mainIndexRoute
   '/about/conservation': typeof mainAboutConservationRoute
   '/about/flora-and-fauna': typeof mainAboutFloraAndFaunaRoute
@@ -300,7 +287,6 @@ export interface FileRoutesByFullPath {
   '/plan/cab-hire': typeof mainPlanCabHireRoute
   '/plan/dos-and-donts': typeof mainPlanDosAndDontsRoute
   '/plan/faqs': typeof mainPlanFaqsRoute
-  '/plan/how-to-reach': typeof mainPlanHowToReachRoute
   '/plan/tour-packages': typeof mainPlanTourPackagesRoute
   '/plan/travel-tips': typeof mainPlanTravelTipsRoute
   '/safari/book': typeof mainSafariBookRoute
@@ -330,7 +316,6 @@ export interface FileRoutesByFullPath {
 export interface FileRoutesByTo {
   '/sign-in': typeof mainSignInRoute
   '/sign-up': typeof mainSignUpRoute
-  '/travel-info': typeof mainTravelInfoRoute
   '/': typeof mainIndexRoute
   '/about/conservation': typeof mainAboutConservationRoute
   '/about/flora-and-fauna': typeof mainAboutFloraAndFaunaRoute
@@ -345,7 +330,6 @@ export interface FileRoutesByTo {
   '/plan/cab-hire': typeof mainPlanCabHireRoute
   '/plan/dos-and-donts': typeof mainPlanDosAndDontsRoute
   '/plan/faqs': typeof mainPlanFaqsRoute
-  '/plan/how-to-reach': typeof mainPlanHowToReachRoute
   '/plan/tour-packages': typeof mainPlanTourPackagesRoute
   '/plan/travel-tips': typeof mainPlanTravelTipsRoute
   '/safari/book': typeof mainSafariBookRoute
@@ -377,7 +361,6 @@ export interface FileRoutesById {
   '/(main)': typeof mainRouteRouteWithChildren
   '/(main)/sign-in': typeof mainSignInRoute
   '/(main)/sign-up': typeof mainSignUpRoute
-  '/(main)/travel-info': typeof mainTravelInfoRoute
   '/(main)/': typeof mainIndexRoute
   '/(main)/about/conservation': typeof mainAboutConservationRoute
   '/(main)/about/flora-and-fauna': typeof mainAboutFloraAndFaunaRoute
@@ -392,7 +375,6 @@ export interface FileRoutesById {
   '/(main)/plan/cab-hire': typeof mainPlanCabHireRoute
   '/(main)/plan/dos-and-donts': typeof mainPlanDosAndDontsRoute
   '/(main)/plan/faqs': typeof mainPlanFaqsRoute
-  '/(main)/plan/how-to-reach': typeof mainPlanHowToReachRoute
   '/(main)/plan/tour-packages': typeof mainPlanTourPackagesRoute
   '/(main)/plan/travel-tips': typeof mainPlanTravelTipsRoute
   '/(main)/safari/book': typeof mainSafariBookRoute
@@ -424,7 +406,6 @@ export interface FileRouteTypes {
   fullPaths:
     | '/sign-in'
     | '/sign-up'
-    | '/travel-info'
     | '/'
     | '/about/conservation'
     | '/about/flora-and-fauna'
@@ -439,7 +420,6 @@ export interface FileRouteTypes {
     | '/plan/cab-hire'
     | '/plan/dos-and-donts'
     | '/plan/faqs'
-    | '/plan/how-to-reach'
     | '/plan/tour-packages'
     | '/plan/travel-tips'
     | '/safari/book'
@@ -469,7 +449,6 @@ export interface FileRouteTypes {
   to:
     | '/sign-in'
     | '/sign-up'
-    | '/travel-info'
     | '/'
     | '/about/conservation'
     | '/about/flora-and-fauna'
@@ -484,7 +463,6 @@ export interface FileRouteTypes {
     | '/plan/cab-hire'
     | '/plan/dos-and-donts'
     | '/plan/faqs'
-    | '/plan/how-to-reach'
     | '/plan/tour-packages'
     | '/plan/travel-tips'
     | '/safari/book'
@@ -515,7 +493,6 @@ export interface FileRouteTypes {
     | '/(main)'
     | '/(main)/sign-in'
     | '/(main)/sign-up'
-    | '/(main)/travel-info'
     | '/(main)/'
     | '/(main)/about/conservation'
     | '/(main)/about/flora-and-fauna'
@@ -530,7 +507,6 @@ export interface FileRouteTypes {
     | '/(main)/plan/cab-hire'
     | '/(main)/plan/dos-and-donts'
     | '/(main)/plan/faqs'
-    | '/(main)/plan/how-to-reach'
     | '/(main)/plan/tour-packages'
     | '/(main)/plan/travel-tips'
     | '/(main)/safari/book'
@@ -577,13 +553,6 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof mainIndexRouteImport
-      parentRoute: typeof mainRouteRoute
-    }
-    '/(main)/travel-info': {
-      id: '/(main)/travel-info'
-      path: '/travel-info'
-      fullPath: '/travel-info'
-      preLoaderRoute: typeof mainTravelInfoRouteImport
       parentRoute: typeof mainRouteRoute
     }
     '/(main)/sign-up': {
@@ -733,13 +702,6 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof mainPlanTourPackagesRouteImport
       parentRoute: typeof mainRouteRoute
     }
-    '/(main)/plan/how-to-reach': {
-      id: '/(main)/plan/how-to-reach'
-      path: '/plan/how-to-reach'
-      fullPath: '/plan/how-to-reach'
-      preLoaderRoute: typeof mainPlanHowToReachRouteImport
-      parentRoute: typeof mainRouteRoute
-    }
     '/(main)/plan/faqs': {
       id: '/(main)/plan/faqs'
       path: '/plan/faqs'
@@ -879,7 +841,6 @@ declare module '@tanstack/react-router' {
 interface mainRouteRouteChildren {
   mainSignInRoute: typeof mainSignInRoute
   mainSignUpRoute: typeof mainSignUpRoute
-  mainTravelInfoRoute: typeof mainTravelInfoRoute
   mainIndexRoute: typeof mainIndexRoute
   mainAboutConservationRoute: typeof mainAboutConservationRoute
   mainAboutFloraAndFaunaRoute: typeof mainAboutFloraAndFaunaRoute
@@ -894,7 +855,6 @@ interface mainRouteRouteChildren {
   mainPlanCabHireRoute: typeof mainPlanCabHireRoute
   mainPlanDosAndDontsRoute: typeof mainPlanDosAndDontsRoute
   mainPlanFaqsRoute: typeof mainPlanFaqsRoute
-  mainPlanHowToReachRoute: typeof mainPlanHowToReachRoute
   mainPlanTourPackagesRoute: typeof mainPlanTourPackagesRoute
   mainPlanTravelTipsRoute: typeof mainPlanTravelTipsRoute
   mainSafariBookRoute: typeof mainSafariBookRoute
@@ -924,7 +884,6 @@ interface mainRouteRouteChildren {
 const mainRouteRouteChildren: mainRouteRouteChildren = {
   mainSignInRoute: mainSignInRoute,
   mainSignUpRoute: mainSignUpRoute,
-  mainTravelInfoRoute: mainTravelInfoRoute,
   mainIndexRoute: mainIndexRoute,
   mainAboutConservationRoute: mainAboutConservationRoute,
   mainAboutFloraAndFaunaRoute: mainAboutFloraAndFaunaRoute,
@@ -939,7 +898,6 @@ const mainRouteRouteChildren: mainRouteRouteChildren = {
   mainPlanCabHireRoute: mainPlanCabHireRoute,
   mainPlanDosAndDontsRoute: mainPlanDosAndDontsRoute,
   mainPlanFaqsRoute: mainPlanFaqsRoute,
-  mainPlanHowToReachRoute: mainPlanHowToReachRoute,
   mainPlanTourPackagesRoute: mainPlanTourPackagesRoute,
   mainPlanTravelTipsRoute: mainPlanTravelTipsRoute,
   mainSafariBookRoute: mainSafariBookRoute,

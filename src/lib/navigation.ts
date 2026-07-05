@@ -38,7 +38,7 @@ export const NAV_ITEMS: NavItem[] = [
 		href: "/plan",
 		children: [
 			{ label: "Best Time to Visit", href: "/plan/best-time" },
-			{ label: "How to Reach", href: "/plan/how-to-reach" },
+			// { label: "How to Reach", href: "/plan/how-to-reach" },
 			{ label: "Do's & Don'ts", href: "/plan/dos-and-donts" },
 			// { label: "Cab Hire", href: "/plan/cab-hire" },
 			// { label: "Tour Packages", href: "/plan/tour-packages" },

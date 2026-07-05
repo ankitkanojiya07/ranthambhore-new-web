@@ -1,6 +1,6 @@
 import { FeaturedHotelCard } from "#/components/pages/FeaturedHotelCard";
-import { SectionHeading } from "./SectionHeading";
 import { FEATURED_HOTELS } from "#/lib/featured-hotels";
+import { SectionHeading } from "./SectionHeading";
 
 export function FeaturedHotelsSection() {
 	return (
