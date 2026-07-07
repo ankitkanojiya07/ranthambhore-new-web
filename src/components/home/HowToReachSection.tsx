@@ -103,7 +103,7 @@ export function HowToReachSection() {
 							);
 						})}
 
-						<Button
+						{/* <Button
 							variant="outline"
 							size="lg"
 							className="rounded-none"
@@ -113,7 +113,7 @@ export function HowToReachSection() {
 									<ArrowRight strokeWidth={1.5} />
 								</Link>
 							}
-						/>
+						/> */}
 					</div>
 
 					{/* S-curve journey graphic — fixed height, wider than native aspect to fill horizontal space */}

@@ -98,36 +98,50 @@ export const ATTRACTIONS: Attraction[] = [
 		timings: "Open 24 hours",
 	},
 	{
-		id: "ranthambore-school-of-art",
-		title: "The Ranthambore School of Art Society",
+		id: "kachida-valley",
+		title: "Kachida Valley",
 		shortDescription:
-			"Village artists preserving biodiversity through watercolor, charcoal, and silk paintings.",
-		body: "The school has artists from the adjacent villages. The students from the school visit the National Park to spread their thoughts of preserving natural biodiversity. The school has watercolor paintings, charcoal, poster color painting on silk, and black and white sketches as well. The paintings are placed on famous exhibitions through which amazing thoughts are being transferred to the public.",
-		icon: Palette,
+			"Valley known for sunrise views, leopard sightings, and sloth bears at the park's edge.",
+		body: "Panther is the major animal species found here since they avoid getting into the deep jungles not to make contacts with the tigers which will end up in tigers eating the panthers. Here you can see a great population of bears as well. Also, the valley is a haven for unseen flora and fauna due to the presence of its perfect climate. On top of that, the lakes nearby are an addition to the whole beauty of the place.",
+		icon: Mountain,
 		image: {
-			src: "/Home/images.jpeg",
-			alt: "Artwork at the Ranthambore School of Art Society",
+			src: "/Home/kachida.jpg",
+			alt: "Kachida Valley rocky terrain in Ranthambore",
 			width: 2048,
 			height: 1365,
 		},
-		location: "MDR111, Subhash Nagar, Saptar, Sawai Madhopur",
-		timings: "7:00 AM – 6:00 PM",
+		location: "Inside Ranthambore National Park",
 	},
 	{
-		id: "dastkar-ranthambhore",
-		title: "Dastkar Ranthambhore",
+		id: "bird-watching",
+		title: "Bird Watching at Ranthambore National Park",
 		shortDescription:
-			"Handmade bags and totes with wild animal and forest patterns — a self-help group since 1989.",
-		body: "Different types of bags of different size and colour come to the market and they attract the young ladies visiting Ranthambore National Parks. These bags are really user-friendly due to their appealing size and alluring patterns. The particular self-help group was established in the year of 1989 and still continues to make a number of multi types of bags and totes. Since they are hand-made, they get more demand from local as well as tourists. You will get the opportunity to select from the wide range of designs — especially of wild animals, birds and forest creatures.",
-		icon: ShoppingBag,
+			"Over 270 bird species — Indian Peafowl, Painted Stork, and Indian Vulture across lakes and grasslands.",
+		body: "If you're a birdwatching enthusiast, Ranthambore is one of the best places to go for a safari, with its diverse avian population! The park is home to over 270 species of birds, making it a paradise for nature lovers. Take a moment to pause and spot the vibrant Indian Peafowl, the regal Indian Vulture, or the elusive Painted Stork. Early mornings are the best time to spot these winged wonders as they flutter around the park's lakes and grasslands. Whether you're new to birding or a seasoned pro, birdwatching here offers a unique glimpse into India's avian biodiversity.",
+		icon: Binoculars,
 		image: {
-			src: "/Home/dastart.jpg",
-			alt: "Handmade bags at Dastkar Ranthambhore",
+			src: "/Home/bird.jpg",
+			alt: "Bird watching in Ranthambore National Park",
 			width: 2048,
 			height: 1365,
 		},
-		location: "Dastkari Kendra, Village Kuthalpura Maliyan, Sherpur Khilchipur",
-		timings: "9 am – 7 pm",
+		location: "Ranthambore National Park",
+		bestTime: "Early morning",
+	},
+	{
+		id: "chambal-gharial-safari",
+		title: "National Chambal Gharial Sanctuary (Chambal Gharial Safari)",
+		shortDescription:
+			"Boat safari on the National Chambal Sanctuary — crocodiles, gharials, and river dolphins.",
+		body: "There are many incredible tourist places in Sawai Madhopur like the National Chambal Sanctuary and other places to visit in Ranthambore. National Chambal Sanctuary is one of the famous tourist places to visit in Sawai Madhopur. You can travel with your family or friends to enjoy the crocodile safari at Palighat in the National Chambal Sanctuary. Ranthambore National Park is a very good natural place to spend the holidays.",
+		icon: Ship,
+		image: {
+			src: "/Home/chambal.jpg",
+			alt: "Gharial on the Chambal River near Ranthambore",
+			width: 2048,
+			height: 1365,
+		},
+		location: "National Chambal Sanctuary, Palighat",
 	},
 	{
 		id: "padam-talao",
@@ -147,38 +161,6 @@ export const ATTRACTIONS: Attraction[] = [
 		},
 		location: "Ranthambhore Fort, Rajasthan",
 		timings: "Open 24 hours",
-	},
-	{
-		id: "kachida-valley",
-		title: "Kachida Valley",
-		shortDescription:
-			"Valley known for sunrise views, leopard sightings, and sloth bears at the park's edge.",
-		body: "Panther is the major animal species found here since they avoid getting into the deep jungles not to make contacts with the tigers which will end up in tigers eating the panthers. Here you can see a great population of bears as well. Also, the valley is a haven for unseen flora and fauna due to the presence of its perfect climate. On top of that, the lakes nearby are an addition to the whole beauty of the place.",
-		icon: Mountain,
-		image: {
-			src: "/Home/kachida.jpg",
-			alt: "Kachida Valley rocky terrain in Ranthambore",
-			width: 2048,
-			height: 1365,
-		},
-		location: "Inside Ranthambore National Park",
-	},
-	{
-		id: "surwal-lake",
-		title: "Surwal Lake",
-		shortDescription:
-			"Splendid sunrise and sunset views; best visited during monsoon or winter when water levels are high.",
-		body: "The view of the lake, especially at sunrise and sunset is splendid, however, this lake isn't perennial and dries out in summer, so make sure you head here especially during the monsoon or in winter.",
-		icon: Waves,
-		image: {
-			src: "/Home/surwal-lake.jpg",
-			alt: "Surwal Lake at sunrise near Ranthambore",
-			width: 2048,
-			height: 1365,
-		},
-		location: "Near Durga Mata Temple, Atoon Kalan, Rajasthan 322027",
-		timings: "24 hours (preferably after dawn and before dusk)",
-		bestTime: "Monsoon or winter",
 	},
 	{
 		id: "raj-bagh-talao",
@@ -211,6 +193,55 @@ export const ATTRACTIONS: Attraction[] = [
 		location: "Inside Ranthambore National Park",
 	},
 	{
+		id: "surwal-lake",
+		title: "Surwal Lake",
+		shortDescription:
+			"Splendid sunrise and sunset views; best visited during monsoon or winter when water levels are high.",
+		body: "The view of the lake, especially at sunrise and sunset is splendid, however, this lake isn't perennial and dries out in summer, so make sure you head here especially during the monsoon or in winter.",
+		icon: Waves,
+		image: {
+			src: "/Home/surwal-lake.jpg",
+			alt: "Surwal Lake at sunrise near Ranthambore",
+			width: 2048,
+			height: 1365,
+		},
+		location: "Near Durga Mata Temple, Atoon Kalan, Rajasthan 322027",
+		timings: "24 hours (preferably after dawn and before dusk)",
+		bestTime: "Monsoon or winter",
+	},
+	{
+		id: "ranthambore-school-of-art",
+		title: "Ranthambore School of Art Society",
+		shortDescription:
+			"Village artists preserving biodiversity through watercolor, charcoal, and silk paintings.",
+		body: "The school has artists from the adjacent villages. The students from the school visit the National Park to spread their thoughts of preserving natural biodiversity. The school has watercolor paintings, charcoal, poster color painting on silk, and black and white sketches as well. The paintings are placed on famous exhibitions through which amazing thoughts are being transferred to the public.",
+		icon: Palette,
+		image: {
+			src: "/Home/images.jpeg",
+			alt: "Artwork at the Ranthambore School of Art Society",
+			width: 2048,
+			height: 1365,
+		},
+		location: "MDR111, Subhash Nagar, Saptar, Sawai Madhopur",
+		timings: "7:00 AM – 6:00 PM",
+	},
+	{
+		id: "dastkar-ranthambhore",
+		title: "Dastkar Ranthambhore",
+		shortDescription:
+			"Handmade bags and totes with wild animal and forest patterns — a self-help group since 1989.",
+		body: "Different types of bags of different size and colour come to the market and they attract the young ladies visiting Ranthambore National Parks. These bags are really user-friendly due to their appealing size and alluring patterns. The particular self-help group was established in the year of 1989 and still continues to make a number of multi types of bags and totes. Since they are hand-made, they get more demand from local as well as tourists. You will get the opportunity to select from the wide range of designs — especially of wild animals, birds and forest creatures.",
+		icon: ShoppingBag,
+		image: {
+			src: "/Home/dastart.jpg",
+			alt: "Handmade bags at Dastkar Ranthambhore",
+			width: 2048,
+			height: 1365,
+		},
+		location: "Dastkari Kendra, Village Kuthalpura Maliyan, Sherpur Khilchipur",
+		timings: "9 am – 7 pm",
+	},
+	{
 		id: "village-women-craft",
 		title: "Village Women Craft",
 		shortDescription:
@@ -227,7 +258,7 @@ export const ATTRACTIONS: Attraction[] = [
 	},
 	{
 		id: "rajiv-gandhi-museum",
-		title: "Rajiv Gandhi Regional Museum",
+		title: "Rajiv Gandhi Regional Museum of Natural History",
 		shortDescription:
 			"Natural history museum in Ramsinghpura village — wildlife, biodiversity, and Rajasthan heritage.",
 		body: "The foundation stone-laying ceremony of Rajiv Gandhi Regional Museum of Natural History was carried out by the Vice President of India, Mohammad Hamid Ansari, on 23 December 2007, and inaugurated by the State Finance Minister, Namo Narain Meena, on 1 March 2014. It was undertaken by the Ministry of Environment, Forests & Climate Change. The museum is spread over an area of 7.2 acres near Ramsinghpura, Ranthambore National Park, Sawai Madhopur and the headquarters of the Consultant is the National Museum of Natural History, New Delhi. This is the fourth such museum in the country after Mysore, Bhopal and Bhubaneswar.",
@@ -239,37 +270,6 @@ export const ATTRACTIONS: Attraction[] = [
 			height: 1365,
 		},
 		location: "Ramsinghpura, Ranthambore National Park, Sawai Madhopur",
-	},
-	{
-		id: "chambal-gharial-safari",
-		title: "Chambal Gharial Safari",
-		shortDescription:
-			"Boat safari on the National Chambal Sanctuary — crocodiles, gharials, and river dolphins.",
-		body: "There are many incredible tourist places in Sawai Madhopur like the National Chambal Sanctuary and other places to visit in Ranthambore. National Chambal Sanctuary is one of the famous tourist places to visit in Sawai Madhopur. You can travel with your family or friends to enjoy the crocodile safari at Palighat in the National Chambal Sanctuary. Ranthambore National Park is a very good natural place to spend the holidays.",
-		icon: Ship,
-		image: {
-			src: "/Home/chambal.jpg",
-			alt: "Gharial on the Chambal River near Ranthambore",
-			width: 2048,
-			height: 1365,
-		},
-		location: "National Chambal Sanctuary, Palighat",
-	},
-	{
-		id: "bird-watching",
-		title: "Bird Watching at Ranthambore Park",
-		shortDescription:
-			"Over 270 bird species — Indian Peafowl, Painted Stork, and Indian Vulture across lakes and grasslands.",
-		body: "If you're a birdwatching enthusiast, Ranthambore is one of the best places to go for a safari, with its diverse avian population! The park is home to over 270 species of birds, making it a paradise for nature lovers. Take a moment to pause and spot the vibrant Indian Peafowl, the regal Indian Vulture, or the elusive Painted Stork. Early mornings are the best time to spot these winged wonders as they flutter around the park's lakes and grasslands. Whether you're new to birding or a seasoned pro, birdwatching here offers a unique glimpse into India's avian biodiversity.",
-		icon: Binoculars,
-		image: {
-			src: "/Home/bird.jpg",
-			alt: "Bird watching in Ranthambore National Park",
-			width: 2048,
-			height: 1365,
-		},
-		location: "Ranthambore National Park",
-		bestTime: "Early morning",
 	},
 	{
 		id: "wild-dragon-adventure-park",

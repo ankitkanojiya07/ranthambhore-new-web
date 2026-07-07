@@ -3,35 +3,37 @@ export const PAGE_DESCRIPTIONS: Record<string, string> = {
 	"/about/history":
 		"From Chauhan kings to Project Tiger — a thousand years of wild history.",
 	"/about/national-park":
-		"Ranthambore's national park story, tiger reserve landscape, lakes, fort, and reasons to visit.",
+		"History, nature, and culture — fort legacy, royal hunting grounds, and conservation.",
 	"/about/flora-and-fauna":
-		"Wildlife, flora, fauna, dhok forest, mammals, reptiles, and 300+ bird species.",
+		"Wilderness of Ranthambore — dhok forest, mammals, reptiles, and 300+ bird species.",
 	"/about/tigers":
-		"Famous tigers including Machli, Arrowhead, Krishna, Sultan, Noor, Riddhi, and Fateh.",
+		"Royal Bengal Tigers — Machli, Arrowhead, Krishna, Sultan, Noor, Riddhi, and Fateh.",
 	"/about/conservation":
-		"Project Tiger, anti-poaching, community work, recovery milestones, and sustainability.",
+		"Project Tiger, anti-poaching, community engagement, and conservation milestones.",
 	"/about/heritage":
-		"Ranthambore Fort, ancient temples, museums, royal legacy, and conservation history.",
+		"Fort, temples, museums, and the cultural heritage inside the tiger reserve.",
 	"/about/fort": "A 10th-century hilltop fortress at the heart of the reserve.",
 	"/about/temples-and-museums":
 		"Sacred sites, Ganesh Temple, and cultural landmarks inside the park.",
 	"/safari/jeep":
-		"Six-seat Gypsy safaris — the gold standard for wildlife photography.",
+		"Compare Gypsy (6-seater) and Canter (20-seater) safaris — cost, capacity, and best fit.",
 	"/safari/canter":
-		"Affordable 20-seat open bus safaris through core tiger zones.",
+		"Compare Gypsy (6-seater) and Canter (20-seater) safaris — cost, capacity, and best fit.",
 	"/safari/chambal-boat":
 		"River safari on the Chambal — gharials, dolphins, and wetland birds.",
 	"/safari/zones":
 		"All 10 safari zones explained — terrain, tigers, and booking tips.",
 	"/safari/timing-and-fees":
-		"Morning and afternoon slots, current fees, and seasonal schedules.",
+		"Season-wise safari timings, booking window, documents, and park rules.",
 	"/safari/booking-guidelines":
-		"How to book online, ID requirements, and what to expect at the gate.",
+		"Season-wise safari timings, booking window, documents, and park rules.",
 	"/safari/book":
 		"Reserve your jeep or canter safari with our Sawai Madhopur team.",
 	"/stay/hotels":
 		"Handpicked resorts and lodges minutes from the forest gates.",
 	"/stay/guide": "Where to stay by budget, zone proximity, and travel style.",
+	"/plan":
+		"Your complete 10-step journey — travel, safaris, zones, packing, and FAQs.",
 	"/plan/best-time":
 		"Season-by-season guide — tigers, weather, and crowd levels.",
 	// "/plan/how-to-reach": "Trains, flights, and road routes to Sawai Madhopur.",

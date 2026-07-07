@@ -1,26 +1,19 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { GuidePage } from "#/components/pages/GuidePage";
-import { ABOUT_PAGES } from "#/lib/about-ranthambore-pages";
-
-const page = ABOUT_PAGES.nationalPark;
+import { NationalParkPage } from "#/components/pages/NationalParkPage";
 
 export const Route = createFileRoute("/(main)/about/national-park")({
-	staticData: { navOverlay: true },
+	staticData: { navOverlay: false },
 	head: () => ({
 		meta: [
 			{
-				title: "Ranthambore National Park | Where History Meets the Wild",
+				title: "About Ranthambore National Park | History, Nature & Culture",
 			},
 			{
 				name: "description",
 				content:
-					"Explore Ranthambore National Park, its tiger reserve landscape, history, wildlife, lakes, fort, and reasons to visit this celebrated Rajasthan wilderness.",
+					"Discover Ranthambore National Park — a tapestry of history, nature, and culture with tiger reserves, UNESCO heritage, and one of India's greatest wild landscapes.",
 			},
 		],
 	}),
 	component: NationalParkPage,
 });
-
-function NationalParkPage() {
-	return <GuidePage {...page} />;
-}

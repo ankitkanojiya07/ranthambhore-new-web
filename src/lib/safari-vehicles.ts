@@ -1,0 +1,111 @@
+export interface SafariVehicle {
+	id: string;
+	title: string;
+	image: string;
+	imageAlt: string;
+	capacity: string;
+	cost: string;
+	advantages: readonly string[];
+	bestFor: readonly string[];
+}
+
+export const SAFARI_VEHICLES_CONTENT = {
+	title: "Jeep & Canter Safari",
+	subtitle:
+		"Choose between the intimate 6-seater Gypsy or the economical 20-seater Canter — both guided by certified naturalists across Ranthambore's tiger country.",
+} as const;
+
+export const SAFARI_VEHICLES: SafariVehicle[] = [
+	{
+		id: "gypsy",
+		title: "Gypsy Safari (6-Seater)",
+		image: "/Home/canter.webp",
+		imageAlt: "Gypsy safari vehicle in Ranthambore National Park",
+		capacity: "Maximum 6 visitors plus driver and guide",
+		cost: "₹2,000 - ₹3,500 per person depending on zone and season",
+		advantages: [
+			"Greater maneuverability on narrow forest trails",
+			"More personalized wildlife tracking experience",
+			"Better opportunities for photography with less crowding",
+			"Ability to reach more remote areas of the park",
+		],
+		bestFor: [
+			"Photography enthusiasts seeking optimal shooting conditions",
+			"Wildlife aficionados wanting closer encounters",
+			"Small families or intimate groups",
+			"Those seeking a premium safari experience",
+		],
+	},
+	{
+		id: "canter",
+		title: "Canter Safari (20-Seater)",
+		image: "/Home/gypsy.webp",
+		imageAlt: "Canter safari vehicle with passengers in Ranthambore",
+		capacity: "Up to 20 visitors with driver and guide",
+		cost: "₹1,200 - ₹2,000 per person depending on zone and season",
+		advantages: [
+			"More economical option for budget travelers",
+			"Higher seating position provides better visibility over vegetation",
+			"Social experience with other wildlife enthusiasts",
+			"Ideal for guided group interpretations",
+		],
+		bestFor: [
+			"Budget-conscious travelers",
+			"Larger groups and families",
+			"School or educational trips",
+			"First-time safari-goers wanting a guided group experience",
+		],
+	},
+];
+
+export interface SafariGuideline {
+	label: string;
+	description: string;
+}
+
+export const SAFARI_GUIDELINES = {
+	title: "Safari Guidelines",
+	dosAndDontsHeading: "Dos and Don'ts During the Safari",
+	guidelines: [
+		{
+			label: "Protection",
+			description:
+				"Carry sun hats, scarfs, and masks. The park's climate is dry, and there can be considerable dust.",
+		},
+		{
+			label: "Behavior",
+			description: "Stay composed and calm. Always listen to your guide.",
+		},
+		{
+			label: "Feeding",
+			description:
+				"Never feed the animals. They have ample food, and feeding them can be dangerous given their wild nature.",
+		},
+		{
+			label: "Littering",
+			description:
+				"Avoid littering during your safari. Instead, dispose of waste at designated spots.",
+		},
+		{
+			label: "Vehicle Safety",
+			description:
+				"Do not disembark from your vehicle and always remain seated.",
+		},
+		{
+			label: "Noise",
+			description:
+				"Refrain from making loud noises or sounds. This could deter animals and hinder sightings.",
+		},
+		{
+			label: "Substances",
+			description:
+				"Smoking and alcohol consumption are prohibited within the park's premises.",
+		},
+	] satisfies SafariGuideline[],
+	essentialsHeading: "Safari Essentials",
+	essentials: [
+		"Pack earth-toned attire (khaki, olive, brown), binoculars, wide-brimmed hat, SPF 50+ sunscreen, and sufficient water.",
+		"For photography enthusiasts, telephoto lenses (200-600mm) are highly recommended for wildlife captures.",
+		"Avoid perfumes and noisy accessories that might disturb wildlife.",
+	],
+} as const;

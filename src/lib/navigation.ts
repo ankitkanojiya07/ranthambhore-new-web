@@ -17,33 +17,18 @@ export const NAV_ITEMS: NavItem[] = [
 			{ label: "Wildlife (Flora & Fauna)", href: "/about/flora-and-fauna" },
 			{ label: "Tigers", href: "/about/tigers" },
 			{ label: "Conservation", href: "/about/conservation" },
-			{ label: "Heritage (Fort, Temples & Museums)", href: "/about/heritage" },
+			// { label: "Heritage (Fort, Temples & Museums)", href: "/about/heritage" },
 		],
 	},
 	{
 		label: "Safari",
 		href: "/safari",
 		children: [
-			{ label: "Jeep Safari", href: "/safari/jeep" },
-			{ label: "Canter Safari", href: "/safari/canter" },
+			{ label: "Jeep & Canter Safari", href: "/safari/jeep" },
 			// { label: "Chambal Boat Safari", href: "/safari/chambal-boat" },
 			{ label: "Zone Guide (Zones 1–10)", href: "/safari/zones" },
-			{ label: "Timing & Fees", href: "/safari/timing-and-fees" },
-			{ label: "Booking Guidelines", href: "/safari/booking-guidelines" },
+			{ label: "Timings & Booking Guidelines", href: "/safari/timing-and-fees" },
 			// { label: "Book Your Safari", href: "/safari/book" },
-		],
-	},
-	{
-		label: "Plan Your Visit",
-		href: "/plan",
-		children: [
-			{ label: "Best Time to Visit", href: "/plan/best-time" },
-			// { label: "How to Reach", href: "/plan/how-to-reach" },
-			{ label: "Do's & Don'ts", href: "/plan/dos-and-donts" },
-			// { label: "Cab Hire", href: "/plan/cab-hire" },
-			// { label: "Tour Packages", href: "/plan/tour-packages" },
-			{ label: "FAQs", href: "/plan/faqs" },
-			{ label: "Travel Tips", href: "/plan/travel-tips" },
 		],
 	},
 	{
@@ -56,6 +41,10 @@ export const NAV_ITEMS: NavItem[] = [
 				href: "/highlights/ranthambhore-insights",
 			},
 		],
+	},
+	{
+		label: "Plan Your Visit",
+		href: "/plan",
 	},
 	{
 		label: "Stay",

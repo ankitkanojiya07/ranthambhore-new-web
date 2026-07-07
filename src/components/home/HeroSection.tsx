@@ -3,7 +3,7 @@ import { HeroCarousel } from "#/components/home/HeroCarousel";
 const TRUST_BADGES = [
 	"Expert Local Guides",
 	"60+ Tigers in the Wild",
-	"Open October to June",
+	"300+ Species of Flora & Fauna",
 ];
 
 export function HeroSection() {

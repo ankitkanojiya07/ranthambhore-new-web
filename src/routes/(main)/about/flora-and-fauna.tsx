@@ -1,11 +1,8 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { GuidePage } from "#/components/pages/GuidePage";
-import { ABOUT_PAGES } from "#/lib/about-ranthambore-pages";
-
-const page = ABOUT_PAGES.wildlife;
+import { FloraAndFaunaPage } from "#/components/pages/FloraAndFaunaPage";
 
 export const Route = createFileRoute("/(main)/about/flora-and-fauna")({
-	staticData: { navOverlay: true },
+	staticData: { navOverlay: false },
 	head: () => ({
 		meta: [
 			{
@@ -19,9 +16,5 @@ export const Route = createFileRoute("/(main)/about/flora-and-fauna")({
 			},
 		],
 	}),
-	component: WildlifePage,
+	component: FloraAndFaunaPage,
 });
-
-function WildlifePage() {
-	return <GuidePage {...page} />;
-}

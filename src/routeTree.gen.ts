@@ -37,7 +37,6 @@ import { Route as mainPlanDosAndDontsRouteImport } from './routes/(main)/plan/do
 import { Route as mainPlanCabHireRouteImport } from './routes/(main)/plan/cab-hire'
 import { Route as mainPlanBestTimeRouteImport } from './routes/(main)/plan/best-time'
 import { Route as mainDailyUpdatesNewRouteImport } from './routes/(main)/daily-updates/new'
-import { Route as mainAboutTigersRouteImport } from './routes/(main)/about/tigers'
 import { Route as mainAboutTemplesAndMuseumsRouteImport } from './routes/(main)/about/temples-and-museums'
 import { Route as mainAboutNationalParkRouteImport } from './routes/(main)/about/national-park'
 import { Route as mainAboutHistoryRouteImport } from './routes/(main)/about/history'
@@ -47,9 +46,11 @@ import { Route as mainAboutFloraAndFaunaRouteImport } from './routes/(main)/abou
 import { Route as mainAboutConservationRouteImport } from './routes/(main)/about/conservation'
 import { Route as mainHighlightsSafariInsightsIndexRouteImport } from './routes/(main)/highlights/safari-insights/index'
 import { Route as mainHighlightsRanthambhoreInsightsIndexRouteImport } from './routes/(main)/highlights/ranthambhore-insights/index'
+import { Route as mainAboutTigersIndexRouteImport } from './routes/(main)/about/tigers/index'
 import { Route as mainHighlightsSafariInsightsSlugRouteImport } from './routes/(main)/highlights/safari-insights/$slug'
 import { Route as mainHighlightsRanthambhoreInsightsNewRouteImport } from './routes/(main)/highlights/ranthambhore-insights/new'
 import { Route as mainHighlightsRanthambhoreInsightsSlugRouteImport } from './routes/(main)/highlights/ranthambhore-insights/$slug'
+import { Route as mainAboutTigersSlugRouteImport } from './routes/(main)/about/tigers/$slug'
 import { Route as mainHighlightsSafariInsightsZoneZoneIdRouteImport } from './routes/(main)/highlights/safari-insights/zone.$zoneId'
 
 const mainRouteRoute = mainRouteRouteImport.update({
@@ -192,11 +193,6 @@ const mainDailyUpdatesNewRoute = mainDailyUpdatesNewRouteImport.update({
   path: '/daily-updates/new',
   getParentRoute: () => mainRouteRoute,
 } as any)
-const mainAboutTigersRoute = mainAboutTigersRouteImport.update({
-  id: '/about/tigers',
-  path: '/about/tigers',
-  getParentRoute: () => mainRouteRoute,
-} as any)
 const mainAboutTemplesAndMuseumsRoute =
   mainAboutTemplesAndMuseumsRouteImport.update({
     id: '/about/temples-and-museums',
@@ -245,6 +241,11 @@ const mainHighlightsRanthambhoreInsightsIndexRoute =
     path: '/highlights/ranthambhore-insights/',
     getParentRoute: () => mainRouteRoute,
   } as any)
+const mainAboutTigersIndexRoute = mainAboutTigersIndexRouteImport.update({
+  id: '/about/tigers/',
+  path: '/about/tigers/',
+  getParentRoute: () => mainRouteRoute,
+} as any)
 const mainHighlightsSafariInsightsSlugRoute =
   mainHighlightsSafariInsightsSlugRouteImport.update({
     id: '/highlights/safari-insights/$slug',
@@ -263,6 +264,11 @@ const mainHighlightsRanthambhoreInsightsSlugRoute =
     path: '/highlights/ranthambhore-insights/$slug',
     getParentRoute: () => mainRouteRoute,
   } as any)
+const mainAboutTigersSlugRoute = mainAboutTigersSlugRouteImport.update({
+  id: '/about/tigers/$slug',
+  path: '/about/tigers/$slug',
+  getParentRoute: () => mainRouteRoute,
+} as any)
 const mainHighlightsSafariInsightsZoneZoneIdRoute =
   mainHighlightsSafariInsightsZoneZoneIdRouteImport.update({
     id: '/highlights/safari-insights/zone/$zoneId',
@@ -281,7 +287,6 @@ export interface FileRoutesByFullPath {
   '/about/history': typeof mainAboutHistoryRoute
   '/about/national-park': typeof mainAboutNationalParkRoute
   '/about/temples-and-museums': typeof mainAboutTemplesAndMuseumsRoute
-  '/about/tigers': typeof mainAboutTigersRoute
   '/daily-updates/new': typeof mainDailyUpdatesNewRoute
   '/plan/best-time': typeof mainPlanBestTimeRoute
   '/plan/cab-hire': typeof mainPlanCabHireRoute
@@ -306,9 +311,11 @@ export interface FileRoutesByFullPath {
   '/plan/': typeof mainPlanIndexRoute
   '/safari/': typeof mainSafariIndexRoute
   '/stay/': typeof mainStayIndexRoute
+  '/about/tigers/$slug': typeof mainAboutTigersSlugRoute
   '/highlights/ranthambhore-insights/$slug': typeof mainHighlightsRanthambhoreInsightsSlugRoute
   '/highlights/ranthambhore-insights/new': typeof mainHighlightsRanthambhoreInsightsNewRoute
   '/highlights/safari-insights/$slug': typeof mainHighlightsSafariInsightsSlugRoute
+  '/about/tigers/': typeof mainAboutTigersIndexRoute
   '/highlights/ranthambhore-insights/': typeof mainHighlightsRanthambhoreInsightsIndexRoute
   '/highlights/safari-insights/': typeof mainHighlightsSafariInsightsIndexRoute
   '/highlights/safari-insights/zone/$zoneId': typeof mainHighlightsSafariInsightsZoneZoneIdRoute
@@ -324,7 +331,6 @@ export interface FileRoutesByTo {
   '/about/history': typeof mainAboutHistoryRoute
   '/about/national-park': typeof mainAboutNationalParkRoute
   '/about/temples-and-museums': typeof mainAboutTemplesAndMuseumsRoute
-  '/about/tigers': typeof mainAboutTigersRoute
   '/daily-updates/new': typeof mainDailyUpdatesNewRoute
   '/plan/best-time': typeof mainPlanBestTimeRoute
   '/plan/cab-hire': typeof mainPlanCabHireRoute
@@ -349,9 +355,11 @@ export interface FileRoutesByTo {
   '/plan': typeof mainPlanIndexRoute
   '/safari': typeof mainSafariIndexRoute
   '/stay': typeof mainStayIndexRoute
+  '/about/tigers/$slug': typeof mainAboutTigersSlugRoute
   '/highlights/ranthambhore-insights/$slug': typeof mainHighlightsRanthambhoreInsightsSlugRoute
   '/highlights/ranthambhore-insights/new': typeof mainHighlightsRanthambhoreInsightsNewRoute
   '/highlights/safari-insights/$slug': typeof mainHighlightsSafariInsightsSlugRoute
+  '/about/tigers': typeof mainAboutTigersIndexRoute
   '/highlights/ranthambhore-insights': typeof mainHighlightsRanthambhoreInsightsIndexRoute
   '/highlights/safari-insights': typeof mainHighlightsSafariInsightsIndexRoute
   '/highlights/safari-insights/zone/$zoneId': typeof mainHighlightsSafariInsightsZoneZoneIdRoute
@@ -369,7 +377,6 @@ export interface FileRoutesById {
   '/(main)/about/history': typeof mainAboutHistoryRoute
   '/(main)/about/national-park': typeof mainAboutNationalParkRoute
   '/(main)/about/temples-and-museums': typeof mainAboutTemplesAndMuseumsRoute
-  '/(main)/about/tigers': typeof mainAboutTigersRoute
   '/(main)/daily-updates/new': typeof mainDailyUpdatesNewRoute
   '/(main)/plan/best-time': typeof mainPlanBestTimeRoute
   '/(main)/plan/cab-hire': typeof mainPlanCabHireRoute
@@ -394,9 +401,11 @@ export interface FileRoutesById {
   '/(main)/plan/': typeof mainPlanIndexRoute
   '/(main)/safari/': typeof mainSafariIndexRoute
   '/(main)/stay/': typeof mainStayIndexRoute
+  '/(main)/about/tigers/$slug': typeof mainAboutTigersSlugRoute
   '/(main)/highlights/ranthambhore-insights/$slug': typeof mainHighlightsRanthambhoreInsightsSlugRoute
   '/(main)/highlights/ranthambhore-insights/new': typeof mainHighlightsRanthambhoreInsightsNewRoute
   '/(main)/highlights/safari-insights/$slug': typeof mainHighlightsSafariInsightsSlugRoute
+  '/(main)/about/tigers/': typeof mainAboutTigersIndexRoute
   '/(main)/highlights/ranthambhore-insights/': typeof mainHighlightsRanthambhoreInsightsIndexRoute
   '/(main)/highlights/safari-insights/': typeof mainHighlightsSafariInsightsIndexRoute
   '/(main)/highlights/safari-insights/zone/$zoneId': typeof mainHighlightsSafariInsightsZoneZoneIdRoute
@@ -414,7 +423,6 @@ export interface FileRouteTypes {
     | '/about/history'
     | '/about/national-park'
     | '/about/temples-and-museums'
-    | '/about/tigers'
     | '/daily-updates/new'
     | '/plan/best-time'
     | '/plan/cab-hire'
@@ -439,9 +447,11 @@ export interface FileRouteTypes {
     | '/plan/'
     | '/safari/'
     | '/stay/'
+    | '/about/tigers/$slug'
     | '/highlights/ranthambhore-insights/$slug'
     | '/highlights/ranthambhore-insights/new'
     | '/highlights/safari-insights/$slug'
+    | '/about/tigers/'
     | '/highlights/ranthambhore-insights/'
     | '/highlights/safari-insights/'
     | '/highlights/safari-insights/zone/$zoneId'
@@ -457,7 +467,6 @@ export interface FileRouteTypes {
     | '/about/history'
     | '/about/national-park'
     | '/about/temples-and-museums'
-    | '/about/tigers'
     | '/daily-updates/new'
     | '/plan/best-time'
     | '/plan/cab-hire'
@@ -482,9 +491,11 @@ export interface FileRouteTypes {
     | '/plan'
     | '/safari'
     | '/stay'
+    | '/about/tigers/$slug'
     | '/highlights/ranthambhore-insights/$slug'
     | '/highlights/ranthambhore-insights/new'
     | '/highlights/safari-insights/$slug'
+    | '/about/tigers'
     | '/highlights/ranthambhore-insights'
     | '/highlights/safari-insights'
     | '/highlights/safari-insights/zone/$zoneId'
@@ -501,7 +512,6 @@ export interface FileRouteTypes {
     | '/(main)/about/history'
     | '/(main)/about/national-park'
     | '/(main)/about/temples-and-museums'
-    | '/(main)/about/tigers'
     | '/(main)/daily-updates/new'
     | '/(main)/plan/best-time'
     | '/(main)/plan/cab-hire'
@@ -526,9 +536,11 @@ export interface FileRouteTypes {
     | '/(main)/plan/'
     | '/(main)/safari/'
     | '/(main)/stay/'
+    | '/(main)/about/tigers/$slug'
     | '/(main)/highlights/ranthambhore-insights/$slug'
     | '/(main)/highlights/ranthambhore-insights/new'
     | '/(main)/highlights/safari-insights/$slug'
+    | '/(main)/about/tigers/'
     | '/(main)/highlights/ranthambhore-insights/'
     | '/(main)/highlights/safari-insights/'
     | '/(main)/highlights/safari-insights/zone/$zoneId'
@@ -737,13 +749,6 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof mainDailyUpdatesNewRouteImport
       parentRoute: typeof mainRouteRoute
     }
-    '/(main)/about/tigers': {
-      id: '/(main)/about/tigers'
-      path: '/about/tigers'
-      fullPath: '/about/tigers'
-      preLoaderRoute: typeof mainAboutTigersRouteImport
-      parentRoute: typeof mainRouteRoute
-    }
     '/(main)/about/temples-and-museums': {
       id: '/(main)/about/temples-and-museums'
       path: '/about/temples-and-museums'
@@ -807,6 +812,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof mainHighlightsRanthambhoreInsightsIndexRouteImport
       parentRoute: typeof mainRouteRoute
     }
+    '/(main)/about/tigers/': {
+      id: '/(main)/about/tigers/'
+      path: '/about/tigers'
+      fullPath: '/about/tigers/'
+      preLoaderRoute: typeof mainAboutTigersIndexRouteImport
+      parentRoute: typeof mainRouteRoute
+    }
     '/(main)/highlights/safari-insights/$slug': {
       id: '/(main)/highlights/safari-insights/$slug'
       path: '/highlights/safari-insights/$slug'
@@ -826,6 +838,13 @@ declare module '@tanstack/react-router' {
       path: '/highlights/ranthambhore-insights/$slug'
       fullPath: '/highlights/ranthambhore-insights/$slug'
       preLoaderRoute: typeof mainHighlightsRanthambhoreInsightsSlugRouteImport
+      parentRoute: typeof mainRouteRoute
+    }
+    '/(main)/about/tigers/$slug': {
+      id: '/(main)/about/tigers/$slug'
+      path: '/about/tigers/$slug'
+      fullPath: '/about/tigers/$slug'
+      preLoaderRoute: typeof mainAboutTigersSlugRouteImport
       parentRoute: typeof mainRouteRoute
     }
     '/(main)/highlights/safari-insights/zone/$zoneId': {
@@ -849,7 +868,6 @@ interface mainRouteRouteChildren {
   mainAboutHistoryRoute: typeof mainAboutHistoryRoute
   mainAboutNationalParkRoute: typeof mainAboutNationalParkRoute
   mainAboutTemplesAndMuseumsRoute: typeof mainAboutTemplesAndMuseumsRoute
-  mainAboutTigersRoute: typeof mainAboutTigersRoute
   mainDailyUpdatesNewRoute: typeof mainDailyUpdatesNewRoute
   mainPlanBestTimeRoute: typeof mainPlanBestTimeRoute
   mainPlanCabHireRoute: typeof mainPlanCabHireRoute
@@ -873,9 +891,11 @@ interface mainRouteRouteChildren {
   mainPlanIndexRoute: typeof mainPlanIndexRoute
   mainSafariIndexRoute: typeof mainSafariIndexRoute
   mainStayIndexRoute: typeof mainStayIndexRoute
+  mainAboutTigersSlugRoute: typeof mainAboutTigersSlugRoute
   mainHighlightsRanthambhoreInsightsSlugRoute: typeof mainHighlightsRanthambhoreInsightsSlugRoute
   mainHighlightsRanthambhoreInsightsNewRoute: typeof mainHighlightsRanthambhoreInsightsNewRoute
   mainHighlightsSafariInsightsSlugRoute: typeof mainHighlightsSafariInsightsSlugRoute
+  mainAboutTigersIndexRoute: typeof mainAboutTigersIndexRoute
   mainHighlightsRanthambhoreInsightsIndexRoute: typeof mainHighlightsRanthambhoreInsightsIndexRoute
   mainHighlightsSafariInsightsIndexRoute: typeof mainHighlightsSafariInsightsIndexRoute
   mainHighlightsSafariInsightsZoneZoneIdRoute: typeof mainHighlightsSafariInsightsZoneZoneIdRoute
@@ -892,7 +912,6 @@ const mainRouteRouteChildren: mainRouteRouteChildren = {
   mainAboutHistoryRoute: mainAboutHistoryRoute,
   mainAboutNationalParkRoute: mainAboutNationalParkRoute,
   mainAboutTemplesAndMuseumsRoute: mainAboutTemplesAndMuseumsRoute,
-  mainAboutTigersRoute: mainAboutTigersRoute,
   mainDailyUpdatesNewRoute: mainDailyUpdatesNewRoute,
   mainPlanBestTimeRoute: mainPlanBestTimeRoute,
   mainPlanCabHireRoute: mainPlanCabHireRoute,
@@ -916,11 +935,13 @@ const mainRouteRouteChildren: mainRouteRouteChildren = {
   mainPlanIndexRoute: mainPlanIndexRoute,
   mainSafariIndexRoute: mainSafariIndexRoute,
   mainStayIndexRoute: mainStayIndexRoute,
+  mainAboutTigersSlugRoute: mainAboutTigersSlugRoute,
   mainHighlightsRanthambhoreInsightsSlugRoute:
     mainHighlightsRanthambhoreInsightsSlugRoute,
   mainHighlightsRanthambhoreInsightsNewRoute:
     mainHighlightsRanthambhoreInsightsNewRoute,
   mainHighlightsSafariInsightsSlugRoute: mainHighlightsSafariInsightsSlugRoute,
+  mainAboutTigersIndexRoute: mainAboutTigersIndexRoute,
   mainHighlightsRanthambhoreInsightsIndexRoute:
     mainHighlightsRanthambhoreInsightsIndexRoute,
   mainHighlightsSafariInsightsIndexRoute:

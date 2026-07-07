@@ -1,11 +1,12 @@
 import { Link } from "@tanstack/react-router";
 import { ArrowLeft, ArrowRight } from "lucide-react";
-import { AnimatePresence, motion } from "motion/react";
-import { useEffect, useMemo, useState } from "react";
+import { motion } from "motion/react";
+import { useEffect, useRef, useState } from "react";
 import { useInterval } from "#/hooks/useInterval";
 import { Image } from "#/util/Image";
 
 const AUTO_ADVANCE_MS = 6000;
+const GAP_PX = 32;
 
 const POPULAR_ANIMALS = [
 	{
@@ -138,7 +139,7 @@ const POPULAR_ANIMALS = [
 	},
 ] as const;
 
-function getItemsPerPage(width: number) {
+function getVisibleCount(width: number) {
 	if (width >= 1024) {
 		return 3;
 	}
@@ -149,39 +150,48 @@ function getItemsPerPage(width: number) {
 }
 
 export function PopularWildlifeSection() {
-	const [pageIndex, setPageIndex] = useState(0);
-	const [itemsPerPage, setItemsPerPage] = useState(3);
+	const [activeIndex, setActiveIndex] = useState(0);
+	const [visibleCount, setVisibleCount] = useState(3);
 	const [paused, setPaused] = useState(false);
+	const viewportRef = useRef<HTMLDivElement>(null);
+	const [viewportW, setViewportW] = useState(0);
 
 	useEffect(() => {
-		const updateItemsPerPage = () => {
-			setItemsPerPage(getItemsPerPage(window.innerWidth));
-		};
+		const el = viewportRef.current;
+		if (!el) {
+			return;
+		}
 
-		updateItemsPerPage();
-		window.addEventListener("resize", updateItemsPerPage);
-		return () => window.removeEventListener("resize", updateItemsPerPage);
+		const observer = new ResizeObserver(([entry]) => {
+			const width = entry.contentRect.width;
+			setViewportW(width);
+			setVisibleCount(getVisibleCount(width));
+		});
+
+		observer.observe(el);
+		return () => observer.disconnect();
 	}, []);
 
-	const totalPages = Math.ceil(POPULAR_ANIMALS.length / itemsPerPage);
+	const cardWidth =
+		visibleCount > 0 && viewportW > 0
+			? (viewportW - GAP_PX * (visibleCount - 1)) / visibleCount
+			: 0;
+	const step = cardWidth + GAP_PX;
+	const maxIndex = Math.max(0, POPULAR_ANIMALS.length - visibleCount);
+	const offset = activeIndex * step;
 
 	useEffect(() => {
-		setPageIndex((current) => Math.min(current, Math.max(0, totalPages - 1)));
-	}, [totalPages]);
+		setActiveIndex((current) => Math.min(current, maxIndex));
+	}, [maxIndex]);
 
-	const visibleAnimals = useMemo(() => {
-		const start = pageIndex * itemsPerPage;
-		return POPULAR_ANIMALS.slice(start, start + itemsPerPage);
-	}, [pageIndex, itemsPerPage]);
-
-	const canGoPrev = pageIndex > 0;
-	const canGoNext = pageIndex < totalPages - 1;
+	const canGoPrev = activeIndex > 0;
+	const canGoNext = activeIndex < maxIndex;
 
 	useInterval(
 		() => {
-			setPageIndex((current) => (current + 1) % totalPages);
+			setActiveIndex((current) => (current >= maxIndex ? 0 : current + 1));
 		},
-		paused || totalPages <= 1 ? null : AUTO_ADVANCE_MS,
+		paused || maxIndex === 0 || viewportW === 0 ? null : AUTO_ADVANCE_MS,
 	);
 
 	return (
@@ -217,7 +227,7 @@ export function PopularWildlifeSection() {
 							type="button"
 							aria-label="Previous animals"
 							disabled={!canGoPrev}
-							onClick={() => setPageIndex((current) => current - 1)}
+							onClick={() => setActiveIndex((current) => current - 1)}
 							className="flex size-11 items-center justify-center rounded-full border border-charcoal-300 text-charcoal-700 transition-colors hover:border-charcoal-800 hover:text-charcoal-800 disabled:pointer-events-none disabled:opacity-40"
 						>
 							<ArrowLeft className="size-5" />
@@ -226,7 +236,7 @@ export function PopularWildlifeSection() {
 							type="button"
 							aria-label="Next animals"
 							disabled={!canGoNext}
-							onClick={() => setPageIndex((current) => current + 1)}
+							onClick={() => setActiveIndex((current) => current + 1)}
 							className="flex size-11 items-center justify-center rounded-full border border-charcoal-300 text-charcoal-700 transition-colors hover:border-charcoal-800 hover:text-charcoal-800 disabled:pointer-events-none disabled:opacity-40"
 						>
 							<ArrowRight className="size-5" />
@@ -234,59 +244,53 @@ export function PopularWildlifeSection() {
 					</div>
 				</div>
 
-				<div className="mt-12 overflow-hidden">
-					<AnimatePresence mode="wait" initial={false}>
-						<motion.div
-							key={`${pageIndex}-${itemsPerPage}`}
-							className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3"
-							initial={{ opacity: 0, x: 48 }}
-							animate={{ opacity: 1, x: 0 }}
-							exit={{ opacity: 0, x: -48 }}
-							transition={{ duration: 0.55, ease: "easeOut" }}
-						>
-							{visibleAnimals.map((animal) => (
-								<article
-									key={animal.id}
-									className="flex flex-col overflow-hidden rounded-2xl bg-cream-100 shadow-sm ring-1 ring-muted-300"
-								>
-									<div className="relative aspect-4/3 w-full overflow-hidden">
-										<Image
-											src={animal.image.src}
-											alt={animal.image.alt}
-											width={animal.image.width}
-											height={animal.image.height}
-											className="absolute inset-0 h-full w-full object-cover"
-										/>
+				<div ref={viewportRef} className="mt-12 overflow-hidden">
+					<motion.div
+						className="flex gap-8"
+						animate={{ x: -offset }}
+						transition={{ type: "spring", stiffness: 260, damping: 36 }}
+					>
+						{POPULAR_ANIMALS.map((animal) => (
+							<article
+								key={animal.id}
+								style={cardWidth > 0 ? { width: cardWidth } : undefined}
+								className="flex shrink-0 flex-col overflow-hidden rounded-2xl bg-cream-100 shadow-sm ring-1 ring-muted-300"
+							>
+								<div className="relative aspect-4/3 w-full overflow-hidden">
+									<Image
+										src={animal.image.src}
+										alt={animal.image.alt}
+										width={animal.image.width}
+										height={animal.image.height}
+										className="absolute inset-0 h-full w-full object-cover"
+									/>
+								</div>
+
+								<div className="flex flex-1 flex-col p-6">
+									<h3 className="text-xl text-charcoal-800">{animal.title}</h3>
+
+									<p className="mt-2">
+										<span className="font-display text-xs font-bold uppercase tracking-display text-sunset-500">
+											{animal.category}
+										</span>
+										<span className="ml-2 font-body text-sm text-charcoal-500">
+											{animal.fameTag}
+										</span>
+									</p>
+
+									<p className="mt-3 flex-1 font-body text-sm leading-relaxed text-charcoal-600">
+										{animal.description}
+									</p>
+
+									<div className="mt-5">
+										<span className="inline-block rounded bg-sunset-500/20 px-3 py-1.5 font-display text-xs font-semibold uppercase tracking-display text-sunset-700 ring-1 ring-sunset-500/30">
+											{animal.badge}
+										</span>
 									</div>
-
-									<div className="flex flex-1 flex-col p-6">
-										<h3 className="text-xl text-charcoal-800">
-											{animal.title}
-										</h3>
-
-										<p className="mt-2">
-											<span className="font-display text-xs font-bold uppercase tracking-display text-sunset-500">
-												{animal.category}
-											</span>
-											<span className="ml-2 font-body text-sm text-charcoal-500">
-												{animal.fameTag}
-											</span>
-										</p>
-
-										<p className="mt-3 flex-1 font-body text-sm leading-relaxed text-charcoal-600">
-											{animal.description}
-										</p>
-
-										<div className="mt-5">
-											<span className="inline-block rounded bg-sunset-500/20 px-3 py-1.5 font-display text-xs font-semibold uppercase tracking-display text-sunset-700 ring-1 ring-sunset-500/30">
-												{animal.badge}
-											</span>
-										</div>
-									</div>
-								</article>
-							))}
-						</motion.div>
-					</AnimatePresence>
+								</div>
+							</article>
+						))}
+					</motion.div>
 				</div>
 
 				<div className="mt-10 flex justify-center lg:justify-end">

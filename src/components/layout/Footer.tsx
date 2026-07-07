@@ -50,7 +50,7 @@ export function Footer() {
 				</div>
 
 				{/* ── Middle 3-Column Section ── */}
-				<div className="grid grid-cols-1 gap-10 border-t border-muted-300 pt-10 md:grid-cols-3">
+				<div className="grid grid-cols-1 gap-10 pt-10 md:grid-cols-3">
 					{/* Column 1 — Quick Links */}
 					<div>
 						<h3 className="mb-2 font-display uppercase tracking-display text-charcoal-900">

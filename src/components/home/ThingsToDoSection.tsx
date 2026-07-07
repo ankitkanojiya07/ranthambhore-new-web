@@ -118,15 +118,13 @@ export function ThingsToDoSection() {
 							transition={{ type: "spring", stiffness: 260, damping: 36 }}
 							className="flex gap-6"
 						>
-							{ATTRACTIONS.map((attraction, i) => {
+							{ATTRACTIONS.map((attraction) => {
 								const Icon = attraction.icon;
 								return (
 									<motion.article
 										key={attraction.id}
 										variants={itemVariants}
-										className={`group relative w-[280px] shrink-0 lg:w-[300px] ${
-											i % 2 === 0 ? "lg:-translate-y-8" : "lg:translate-y-8"
-										}`}
+										className="group relative w-[280px] shrink-0 lg:w-[300px]"
 									>
 										{/* Image wrapper — the only clipped layer */}
 										<div className="relative aspect-9/13 w-full overflow-hidden rounded-sm">
@@ -141,11 +139,7 @@ export function ThingsToDoSection() {
 										</div>
 
 										{/* Icon circle — protrudes on the outer edge */}
-										<div
-											className={`absolute right-6 z-20 flex size-12 items-center justify-center rounded-full bg-cream-100 shadow-sm ring-1 ring-muted-300 ${
-												i % 2 === 0 ? "-bottom-6" : "-top-6"
-											}`}
-										>
+										<div className="absolute right-6 -bottom-6 z-20 flex size-12 items-center justify-center rounded-full bg-cream-100 shadow-sm ring-1 ring-muted-300">
 											<Icon
 												className="size-5 text-tiger-900"
 												strokeWidth={1.25}

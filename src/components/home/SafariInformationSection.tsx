@@ -6,6 +6,7 @@ const SAFARI_TYPES = [
 	{
 		id: "gypsy",
 		href: "/safari/jeep",
+		hash: "gypsy",
 		image: {
 			src: "/Home/canter.webp",
 			alt: "Photographer on a Gypsy safari in Ranthambore",
@@ -18,7 +19,8 @@ const SAFARI_TYPES = [
 	},
 	{
 		id: "canter",
-		href: "/safari/canter",
+		href: "/safari/jeep",
+		hash: "canter",
 		image: {
 			src: "/Home/gypsy.webp",
 			alt: "Canter safari vehicle with passengers in Ranthambore",
@@ -52,7 +54,7 @@ export function SafariInformationSection() {
 					</p>
 
 					<p className="mt-4 font-body text-sm text-sunset-600">
-						Click on any safari type below to view detailed information.
+						Click on any safari type below to compare Gypsy and Canter options.
 					</p>
 				</div>
 
@@ -64,6 +66,7 @@ export function SafariInformationSection() {
 							<Link
 								key={safari.id}
 								to={safari.href}
+								hash={safari.hash}
 								className="group relative aspect-5/3 overflow-hidden rounded-2xl shadow-md ring-1 ring-muted-300/60 transition-shadow hover:shadow-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-forest-500"
 							>
 								<Image

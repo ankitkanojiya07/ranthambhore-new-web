@@ -203,16 +203,8 @@ export const ABOUT_PAGES: Record<string, AboutPageContent> = {
 	tigers: {
 		eyebrow: "About Ranthambore",
 		title: "Tigers of Ranthambore",
-		subtitle:
-			"Meet the Royal Bengal Tigers that made Ranthambore famous, from legendary Machli to younger territory holders shaping the park's future.",
+		subtitle: "",
 		image: "/hero/1.webp",
-		badge: "Royal Bengal Tigers",
-		stats: [
-			{ value: "70", unit: "+", label: "Tigers in the Landscape", index: "01" },
-			{ value: "T-16", unit: "", label: "Machli's Code", index: "02" },
-			{ value: "10", unit: "", label: "Safari Zones", index: "03" },
-			{ value: "1", unit: "", label: "Unique Stripe Pattern", index: "04" },
-		],
 		introTitle: "The Apex Predator of the Lake Country",
 		intro:
 			"The Royal Bengal Tiger is the star of Ranthambore. Each individual can be recognised by a unique stripe pattern, and many have become known to guides, photographers, and repeat visitors by name and territory.",

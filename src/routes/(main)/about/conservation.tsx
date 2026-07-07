@@ -1,11 +1,8 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { GuidePage } from "#/components/pages/GuidePage";
-import { ABOUT_PAGES } from "#/lib/about-ranthambore-pages";
-
-const page = ABOUT_PAGES.conservation;
+import { ConservationPage } from "#/components/pages/ConservationPage";
 
 export const Route = createFileRoute("/(main)/about/conservation")({
-	staticData: { navOverlay: true },
+	staticData: { navOverlay: false },
 	head: () => ({
 		meta: [
 			{
@@ -21,7 +18,3 @@ export const Route = createFileRoute("/(main)/about/conservation")({
 	}),
 	component: ConservationPage,
 });
-
-function ConservationPage() {
-	return <GuidePage {...page} />;
-}
