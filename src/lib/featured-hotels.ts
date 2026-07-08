@@ -13,9 +13,9 @@ export interface FeaturedHotel {
 export const FEATURED_HOTELS: FeaturedHotel[] = [
 	{
 		name: "Ranthambore Regency",
-		tagline: "Luxury jungle resort in Sawai Madhopur",
+		tagline: "Explore the Wild, Relax in Luxury",
 		description:
-			"A family-operated jungle resort just five minutes from Ranthambore National Park — genteel, comfortable hospitality set amidst complete wilderness.",
+			"A family-operated resort just five minutes from Ranthambore National Park — genteel, comfortable hospitality set amidst complete wilderness.",
 		highlights: [
 			"5 minutes from the national park gates",
 			"Experienced naturalists for jungle safaris",
@@ -62,7 +62,7 @@ export const FEATURED_HOTELS: FeaturedHotel[] = [
 		name: "Ranthambhore Aangan",
 		tagline: "Boutique luxury farmstay near the park",
 		description:
-			"An intimate eight-room farmstay set amidst farms and forest in the Aravalli bowl — close to core safari zones yet peacefully removed from the main road.",
+			"An intimate farmstay set amidst farms and forest in the Aravalli bowl — close to core safari zones yet peacefully removed from the main road.",
 		highlights: [
 			"~5 minutes to Zones 1–5, 15–20 minutes to Zones 6–10",
 			"Only eight rooms for a quiet, personal stay",

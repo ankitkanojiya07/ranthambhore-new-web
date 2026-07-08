@@ -10,7 +10,7 @@ const STICKY_OFFSET_REM = 1.5;
 export function StaySection() {
 	return (
 		<section
-			className="border-b border-muted-300 bg-sand-50 px-6 py-20 lg:px-8 lg:py-28"
+			className="bg-sand-50 px-6 py-20 lg:px-8 lg:py-28"
 			aria-label="Recommended stays near Ranthambore"
 		>
 			<div className="mx-auto max-w-7xl">

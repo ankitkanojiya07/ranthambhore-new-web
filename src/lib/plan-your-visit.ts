@@ -156,6 +156,10 @@ export const GETTING_HERE = {
 				"Delhi: ~381 km (6–7 hours)",
 				"Agra: ~239 km (4–5 hours)",
 				"Udaipur: ~388 km (7 hours)",
+				"Gurugram: ~400 km (6–7 hours)",
+				"Jodhpur: ~445 km (8–9 hours)",
+				"Bandhavgarh National Park: ~681 km (10+ hours)",
+				"Chambal Gharial Safari: ~50 km (1 hour)",
 			],
 		},
 		{

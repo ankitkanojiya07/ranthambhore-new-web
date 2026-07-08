@@ -1,29 +1,18 @@
 import { useId, useState } from "react";
-import { MultiSelectDropdown } from "#/components/ui/multi-select-dropdown";
+import {
+	formDateInputClasses,
+	formGridGapClass,
+	FormFieldLabel,
+	formInputClasses,
+	formSpacingClass,
+	formSubmitButtonClasses,
+	FormTextarea,
+} from "#/components/forms/form-field";
 
 const FORMSUBMIT_RECEIVER_EMAIL = "akanojiya550@gmail.com";
 const FORMSUBMIT_CC_EMAILS =
 	"ravindra2007@icloud.com,ranthambhoreregency@gmail.com";
 const FORMSUBMIT_ENDPOINT = `https://formsubmit.co/ajax/${FORMSUBMIT_RECEIVER_EMAIL}`;
-
-const QUERY_OPTIONS = ["Safari", "Hotels & Resorts"];
-
-const GUEST_OPTIONS = [
-	"1 Guest",
-	"2 Guests",
-	"3 Guests",
-	"4 Guests",
-	"5 Guests",
-	"6+ Guests",
-];
-
-const inputClasses =
-	"w-full rounded border border-muted-300 bg-sand-50 px-4 py-3 font-body text-sm text-charcoal-800 placeholder:text-charcoal-400 focus:border-sunset-500 focus:outline-none";
-
-const dateInputClasses = `${inputClasses} [&::-webkit-calendar-picker-indicator]:cursor-pointer [&::-webkit-calendar-picker-indicator]:opacity-70`;
-
-const labelClasses =
-	"mb-1.5 block font-display text-[10px] uppercase tracking-display text-charcoal-700";
 
 function todayIsoDate(): string {
 	const now = new Date();
@@ -37,23 +26,6 @@ function formatIsoDateDisplay(isoDate: string): string {
 	const [year, month, day] = isoDate.split("-");
 	if (!year || !month || !day) return isoDate;
 	return `${day}/${month}/${year}`;
-}
-
-function FieldLabel({
-	htmlFor,
-	children,
-	required = false,
-}: {
-	htmlFor: string;
-	children: React.ReactNode;
-	required?: boolean;
-}) {
-	return (
-		<label htmlFor={htmlFor} className={labelClasses}>
-			{children}
-			{required && <span className="text-sunset-600"> *</span>}
-		</label>
-	);
 }
 
 export function ContactEnquiryForm() {
@@ -94,7 +66,6 @@ export function ContactEnquiryForm() {
 				formData.get("checkOutDate")?.toString() ?? "",
 			),
 			guests: formData.get("guests")?.toString() ?? "",
-			queryAbout: formData.getAll("queryAbout").join(", "),
 			phone: formData.get("phone")?.toString() || "Not provided",
 			specialRequests:
 				formData.get("specialRequests")?.toString() || "No special requests.",
@@ -135,7 +106,7 @@ export function ContactEnquiryForm() {
 	}
 
 	return (
-		<form onSubmit={handleSubmit} className="space-y-4">
+		<form onSubmit={handleSubmit} className={formSpacingClass}>
 			<input
 				type="text"
 				name="_honey"
@@ -144,11 +115,11 @@ export function ContactEnquiryForm() {
 				className="hidden"
 				style={{ display: "none" }}
 			/>
-			<div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+			<div className={`grid grid-cols-1 sm:grid-cols-2 ${formGridGapClass}`}>
 				<div>
-					<FieldLabel htmlFor={fieldId("check-in")} required>
+					<FormFieldLabel htmlFor={fieldId("check-in")} required>
 						Check-in Date
-					</FieldLabel>
+					</FormFieldLabel>
 					<input
 						id={fieldId("check-in")}
 						name="checkInDate"
@@ -163,13 +134,13 @@ export function ContactEnquiryForm() {
 								setCheckOutDate("");
 							}
 						}}
-						className={dateInputClasses}
+						className={formDateInputClasses}
 					/>
 				</div>
 				<div>
-					<FieldLabel htmlFor={fieldId("check-out")} required>
+					<FormFieldLabel htmlFor={fieldId("check-out")} required>
 						Check-out Date
-					</FieldLabel>
+					</FormFieldLabel>
 					<input
 						id={fieldId("check-out")}
 						name="checkOutDate"
@@ -178,97 +149,74 @@ export function ContactEnquiryForm() {
 						min={checkInDate || today}
 						value={checkOutDate}
 						onChange={(event) => setCheckOutDate(event.target.value)}
-						className={dateInputClasses}
-					/>
-				</div>
-			</div>
-
-			<div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
-				<div>
-					<FieldLabel htmlFor={fieldId("guests")} required>
-						Guests
-					</FieldLabel>
-					<select
-						id={fieldId("guests")}
-						name="guests"
-						required
-						className={inputClasses}
-						defaultValue=""
-					>
-						<option value="" disabled>
-							Select guests
-						</option>
-						{GUEST_OPTIONS.map((opt) => (
-							<option key={opt} value={opt}>
-								{opt}
-							</option>
-						))}
-					</select>
-				</div>
-				<div>
-					<FieldLabel htmlFor={fieldId("query-about")} required>
-						Query About
-					</FieldLabel>
-					<MultiSelectDropdown
-						id={fieldId("query-about")}
-						name="queryAbout"
-						options={QUERY_OPTIONS}
-						placeholder="Query about"
-						required
+						className={formDateInputClasses}
 					/>
 				</div>
 			</div>
 
 			<div>
-				<FieldLabel htmlFor={fieldId("full-name")} required>
+				<FormFieldLabel htmlFor={fieldId("guests")} required>
+					Guests
+				</FormFieldLabel>
+				<input
+					id={fieldId("guests")}
+					name="guests"
+					type="text"
+					required
+					placeholder="Enter number of guests"
+					className={formInputClasses}
+				/>
+			</div>
+
+			<div>
+				<FormFieldLabel htmlFor={fieldId("full-name")} required>
 					Full Name
-				</FieldLabel>
+				</FormFieldLabel>
 				<input
 					id={fieldId("full-name")}
 					name="fullName"
 					type="text"
 					required
 					placeholder="Enter your full name"
-					className={inputClasses}
+					className={formInputClasses}
 				/>
 			</div>
 
-			<div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+			<div className={`grid grid-cols-1 sm:grid-cols-2 ${formGridGapClass}`}>
 				<div>
-					<FieldLabel htmlFor={fieldId("email")} required>
+					<FormFieldLabel htmlFor={fieldId("email")} required>
 						Email Address
-					</FieldLabel>
+					</FormFieldLabel>
 					<input
 						id={fieldId("email")}
 						name="email"
 						type="email"
 						required
 						placeholder="Enter your email"
-						className={inputClasses}
+						className={formInputClasses}
 					/>
 				</div>
 				<div>
-					<FieldLabel htmlFor={fieldId("phone")}>Phone Number</FieldLabel>
+					<FormFieldLabel htmlFor={fieldId("phone")}>Phone Number</FormFieldLabel>
 					<input
 						id={fieldId("phone")}
 						name="phone"
 						type="tel"
 						placeholder="Enter your phone number"
-						className={inputClasses}
+						className={formInputClasses}
 					/>
 				</div>
 			</div>
 
 			<div>
-				<FieldLabel htmlFor={fieldId("special-requests")}>
+				<FormFieldLabel htmlFor={fieldId("special-requests")}>
 					Special Requests
-				</FieldLabel>
-				<textarea
+				</FormFieldLabel>
+				<FormTextarea
 					id={fieldId("special-requests")}
 					name="specialRequests"
 					placeholder="Any special requests?"
-					rows={4}
-					className={inputClasses}
+					rows={2}
 				/>
 			</div>
 
@@ -288,7 +236,7 @@ export function ContactEnquiryForm() {
 				<button
 					type="submit"
 					disabled={loading}
-					className="rounded bg-sunset-500 px-8 py-3 font-display text-xs uppercase tracking-display text-sand-50 transition-colors hover:bg-sunset-600 disabled:cursor-not-allowed disabled:opacity-60"
+					className={formSubmitButtonClasses}
 				>
 					{loading ? "Sending…" : "Send Enquiry"}
 				</button>

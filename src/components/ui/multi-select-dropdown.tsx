@@ -67,7 +67,7 @@ export function MultiSelectDropdown({
 				aria-controls={listboxId}
 				onClick={() => setOpen((current) => !current)}
 				className={cn(
-					"flex w-full items-center justify-between gap-3 rounded border border-muted-300 bg-sand-50 px-4 py-3 text-left font-body text-sm focus:border-sunset-500 focus:outline-none",
+					"flex w-full items-center justify-between gap-3 rounded border border-muted-300 bg-sand-50 px-3 py-2 text-left font-body text-sm focus:border-sunset-500 focus:outline-none",
 					selected.length === 0 ? "text-charcoal-400" : "text-charcoal-800",
 				)}
 			>

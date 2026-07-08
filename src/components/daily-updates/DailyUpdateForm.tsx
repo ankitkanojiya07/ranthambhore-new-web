@@ -7,10 +7,11 @@ import {
 	type DailyUpdateFormInput,
 } from "#/components/daily-updates/queries/daily-updates.mutation";
 import { Button } from "#/components/ui/button";
+import {
+	formInputClasses,
+	formSpacingClass,
+} from "#/components/forms/form-field";
 import { BLOG_ZONE_OPTIONS } from "#/constants/blog-zones";
-
-const inputClasses =
-	"w-full rounded border border-muted-300 bg-sand-50 px-4 py-3 font-body text-sm text-charcoal-800 placeholder:text-charcoal-400 focus:border-sunset-500 focus:outline-none";
 
 export function DailyUpdateForm() {
 	const navigate = useNavigate();
@@ -75,7 +76,7 @@ export function DailyUpdateForm() {
 	}
 
 	return (
-		<form onSubmit={handleSubmit} className="space-y-5">
+		<form onSubmit={handleSubmit} className={formSpacingClass}>
 			<div>
 				<AuthFieldLabel htmlFor="daily-update-title" required>
 					Title
@@ -99,7 +100,7 @@ export function DailyUpdateForm() {
 					required
 					value={zoneId}
 					onChange={(event) => setZoneId(event.target.value)}
-					className={inputClasses}
+					className={formInputClasses}
 				>
 					<option value="" disabled>
 						Select a zone
@@ -135,7 +136,7 @@ export function DailyUpdateForm() {
 					value={content}
 					onChange={(event) => setContent(event.target.value)}
 					placeholder="Describe the sighting..."
-					className={inputClasses}
+					className={formInputClasses}
 				/>
 			</div>
 

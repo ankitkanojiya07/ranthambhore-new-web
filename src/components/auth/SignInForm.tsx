@@ -6,6 +6,7 @@ import {
 	AuthInput,
 } from "#/components/auth/AuthCard";
 import { Button } from "#/components/ui/button";
+import { formSpacingClass } from "#/components/forms/form-field";
 import { authClient } from "#/lib/auth-client";
 import {
 	AUTH_DEFAULT_REDIRECT,
@@ -61,7 +62,7 @@ export function SignInForm({
 				</p>
 			}
 		>
-			<form onSubmit={handleSubmit} className="space-y-5">
+			<form onSubmit={handleSubmit} className={formSpacingClass}>
 				<div>
 					<AuthFieldLabel htmlFor="sign-in-email" required>
 						Email

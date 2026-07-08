@@ -7,10 +7,11 @@ import {
 	type RanthambhoreUpdateFormInput,
 } from "#/components/highlights/queries/ranthambhore-updates.mutation";
 import { Button } from "#/components/ui/button";
+import {
+	formInputClasses,
+	formSpacingClass,
+} from "#/components/forms/form-field";
 import { BLOG_CATEGORY_OPTIONS } from "#/constants/blog-categories";
-
-const inputClasses =
-	"w-full rounded border border-muted-300 bg-sand-50 px-4 py-3 font-body text-sm text-charcoal-800 placeholder:text-charcoal-400 focus:border-sunset-500 focus:outline-none";
 
 export function RanthambhoreUpdateForm() {
 	const navigate = useNavigate();
@@ -75,7 +76,7 @@ export function RanthambhoreUpdateForm() {
 	}
 
 	return (
-		<form onSubmit={handleSubmit} className="space-y-5">
+		<form onSubmit={handleSubmit} className={formSpacingClass}>
 			<div>
 				<AuthFieldLabel htmlFor="ranthambhore-update-title" required>
 					Title
@@ -99,7 +100,7 @@ export function RanthambhoreUpdateForm() {
 					required
 					value={category}
 					onChange={(event) => setCategory(event.target.value)}
-					className={inputClasses}
+					className={formInputClasses}
 				>
 					<option value="" disabled>
 						Select a category
@@ -136,7 +137,7 @@ export function RanthambhoreUpdateForm() {
 					value={content}
 					onChange={(event) => setContent(event.target.value)}
 					placeholder="Write your park news, travel guide, or safari tips..."
-					className={inputClasses}
+					className={formInputClasses}
 				/>
 			</div>
 

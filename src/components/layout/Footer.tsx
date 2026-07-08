@@ -28,7 +28,7 @@ function openExternalLink(url: string) {
 
 export function Footer() {
 	return (
-		<footer className="relative overflow-hidden border-t border-muted-300 bg-sand-100">
+		<footer id="site-footer" className="relative overflow-hidden border-t border-muted-300 bg-sand-100">
 			<div className="relative z-10 mx-auto max-w-7xl px-6 lg:px-8">
 				{/* ── Top Branding Zone ── */}
 				<div className="relative flex items-end justify-center pb-10 pt-16">
@@ -73,7 +73,7 @@ export function Footer() {
 					{/* Column 2 — Explore */}
 					<div>
 						<h3 className="mb-2 font-display uppercase tracking-display text-charcoal-900">
-							Explore
+						Discover Our Retreats
 						</h3>
 						<ul className="mb-6 space-y-3">
 							{RESOURCES.map((resource) => (

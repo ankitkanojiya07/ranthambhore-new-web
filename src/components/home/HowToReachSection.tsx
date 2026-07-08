@@ -36,6 +36,10 @@ const ROAD_DISTANCES = [
 	{ city: "Jaipur", km: "155 km" },
 	{ city: "Agra", km: "239 km" },
 	{ city: "Udaipur", km: "388 km" },
+	{ city: "Gurugram", km: "400 km" },
+	{ city: "Jodhpur", km: "445 km" },
+	{ city: "Bandhavgarh National Park", km: "681 km" },
+	{ city: "Chambal Gharial Safari", km: "50 km" },
 ] as const;
 
 /** Outer-edge path for curved label text — tuned to curve-line.png */
@@ -89,7 +93,7 @@ export function HowToReachSection() {
 													key={city}
 													className="rounded-lg border border-sand-300/90 bg-sand-100/70 px-2.5 py-2 text-center"
 												>
-													<dt className="font-display text-[0.625rem] uppercase tracking-display text-earth-500">
+													<dt className="font-display text-[0.625rem] uppercase leading-tight tracking-display text-earth-500">
 														{city}
 													</dt>
 													<dd className="mt-0.5 font-body text-sm font-semibold text-charcoal-900">

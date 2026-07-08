@@ -1,39 +1,13 @@
 import type { ReactNode } from "react";
+import {
+	FormFieldLabel,
+	FormInput,
+	formInputClasses,
+	formLabelClasses,
+} from "#/components/forms/form-field";
 
-const inputClasses =
-	"w-full rounded border border-muted-300 bg-sand-50 px-4 py-3 font-body text-sm text-charcoal-800 placeholder:text-charcoal-400 focus:border-sunset-500 focus:outline-none";
-
-const labelClasses =
-	"mb-1.5 block font-display text-[10px] uppercase tracking-display text-charcoal-700";
-
-export function AuthFieldLabel({
-	htmlFor,
-	children,
-	required = false,
-}: {
-	htmlFor: string;
-	children: ReactNode;
-	required?: boolean;
-}) {
-	return (
-		<label htmlFor={htmlFor} className={labelClasses}>
-			{children}
-			{required && <span className="text-sunset-600"> *</span>}
-		</label>
-	);
-}
-
-export function AuthInput({
-	className,
-	...props
-}: React.ComponentProps<"input">) {
-	return (
-		<input
-			className={className ? `${inputClasses} ${className}` : inputClasses}
-			{...props}
-		/>
-	);
-}
+export { FormFieldLabel as AuthFieldLabel, FormInput as AuthInput };
+export { formInputClasses, formLabelClasses };
 
 export function AuthCard({
 	title,

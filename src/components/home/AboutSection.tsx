@@ -24,12 +24,12 @@ export function AboutSection() {
 					{/* Text content */}
 					<div className="w-full lg:w-[55%]">
 						<p className="font-display text-sm uppercase font-semibold text-earth-500">
-							Welcome to Ranthambhor.com
+							Welcome to
 						</p>
 						<h3 className="mt-2 text-2xl font-semibold text-charcoal-800 lg:text-3xl">
 							Your Trusted Guide to <br /> Ranthambore National Park
 						</h3>
-						<div className="mt-6 space-y-2">
+						<div className="mt-6 space-y-2 text-justify font-body text-base text-charcoal-700">
 							<p>
 								Nestled amidst the ancient Aravalli and Vindhya hill ranges in
 								the Sawai Madhopur district of Rajasthan, Ranthambore is one of
@@ -50,17 +50,18 @@ export function AboutSection() {
 								valleys, and rugged hills.
 							</p>
 						</div>
-						<b className="mt-6 block">Why Visit Ranthambore?</b>
+						<h4 className="mt-6 font-display text-2xl font-semibold text-charcoal-800 lg:text-3xl">
+							Why Visit Ranthambore?
+						</h4>
 						<ul className="mt-6 space-y-2 font-body text-sm text-charcoal-700">
+						<li className="flex gap-2">
+								<span className="text-sunset-500">✦</span>
+								Exciting jeep and canter safaris across ten unique safari zones.
+							</li>
 							<li className="flex gap-2">
 								<span className="text-sunset-500">✦</span>
 								One of the best destinations in the world to spot wild Royal
 								Bengal Tigers.
-							</li>
-							<li className="flex gap-2">
-								<span className="text-sunset-500">✦</span>
-								Home to rich biodiversity, including leopards, sloth bears,
-								crocodiles, and over 300 bird species.
 							</li>
 							<li className="flex gap-2">
 								<span className="text-sunset-500">✦</span>A perfect blend of
@@ -69,7 +70,8 @@ export function AboutSection() {
 							</li>
 							<li className="flex gap-2">
 								<span className="text-sunset-500">✦</span>
-								Exciting jeep and canter safaris across ten unique safari zones.
+								Home to rich biodiversity, including leopards, sloth bears,
+								crocodiles, and over 300 bird species.
 							</li>
 						</ul>
 						<Button

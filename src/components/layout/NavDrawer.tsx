@@ -78,7 +78,7 @@ function NavMenuItem({
 	return (
 		<Accordion.Item value={item.href} className="border-b border-white/10">
 			<Accordion.Header className="flex">
-				<Accordion.Trigger className="group flex w-full cursor-pointer items-center justify-between py-3 text-left font-display text-lg lg:text-xl text-sand-100 transition-colors duration-200 hover:text-golden-300 focus-visible:outline-none">
+				<Accordion.Trigger className="group flex w-full cursor-pointer items-center justify-between py-3 text-left font-display text-lg font-normal lg:text-xl text-sand-100 transition-colors duration-200 hover:text-golden-300 focus-visible:outline-none">
 					{item.label}
 					<ChevronRight className="ml-2 size-4 shrink-0 text-sand-400 transition-transform duration-300 group-data-open:rotate-90" />
 				</Accordion.Trigger>
@@ -166,7 +166,8 @@ function NavDrawerContent({ onClose }: { onClose: () => void }) {
 
 					{/* Plan My Safari CTA */}
 					<Link
-						to="/safari/book"
+						to="/contact"
+						hash="contact-form"
 						onClick={onClose}
 						className="block w-full rounded border border-golden-400 px-4 py-2.5 text-center font-display text-sm uppercase tracking-display text-golden-300 transition-colors duration-200 hover:bg-golden-400/10"
 					>
