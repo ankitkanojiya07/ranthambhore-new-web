@@ -1,5 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import { Mail, MapPin } from "lucide-react";
+import { AuthNavActions } from "#/components/auth/AuthNavActions";
 import { FacebookIcon } from "#/icons/facebook.icon";
 import { InstagramIcon } from "#/icons/instagram.icon";
 import { Image } from "#/util/Image";
@@ -67,6 +68,7 @@ export function Footer() {
 									</Link>
 								</li>
 							))}
+							<AuthNavActions />
 						</ul>
 					</div>
 
@@ -169,15 +171,27 @@ export function Footer() {
 				</div>
 
 				{/* ── Bottom Bar ── */}
-				<div className="mt-10 flex flex-col items-center gap-4 border-t border-muted-300 py-6 md:flex-row md:justify-between">
+				<div className="mt-10 grid grid-cols-1 items-center gap-4 border-t border-muted-300 py-6 md:grid-cols-3">
 					{/* Copyright */}
-					<p className="font-body font-medium text-sm text-charcoal-600">
-						&copy; {new Date().getFullYear()} Ranthambhore Wildlife Hotel. All
-						rights reserved.
+					<p className="text-center font-body font-medium text-sm text-charcoal-600 md:text-left">
+						&copy; 2002–2026 ranthambhor.com. All rights reserved.
+					</p>
+
+					{/* Managed by */}
+					<p className="text-center font-body font-medium text-sm text-charcoal-600">
+						Managed by{" "}
+						<a
+							href="https://services.nxtround.in/"
+							target="_blank"
+							rel="noopener noreferrer"
+							className="text-charcoal-800 transition-colors hover:text-earth-700"
+						>
+							NxtRound
+						</a>
 					</p>
 
 					{/* Social icons */}
-					<div className="flex items-center gap-3">
+					<div className="flex items-center justify-center gap-3 md:justify-end">
 						<a
 							href="https://www.instagram.com/ranthambhoreregencyhotel/"
 							aria-label="Follow us on Instagram"
