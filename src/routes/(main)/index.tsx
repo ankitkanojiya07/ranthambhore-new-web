@@ -14,6 +14,10 @@ export const Route = createFileRoute("/(main)/")({
 				content:
 					"Plan your Ranthambore trip with expert help. Book jeep & canter safaris, find top hotels, and explore India's most famous tiger reserve in Rajasthan.",
 			},
+			{
+				name: "google-site-verification",
+				content: "yujpTPb26klOVmIbEr7mqoxwa7U72ZdhWwiGpNIvvs8",
+			},
 		],
 		links: [
 			{
