@@ -1,7 +1,13 @@
 import { createFileRoute, Outlet } from "@tanstack/react-router";
 import { lazy, Suspense, useEffect, useState } from "react";
-import { Footer } from "#/components/layout/Footer";
+import { DeferUntilMounted } from "#/components/DeferUntilMounted";
 import NavigationBar from "#/components/layout/Navbar";
+
+const Footer = lazy(() =>
+	import("#/components/layout/Footer").then((mod) => ({
+		default: mod.Footer,
+	})),
+);
 
 const ReachOutWidget = lazy(() =>
 	import("#/components/layout/ReachOutWidget").then((mod) => ({
@@ -17,7 +23,7 @@ function RouteComponent() {
 	const [showWidget, setShowWidget] = useState(false);
 
 	useEffect(() => {
-		const timeoutId = window.setTimeout(() => setShowWidget(true), 2500);
+		const timeoutId = window.setTimeout(() => setShowWidget(true), 4000);
 		return () => window.clearTimeout(timeoutId);
 	}, []);
 
@@ -25,7 +31,11 @@ function RouteComponent() {
 		<div className="relative">
 			<NavigationBar />
 			<Outlet />
-			<Footer />
+			<DeferUntilMounted>
+				<Suspense fallback={null}>
+					<Footer />
+				</Suspense>
+			</DeferUntilMounted>
 			{showWidget ? (
 				<Suspense fallback={null}>
 					<ReachOutWidget />

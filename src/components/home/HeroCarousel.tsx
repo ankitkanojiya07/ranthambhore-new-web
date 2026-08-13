@@ -3,7 +3,8 @@ import { Image } from "#/util/Image";
 
 const HERO_SLIDES = [
 	{
-		src: "/hero/8.webp",
+		src: "/hero/8-640.webp",
+		srcSet: "/hero/8-640.webp 640w, /hero/8.webp 1200w",
 		alt: "Tiger portrait in dramatic golden light at Ranthambhore",
 	},
 	{
@@ -14,22 +15,10 @@ const HERO_SLIDES = [
 		src: "/hero/10.webp",
 		alt: "Bird silhouetted against an amber sunset sky in the wild",
 	},
-	{
-		src: "/hero/11.jpg",
-		alt: "Bengal tiger climbing through tree branches in Ranthambhore National Park",
-	},
-	{
-		src: "/hero/1.webp",
-		alt: "Bengal tiger climbing through tree branches in Ranthambhore National Park",
-	},
-	{
-		src: "/hero/t1.webp",
-		alt: "Bengal tiger climbing through tree branches in Ranthambhore National Park",
-	},
 ] as const;
 
 const SLIDE_INTERVAL_MS = 8000;
-const SLIDE_START_DELAY_MS = 8000;
+const SLIDE_START_DELAY_MS = 10000;
 
 export function HeroCarousel() {
 	const [index, setIndex] = useState(0);
@@ -60,9 +49,11 @@ export function HeroCarousel() {
 			<Image
 				key={slide.src}
 				src={slide.src}
+				srcSet={"srcSet" in slide ? slide.srcSet : undefined}
+				sizes="(max-width: 768px) 384px, 550px"
 				alt={slide.alt}
-				width={1200}
-				height={1200}
+				width={640}
+				height={640}
 				priority={index === 0}
 				className="absolute inset-0 size-full object-cover"
 			/>

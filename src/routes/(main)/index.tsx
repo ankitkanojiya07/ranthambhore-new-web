@@ -1,25 +1,8 @@
 import { createFileRoute } from "@tanstack/react-router";
-import {
-	homeRanthambhoreHighlightsQueryOptions,
-	homeSafariHighlightsQueryOptions,
-} from "#/components/daily-updates/queries/daily-updates.queries";
-import { AboutSection } from "#/components/home/AboutSection";
-import { ContactSection } from "#/components/home/ContactSection";
-import { FaqSection } from "#/components/home/FaqSection";
-// import { FeaturesSection } from "#/components/home/FeaturesSection";
+import { type ComponentType, useEffect, useState } from "react";
 import { HeroSection } from "#/components/home/HeroSection";
-import { HowToReachSection } from "#/components/home/HowToReachSection";
-import { PopularWildlifeSection } from "#/components/home/PopularWildlifeSection";
-import { QuickLinksHighlightsSection } from "#/components/home/QuickLinksHighlightsSection";
-import { SafariInformationSection } from "#/components/home/SafariInformationSection";
-import { StaySection } from "#/components/home/StaySection";
-import { TaglineSection } from "#/components/home/TaglineSection";
-import { ThingsToDoSection } from "#/components/home/ThingsToDoSection";
+
 export const Route = createFileRoute("/(main)/")({
-	loader: ({ context: { queryClient } }) => {
-		void queryClient.prefetchQuery(homeSafariHighlightsQueryOptions());
-		void queryClient.prefetchQuery(homeRanthambhoreHighlightsQueryOptions());
-	},
 	head: () => ({
 		meta: [
 			{
@@ -35,7 +18,7 @@ export const Route = createFileRoute("/(main)/")({
 		links: [
 			{
 				rel: "preload",
-				href: "/hero/8.webp",
+				href: "/hero/8-640.webp",
 				as: "image",
 				type: "image/webp",
 				fetchpriority: "high",
@@ -46,44 +29,18 @@ export const Route = createFileRoute("/(main)/")({
 });
 
 function Home() {
+	const [BelowFold, setBelowFold] = useState<ComponentType | null>(null);
+
+	useEffect(() => {
+		void import("#/components/home/HomeBelowFold").then((mod) => {
+			setBelowFold(() => mod.HomeBelowFold);
+		});
+	}, []);
+
 	return (
 		<div>
 			<HeroSection />
-
-			<QuickLinksHighlightsSection />
-
-			<AboutSection />
-
-			<div className="mx-auto max-w-5xl border-t border-muted-300" />
-			<TaglineSection />
-
-			{/* <div className="mx-auto max-w-5xl border-t border-muted-300" /> */}
-
-			<PopularWildlifeSection />
-
-			<SafariInformationSection />
-
-			<div className="mx-auto max-w-5xl border-t border-muted-300" />
-
-			<ThingsToDoSection />
-
-			<div className="mx-auto max-w-5xl border-t border-muted-300" />
-
-			<HowToReachSection />
-
-			<StaySection />
-
-			{/* <div className="mx-auto max-w-5xl border-t border-muted-300" /> */}
-
-			{/* <FeaturesSection /> */}
-
-			{/* <div className="mx-auto max-w-5xl border-t border-muted-300" /> */}
-
-			<ContactSection />
-
-			<div className="mx-auto max-w-5xl border-t border-muted-300" />
-
-			<FaqSection />
+			{BelowFold ? <BelowFold /> : <div className="min-h-48 bg-sand-50" />}
 		</div>
 	);
 }

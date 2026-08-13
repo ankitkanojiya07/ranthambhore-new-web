@@ -29,16 +29,19 @@ function openExternalLink(url: string) {
 
 export function Footer() {
 	return (
-		<footer id="site-footer" className="relative overflow-hidden border-t border-muted-300 bg-sand-100">
+		<footer
+			id="site-footer"
+			className="relative overflow-hidden border-t border-muted-300 bg-sand-100"
+		>
 			<div className="relative z-10 mx-auto max-w-7xl px-6 lg:px-8">
 				{/* ── Top Branding Zone ── */}
 				<div className="relative flex items-end justify-center pb-10 pt-16">
 					<div className="flex flex-col items-center gap-3 text-center">
 						<Image
-							src="/logo.png"
+							src="/logo.webp"
 							alt="Ranthambhore logo"
-							width={323}
-							height={186}
+							width={240}
+							height={138}
 							className="h-16 w-auto object-contain opacity-90 brightness-0"
 						/>
 						<h2 className="font-display text-4xl tracking-display text-charcoal-900">
@@ -75,7 +78,7 @@ export function Footer() {
 					{/* Column 2 — Explore */}
 					<div>
 						<h3 className="mb-2 font-display uppercase tracking-display text-charcoal-900">
-						Discover Our Retreats
+							Discover Our Retreats
 						</h3>
 						<ul className="mb-6 space-y-3">
 							{RESOURCES.map((resource) => (

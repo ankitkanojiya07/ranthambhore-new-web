@@ -121,10 +121,10 @@ function NavDrawerContent({ onClose }: { onClose: () => void }) {
 						className="block h-10 focus-visible:outline-none"
 					>
 						<img
-							src="/logo.png"
+							src="/logo.webp"
 							alt="Ranthambhore.com"
-							width={323}
-							height={186}
+							width={240}
+							height={138}
 							className="h-full w-auto object-contain"
 						/>
 					</Link>

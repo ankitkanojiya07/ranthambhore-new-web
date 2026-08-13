@@ -108,10 +108,10 @@ const NavigationBar = () => {
 					<div className="flex justify-center">
 						<Link to="/" className="block h-14 sm:h-16 lg:h-15">
 							<img
-								src="/logo.png"
+								src="/logo.webp"
 								alt="Ranthambhore.com"
-								width={323}
-								height={186}
+								width={240}
+								height={138}
 								decoding="async"
 								className={cn(
 									"h-full w-auto object-contain",

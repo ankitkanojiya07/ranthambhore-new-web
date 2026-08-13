@@ -2,7 +2,15 @@
 import { defineNitroConfig } from "nitro/config";
 
 export default defineNitroConfig({
-  vercel: {
+	routeRules: {
+		"/": {
+			headers: {
+				"cache-control":
+					"public, max-age=0, s-maxage=120, stale-while-revalidate=600",
+			},
+		},
+	},
+	vercel: {
     config: {
       version: 3,
       images: {
