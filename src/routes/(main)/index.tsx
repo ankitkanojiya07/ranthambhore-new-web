@@ -16,11 +16,9 @@ import { StaySection } from "#/components/home/StaySection";
 import { TaglineSection } from "#/components/home/TaglineSection";
 import { ThingsToDoSection } from "#/components/home/ThingsToDoSection";
 export const Route = createFileRoute("/(main)/")({
-	loader: async ({ context: { queryClient } }) => {
-		await Promise.all([
-			queryClient.ensureQueryData(homeSafariHighlightsQueryOptions()),
-			queryClient.ensureQueryData(homeRanthambhoreHighlightsQueryOptions()),
-		]);
+	loader: ({ context: { queryClient } }) => {
+		void queryClient.prefetchQuery(homeSafariHighlightsQueryOptions());
+		void queryClient.prefetchQuery(homeRanthambhoreHighlightsQueryOptions());
 	},
 	head: () => ({
 		meta: [
@@ -32,6 +30,15 @@ export const Route = createFileRoute("/(main)/")({
 				name: "description",
 				content:
 					"Plan your Ranthambore trip with expert help. Book jeep & canter safaris, find top hotels, and explore India's most famous tiger reserve in Rajasthan.",
+			},
+		],
+		links: [
+			{
+				rel: "preload",
+				href: "/hero/8.webp",
+				as: "image",
+				type: "image/webp",
+				fetchpriority: "high",
 			},
 		],
 	}),

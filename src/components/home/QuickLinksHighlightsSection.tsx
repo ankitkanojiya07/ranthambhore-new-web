@@ -1,4 +1,4 @@
-import { useSuspenseQuery } from "@tanstack/react-query";
+import { useQuery } from "@tanstack/react-query";
 import { Link } from "@tanstack/react-router";
 import { ArrowRight } from "lucide-react";
 import { AnimatePresence, motion } from "motion/react";
@@ -113,13 +113,13 @@ const HOME_SAFARI_HIGHLIGHTS_FALLBACK = SAFARI_HIGHLIGHTS.slice(0, 4);
 const SLIDE_INTERVAL_MS = 6000;
 
 function SafariHighlightsCarousel() {
-	const { data: posts } = useSuspenseQuery(homeSafariHighlightsQueryOptions());
+	const { data: posts } = useQuery(homeSafariHighlightsQueryOptions());
 	const safariHighlights = useMemo(
 		() =>
-			posts.data.length > 0
+			posts?.data && posts.data.length > 0
 				? posts.data.map(mapPostToSafariHighlight)
 				: HOME_SAFARI_HIGHLIGHTS_FALLBACK,
-		[posts.data],
+		[posts?.data],
 	);
 	const [safariIndex, setSafariIndex] = useState(0);
 	const safariHighlight = safariHighlights[safariIndex] ?? safariHighlights[0];
@@ -282,11 +282,9 @@ function HighlightCardItem({ card }: { card: HomeHighlightCard }) {
 }
 
 function RanthambhoreHighlightsCarousel() {
-	const { data: posts } = useSuspenseQuery(
-		homeRanthambhoreHighlightsQueryOptions(),
-	);
+	const { data: posts } = useQuery(homeRanthambhoreHighlightsQueryOptions());
 	const highlightSlides = useMemo(() => {
-		if (posts.data.length === 0) {
+		if (!posts?.data.length) {
 			return HOME_RANTHAMBHORE_HIGHLIGHTS_FALLBACK;
 		}
 
@@ -295,7 +293,7 @@ function RanthambhoreHighlightsCarousel() {
 		);
 
 		return slides.length > 0 ? slides : HOME_RANTHAMBHORE_HIGHLIGHTS_FALLBACK;
-	}, [posts.data]);
+	}, [posts?.data]);
 	const [highlightIndex, setHighlightIndex] = useState(0);
 	const highlightSlide =
 		highlightSlides[highlightIndex] ?? highlightSlides[0] ?? null;
@@ -320,7 +318,7 @@ function RanthambhoreHighlightsCarousel() {
 		<div className="flex flex-col rounded-2xl bg-tiger-50 px-5 py-5 lg:col-span-2 lg:px-6 lg:py-6">
 			<div className="flex items-start justify-between gap-4">
 				<div>
-					<p className="font-display text-xs font-semibold uppercase tracking-display text-earth-500">
+					<p className="font-display text-xs font-semibold uppercase tracking-display text-earth-700">
 						What&apos;s New
 					</p>
 					<h2 className="mt-1 font-display text-xl font-bold uppercase tracking-display text-charcoal-900 lg:text-2xl">

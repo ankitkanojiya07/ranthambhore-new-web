@@ -14,7 +14,6 @@ export function AboutSection() {
 						<Image
 							src="/map.png"
 							alt="Illustrated map of Ranthambhore National Park"
-							// layout="constrained"
 							width={482}
 							height={518}
 							className="w-full rounded-sm"
@@ -23,12 +22,12 @@ export function AboutSection() {
 
 					{/* Text content */}
 					<div className="w-full lg:w-[55%]">
-						<p className="font-display text-sm uppercase font-semibold text-earth-500">
+						<p className="font-display text-sm uppercase font-semibold text-earth-700">
 							Welcome to
 						</p>
-						<h3 className="mt-2 text-2xl font-semibold text-charcoal-800 lg:text-3xl">
+						<h2 className="mt-2 text-2xl font-semibold text-charcoal-800 lg:text-3xl">
 							Your Trusted Guide to <br /> Ranthambore National Park
-						</h3>
+						</h2>
 						<div className="mt-6 space-y-2 text-justify font-body text-base text-charcoal-700">
 							<p>
 								Nestled amidst the ancient Aravalli and Vindhya hill ranges in
@@ -50,11 +49,11 @@ export function AboutSection() {
 								valleys, and rugged hills.
 							</p>
 						</div>
-						<h4 className="mt-6 font-display text-2xl font-semibold text-charcoal-800 lg:text-3xl">
+						<h3 className="mt-6 font-display text-2xl font-semibold text-charcoal-800 lg:text-3xl">
 							Why Visit Ranthambore?
-						</h4>
+						</h3>
 						<ul className="mt-6 space-y-2 font-body text-sm text-charcoal-700">
-						<li className="flex gap-2">
+							<li className="flex gap-2">
 								<span className="text-sunset-500">✦</span>
 								Exciting jeep and canter safaris across ten unique safari zones.
 							</li>

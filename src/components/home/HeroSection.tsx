@@ -14,45 +14,27 @@ export function HeroSection() {
 			aria-label="Hero"
 		>
 			<div className="py-20">
-				{/* Mobile: stacked, centered — brand sits on cream below the image */}
-				<div className="flex flex-col items-center md:hidden">
-					<h1 className="whitespace-nowrap text-3xl text-center font-semibold font-display tracking-display text-tiger-900">
+				<div className="relative mx-auto max-w-sm md:max-w-4xl">
+					<div className="hidden h-[70dvh] w-[60%] mx-auto rounded-t-full bg-tiger-50 md:block" />
+
+					<h1 className="whitespace-nowrap text-center text-3xl font-semibold font-display tracking-display text-tiger-900 md:absolute md:-top-4 md:left-1/2 md:-translate-x-1/2 md:text-5xl md:font-medium lg:text-7xl">
 						WELCOME TO
 					</h1>
-					<div className="relative mt-10 w-full max-w-sm">
-						<div className="absolute left-1/2 top-[-6%] h-[106%] w-[80%] -translate-x-1/2 rounded-t-full bg-tiger-50" />
+
+					<div className="relative mx-auto mt-10 w-full max-w-sm md:absolute md:bottom-[-5rem] md:left-0 md:mt-0 md:aspect-square md:max-h-[550px] md:max-w-[550px] md:size-full">
+						<div className="absolute left-1/2 top-[-6%] h-[106%] w-[80%] -translate-x-1/2 rounded-t-full bg-tiger-50 md:hidden" />
 						<div className="hero-frame-mask relative aspect-square w-full overflow-hidden">
 							<HeroCarousel />
 						</div>
 					</div>
-					<div className="mt-10 flex flex-col items-center text-center">
-						<h2 className="whitespace-nowrap text-3xl font-semibold font-display tracking-display text-tiger-900 leading-none">
+
+					<div className="mt-10 flex flex-col items-center text-center md:absolute md:bottom-[10%] md:right-[-8%] md:mt-0 md:items-center md:text-right">
+						<p className="whitespace-nowrap text-3xl font-semibold font-display tracking-display text-tiger-900 leading-none md:text-4xl md:font-medium lg:text-6xl">
 							Ranthambhore
-						</h2>
-						<p className="mt-2 max-w-xs font-display text-sm font-semibold text-charcoal-700">
+						</p>
+						<p className="mt-2 max-w-xs font-display text-sm font-semibold text-charcoal-700 md:max-w-sm lg:text-base">
 							Into the Land of Tigers.
 						</p>
-					</div>
-				</div>
-
-				{/* Desktop: overlay composition — image left, brand over the cream arch */}
-				<div className="hidden md:block">
-					<div className="relative max-w-4xl mx-auto">
-						<div className="h-[70dvh] relative mx-auto bg-tiger-50 rounded-t-full w-[60%]" />
-						<div className="absolute aspect-square max-w-[550px] max-h-[550px] -bottom-20 mx-auto left-0 hero-frame-mask size-full overflow-hidden">
-							<HeroCarousel />
-						</div>
-						<h1 className="absolute -top-4 left-1/2 -translate-x-1/2 whitespace-nowrap text-5xl lg:text-7xl text-center font-medium font-display tracking-display text-tiger-900">
-							WELCOME TO
-						</h1>
-						<div className="absolute bottom-[10%] right-[-8%] flex flex-col items-center text-right">
-							<h2 className="whitespace-nowrap text-4xl lg:text-6xl font-medium font-display tracking-display text-tiger-900 leading-none">
-								Ranthambhore
-							</h2>
-							<p className="mt-2 max-w-sm font-display text-sm font-semibold lg:text-base text-charcoal-700">
-								Into the Land of Tigers
-							</p>
-						</div>
 					</div>
 				</div>
 			</div>

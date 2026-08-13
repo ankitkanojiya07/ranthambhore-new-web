@@ -1,6 +1,6 @@
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import { AnimatePresence, motion } from "motion/react";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useInterval } from "#/hooks/useInterval";
 import { Image } from "#/util/Image";
 
@@ -26,6 +26,25 @@ export function HotelImageCarousel({
 }: HotelImageCarouselProps) {
 	const [index, setIndex] = useState(0);
 	const [paused, setPaused] = useState(false);
+	const [inView, setInView] = useState(false);
+	const rootRef = useRef<HTMLElement>(null);
+
+	useEffect(() => {
+		const node = rootRef.current;
+		if (!node) {
+			return;
+		}
+
+		const observer = new IntersectionObserver(
+			([entry]) => {
+				setInView(Boolean(entry?.isIntersecting));
+			},
+			{ rootMargin: "200px 0px" },
+		);
+
+		observer.observe(node);
+		return () => observer.disconnect();
+	}, []);
 
 	const goTo = (nextIndex: number) => setIndex(nextIndex);
 	const prev = () =>
@@ -34,7 +53,7 @@ export function HotelImageCarousel({
 
 	useInterval(
 		() => setIndex((current) => (current + 1) % slides.length),
-		paused || slides.length <= 1 ? null : SLIDE_INTERVAL_MS,
+		paused || !inView || slides.length <= 1 ? null : SLIDE_INTERVAL_MS,
 	);
 
 	const slide = slides[index] ?? slides[0];
@@ -45,6 +64,7 @@ export function HotelImageCarousel({
 
 	return (
 		<section
+			ref={rootRef}
 			className={`group relative size-full ${className}`}
 			aria-label={`${hotelName} photo gallery`}
 			onMouseEnter={() => setPaused(true)}
@@ -62,6 +82,8 @@ export function HotelImageCarousel({
 						key={`${slide.src}-${index}`}
 						src={slide.src}
 						alt={slide.alt}
+						width={1600}
+						height={1200}
 						initial={{ opacity: 0 }}
 						animate={{ opacity: 1 }}
 						exit={{ opacity: 0 }}

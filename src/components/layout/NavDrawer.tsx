@@ -90,7 +90,7 @@ function NavMenuItem({
 							<Link
 								to={child.href}
 								onClick={onClose}
-								className="group/sub flex items-center gap-1.5 py-1.5 font-body text-base text-sand-400 hover:text-golden-300 transition-colors duration-150 leading-snug"
+								className="group/sub flex items-center gap-1.5 py-1.5 font-body text-base text-sand-200 hover:text-golden-300 transition-colors duration-150 leading-snug"
 							>
 								<ChevronRight className="size-3 shrink-0 text-sand-600 transition-colors duration-150 group-hover/sub:text-golden-400" />
 								{child.label}
@@ -129,7 +129,10 @@ function NavDrawerContent({ onClose }: { onClose: () => void }) {
 						/>
 					</Link>
 
-					<Dialog.Close className="flex size-9 cursor-pointer items-center justify-center rounded-full border border-white/25 text-sand-300 hover:text-sand-100 hover:border-white/40 transition-colors duration-200 focus-visible:outline-none">
+					<Dialog.Close
+						aria-label="Close menu"
+						className="flex size-9 cursor-pointer items-center justify-center rounded-full border border-white/25 text-sand-100 transition-colors duration-200 hover:border-white/40 hover:text-sand-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-golden-300"
+					>
 						<CloseIcon className="size-4" />
 					</Dialog.Close>
 				</div>

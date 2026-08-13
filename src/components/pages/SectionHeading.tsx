@@ -15,7 +15,7 @@ export function SectionHeading({
 }: SectionHeadingProps) {
 	return (
 		<div className={cn(centered && "text-center", className)}>
-			<p className="font-display text-xs uppercase tracking-display text-sunset-500">
+			<p className="font-display text-xs uppercase tracking-display text-sunset-700">
 				{eyebrow}
 			</p>
 			<h2 className="mt-3 font-playfair text-3xl text-charcoal-900 lg:text-4xl">

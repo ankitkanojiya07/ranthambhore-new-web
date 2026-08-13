@@ -64,8 +64,7 @@ export function ReachOutWidget() {
 			<Dialog.Trigger
 				className={cn(
 					"fixed bottom-6 right-0 z-40 cursor-pointer rounded-l-lg rounded-r-none border border-r-0 border-tiger-900 bg-sand-50 px-4 py-3.5 font-display text-[10px] uppercase tracking-display text-tiger-900 shadow-[-4px_0_12px_rgba(82,47,16,0.12)] transition-[opacity,transform] duration-300 hover:bg-sand-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-tiger-900/40 sm:px-5 sm:text-xs",
-					footerVisible &&
-						"pointer-events-none translate-x-full opacity-0",
+					footerVisible && "pointer-events-none translate-x-full opacity-0",
 				)}
 				aria-label="Reach out to us"
 				aria-hidden={footerVisible}
@@ -79,9 +78,14 @@ export function ReachOutWidget() {
 
 				<Dialog.Popup className="fixed inset-x-4 top-1/2 z-[150] mx-auto flex max-h-[min(calc(100dvh-5rem),720px)] w-full max-w-lg -translate-y-1/2 flex-col overflow-hidden rounded-2xl bg-sand-50 shadow-2xl ring-1 ring-muted-300 opacity-0 transition-[opacity,transform] duration-300 ease-out data-open:opacity-100 data-open:translate-y-[-50%] translate-y-[calc(-50%+1rem)] data-starting-style:opacity-0 data-starting-style:translate-y-[calc(-50%+1rem)] data-ending-style:opacity-0 data-ending-style:translate-y-[calc(-50%+1rem)] sm:inset-x-auto sm:left-1/2 sm:max-h-[min(calc(100dvh-6rem),720px)] sm:-translate-x-1/2 sm:data-open:translate-x-[-50%] sm:data-open:translate-y-[-50%] sm:data-starting-style:translate-x-[-50%] sm:data-starting-style:translate-y-[calc(-50%+1rem)] sm:data-ending-style:translate-x-[-50%] sm:data-ending-style:translate-y-[calc(-50%+1rem)]">
 					<div className="flex shrink-0 items-center justify-between gap-4 border-b border-muted-300 bg-cream-100 px-5 py-4 sm:px-6">
-						<Dialog.Title className="sr-only">Contact enquiry form</Dialog.Title>
+						<Dialog.Title className="sr-only">
+							Contact enquiry form
+						</Dialog.Title>
 						<ContactFormHeader className="flex-1 text-center" />
-						<Dialog.Close className="flex size-9 shrink-0 cursor-pointer items-center justify-center rounded-full border border-muted-300 text-charcoal-600 transition-colors hover:border-charcoal-400 hover:text-charcoal-800 focus-visible:outline-none">
+						<Dialog.Close
+							aria-label="Close enquiry form"
+							className="flex size-9 shrink-0 cursor-pointer items-center justify-center rounded-full border border-muted-300 text-charcoal-700 transition-colors hover:border-charcoal-400 hover:text-charcoal-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-tiger-500/40"
+						>
 							<CloseIcon className="size-4" />
 						</Dialog.Close>
 					</div>

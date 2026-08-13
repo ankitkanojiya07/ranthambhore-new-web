@@ -1,12 +1,12 @@
 import { useId, useState } from "react";
 import {
+	FormFieldLabel,
+	FormTextarea,
 	formDateInputClasses,
 	formGridGapClass,
-	FormFieldLabel,
 	formInputClasses,
 	formSpacingClass,
 	formSubmitButtonClasses,
-	FormTextarea,
 } from "#/components/forms/form-field";
 
 const FORMSUBMIT_RECEIVER_EMAIL = "akanojiya550@gmail.com";
@@ -197,7 +197,9 @@ export function ContactEnquiryForm() {
 					/>
 				</div>
 				<div>
-					<FormFieldLabel htmlFor={fieldId("phone")}>Phone Number</FormFieldLabel>
+					<FormFieldLabel htmlFor={fieldId("phone")}>
+						Phone Number
+					</FormFieldLabel>
 					<input
 						id={fieldId("phone")}
 						name="phone"
@@ -226,7 +228,7 @@ export function ContactEnquiryForm() {
 				</p>
 			)}
 			{success && (
-				<output className="block font-body text-sm text-forest-700">
+				<output className="block font-body text-sm text-tiger-800">
 					Thank you! Your enquiry has been sent. We will get back to you
 					shortly.
 				</output>

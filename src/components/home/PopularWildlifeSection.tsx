@@ -210,7 +210,7 @@ export function PopularWildlifeSection() {
 			<div className="mx-auto max-w-7xl">
 				<div className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
 					<div className="max-w-2xl">
-						<p className="font-display text-xs uppercase tracking-display text-earth-400">
+						<p className="font-display text-xs uppercase tracking-display text-earth-700">
 							Wildlife
 						</p>
 						<h2 className="mt-2 text-3xl text-charcoal-800 lg:text-4xl">
@@ -273,7 +273,7 @@ export function PopularWildlifeSection() {
 										<span className="font-display text-xs font-bold uppercase tracking-display text-sunset-500">
 											{animal.category}
 										</span>
-										<span className="ml-2 font-body text-sm text-charcoal-500">
+										<span className="ml-2 font-body text-sm text-charcoal-700">
 											{animal.fameTag}
 										</span>
 									</p>
@@ -296,7 +296,7 @@ export function PopularWildlifeSection() {
 				<div className="mt-10 flex justify-center lg:justify-end">
 					<Link
 						to="/about/flora-and-fauna"
-						className="inline-flex items-center gap-2 font-display text-xs uppercase tracking-display text-forest-600 transition-colors hover:text-forest-700"
+						className="inline-flex items-center gap-2 font-display text-xs uppercase tracking-display text-tiger-700 transition-colors hover:text-tiger-800"
 					>
 						Explore Flora &amp; Fauna
 						<ArrowRight className="size-4" />

@@ -1,27 +1,26 @@
-// import { type ImageProps, Image as UnpicImage } from "@unpic/react";
-// import placeholders from "#/lib/placeholders.json";
-
-// const isVercel = import.meta.env.VITE_VERCEL_ENV && import.meta.env.VITE_VERCEL_ENV !== "development";
+type ImageProps = React.ImgHTMLAttributes<HTMLImageElement> & {
+	priority?: boolean;
+};
 
 export function Image({
 	src,
 	className,
-	alt,
+	alt = "",
+	priority = false,
+	loading,
+	decoding,
+	fetchPriority,
 	...props
-}: React.ImgHTMLAttributes<HTMLImageElement>) {
-	// const placeholder = placeholders[src as keyof typeof placeholders];
-	// const isTransparent = placeholder === "transparent";
-	// console.log({isVercel});
-	// console.log({placeholder});
-	// console.log({isTransparent});
-
+}: ImageProps) {
 	return (
-		// <UnpicImage
-		//   src={src}
-		//   fallback={isVercel ? "vercel" : undefined}
-		//   background={isTransparent ? undefined : placeholder}
-		//   {...props}
-		// />
-		<img src={src} alt={alt} className={className} {...props} />
+		<img
+			src={src}
+			alt={alt}
+			className={className}
+			loading={loading ?? (priority ? "eager" : "lazy")}
+			decoding={decoding ?? (priority ? "sync" : "async")}
+			fetchPriority={fetchPriority ?? (priority ? "high" : undefined)}
+			{...props}
+		/>
 	);
 }

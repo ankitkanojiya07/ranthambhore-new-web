@@ -54,7 +54,7 @@ export function StaySection() {
 
 				<Link
 					to="/stay/hotels"
-					className="mt-10 inline-flex items-center gap-2 font-display text-xs uppercase tracking-display text-forest-600 transition-colors hover:text-forest-700"
+					className="mt-10 inline-flex items-center gap-2 font-display text-xs uppercase tracking-display text-tiger-700 transition-colors hover:text-tiger-800"
 				>
 					View All Hotels
 					<ArrowRight className="size-4" />

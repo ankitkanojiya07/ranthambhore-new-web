@@ -2,7 +2,7 @@ import type { ReactNode } from "react";
 import { cn } from "#/lib/utils";
 
 export const formInputClasses =
-	"w-full rounded border border-muted-300 bg-sand-50 px-3 py-2 font-body text-sm text-charcoal-800 placeholder:text-charcoal-400 focus:border-sunset-500 focus:outline-none";
+	"w-full rounded border border-muted-300 bg-sand-50 px-3 py-2 font-body text-sm text-charcoal-800 placeholder:text-charcoal-600 focus:border-sunset-500 focus:outline-none";
 
 export const formDateInputClasses = `${formInputClasses} [&::-webkit-calendar-picker-indicator]:cursor-pointer [&::-webkit-calendar-picker-indicator]:opacity-70`;
 
@@ -38,16 +38,12 @@ export function FormInput({
 	className,
 	...props
 }: React.ComponentProps<"input">) {
-	return (
-		<input className={cn(formInputClasses, className)} {...props} />
-	);
+	return <input className={cn(formInputClasses, className)} {...props} />;
 }
 
 export function FormTextarea({
 	className,
 	...props
 }: React.ComponentProps<"textarea">) {
-	return (
-		<textarea className={cn(formInputClasses, className)} {...props} />
-	);
+	return <textarea className={cn(formInputClasses, className)} {...props} />;
 }

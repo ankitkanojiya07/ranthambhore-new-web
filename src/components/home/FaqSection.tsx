@@ -162,7 +162,7 @@ export function FaqSection() {
 				>
 					<motion.p
 						variants={itemVariants}
-						className="font-display text-xs uppercase tracking-display text-earth-400"
+						className="font-display text-xs uppercase tracking-display text-earth-700"
 					>
 						Frequently Asked Questions
 					</motion.p>

@@ -1,7 +1,5 @@
-import { Link } from "@tanstack/react-router";
 import type { LucideIcon } from "lucide-react";
-import { ArrowRight, Bus, Plane, TrainFront } from "lucide-react";
-import { Button } from "#/components/ui/button";
+import { Bus, Plane, TrainFront } from "lucide-react";
 import { Image } from "#/util/Image";
 
 const HEADING_SIZE = "text-[clamp(2rem,4.5vw,4.5rem)]";
@@ -54,11 +52,11 @@ export function HowToReachSection() {
 		>
 			<div className="mx-auto max-w-7xl px-6 py-14 lg:px-8 lg:py-20">
 				<header className="mb-10 text-center lg:mb-12">
-					<p className="font-display text-xs font-medium uppercase tracking-display text-earth-500 lg:text-sm">
+					<p className="font-display text-xs font-medium uppercase tracking-display text-earth-700 lg:text-sm">
 						Getting Here
 					</p>
 					<h2
-						className={`mt-4 font-display font-extralight uppercase leading-none tracking-[0.18em] text-charcoal-900 lg:mt-5 ${HEADING_SIZE}`}
+						className={`mt-4 font-display font-normal uppercase leading-none tracking-[0.18em] text-charcoal-900 lg:mt-5 ${HEADING_SIZE}`}
 					>
 						How to Reach
 					</h2>
@@ -93,7 +91,7 @@ export function HowToReachSection() {
 													key={city}
 													className="rounded-lg border border-sand-300/90 bg-sand-100/70 px-2.5 py-2 text-center"
 												>
-													<dt className="font-display text-[0.625rem] uppercase leading-tight tracking-display text-earth-500">
+													<dt className="font-display text-[0.625rem] uppercase leading-tight tracking-display text-earth-700">
 														{city}
 													</dt>
 													<dd className="mt-0.5 font-body text-sm font-semibold text-charcoal-900">

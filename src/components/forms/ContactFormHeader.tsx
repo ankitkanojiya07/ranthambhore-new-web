@@ -4,7 +4,7 @@ export function ContactFormHeader({ className }: { className?: string }) {
 	return (
 		<p
 			className={cn(
-				"font-display text-xs font-medium uppercase tracking-display text-earth-500 lg:text-sm",
+				"font-display text-xs font-medium uppercase tracking-display text-earth-700 lg:text-sm",
 				className,
 			)}
 		>

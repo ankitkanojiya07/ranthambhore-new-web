@@ -30,6 +30,7 @@ const NavigationBar = () => {
 							render={
 								<Button
 									variant="ghost"
+									aria-label="Open menu"
 									className={cn(
 										"px-2 py-1 sm:px-3",
 										navOverlay &&
@@ -111,6 +112,7 @@ const NavigationBar = () => {
 								alt="Ranthambhore.com"
 								width={323}
 								height={186}
+								decoding="async"
 								className={cn(
 									"h-full w-auto object-contain",
 									!navOverlay && "brightness-0",
