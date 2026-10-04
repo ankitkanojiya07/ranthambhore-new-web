@@ -13,6 +13,7 @@ import { Route as mainRouteRouteImport } from './routes/(main)/route'
 import { Route as mainIndexRouteImport } from './routes/(main)/index'
 import { Route as mainSignUpRouteImport } from './routes/(main)/sign-up'
 import { Route as mainSignInRouteImport } from './routes/(main)/sign-in'
+import { Route as mainLlmInfoRouteImport } from './routes/(main)/llm-info'
 import { Route as mainStayIndexRouteImport } from './routes/(main)/stay/index'
 import { Route as mainSafariIndexRouteImport } from './routes/(main)/safari/index'
 import { Route as mainPlanIndexRouteImport } from './routes/(main)/plan/index'
@@ -70,6 +71,11 @@ const mainSignUpRoute = mainSignUpRouteImport.update({
 const mainSignInRoute = mainSignInRouteImport.update({
   id: '/sign-in',
   path: '/sign-in',
+  getParentRoute: () => mainRouteRoute,
+} as any)
+const mainLlmInfoRoute = mainLlmInfoRouteImport.update({
+  id: '/llm-info',
+  path: '/llm-info',
   getParentRoute: () => mainRouteRoute,
 } as any)
 const mainStayIndexRoute = mainStayIndexRouteImport.update({
@@ -277,6 +283,7 @@ const mainHighlightsSafariInsightsZoneZoneIdRoute =
   } as any)
 
 export interface FileRoutesByFullPath {
+  '/llm-info': typeof mainLlmInfoRoute
   '/sign-in': typeof mainSignInRoute
   '/sign-up': typeof mainSignUpRoute
   '/': typeof mainIndexRoute
@@ -321,6 +328,7 @@ export interface FileRoutesByFullPath {
   '/highlights/safari-insights/zone/$zoneId': typeof mainHighlightsSafariInsightsZoneZoneIdRoute
 }
 export interface FileRoutesByTo {
+  '/llm-info': typeof mainLlmInfoRoute
   '/sign-in': typeof mainSignInRoute
   '/sign-up': typeof mainSignUpRoute
   '/': typeof mainIndexRoute
@@ -367,6 +375,7 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/(main)': typeof mainRouteRouteWithChildren
+  '/(main)/llm-info': typeof mainLlmInfoRoute
   '/(main)/sign-in': typeof mainSignInRoute
   '/(main)/sign-up': typeof mainSignUpRoute
   '/(main)/': typeof mainIndexRoute
@@ -413,6 +422,7 @@ export interface FileRoutesById {
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
+    | '/llm-info'
     | '/sign-in'
     | '/sign-up'
     | '/'
@@ -457,6 +467,7 @@ export interface FileRouteTypes {
     | '/highlights/safari-insights/zone/$zoneId'
   fileRoutesByTo: FileRoutesByTo
   to:
+    | '/llm-info'
     | '/sign-in'
     | '/sign-up'
     | '/'
@@ -502,6 +513,7 @@ export interface FileRouteTypes {
   id:
     | '__root__'
     | '/(main)'
+    | '/(main)/llm-info'
     | '/(main)/sign-in'
     | '/(main)/sign-up'
     | '/(main)/'
@@ -579,6 +591,13 @@ declare module '@tanstack/react-router' {
       path: '/sign-in'
       fullPath: '/sign-in'
       preLoaderRoute: typeof mainSignInRouteImport
+      parentRoute: typeof mainRouteRoute
+    }
+    '/(main)/llm-info': {
+      id: '/(main)/llm-info'
+      path: '/llm-info'
+      fullPath: '/llm-info'
+      preLoaderRoute: typeof mainLlmInfoRouteImport
       parentRoute: typeof mainRouteRoute
     }
     '/(main)/stay/': {
@@ -858,6 +877,7 @@ declare module '@tanstack/react-router' {
 }
 
 interface mainRouteRouteChildren {
+  mainLlmInfoRoute: typeof mainLlmInfoRoute
   mainSignInRoute: typeof mainSignInRoute
   mainSignUpRoute: typeof mainSignUpRoute
   mainIndexRoute: typeof mainIndexRoute
@@ -902,6 +922,7 @@ interface mainRouteRouteChildren {
 }
 
 const mainRouteRouteChildren: mainRouteRouteChildren = {
+  mainLlmInfoRoute: mainLlmInfoRoute,
   mainSignInRoute: mainSignInRoute,
   mainSignUpRoute: mainSignUpRoute,
   mainIndexRoute: mainIndexRoute,

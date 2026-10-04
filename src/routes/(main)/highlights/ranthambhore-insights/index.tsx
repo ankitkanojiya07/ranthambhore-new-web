@@ -17,6 +17,7 @@ import {
 	RanthambhoreTrendingSection,
 } from "#/components/highlights/RanthambhoreHighlightsSections";
 import type { RanthambhoreArticle } from "#/components/highlights/ranthambhore-highlight.types";
+import { buildPageHead } from "#/lib/seo";
 
 const QUICK_LINK_LABELS = [
 	"Best Time To Visit",
@@ -46,19 +47,20 @@ export const Route = createFileRoute(
 			);
 		}
 	},
-	head: () => ({
-		meta: [
-			{
-				title:
-					"Ranthambhore Highlights | Park News, Travel Tips & Safari Guides",
-			},
-			{
-				name: "description",
-				content:
-					"Ranthambhore highlights — best time to visit, safari booking tips, park news, conservation updates, and travel guides for Ranthambore National Park.",
-			},
-		],
-	}),
+	head: () =>
+		buildPageHead({
+			title: "Ranthambhore Highlights | Park News, Guides & Seasonal Updates",
+			description:
+				"Editorial highlights from Ranthambore — park news, travel tips, conservation notes, and practical guides for visitors to the tiger reserve.",
+			path: "/highlights/ranthambhore-insights",
+			breadcrumbs: [
+				{ name: "Home", path: "/" },
+				{
+					name: "Ranthambhore Highlights",
+					path: "/highlights/ranthambhore-insights",
+				},
+			],
+		}),
 	component: RanthambhoreHighlightsPage,
 });
 

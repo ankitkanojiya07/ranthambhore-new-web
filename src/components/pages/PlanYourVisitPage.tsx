@@ -2,6 +2,10 @@ import { Link } from "@tanstack/react-router";
 import { ArrowRight, ChevronDown } from "lucide-react";
 import { AnimatePresence, motion } from "motion/react";
 import { useState } from "react";
+import { ContentChangelog } from "#/components/seo/ContentChangelog";
+import { LastReviewed } from "#/components/seo/LastReviewed";
+import { PageBreadcrumbs } from "#/components/seo/PageBreadcrumbs";
+import { RelatedGuides } from "#/components/seo/RelatedGuides";
 import {
 	BEST_TIME_TO_VISIT,
 	BOOK_SAFARI_ADVANCE,
@@ -10,16 +14,23 @@ import {
 	type JourneyStep,
 	PACKING_LISTS,
 	PLAN_FAQS,
+	PLAN_RELATED_GUIDES,
 	PLAN_YOUR_VISIT_CONTENT,
 	SAFARI_DAY_GUIDE,
 	SAFARI_VEHICLE_OPTIONS,
 	SAFARI_ZONE_GUIDE,
 	SAFARI_ZONES,
+	SAMPLE_ITINERARIES,
 	TRAVEL_TIPS,
 	WHERE_TO_STAY,
 } from "#/lib/plan-your-visit";
 import { cn } from "#/lib/utils";
 import { Image } from "#/util/Image";
+
+const BREADCRUMBS = [
+	{ name: "Home", path: "/" },
+	{ name: "Plan Your Visit", path: "/plan" },
+];
 
 const stepCircleVariants = {
 	hidden: { scale: 0.5, opacity: 0 },
@@ -311,6 +322,7 @@ export function PlanYourVisitPage() {
 		<div className="bg-sand-50 pt-28 lg:pt-32">
 			<section>
 				<div className="mx-auto max-w-4xl px-6 py-14 lg:px-8 lg:py-20">
+					<PageBreadcrumbs crumbs={BREADCRUMBS} className="mb-8" />
 					<header className="mx-auto mb-14 max-w-3xl text-center lg:mb-16">
 						<h1 className="font-playfair text-3xl text-charcoal-900 lg:text-4xl">
 							{title}
@@ -322,6 +334,12 @@ export function PlanYourVisitPage() {
 						<p className="mt-4 font-body text-sm leading-[1.85] text-charcoal-700">
 							{intro}
 						</p>
+						<div className="mt-4 flex flex-col items-center">
+							<LastReviewed path="/plan" />
+							<div className="mt-3 w-full max-w-xl">
+								<ContentChangelog path="/plan" />
+							</div>
+						</div>
 					</header>
 
 					<div>
@@ -381,6 +399,49 @@ export function PlanYourVisitPage() {
 									</ul>
 								</div>
 							</ContentCard>
+							<div className="mt-5 overflow-hidden rounded-xl ring-1 ring-sand-300/70">
+								<table className="w-full min-w-[36rem] border-collapse text-left">
+									<thead>
+										<tr className="bg-earth-600">
+											<th className="px-4 py-3 font-display text-[0.625rem] font-medium uppercase tracking-display text-sand-50">
+												Month
+											</th>
+											<th className="px-4 py-3 font-display text-[0.625rem] font-medium uppercase tracking-display text-sand-50">
+												Weather
+											</th>
+											<th className="hidden px-4 py-3 font-display text-[0.625rem] font-medium uppercase tracking-display text-sand-50 md:table-cell">
+												Wildlife notes
+											</th>
+											<th className="hidden px-4 py-3 font-display text-[0.625rem] font-medium uppercase tracking-display text-sand-50 lg:table-cell">
+												Best for
+											</th>
+										</tr>
+									</thead>
+									<tbody>
+										{BEST_TIME_TO_VISIT.months.map((row, index) => (
+											<tr
+												key={row.month}
+												className={
+													index % 2 === 0 ? "bg-white" : "bg-sand-100/80"
+												}
+											>
+												<td className="px-4 py-3 font-display text-sm font-medium text-earth-700">
+													{row.month}
+												</td>
+												<td className="px-4 py-3 font-body text-sm text-charcoal-700">
+													{row.weather}
+												</td>
+												<td className="hidden px-4 py-3 font-body text-sm text-charcoal-600 md:table-cell">
+													{row.wildlife}
+												</td>
+												<td className="hidden px-4 py-3 font-body text-sm text-charcoal-600 lg:table-cell">
+													{row.travellerFit}
+												</td>
+											</tr>
+										))}
+									</tbody>
+								</table>
+							</div>
 						</JourneySection>
 
 						<JourneySection {...bookSafari}>
@@ -512,12 +573,60 @@ export function PlanYourVisitPage() {
 							</div>
 						</JourneySection>
 
+						<section
+							id="itineraries"
+							className="scroll-mt-28 border-t border-sand-300/60 pb-16 pt-10 lg:pb-20"
+						>
+							<h2 className="font-playfair text-2xl text-charcoal-900 lg:text-3xl">
+								{SAMPLE_ITINERARIES.title}
+							</h2>
+							<p className="mt-4 font-body text-sm leading-relaxed text-charcoal-700">
+								{SAMPLE_ITINERARIES.intro}
+							</p>
+							<div className="mt-8 grid gap-6 lg:grid-cols-2">
+								{SAMPLE_ITINERARIES.plans.map((plan) => (
+									<ContentCard key={plan.id}>
+										<h3
+											id={plan.id}
+											className="scroll-mt-28 font-playfair text-xl text-charcoal-900"
+										>
+											{plan.title}
+										</h3>
+										<p className="mt-3 font-body text-sm leading-relaxed text-charcoal-700">
+											{plan.summary}
+										</p>
+										<div className="mt-5 space-y-4">
+											{plan.days.map((day) => (
+												<div key={day.label}>
+													<p className="font-display text-xs font-medium uppercase tracking-display text-earth-600">
+														{day.label}
+													</p>
+													<ul className="mt-2 space-y-1.5">
+														{day.items.map((item) => (
+															<li
+																key={item}
+																className="font-body text-sm text-charcoal-700"
+															>
+																{item}
+															</li>
+														))}
+													</ul>
+												</div>
+											))}
+										</div>
+									</ContentCard>
+								))}
+							</div>
+						</section>
+
 						<JourneySection {...faqs} isLast>
 							<PlanFaqList />
 						</JourneySection>
 					</div>
 				</div>
 			</section>
+
+			<RelatedGuides guides={[...PLAN_RELATED_GUIDES]} />
 		</div>
 	);
 }

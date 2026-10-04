@@ -3,22 +3,21 @@ import { ContentSection } from "#/components/pages/ContentSection";
 import { FeaturedHotelsSection } from "#/components/pages/FeaturedHotelsSection";
 import { IntroSection } from "#/components/pages/IntroSection";
 import { WhyChooseSection } from "#/components/pages/WhyChooseSection";
+import { buildPageHead } from "#/lib/seo";
 
 export const Route = createFileRoute("/(main)/stay/hotels")({
 	staticData: { navOverlay: false },
-	head: () => ({
-		meta: [
-			{
-				title:
-					"Hotels & Resorts in Ranthambore | Luxury, Boutique & Budget Stay Options",
-			},
-			{
-				name: "description",
-				content:
-					"Find the best hotels and resorts near Ranthambore National Park — Ranthambore Regency, Ranthambhore Aangan, Taj Sawai, Ranthambore, and more.",
-			},
-		],
-	}),
+	head: () =>
+		buildPageHead({
+			title: "Where to Stay Near Ranthambore National Park | Hotel Guide",
+			description:
+				"Curated guide to hotels and resorts near Ranthambore National Park — location tips, traveller fit, and safari logistics. Use property sites for live rates and availability.",
+			path: "/stay/hotels",
+			breadcrumbs: [
+				{ name: "Home", path: "/" },
+				{ name: "Stay", path: "/stay/hotels" },
+			],
+		}),
 	component: HotelsPage,
 });
 

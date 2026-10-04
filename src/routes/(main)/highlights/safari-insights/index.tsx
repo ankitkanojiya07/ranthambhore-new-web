@@ -15,6 +15,7 @@ import {
 	TrendingGrid,
 } from "#/components/highlights/SafariHighlightsSections";
 import { ZoneHighlightsGrid } from "#/components/highlights/ZoneHighlights";
+import { buildPageHead } from "#/lib/seo";
 
 export const Route = createFileRoute("/(main)/highlights/safari-insights/")({
 	staticData: { navOverlay: false },
@@ -24,19 +25,17 @@ export const Route = createFileRoute("/(main)/highlights/safari-insights/")({
 			queryClient.ensureQueryData(dailyUpdateZonesQueryOptions()),
 		]);
 	},
-	head: () => ({
-		meta: [
-			{
-				title:
-					"Safari Highlights | Latest Tiger Sightings & Wildlife Updates — Ranthambore",
-			},
-			{
-				name: "description",
-				content:
-					"Latest safari highlights from Ranthambore National Park — tiger sightings, wildlife updates, and zone-wise insights across all 10 safari zones.",
-			},
-		],
-	}),
+	head: () =>
+		buildPageHead({
+			title: "Safari Highlights | Field Sightings & Zone Updates — Ranthambore",
+			description:
+				"Field notes from Ranthambore safaris — tiger and wildlife sightings, zone-wise updates, and timely highlights across the ten safari zones.",
+			path: "/highlights/safari-insights",
+			breadcrumbs: [
+				{ name: "Home", path: "/" },
+				{ name: "Safari Highlights", path: "/highlights/safari-insights" },
+			],
+		}),
 	component: SafariHighlightsPage,
 });
 

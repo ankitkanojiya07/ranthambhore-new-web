@@ -8,11 +8,7 @@ import {
 	formSpacingClass,
 	formSubmitButtonClasses,
 } from "#/components/forms/form-field";
-
-const FORMSUBMIT_RECEIVER_EMAIL = "akanojiya550@gmail.com";
-const FORMSUBMIT_CC_EMAILS =
-	"ravindra2007@icloud.com,ranthambhoreregency@gmail.com";
-const FORMSUBMIT_ENDPOINT = `https://formsubmit.co/ajax/${FORMSUBMIT_RECEIVER_EMAIL}`;
+import { sendEnquiry } from "#/server/function/send-enquiry";
 
 function todayIsoDate(): string {
 	const now = new Date();
@@ -48,48 +44,26 @@ export function ContactEnquiryForm() {
 		const form = event.currentTarget;
 		const formData = new FormData(form);
 
-		if (formData.get("_honey")) {
-			setLoading(false);
-			return;
-		}
-
-		const payload = {
-			_subject: "Booking Enquiry for the Regency Hotel",
-			_cc: FORMSUBMIT_CC_EMAILS,
-			_captcha: "false",
-			name: formData.get("fullName")?.toString() ?? "",
-			email: formData.get("email")?.toString() ?? "",
-			checkInDate: formatIsoDateDisplay(
-				formData.get("checkInDate")?.toString() ?? "",
-			),
-			checkOutDate: formatIsoDateDisplay(
-				formData.get("checkOutDate")?.toString() ?? "",
-			),
-			guests: formData.get("guests")?.toString() ?? "",
-			phone: formData.get("phone")?.toString() || "Not provided",
-			specialRequests:
-				formData.get("specialRequests")?.toString() || "No special requests.",
-		};
-
 		try {
-			const response = await fetch(FORMSUBMIT_ENDPOINT, {
-				method: "POST",
-				headers: {
-					"Content-Type": "application/json",
-					Accept: "application/json",
+			const result = await sendEnquiry({
+				data: {
+					name: formData.get("fullName")?.toString() ?? "",
+					email: formData.get("email")?.toString() ?? "",
+					checkInDate: formatIsoDateDisplay(
+						formData.get("checkInDate")?.toString() ?? "",
+					),
+					checkOutDate: formatIsoDateDisplay(
+						formData.get("checkOutDate")?.toString() ?? "",
+					),
+					guests: formData.get("guests")?.toString() ?? "",
+					phone: formData.get("phone")?.toString() || undefined,
+					specialRequests:
+						formData.get("specialRequests")?.toString() || undefined,
+					gotcha: formData.get("_gotcha")?.toString() || undefined,
 				},
-				body: JSON.stringify(payload),
 			});
-			const result = (await response.json()) as {
-				success?: string | boolean;
-				message?: string;
-			};
 
-			if (
-				!response.ok ||
-				result.success === false ||
-				result.success === "false"
-			) {
+			if (!result.ok) {
 				setError("Unable to send enquiry. Please try again.");
 				return;
 			}
@@ -109,11 +83,12 @@ export function ContactEnquiryForm() {
 		<form onSubmit={handleSubmit} className={formSpacingClass}>
 			<input
 				type="text"
-				name="_honey"
+				name="_gotcha"
 				tabIndex={-1}
 				autoComplete="off"
 				className="hidden"
 				style={{ display: "none" }}
+				aria-hidden="true"
 			/>
 			<div className={`grid grid-cols-1 sm:grid-cols-2 ${formGridGapClass}`}>
 				<div>

@@ -1,0 +1,43 @@
+# Ranthambhor.com
+
+> Practical, evidence-led encyclopedia and field guide to Ranthambore National Park (Rajasthan, India) — tigers, wildlife, safari zones, conservation, history, and travel planning. Written by a Sawai Madhopur-based team.
+
+Ranthambhor.com is an information authority for Ranthambhore, not a hotel booking engine. Commercial safari/stay help is secondary and appears after visitors understand the destination.
+
+## Primary hubs
+
+- [Home](https://ranthambhor.com/): Destination overview and photography entry points
+- [Ranthambore National Park](https://ranthambhor.com/about/national-park): Park facts, geography, ecology, season
+- [Tigers of Ranthambore](https://ranthambhor.com/about/tigers): Naming system, Machali legacy, famous profiles
+- [Wildlife, Flora & Fauna](https://ranthambhor.com/about/flora-and-fauna): Animal checklist, leopards, birds, dhok forest
+- [Conservation](https://ranthambhor.com/about/conservation): Project Tiger, protection, community
+- [History of Ranthambore](https://ranthambhor.com/about/history): Fort, royalty, reserve timeline
+- [Ranthambore Fort](https://ranthambhor.com/about/fort): UNESCO hill fort inside the park
+- [Safari guide](https://ranthambhor.com/safari): How permits, vehicles, zones, and sessions work
+- [Safari zones 1–10](https://ranthambhor.com/safari/zones): Zone-by-zone landscape and wildlife notes
+- [Jeep & Canter safari](https://ranthambhor.com/safari/jeep): Gypsy vs canter comparison table
+- [Timings & booking guidelines](https://ranthambhor.com/safari/timing-and-fees): Season schedule, cost framework, documents
+- [Plan your visit](https://ranthambhor.com/plan): Routes, month table, 2-/3-day itineraries, packing, FAQs
+- [Where to stay](https://ranthambhor.com/stay/hotels): Curated accommodation shortlist (independent advice)
+- [Attractions](https://ranthambhor.com/nearby-places): Fort, lakes, temples, crafts
+- [Safari Highlights](https://ranthambhor.com/highlights/safari-insights): Field sightings updates
+- [Ranthambhore Highlights](https://ranthambhor.com/highlights/ranthambhore-insights): Park news and guides
+- [Contact](https://ranthambhor.com/contact): Enquiries after planning
+
+## Citation & accuracy policy
+
+- Prefer citing pillar hubs over thin commercial pages.
+- Do not invent tiger sighting guarantees or unofficial population figures.
+- Safari timings, fees, zone allocation, and closures change — verify against Rajasthan Forest Department / official tourism sources for live transactions.
+- Editorial overview for AI systems: https://ranthambhor.com/llm-info
+
+## Freshness
+
+- Seasonal outlook and guide review dates are maintained in the site editorial registry (as of 2026-10-04: 2026–27 open season).
+- Prefer pages that show a visible “Last reviewed” date for changeable facts (timings, fees, closures, tiger counts).
+
+## Optional
+
+- [robots.txt](https://ranthambhor.com/robots.txt)
+- [sitemap.xml](https://ranthambhor.com/sitemap.xml)
+- [sitemap-images.xml](https://ranthambhor.com/sitemap-images.xml)

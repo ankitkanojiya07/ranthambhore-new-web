@@ -1,10 +1,22 @@
+import { LastReviewed } from "#/components/seo/LastReviewed";
+import { PageBreadcrumbs } from "#/components/seo/PageBreadcrumbs";
+import { RelatedGuides } from "#/components/seo/RelatedGuides";
 import {
 	SAFARI_GUIDELINES,
 	SAFARI_VEHICLES,
 	SAFARI_VEHICLES_CONTENT,
 	type SafariVehicle,
+	VEHICLE_COMPARISON_ROWS,
+	VEHICLE_FAQS,
+	VEHICLE_RELATED_GUIDES,
 } from "#/lib/safari-vehicles";
 import { Image } from "#/util/Image";
+
+const BREADCRUMBS = [
+	{ name: "Home", path: "/" },
+	{ name: "Safari", path: "/safari" },
+	{ name: "Jeep & Canter", path: "/safari/jeep" },
+];
 
 function VehicleCard({
 	id,
@@ -157,12 +169,13 @@ function SafariGuidelinesSection() {
 }
 
 export function SafariVehiclesPage() {
-	const { title, subtitle } = SAFARI_VEHICLES_CONTENT;
+	const { title, subtitle, intro, lastReviewed } = SAFARI_VEHICLES_CONTENT;
 
 	return (
 		<div className="bg-sand-50 pt-28 lg:pt-32">
 			<section>
 				<div className="mx-auto max-w-7xl px-6 py-14 lg:px-8 lg:py-20">
+					<PageBreadcrumbs crumbs={BREADCRUMBS} className="mb-8" />
 					<header className="mx-auto mb-12 max-w-3xl text-center lg:mb-16">
 						<h1 className="font-playfair text-3xl text-charcoal-900 lg:text-4xl">
 							{title}
@@ -171,17 +184,81 @@ export function SafariVehiclesPage() {
 						<p className="mt-6 font-body text-base leading-relaxed text-charcoal-600 lg:text-lg">
 							{subtitle}
 						</p>
+						<p className="mt-4 font-body text-sm leading-relaxed text-charcoal-700">
+							{intro}
+						</p>
+						<div className="mt-4 flex justify-center">
+							<LastReviewed
+								date={lastReviewed}
+								note="Indicative costs — verify live fees officially"
+							/>
+						</div>
 					</header>
+
+					<div className="mb-12 overflow-hidden rounded-xl ring-1 ring-sand-300/70">
+						<table className="w-full border-collapse text-left">
+							<thead>
+								<tr className="bg-sand-200/80">
+									<th className="px-5 py-4 font-display text-xs font-medium uppercase tracking-display text-charcoal-800">
+										Aspect
+									</th>
+									<th className="px-5 py-4 font-display text-xs font-medium uppercase tracking-display text-charcoal-800">
+										Gypsy
+									</th>
+									<th className="px-5 py-4 font-display text-xs font-medium uppercase tracking-display text-charcoal-800">
+										Canter
+									</th>
+								</tr>
+							</thead>
+							<tbody>
+								{VEHICLE_COMPARISON_ROWS.map((row, index) => (
+									<tr
+										key={row.aspect}
+										className={index % 2 === 0 ? "bg-white" : "bg-sand-50/80"}
+									>
+										<td className="border-t border-sand-300/50 px-5 py-4 font-display text-sm font-medium text-charcoal-800">
+											{row.aspect}
+										</td>
+										<td className="border-t border-sand-300/50 px-5 py-4 font-body text-sm text-charcoal-700">
+											{row.gypsy}
+										</td>
+										<td className="border-t border-sand-300/50 px-5 py-4 font-body text-sm text-charcoal-700">
+											{row.canter}
+										</td>
+									</tr>
+								))}
+							</tbody>
+						</table>
+					</div>
 
 					<div className="grid gap-8 lg:grid-cols-2 lg:gap-10">
 						{SAFARI_VEHICLES.map((vehicle) => (
 							<VehicleCard key={vehicle.id} {...vehicle} />
 						))}
 					</div>
+
+					<section className="mx-auto mt-16 max-w-3xl">
+						<h2 className="font-playfair text-2xl text-charcoal-900">
+							Gypsy vs Canter FAQs
+						</h2>
+						<dl className="mt-6 space-y-6">
+							{VEHICLE_FAQS.map((faq) => (
+								<div key={faq.question}>
+									<dt className="font-playfair text-lg text-charcoal-900">
+										{faq.question}
+									</dt>
+									<dd className="mt-2 font-body text-sm leading-relaxed text-charcoal-700">
+										{faq.answer}
+									</dd>
+								</div>
+							))}
+						</dl>
+					</section>
 				</div>
 			</section>
 
 			<SafariGuidelinesSection />
+			<RelatedGuides guides={[...VEHICLE_RELATED_GUIDES]} />
 		</div>
 	);
 }

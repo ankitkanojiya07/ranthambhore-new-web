@@ -5,6 +5,7 @@ import {
 	Scripts,
 } from "@tanstack/react-router";
 import { lazy, Suspense } from "react";
+import { organizationJsonLd, SITE, websiteJsonLd } from "#/lib/seo";
 import voncaSemibold from "../fonts/vonca-semibold.woff2?url";
 import appCss from "../styles.css?url";
 
@@ -43,7 +44,38 @@ export const Route = createRootRouteWithContext<RouterContext>()({
 				content: "width=device-width, initial-scale=1",
 			},
 			{
-				title: "Ranthambhore Wildlife Hotel",
+				title: SITE.defaultTitle,
+			},
+			{
+				name: "description",
+				content: SITE.defaultDescription,
+			},
+			{
+				name: "robots",
+				content:
+					"index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1",
+			},
+			{
+				name: "theme-color",
+				content: "#faf5ed",
+			},
+			{
+				name: "author",
+				content: SITE.name,
+			},
+			{
+				property: "og:site_name",
+				content: SITE.name,
+			},
+			{
+				property: "og:locale",
+				content: SITE.locale,
+			},
+			{
+				"script:ld+json": organizationJsonLd(),
+			},
+			{
+				"script:ld+json": websiteJsonLd(),
 			},
 		],
 		links: [
@@ -59,6 +91,14 @@ export const Route = createRootRouteWithContext<RouterContext>()({
 				href: appCss,
 				as: "style",
 			},
+			{
+				rel: "icon",
+				href: "/favicon.ico",
+			},
+			{
+				rel: "manifest",
+				href: "/manifest.json",
+			},
 		],
 	}),
 	shellComponent: RootDocument,
@@ -66,7 +106,7 @@ export const Route = createRootRouteWithContext<RouterContext>()({
 
 function RootDocument({ children }: { children: React.ReactNode }) {
 	return (
-		<html lang="en">
+		<html lang="en-IN">
 			<head>
 				<HeadContent />
 				<style>{CRITICAL_CSS}</style>

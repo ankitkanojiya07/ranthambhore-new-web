@@ -10,10 +10,77 @@ export interface SafariVehicle {
 }
 
 export const SAFARI_VEHICLES_CONTENT = {
-	title: "Jeep & Canter Safari",
+	title: "Ranthambore Jeep vs Canter Safari",
 	subtitle:
-		"Choose between the intimate 6-seater Gypsy or the economical 20-seater Canter — both guided by certified naturalists across Ranthambore's tiger country.",
+		"Compare the 6-seater Gypsy and 20-seater Canter — capacity, experience, zone access notes, and which option fits couples, families, or groups.",
+	intro:
+		"Both vehicles follow the same permit system and naturalist-led routes. The difference is intimacy, flexibility on trails, cost per person, and which zones each vehicle type can enter. Prices below are indicative planning ranges — verify live fees on the official portal.",
+	lastReviewed: "2026-10-04",
 } as const;
+
+export const VEHICLE_COMPARISON_ROWS = [
+	{
+		aspect: "Capacity",
+		gypsy: "Up to 6 visitors + driver & guide",
+		canter: "Up to ~20 visitors + driver & guide",
+	},
+	{
+		aspect: "Feel",
+		gypsy: "Intimate, flexible on narrower tracks",
+		canter: "Social, higher seating, shared commentary",
+	},
+	{
+		aspect: "Best for",
+		gypsy: "Photography, couples, small families",
+		canter: "Budget groups, larger families, first trips",
+	},
+	{
+		aspect: "Zone notes",
+		gypsy: "Wider zone access including quieter Gypsy-only areas",
+		canter: "Not available in all zones (commonly not in 7–9)",
+	},
+	{
+		aspect: "Cost (indicative)",
+		gypsy: "Higher per person",
+		canter: "Lower per person",
+	},
+] as const;
+
+export const VEHICLE_FAQS = [
+	{
+		question: "Is Gypsy better than Canter for tiger sightings?",
+		answer:
+			"Not automatically. Gypsy vehicles can reach some quieter trails and feel more personal, but tiger movement — not vehicle brand — decides the sighting. Book the vehicle that fits your group, then maximise sessions.",
+	},
+	{
+		question: "Can Canter enter every Ranthambore zone?",
+		answer:
+			"No. Canter safaris are not available in every zone; Gypsy-only areas (commonly discussed for zones 7–9) are an important planning difference.",
+	},
+] as const;
+
+export const VEHICLE_RELATED_GUIDES = [
+	{
+		title: "Safari Zones",
+		href: "/safari/zones",
+		description: "See which landscapes matter for your vehicle choice.",
+	},
+	{
+		title: "Timings & Booking",
+		href: "/safari/timing-and-fees",
+		description: "Season schedule, documents, and cost framework.",
+	},
+	{
+		title: "Safari Guide",
+		href: "/safari",
+		description: "How permits and sessions work end to end.",
+	},
+	{
+		title: "Plan Your Visit",
+		href: "/plan",
+		description: "Build Gypsy/Canter choice into a full trip plan.",
+	},
+] as const;
 
 export const SAFARI_VEHICLES: SafariVehicle[] = [
 	{

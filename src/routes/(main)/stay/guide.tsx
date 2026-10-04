@@ -1,21 +1,21 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { GuidePage } from "#/components/pages/GuidePage";
+import { buildPageHead } from "#/lib/seo";
 
 export const Route = createFileRoute("/(main)/stay/guide")({
 	staticData: { navOverlay: true },
-	head: () => ({
-		meta: [
-			{
-				title:
-					"Where to Stay in Ranthambore | Zone-wise Hotel Guide & Area Tips",
-			},
-			{
-				name: "description",
-				content:
-					"Choose the right area to stay in Ranthambore — Ranthambore Road, Sherpur, Sawai Madhopur town, and zone-wise recommendations for Zones 1–10.",
-			},
-		],
-	}),
+	head: () =>
+		buildPageHead({
+			title: "Where to Stay in Ranthambore | Area Guide & Safari Gate Tips",
+			description:
+				"Choose the right area to stay for Ranthambore safaris — Ranthambore Road, Sherpur, Sawai Madhopur town, and practical tips by zone access.",
+			path: "/stay/guide",
+			breadcrumbs: [
+				{ name: "Home", path: "/" },
+				{ name: "Stay", path: "/stay/hotels" },
+				{ name: "Area Guide", path: "/stay/guide" },
+			],
+		}),
 	component: StayGuidePage,
 });
 

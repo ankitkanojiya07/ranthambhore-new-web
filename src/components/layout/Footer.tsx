@@ -8,13 +8,15 @@ import { Button } from "../ui/button";
 
 const QUICK_LINKS: { label: string; href: string }[] = [
 	{ label: "Home", href: "/" },
-	{ label: "About Ranthambore", href: "/about" },
-	{ label: "Safari", href: "/safari" },
+	{ label: "National Park", href: "/about/national-park" },
+	{ label: "Tigers", href: "/about/tigers" },
+	{ label: "Safari Zones", href: "/safari/zones" },
 	{ label: "Plan Your Visit", href: "/plan" },
 	{ label: "Safari Highlights", href: "/highlights/safari-insights" },
 	{ label: "Stay", href: "/stay/hotels" },
 	{ label: "Attractions", href: "/nearby-places" },
 	{ label: "Contact", href: "/contact" },
+	{ label: "LLM Info", href: "/llm-info" },
 ];
 
 const RESOURCES: { label: string; href: string }[] = [

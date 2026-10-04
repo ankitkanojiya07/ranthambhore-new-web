@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { lazy, Suspense } from "react";
 import { Spinner } from "#/components/ui/spinner";
+import { buildPageHead } from "#/lib/seo";
 
 const RanthambhoreUpdateForm = lazy(() =>
 	import("#/components/highlights/RanthambhoreUpdateForm").then((module) => ({
@@ -14,9 +15,13 @@ export const Route = createFileRoute(
 	staticData: { navOverlay: false },
 	component: NewRanthambhoreUpdatePage,
 	pendingComponent: RanthambhoreUpdateFormPending,
-	head: () => ({
-		meta: [{ title: "New Ranthambhore Highlight | Ranthambhore.com" }],
-	}),
+	head: () =>
+		buildPageHead({
+			title: "New Ranthambhore Highlight | Ranthambhor.com",
+			description: "Submit a new Ranthambhore park highlight or travel note.",
+			path: "/highlights/ranthambhore-insights/new",
+			noindex: true,
+		}),
 });
 
 function RanthambhoreUpdateFormPending() {

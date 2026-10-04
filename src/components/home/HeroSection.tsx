@@ -30,10 +30,10 @@ export function HeroSection() {
 
 					<div className="mt-10 flex flex-col items-center text-center md:absolute md:bottom-[10%] md:right-[-8%] md:mt-0 md:items-center md:text-right">
 						<p className="whitespace-nowrap text-3xl font-semibold font-display tracking-display text-tiger-900 leading-none md:text-4xl md:font-medium lg:text-6xl">
-							Ranthambhore
+							<span className="bg-tiger-100 px-1">Ran</span>thambhore
 						</p>
 						<p className="mt-2 max-w-xs font-display text-sm font-semibold text-charcoal-700 md:max-w-sm lg:text-base">
-							Into the Land of Tigers.
+							Field guide to India&apos;s tiger country.
 						</p>
 					</div>
 				</div>

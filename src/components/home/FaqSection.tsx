@@ -21,12 +21,12 @@ const itemVariants = {
 	},
 };
 
-const FAQ_ITEMS = [
+export const HOME_FAQ_ITEMS = [
 	{
 		id: "open-season",
 		question: "When is Ranthambhore National Park open to visitors?",
 		answer:
-			"Ranthambhore is open from 1st October to 30th June each year. It remains closed during July, August, and September due to the monsoon season.",
+			"In a typical year Ranthambhore is open from 1 October to 30 June and closed during the monsoon (July–September). The 2026–27 safari season reopened in October 2026 — confirm the current notice before you travel.",
 	},
 	{
 		id: "zones-count",
@@ -181,7 +181,7 @@ export function FaqSection() {
 					whileInView="visible"
 					viewport={{ once: true, amount: 0.05 }}
 				>
-					{FAQ_ITEMS.map((item, i) => {
+					{HOME_FAQ_ITEMS.map((item, i) => {
 						const isOpen = openIndex === i;
 						return (
 							<motion.div

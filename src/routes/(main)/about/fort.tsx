@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import type { ContentBlock } from "#/components/pages/ContentSection";
 import { GuidePage } from "#/components/pages/GuidePage";
+import { buildPageHead, touristAttractionJsonLd } from "#/lib/seo";
 
 const SECTIONS: ContentBlock[] = [
 	{
@@ -30,19 +31,28 @@ const SECTIONS: ContentBlock[] = [
 
 export const Route = createFileRoute("/(main)/about/fort")({
 	staticData: { navOverlay: true },
-	head: () => ({
-		meta: [
-			{
-				title:
-					"Ranthambore Fort | UNESCO World Heritage Site Inside the National Park",
-			},
-			{
-				name: "description",
-				content:
-					"Ranthambore Fort is a 10th-century hill fort inside the national park, a UNESCO World Heritage Site, and home to ancient temples visited even by wild tigers.",
-			},
-		],
-	}),
+	head: () =>
+		buildPageHead({
+			title: "Ranthambore Fort | UNESCO Hill Fort Inside the National Park",
+			description:
+				"Ranthambore Fort is a 10th-century UNESCO World Heritage hill fort inside the national park — temples, ruins, forest approaches, and visiting notes.",
+			path: "/about/fort",
+			image: "/Home/fort1.jpg",
+			breadcrumbs: [
+				{ name: "Home", path: "/" },
+				{ name: "About", path: "/about" },
+				{ name: "Fort", path: "/about/fort" },
+			],
+			jsonLd: touristAttractionJsonLd({
+				name: "Ranthambore Fort",
+				description:
+					"10th-century UNESCO World Heritage hill fort inside Ranthambore National Park, Rajasthan.",
+				path: "/about/fort",
+				image: "/Home/fort1.jpg",
+				latitude: 26.0207,
+				longitude: 76.4542,
+			}),
+		}),
 	component: FortPage,
 });
 

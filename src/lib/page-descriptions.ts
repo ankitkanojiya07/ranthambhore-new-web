@@ -3,7 +3,7 @@ export const PAGE_DESCRIPTIONS: Record<string, string> = {
 	"/about/history":
 		"From Chauhan kings to Project Tiger — a thousand years of wild history.",
 	"/about/national-park":
-		"History, nature, and culture — fort legacy, royal hunting grounds, and conservation.",
+		"Definitive park guide — geography, season, fort heritage, and tiger reserve context.",
 	"/about/flora-and-fauna":
 		"Wilderness of Ranthambore — dhok forest, mammals, reptiles, and 300+ bird species.",
 	"/about/tigers":
@@ -22,18 +22,18 @@ export const PAGE_DESCRIPTIONS: Record<string, string> = {
 	"/safari/chambal-boat":
 		"River safari on the Chambal — gharials, dolphins, and wetland birds.",
 	"/safari/zones":
-		"All 10 safari zones explained — terrain, tigers, and booking tips.",
+		"Zones 1–10 landscape guide — terrain, lakes, wildlife character, no sighting guarantees.",
 	"/safari/timing-and-fees":
 		"Season-wise safari timings, booking window, documents, and park rules.",
 	"/safari/booking-guidelines":
 		"Season-wise safari timings, booking window, documents, and park rules.",
 	"/safari/book":
-		"Reserve your jeep or canter safari with our Sawai Madhopur team.",
+		"Request jeep or canter safari help after you understand zones and timings.",
 	"/stay/hotels":
-		"Handpicked resorts and lodges minutes from the forest gates.",
+		"Curated stay shortlist near the forest gates — independent planning advice.",
 	"/stay/guide": "Where to stay by budget, zone proximity, and travel style.",
 	"/plan":
-		"Your complete 10-step journey — travel, safaris, zones, packing, and FAQs.",
+		"How to reach, best time, safari basics, packing, and FAQs for Sawai Madhopur.",
 	"/plan/best-time":
 		"Season-by-season guide — tigers, weather, and crowd levels.",
 	// "/plan/how-to-reach": "Trains, flights, and road routes to Sawai Madhopur.",

@@ -62,6 +62,105 @@ export const FLORA_SPECIES: SpeciesCard[] = [
 	},
 ];
 
+export const WILDLIFE_PAGE_CONTENT = {
+	title: "Wildlife, Flora & Fauna of Ranthambore",
+	intro:
+		"Ranthambore is more than a tiger park. Dry deciduous dhok forest, lakes, and rocky valleys support leopards, sloth bears, deer, crocodiles, and more than 300 bird species. Use this guide as a species checklist and ecology primer before you safari — then explore individual tiger profiles and zone landscapes for deeper reading.",
+	lastReviewed: "2026-10-04",
+} as const;
+
+export const ANIMAL_CHECKLIST = {
+	title: "Ranthambore animals checklist",
+	intro:
+		"A practical field checklist of species visitors commonly hope to see. Presence does not mean a guarantee on any single drive.",
+	groups: [
+		{
+			label: "Big cats & carnivores",
+			items: [
+				"Royal Bengal Tiger",
+				"Leopard",
+				"Striped hyena",
+				"Jackal",
+				"Jungle cat / caracal (rare)",
+			],
+		},
+		{
+			label: "Herbivores",
+			items: [
+				"Chital (spotted deer)",
+				"Sambar",
+				"Nilgai",
+				"Chinkara",
+				"Wild boar",
+			],
+		},
+		{
+			label: "Other mammals",
+			items: ["Sloth bear", "Langur", "Common mongoose", "Palm civet"],
+		},
+		{
+			label: "Reptiles & wetlands",
+			items: [
+				"Marsh crocodile (mugger)",
+				"Monitor lizard",
+				"Python (occasional)",
+			],
+		},
+		{
+			label: "Birdlife highlights",
+			items: [
+				"Painted stork",
+				"Kingfishers",
+				"Crested serpent eagle",
+				"Indian peafowl",
+				"Vultures (where still present)",
+				"300+ species recorded across seasons",
+			],
+		},
+	],
+} as const;
+
+export const WILDLIFE_FAQS = [
+	{
+		question: "What animals can I see in Ranthambore besides tigers?",
+		answer:
+			"Leopards, sloth bears, sambar, chital, nilgai, wild boar, marsh crocodiles, langurs, and a rich bird community are all part of the park. Many visitors remember alarm calls and lake birds as much as big-cat sightings.",
+	},
+	{
+		question: "Are there leopards in Ranthambore?",
+		answer:
+			"Yes. Leopards use rocky outcrops, denser cover, and quieter trails. They are more elusive than tigers and often seen at dawn, dusk, or in buffer-zone country.",
+	},
+	{
+		question: "What is the dominant forest type?",
+		answer:
+			"Dhok (Anogeissus pendula) dominates much of the dry deciduous forest, shaping shade, browse, and the open visibility that makes Ranthambore distinctive among Indian tiger reserves.",
+	},
+] as const;
+
+export const WILDLIFE_RELATED_GUIDES = [
+	{
+		title: "Tigers of Ranthambore",
+		href: "/about/tigers",
+		description: "Famous individuals, naming codes, and Machali's legacy.",
+	},
+	{
+		title: "Safari Zones",
+		href: "/safari/zones",
+		description: "Which landscapes favour lakes, ridges, or quieter trails.",
+	},
+	{
+		title: "National Park guide",
+		href: "/about/national-park",
+		description: "Geography, season, and reserve context.",
+	},
+	{
+		title: "Conservation",
+		href: "/about/conservation",
+		description: "How protection work supports this wildlife community.",
+	},
+] as const;
+
 export const FAUNA_SPECIES: SpeciesCard[] = [
 	{
 		name: "Royal Bengal Tiger",
@@ -70,6 +169,14 @@ export const FAUNA_SPECIES: SpeciesCard[] = [
 			"The apex predator of Ranthambore, each tiger can be identified by a unique stripe pattern. These majestic cats are often spotted near water bodies.",
 		image: "/Home/11.jpg",
 		imageAlt: "Royal Bengal Tiger in Ranthambore National Park",
+	},
+	{
+		name: "Leopard",
+		scientificName: "Panthera pardus",
+		description:
+			"Elusive and adaptable, leopards favour rocky outcrops and denser cover. Sightings are less frequent than tigers but remain one of Ranthambore's great rewards.",
+		image: "/Home/leo.jpg",
+		imageAlt: "Leopard on rocky terrain in Ranthambore",
 	},
 	{
 		name: "Sloth Bear",

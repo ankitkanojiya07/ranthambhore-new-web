@@ -1,21 +1,22 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { WhyChooseSection } from "#/components/pages/WhyChooseSection";
+import { buildPageHead } from "#/lib/seo";
 
 export const Route = createFileRoute("/(main)/about/history")({
 	staticData: { navOverlay: true },
-	head: () => ({
-		meta: [
-			{
-				title:
-					"History of Ranthambore National Park | From Royal Hunting Ground to Tiger Reserve",
-			},
-			{
-				name: "description",
-				content:
-					"Discover the fascinating history of Ranthambore — from Chauhan kings and Mughal battles to the Jaipur Maharajas' hunting grounds and modern-day tiger conservation.",
-			},
-		],
-	}),
+	head: () =>
+		buildPageHead({
+			title: "History of Ranthambore | Fort, Royalty & Tiger Reserve Timeline",
+			description:
+				"History of Ranthambore National Park — Chauhan fort, Mughal sieges, Jaipur Maharaja hunting grounds, Project Tiger, and the modern reserve story.",
+			path: "/about/history",
+			image: "/Home/fort1.jpg",
+			breadcrumbs: [
+				{ name: "Home", path: "/" },
+				{ name: "About", path: "/about" },
+				{ name: "History", path: "/about/history" },
+			],
+		}),
 	component: HistoryPage,
 });
 

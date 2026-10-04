@@ -2,6 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import type { ContentBlock } from "#/components/pages/ContentSection";
 import { GuidePage } from "#/components/pages/GuidePage";
 import { ATTRACTIONS, attractionDetailItems } from "#/lib/attractions";
+import { buildPageHead } from "#/lib/seo";
 
 const ATTRACTION_EYEBROWS: Record<string, string> = {
 	"ranthambore-fort": "Heritage & Fort",
@@ -35,19 +36,17 @@ const ATTRACTION_SECTIONS: ContentBlock[] = ATTRACTIONS.map((attraction) => ({
 
 export const Route = createFileRoute("/(main)/nearby-places/")({
 	staticData: { navOverlay: false },
-	head: () => ({
-		meta: [
-			{
-				title:
-					"Attractions in Ranthambore | Fort, Lakes, Temples & Experiences",
-			},
-			{
-				name: "description",
-				content:
-					"Explore attractions inside and around Ranthambore — Ranthambore Fort, Trinetra Ganesh Temple, Padam Talao, lakes, museums, crafts, and adventure parks.",
-			},
-		],
-	}),
+	head: () =>
+		buildPageHead({
+			title: "Things to Do Near Ranthambore | Fort, Lakes, Temples & Crafts",
+			description:
+				"Attractions inside and around Ranthambore — Fort, Trinetra Ganesh Temple, Padam Talao, lakes, museums, crafts, and experiences beyond the tiger safari.",
+			path: "/nearby-places",
+			breadcrumbs: [
+				{ name: "Home", path: "/" },
+				{ name: "Attractions", path: "/nearby-places" },
+			],
+		}),
 	component: NearbyPlacesPage,
 });
 function NearbyPlacesPage() {

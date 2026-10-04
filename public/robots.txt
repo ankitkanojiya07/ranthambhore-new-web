@@ -1,3 +1,53 @@
-# https://www.robotstxt.org/robotstxt.html
+# Ranthambhor.com — crawl policy
+# https://ranthambhor.com
+
 User-agent: *
-Disallow:
+Allow: /
+Disallow: /sign-in
+Disallow: /sign-up
+Disallow: /daily-updates/new
+Disallow: /highlights/ranthambhore-insights/new
+Disallow: /api/
+
+# Google Discover / image previews — do not block CSS, JS, or images
+User-agent: Googlebot
+Allow: /
+
+User-agent: Googlebot-Image
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+# AI / LLM crawlers — content may be cited; see /llm-info and /llms.txt
+User-agent: GPTBot
+Allow: /
+Disallow: /sign-in
+Disallow: /sign-up
+Disallow: /api/
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+Disallow: /api/
+
+User-agent: Anthropic-AI
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Bytespider
+Disallow: /
+
+Sitemap: https://ranthambhor.com/sitemap.xml
+Sitemap: https://ranthambhor.com/sitemap-images.xml
+# Machine-readable site summary for LLMs:
+# https://ranthambhor.com/llms.txt
+# Human-readable editorial / citation policy:
+# https://ranthambhor.com/llm-info

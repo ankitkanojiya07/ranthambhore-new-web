@@ -1,21 +1,21 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { GuidePage } from "#/components/pages/GuidePage";
+import { buildPageHead } from "#/lib/seo";
 
 export const Route = createFileRoute("/(main)/safari/book")({
 	staticData: { navOverlay: true },
-	head: () => ({
-		meta: [
-			{
-				title:
-					"Book Ranthambore Safari Online | Jeep & Canter Safari Reservations",
-			},
-			{
-				name: "description",
-				content:
-					"Book your Ranthambore safari with Ranthambhor.com. Secure your jeep or canter safari slot, get zone advice, and enjoy a hassle-free booking experience.",
-			},
-		],
-	}),
+	head: () =>
+		buildPageHead({
+			title: "Book a Ranthambore Safari | Jeep & Canter Reservations Help",
+			description:
+				"Request jeep or canter safari assistance for Ranthambore — share dates, ID details, and preferences. Read timings and zone guides before you enquire.",
+			path: "/safari/book",
+			breadcrumbs: [
+				{ name: "Home", path: "/" },
+				{ name: "Safari", path: "/safari" },
+				{ name: "Book", path: "/safari/book" },
+			],
+		}),
 	component: BookSafariPage,
 });
 

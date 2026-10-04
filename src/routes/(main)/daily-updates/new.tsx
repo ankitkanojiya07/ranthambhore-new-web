@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { lazy, Suspense } from "react";
 import { Spinner } from "#/components/ui/spinner";
+import { buildPageHead } from "#/lib/seo";
 
 const DailyUpdateForm = lazy(() =>
 	import("#/components/daily-updates/DailyUpdateForm").then((module) => ({
@@ -11,9 +12,13 @@ const DailyUpdateForm = lazy(() =>
 export const Route = createFileRoute("/(main)/daily-updates/new")({
 	component: NewDailyUpdatePage,
 	pendingComponent: DailyUpdateFormPending,
-	head: () => ({
-		meta: [{ title: "New Daily Update | Ranthambhore.com" }],
-	}),
+	head: () =>
+		buildPageHead({
+			title: "New Safari Highlight | Ranthambhor.com",
+			description: "Submit a new safari sighting update for Ranthambore.",
+			path: "/daily-updates/new",
+			noindex: true,
+		}),
 });
 
 function DailyUpdateFormPending() {

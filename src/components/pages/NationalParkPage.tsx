@@ -1,13 +1,27 @@
 import { Landmark, MapPin } from "lucide-react";
+import { ContentChangelog } from "#/components/seo/ContentChangelog";
+import { LastReviewed } from "#/components/seo/LastReviewed";
+import { PageBreadcrumbs } from "#/components/seo/PageBreadcrumbs";
+import { RelatedGuides } from "#/components/seo/RelatedGuides";
 import {
 	NATIONAL_PARK_CONTENT,
+	NATIONAL_PARK_ECOLOGY,
+	NATIONAL_PARK_FAQS,
 	NATIONAL_PARK_LEGACY,
+	NATIONAL_PARK_MONSOON,
 	NATIONAL_PARK_QUICK_FACTS,
+	NATIONAL_PARK_RELATED_GUIDES,
 	NATIONAL_PARK_STATS,
 	type NationalParkLegacyCard,
 	type QuickFactCard,
 } from "#/lib/national-park";
 import { Image } from "#/util/Image";
+
+const BREADCRUMBS = [
+	{ name: "Home", path: "/" },
+	{ name: "About", path: "/about" },
+	{ name: "National Park", path: "/about/national-park" },
+];
 
 function QuickFactCardItem({
 	title,
@@ -100,13 +114,15 @@ function StatCard({ label, value }: { label: string; value: string }) {
 }
 
 export function NationalParkPage() {
-	const { eyebrow, title, subtitle, intro, quote, outro, map } =
+	const { eyebrow, title, subtitle, intro, quote, outro, map, lastReviewed } =
 		NATIONAL_PARK_CONTENT;
 
 	return (
 		<div className="bg-sand-50 pt-28 lg:pt-32">
 			<section>
 				<div className="mx-auto max-w-7xl px-6 pb-16 lg:px-8 lg:pb-24">
+					<PageBreadcrumbs crumbs={BREADCRUMBS} className="mb-8" />
+
 					<header className="mx-auto mb-12 max-w-3xl text-center lg:mb-16">
 						<p className="font-display text-xs font-medium uppercase tracking-display text-muted-400">
 							{eyebrow}
@@ -118,6 +134,12 @@ export function NationalParkPage() {
 						<p className="mt-6 font-playfair text-lg italic text-charcoal-600 lg:text-xl">
 							{subtitle}
 						</p>
+						<div className="mt-5 flex flex-col items-center">
+							<LastReviewed path="/about/national-park" date={lastReviewed} />
+							<div className="mt-3 w-full max-w-xl">
+								<ContentChangelog path="/about/national-park" />
+							</div>
+						</div>
 					</header>
 
 					<div className="grid gap-12 lg:grid-cols-[minmax(0,0.95fr)_minmax(0,1.05fr)] lg:items-start lg:gap-14 xl:gap-16">
@@ -197,6 +219,37 @@ export function NationalParkPage() {
 				</div>
 			</section>
 
+			<section className="border-t border-sand-300/80">
+				<div className="mx-auto max-w-3xl px-6 py-16 lg:px-8 lg:py-20">
+					<h2 className="font-playfair text-2xl text-charcoal-900 lg:text-3xl">
+						{NATIONAL_PARK_ECOLOGY.title}
+					</h2>
+					<div className="mt-6 space-y-4">
+						{NATIONAL_PARK_ECOLOGY.paragraphs.map((paragraph) => (
+							<p
+								key={paragraph.slice(0, 40)}
+								className="font-body text-[0.9375rem] leading-[1.85] text-charcoal-700"
+							>
+								{paragraph}
+							</p>
+						))}
+					</div>
+					<h2 className="mt-12 font-playfair text-2xl text-charcoal-900 lg:text-3xl">
+						{NATIONAL_PARK_MONSOON.title}
+					</h2>
+					<div className="mt-6 space-y-4">
+						{NATIONAL_PARK_MONSOON.paragraphs.map((paragraph) => (
+							<p
+								key={paragraph.slice(0, 40)}
+								className="font-body text-[0.9375rem] leading-[1.85] text-charcoal-700"
+							>
+								{paragraph}
+							</p>
+						))}
+					</div>
+				</div>
+			</section>
+
 			<section className="border-t border-sand-300/80 bg-sand-100/40">
 				<div className="mx-auto max-w-7xl px-6 py-16 lg:px-8 lg:py-24">
 					<header className="mb-10 flex justify-center lg:mb-12">
@@ -212,6 +265,46 @@ export function NationalParkPage() {
 					</div>
 				</div>
 			</section>
+
+			<section className="border-t border-sand-300/80">
+				<div className="mx-auto max-w-3xl px-6 py-16 lg:px-8 lg:py-20">
+					<h2 className="font-playfair text-2xl text-charcoal-900 lg:text-3xl">
+						Ranthambore National Park FAQs
+					</h2>
+					<dl className="mt-8 space-y-6">
+						{NATIONAL_PARK_FAQS.map((faq) => (
+							<div key={faq.question}>
+								<dt className="font-playfair text-lg text-charcoal-900">
+									{faq.question}
+								</dt>
+								<dd className="mt-2 font-body text-sm leading-relaxed text-charcoal-700 lg:text-[0.9375rem]">
+									{faq.answer}
+								</dd>
+							</div>
+						))}
+					</dl>
+				</div>
+			</section>
+
+			<section className="border-t border-sand-300/80 bg-sand-100/40">
+				<div className="mx-auto max-w-3xl px-6 py-12 text-center lg:px-8">
+					<p className="font-display text-xs uppercase tracking-display text-muted-400">
+						Planning your trip?
+					</p>
+					<p className="mt-3 font-body text-sm leading-relaxed text-charcoal-700 lg:text-base">
+						Use the travel guide for seasons, logistics, and packing — then
+						explore safari options when you are ready.
+					</p>
+					<a
+						href="/plan"
+						className="mt-5 inline-block font-display text-xs font-semibold uppercase tracking-display text-earth-700 underline-offset-4 hover:underline"
+					>
+						Plan your visit
+					</a>
+				</div>
+			</section>
+
+			<RelatedGuides guides={[...NATIONAL_PARK_RELATED_GUIDES]} />
 		</div>
 	);
 }

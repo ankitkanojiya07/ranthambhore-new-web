@@ -3,22 +3,21 @@ import { ContactSection } from "#/components/home/ContactSection";
 import { ContentSection } from "#/components/pages/ContentSection";
 import { IntroSection } from "#/components/pages/IntroSection";
 import { WhyChooseSection } from "#/components/pages/WhyChooseSection";
+import { buildPageHead } from "#/lib/seo";
 
 export const Route = createFileRoute("/(main)/contact/")({
 	staticData: { navOverlay: false },
-	head: () => ({
-		meta: [
-			{
-				title:
-					"Contact Ranthambhor.com | Safari Bookings, Enquiries & Custom Packages",
-			},
-			{
-				name: "description",
-				content:
-					"Get in touch with the Ranthambhor.com team for safari bookings, hotel reservations, tour packages, and custom Rajasthan itineraries. Based in Sawai Madhopur.",
-			},
-		],
-	}),
+	head: () =>
+		buildPageHead({
+			title: "Contact Ranthambhor.com | Safari Planning Enquiries",
+			description:
+				"Contact the Sawai Madhopur-based Ranthambhor.com team for safari planning help, stay shortlists, and custom Ranthambore itineraries — after you know what you need.",
+			path: "/contact",
+			breadcrumbs: [
+				{ name: "Home", path: "/" },
+				{ name: "Contact", path: "/contact" },
+			],
+		}),
 	component: ContactPage,
 });
 

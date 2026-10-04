@@ -141,7 +141,7 @@ export const BOOKING_SECTION = {
 		"All Ranthambore safaris must be booked through the official Rajasthan Forest Department online portal (ranthambore.rajasthan.gov.in) or through authorised tour operators like Ranthambhor.com. Walk-in bookings on the day are generally not possible during peak season.",
 	bookingWindowHeading: "Booking Window",
 	bookingWindow:
-		"The booking portal opens 90 days before your preferred safari date. Peak season slots (October to March) get booked rapidly — often within hours of opening. For guaranteed slots during peak months, book as early as possible, ideally 45–60 days in advance.",
+		"The booking portal opens 90 days before your preferred safari date. Peak season slots (October to March) get booked rapidly — often within hours of opening. For peak months, book as early as the window allows.",
 	cancellationHeading: "Cancellation Policy",
 	cancellation:
 		"Government bookings: Cancellations made 48 hours before the safari are generally eligible for a refund (less processing fees). Last-minute cancellations are typically non-refundable. Operator-arranged bookings may have different terms — confirm with your booking agent.",
@@ -153,3 +153,40 @@ export const BOOKING_SECTION = {
 		"Printout or digital copy of the booking confirmation",
 	],
 } as const;
+
+export const SAFARI_COST_SECTION = {
+	title: "Safari cost & permit basics",
+	disclaimer:
+		"Fees change by season, nationality category, vehicle type, and government notification. Treat the notes below as a planning framework — verify live prices on the official portal before payment.",
+	points: [
+		"Total guest cost usually combines park entry / permit components with vehicle and guide charges.",
+		"Gypsy (jeep) per-person costs are typically higher than Canter because fewer seats share the vehicle.",
+		"Indian and foreign national fee categories differ on the official system — enter the correct ID type at booking.",
+		"Operator-assisted bookings may include logistics (pickup, coordination, zone advice) on top of government permit costs — ask for a clear breakdown.",
+		"Do not rely on screenshots or old blog posts for prices; open the current portal calendar for your date.",
+	],
+	lastReviewed: "2026-10-04",
+} as const;
+
+export const TIMINGS_RELATED_GUIDES = [
+	{
+		title: "Jeep vs Canter",
+		href: "/safari/jeep",
+		description: "Compare vehicles before you choose a permit type.",
+	},
+	{
+		title: "Safari Zones",
+		href: "/safari/zones",
+		description: "Understand zone character before requesting preferences.",
+	},
+	{
+		title: "Plan Your Visit",
+		href: "/plan",
+		description: "Best time, how to reach, and sample itineraries.",
+	},
+	{
+		title: "Safari Guide",
+		href: "/safari",
+		description: "Hub overview of how Ranthambore safaris work.",
+	},
+] as const;

@@ -1,4 +1,5 @@
 import { AboutSection } from "#/components/home/AboutSection";
+import { ConservationInitiativesSection } from "#/components/home/ConservationInitiativesSection";
 import { ContactSection } from "#/components/home/ContactSection";
 import { FaqSection } from "#/components/home/FaqSection";
 import { HowToReachSection } from "#/components/home/HowToReachSection";
@@ -23,6 +24,8 @@ export function HomeBelowFold() {
 			<div className="mx-auto max-w-5xl border-t border-muted-300" />
 			<HowToReachSection />
 			<StaySection />
+			<div className="mx-auto max-w-5xl border-t border-muted-300" />
+			<ConservationInitiativesSection />
 			<ContactSection />
 			<div className="mx-auto max-w-5xl border-t border-muted-300" />
 			<FaqSection />

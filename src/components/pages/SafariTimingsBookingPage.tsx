@@ -1,11 +1,22 @@
+import { LastReviewed } from "#/components/seo/LastReviewed";
+import { PageBreadcrumbs } from "#/components/seo/PageBreadcrumbs";
+import { RelatedGuides } from "#/components/seo/RelatedGuides";
 import {
 	BEST_TIME_SECTION,
 	BOOKING_SECTION,
+	SAFARI_COST_SECTION,
 	SAFARI_TIMINGS_SECTION,
+	type ScheduleStep,
 	SEASON_TIMINGS_TABLE,
 	TIMINGS_BOOKING_CONTENT,
-	type ScheduleStep,
+	TIMINGS_RELATED_GUIDES,
 } from "#/lib/safari-timings-booking";
+
+const BREADCRUMBS = [
+	{ name: "Home", path: "/" },
+	{ name: "Safari", path: "/safari" },
+	{ name: "Timings & Booking", path: "/safari/timing-and-fees" },
+];
 
 function SeasonTimingsTable() {
 	const { title, rows } = SEASON_TIMINGS_TABLE;
@@ -166,6 +177,7 @@ export function SafariTimingsBookingPage() {
 		<div className="bg-sand-50 pt-28 lg:pt-32">
 			<section>
 				<div className="mx-auto max-w-4xl px-6 py-14 lg:px-8 lg:py-20">
+					<PageBreadcrumbs crumbs={BREADCRUMBS} className="mb-8" />
 					<header className="mx-auto mb-12 max-w-3xl text-center lg:mb-16">
 						<h1 className="font-playfair text-3xl text-charcoal-900 lg:text-4xl">
 							{title}
@@ -174,6 +186,12 @@ export function SafariTimingsBookingPage() {
 						<p className="mt-6 font-body text-base leading-relaxed text-charcoal-600 lg:text-lg">
 							{subtitle}
 						</p>
+						<div className="mt-4 flex justify-center">
+							<LastReviewed
+								date={SAFARI_COST_SECTION.lastReviewed}
+								note="Verify live fees and session times on the official portal"
+							/>
+						</div>
 					</header>
 
 					<SeasonTimingsTable />
@@ -197,6 +215,25 @@ export function SafariTimingsBookingPage() {
 							))}
 						</div>
 					</div>
+
+					<section id="safari-cost" className="mt-16 scroll-mt-28">
+						<h2 className="font-playfair text-2xl text-charcoal-900 lg:text-3xl">
+							{SAFARI_COST_SECTION.title}
+						</h2>
+						<p className="mt-4 font-body text-sm leading-[1.85] text-charcoal-600">
+							{SAFARI_COST_SECTION.disclaimer}
+						</p>
+						<ul className="mt-6 space-y-3">
+							{SAFARI_COST_SECTION.points.map((point) => (
+								<li
+									key={point}
+									className="relative pl-4 font-body text-sm leading-relaxed text-charcoal-700 before:absolute before:left-0 before:top-[0.6em] before:size-1.5 before:rounded-full before:bg-earth-400"
+								>
+									{point}
+								</li>
+							))}
+						</ul>
+					</section>
 
 					<div className="mt-16 space-y-6">
 						<InfoCard
@@ -223,6 +260,8 @@ export function SafariTimingsBookingPage() {
 					</div>
 				</div>
 			</section>
+
+			<RelatedGuides guides={[...TIMINGS_RELATED_GUIDES]} />
 		</div>
 	);
 }

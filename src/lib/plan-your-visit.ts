@@ -45,11 +45,11 @@ export interface TravelTip {
 }
 
 export const PLAN_YOUR_VISIT_CONTENT = {
-	title: "Plan Your Visit at Ranthambhore",
+	title: "Plan Your Visit to Ranthambore",
 	subtitle:
-		"Your complete 10-step journey guide — from getting here and picking the best season to booking safaris, choosing zones, packing, and planning your days in the forest.",
+		"How to reach Sawai Madhopur, the best time to visit, safari booking basics, zone choices, packing lists, and FAQs — in one practical journey guide.",
 	intro:
-		"Planning a trip to Ranthambhore is easier than you might think — but doing it right makes all the difference. Follow this step-by-step guide to organise travel, safaris, accommodation, and everything you need for an unforgettable Ranthambore adventure.",
+		"Planning a Ranthambore trip well means answering logistics before you chase a tiger photo: trains and roads from Delhi or Jaipur, monsoon closure, safari permits, Gypsy vs Canter, and where to stay near the gates. Follow this step-by-step guide so the park, not the paperwork, becomes the hard part.",
 } as const;
 
 export const JOURNEY_STEPS: JourneyStep[] = [
@@ -186,6 +186,131 @@ export const BEST_TIME_TO_VISIT = {
 		"November–January: Peak season. Cool mornings, brilliant wildlife activity.",
 		"February–March: Great light for photography. Tiger cubs often visible.",
 		"April–June: Hot but thrilling. Concentrated water-hole action.",
+	],
+	months: [
+		{
+			month: "October",
+			weather: "Warm days, cooler nights; post-monsoon green",
+			wildlife: "Park reopens; good birding; rising predator activity",
+			travellerFit: "Ideal reopening month — book early",
+		},
+		{
+			month: "November",
+			weather: "Pleasant days, cold mornings",
+			wildlife: "Strong general wildlife activity; migrants arriving",
+			travellerFit: "Peak comfort for first-time visitors",
+		},
+		{
+			month: "December",
+			weather: "Cold mornings/evenings; clear skies",
+			wildlife: "Excellent visibility; busy tourism season",
+			travellerFit: "Bring layers; expect full hotels",
+		},
+		{
+			month: "January",
+			weather: "Coldest month; misty dawns possible",
+			wildlife: "Active mornings; great light later in day",
+			travellerFit: "Classic peak-season trip",
+		},
+		{
+			month: "February",
+			weather: "Cool to mild; superb photography light",
+			wildlife: "Strong activity; cub sightings often discussed",
+			travellerFit: "Photographers' favourite",
+		},
+		{
+			month: "March",
+			weather: "Warming fast; vegetation thinning",
+			wildlife: "Good visibility as cover reduces",
+			travellerFit: "Shoulder of peak season",
+		},
+		{
+			month: "April",
+			weather: "Hot; dry landscape",
+			wildlife: "Animals concentrate near water",
+			travellerFit: "For heat-tolerant wildlife watchers",
+		},
+		{
+			month: "May",
+			weather: "Very hot; intense midday sun",
+			wildlife: "Waterhole drama; challenging conditions",
+			travellerFit: "Serious safari travellers only",
+		},
+		{
+			month: "June",
+			weather: "Hot; pre-monsoon build-up",
+			wildlife: "Still open until late June in a typical year",
+			travellerFit: "Last open weeks before closure",
+		},
+		{
+			month: "July–September",
+			weather: "Monsoon",
+			wildlife: "Core tourism park typically closed",
+			travellerFit: "Do not plan park safaris; verify exceptions",
+		},
+	],
+} as const;
+
+export const SAMPLE_ITINERARIES = {
+	title: "Sample Ranthambore itineraries",
+	intro:
+		"These sample plans assume the park is open and that safari permits are already secured. Adjust for train times, hotel distance from gates, and how many safaris you booked.",
+	plans: [
+		{
+			id: "2-day",
+			title: "2-day Ranthambore itinerary",
+			summary:
+				"A tight weekend-style plan: arrive, do two to three safaris, add one heritage or lake outing if energy allows.",
+			days: [
+				{
+					label: "Day 1",
+					items: [
+						"Arrive Sawai Madhopur by morning train or road; hotel check-in and safari briefing",
+						"Afternoon safari (Gypsy or Canter as booked)",
+						"Evening rest; light dinner; early sleep for morning pickup",
+					],
+				},
+				{
+					label: "Day 2",
+					items: [
+						"Morning safari in a different session/zone if allocated",
+						"Optional: short visit toward fort approaches / local crafts if time remains",
+						"Depart by afternoon/evening train — or stay for a third safari if you extended",
+					],
+				},
+			],
+		},
+		{
+			id: "3-day",
+			title: "3-day Ranthambore itinerary",
+			summary:
+				"The most practical first visit: three to four safaris, one buffer half-day for fort/temple/crafts, and less rushed transfers.",
+			days: [
+				{
+					label: "Day 1",
+					items: [
+						"Arrive and settle near the forest gates",
+						"Afternoon safari to learn the landscape with your naturalist",
+						"Review next-day pickup time and packing list",
+					],
+				},
+				{
+					label: "Day 2",
+					items: [
+						"Morning safari (best light and often cooler)",
+						"Midday rest — summers demand this",
+						"Afternoon safari in another zone/session if allocated",
+					],
+				},
+				{
+					label: "Day 3",
+					items: [
+						"Optional final morning safari OR heritage morning (Fort / Trinetra Ganesh / local crafts)",
+						"Checkout and onward travel to Jaipur, Agra, or Delhi",
+					],
+				},
+			],
+		},
 	],
 } as const;
 
@@ -333,7 +458,7 @@ export const PLAN_FAQS: PlanFaqItem[] = [
 		id: "best-zone",
 		question: "Which is the best zone for tiger sightings?",
 		answer:
-			"Zones 1 to 5 are considered core areas and typically have higher chances of spotting tigers, but good sightings have been recorded in buffer zones (6 to 10) as well. Wildlife being unpredictable, luck plays a big role!",
+			"Zones 1–5 are core tourism areas with rich habitat, and buffer zones 6–10 can also be excellent. There is no official zone ranking that guarantees a tiger — book multiple safaris and treat sightings as chance events.",
 	},
 	{
 		id: "choose-zone",
@@ -342,16 +467,28 @@ export const PLAN_FAQS: PlanFaqItem[] = [
 			"You may request a preferred zone, but allocation is subject to availability and is controlled by the forest department. We always try to honour zone preferences wherever possible.",
 	},
 	{
+		id: "delhi",
+		question: "How far is Ranthambore from Delhi?",
+		answer:
+			"By road, Sawai Madhopur / Ranthambore is commonly about 380–400 km from Delhi (roughly 6–7 hours depending on traffic and stops). Many travellers prefer an overnight train to Sawai Madhopur.",
+	},
+	{
+		id: "jaipur",
+		question: "How far is Ranthambore from Jaipur?",
+		answer:
+			"Jaipur is the nearest major city and airport hub — roughly 155–180 km by road (about 3 hours). Combining Jaipur heritage with Ranthambore safaris is a classic Rajasthan circuit.",
+	},
+	{
 		id: "booking",
 		question: "How do I book a jungle safari?",
 		answer:
-			"You can book your safari through us — share your ID details, preferred dates, and number of guests. We handle the formalities and send you a confirmation.",
+			"Book through the official Rajasthan Forest Department portal or an authorised operator. Share ID details, preferred dates, and guest count; carry matching photo ID at the gate.",
 	},
 	{
 		id: "timings",
 		question: "What are the safari timings?",
 		answer:
-			"Safaris run twice daily: morning around 6:00–9:30 AM and afternoon around 2:30–6:00 PM. Exact timings vary slightly with the season.",
+			"Safaris run twice daily: morning and afternoon sessions. Exact entry/exit times shift with the season — see the timings guide for the month-wise table.",
 	},
 	{
 		id: "children",
@@ -369,6 +506,35 @@ export const PLAN_FAQS: PlanFaqItem[] = [
 		id: "best-time",
 		question: "When is the best time to visit?",
 		answer:
-			"October–March offers comfortable weather and great birding. April–June is peak tiger season at water holes, though the heat is intense.",
+			"October–March offers comfortable weather and great birding. April–June is hotter but animals often concentrate at waterholes. Sightings are never guaranteed in any month.",
+	},
+	{
+		id: "itinerary-length",
+		question: "Is 2 days enough for Ranthambore?",
+		answer:
+			"Two days can work for a short trip with two to three safaris, but three days is more comfortable — more sessions, less rush, and time for fort or craft visits.",
 	},
 ];
+
+export const PLAN_RELATED_GUIDES = [
+	{
+		title: "Ranthambore National Park",
+		href: "/about/national-park",
+		description: "Park geography, season, and reserve context.",
+	},
+	{
+		title: "Safari Guide",
+		href: "/safari",
+		description: "Vehicles, zones, permits, and responsible viewing.",
+	},
+	{
+		title: "Safari Zones 1–10",
+		href: "/safari/zones",
+		description: "Landscape notes before you request a zone.",
+	},
+	{
+		title: "Where to Stay",
+		href: "/stay/hotels",
+		description: "Curated stays near the forest gates.",
+	},
+] as const;

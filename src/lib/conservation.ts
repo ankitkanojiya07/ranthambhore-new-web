@@ -2,13 +2,20 @@ import type { LucideIcon } from "lucide-react";
 import {
 	CircleDollarSign,
 	Droplets,
+	HeartHandshake,
+	Home,
 	Leaf,
+	MessagesSquare,
 	PawPrint,
 	Recycle,
+	RefreshCw,
 	Shield,
+	ShieldCheck,
+	Sprout,
 	Sun,
 	User,
 	Users,
+	UsersRound,
 } from "lucide-react";
 
 export interface ConservationInitiative {
@@ -53,6 +60,179 @@ export const CONSERVATION_CONTENT = {
 	title: "Conservation Initiatives",
 	intro:
 		"Ranthambore's success story is a testament to dedicated conservation efforts and community involvement. From near extinction to a thriving tiger population, the journey has been remarkable.",
+} as const;
+
+export const CONSERVATION_RELATED_GUIDES = [
+	{
+		title: "Tigers of Ranthambore",
+		href: "/about/tigers",
+		description:
+			"Famous individuals and how tiger stories connect to protection work.",
+	},
+	{
+		title: "National Park guide",
+		href: "/about/national-park",
+		description: "Park geography, season, and reserve context.",
+	},
+	{
+		title: "Wildlife & Flora",
+		href: "/about/flora-and-fauna",
+		description: "The species community conservation protects.",
+	},
+	{
+		title: "Safari Guide",
+		href: "/safari",
+		description: "Responsible viewing is part of long-term conservation.",
+	},
+] as const;
+
+export interface HospitalityPurposeSegment {
+	id: string;
+	title: string;
+	description: string;
+	icon: LucideIcon;
+	/** Outer-ring fill */
+	color: string;
+	/** Title/body text color on the segment */
+	textColor: string;
+}
+
+export interface HospitalityPurposePillar {
+	id: string;
+	label: string;
+	icon: LucideIcon;
+	/** Inner-ring fill */
+	color: string;
+	textColor: string;
+	segments: readonly HospitalityPurposeSegment[];
+}
+
+export const HOSPITALITY_PURPOSE_WHEEL = {
+	brand: "Ranthambore Regency",
+	tagline: "Hospitality with Purpose",
+	/** Clockwise from 12 o'clock: Social → Governance → Environmental */
+	pillars: [
+		{
+			id: "social",
+			label: "Social",
+			icon: Users,
+			color: "#DCC9AE",
+			textColor: "#3F2E22",
+			segments: [
+				{
+					id: "community",
+					title: "Community",
+					description:
+						"Local livelihoods, local hiring, and Sawai Madhopur ten minutes down the road.",
+					icon: Users,
+					color: "#C9B089",
+					textColor: "#FFFFFF",
+				},
+				{
+					id: "guest-experience",
+					title: "Guest Experience",
+					description:
+						"Safe, unhurried and memorable stays for everyone who arrives.",
+					icon: UsersRound,
+					color: "#B89A6E",
+					textColor: "#FFFFFF",
+				},
+				{
+					id: "collaboration",
+					title: "Collaboration",
+					description:
+						"Working with the people and the businesses around the park.",
+					icon: HeartHandshake,
+					color: "#A6855A",
+					textColor: "#FFFFFF",
+				},
+			],
+		},
+		{
+			id: "governance",
+			label: "Governance",
+			icon: ShieldCheck,
+			color: "#3F5A3A",
+			textColor: "#F4F7F0",
+			segments: [
+				{
+					id: "commitment",
+					title: "Commitment",
+					description:
+						"Integrity, ethics and accountability, held to on every booking.",
+					icon: ShieldCheck,
+					color: "#4A6B44",
+					textColor: "#FFFFFF",
+				},
+				{
+					id: "communication",
+					title: "Communication",
+					description:
+						"Open and honest with guests, staff and everyone we work with.",
+					icon: MessagesSquare,
+					color: "#355033",
+					textColor: "#FFFFFF",
+				},
+				{
+					id: "continual-improvement",
+					title: "Continual Improvement",
+					description:
+						"Learning, adapting and improving how the house is kept.",
+					icon: RefreshCw,
+					color: "#2C422A",
+					textColor: "#FFFFFF",
+				},
+			],
+		},
+		{
+			id: "environmental",
+			label: "Environmental",
+			icon: Leaf,
+			color: "#B7C9A4",
+			textColor: "#2F3F28",
+			segments: [
+				{
+					id: "carbon-footprint",
+					title: "Carbon Footprint",
+					description:
+						"Fewer emissions in how we run, down to the charger on the drive.",
+					icon: Sprout,
+					color: "#A7BC90",
+					textColor: "#FFFFFF",
+				},
+				{
+					id: "green-operations",
+					title: "Green Operations",
+					description:
+						"Energy and water saved, waste cut, and gentler practice throughout the house.",
+					icon: Home,
+					color: "#95AD7C",
+					textColor: "#FFFFFF",
+				},
+				{
+					id: "conservation",
+					title: "Conservation",
+					description:
+						"Protecting the park's wildlife and the dry forest it lives in.",
+					icon: Leaf,
+					color: "#87A06C",
+					textColor: "#FFFFFF",
+				},
+			],
+		},
+	] as const satisfies readonly HospitalityPurposePillar[],
+} as const;
+
+/** Side-column order matching the reference layout */
+export const HOSPITALITY_PURPOSE_SIDE_COPY = {
+	left: [
+		"conservation",
+		"green-operations",
+		"carbon-footprint",
+		"continual-improvement",
+		"communication",
+	],
+	right: ["community", "guest-experience", "collaboration", "commitment"],
 } as const;
 
 export const CONSERVATION_INITIATIVES: ConservationInitiative[] = [

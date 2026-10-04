@@ -1,20 +1,31 @@
 import { ArrowRight, Check, ChevronDown } from "lucide-react";
 import { AnimatePresence, motion } from "motion/react";
 import { useState } from "react";
+import { LastReviewed } from "#/components/seo/LastReviewed";
+import { PageBreadcrumbs } from "#/components/seo/PageBreadcrumbs";
+import { RelatedGuides } from "#/components/seo/RelatedGuides";
 import {
 	CONSERVATION_CONTENT,
 	CONSERVATION_INITIATIVES,
+	CONSERVATION_RELATED_GUIDES,
 	CONSERVATION_SUCCESS_STORY,
+	type ConservationInitiative,
 	ENVIRONMENTAL_SUSTAINABILITY,
 	INITIATIVE_DETAILS,
-	SUSTAINABILITY_ITEMS,
-	type ConservationInitiative,
 	type InitiativeDetail,
 	type InitiativeDetailSection,
+	SUSTAINABILITY_ITEMS,
 	type SustainabilityItem,
 } from "#/lib/conservation";
 import { cn } from "#/lib/utils";
 import { Image } from "#/util/Image";
+import { HospitalityPurposeWheel } from "./HospitalityPurposeWheel";
+
+const BREADCRUMBS = [
+	{ name: "Home", path: "/" },
+	{ name: "About", path: "/about" },
+	{ name: "Conservation", path: "/about/conservation" },
+];
 
 function InitiativeCard({
 	id,
@@ -176,15 +187,23 @@ function ConservationInitiativesSection() {
 
 	return (
 		<section>
-			<div className="mx-auto max-w-7xl px-6 py-14 lg:px-8 lg:py-20">
-				<header className="mx-auto mb-12 max-w-3xl text-center lg:mb-16">
+			<div className="mx-auto max-w-7xl px-6 pb-14 lg:px-8 lg:pb-20">
+				<PageBreadcrumbs crumbs={BREADCRUMBS} className="mb-8" />
+				<header className="mx-auto mb-10 max-w-3xl text-center lg:mb-12">
 					<h1 className="font-playfair text-3xl text-charcoal-900 lg:text-4xl">
 						{CONSERVATION_CONTENT.title}
 					</h1>
 					<p className="mt-6 font-body text-base leading-relaxed text-charcoal-600 lg:text-lg">
 						{CONSERVATION_CONTENT.intro}
 					</p>
+					<div className="mt-4 flex justify-center">
+						<LastReviewed path="/about/conservation" />
+					</div>
 				</header>
+
+				<div className="mb-12 lg:mb-16">
+					<HospitalityPurposeWheel />
+				</div>
 
 				<div className="grid gap-6 md:grid-cols-3">
 					{CONSERVATION_INITIATIVES.map((initiative) => (
@@ -402,6 +421,7 @@ export function ConservationPage() {
 			</section>
 
 			<EnvironmentalSustainabilitySection />
+			<RelatedGuides guides={[...CONSERVATION_RELATED_GUIDES]} />
 		</div>
 	);
 }

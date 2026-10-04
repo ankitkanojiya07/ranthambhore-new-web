@@ -23,10 +23,10 @@ export function AboutSection() {
 					{/* Text content */}
 					<div className="w-full lg:w-[55%]">
 						<p className="font-display text-sm uppercase font-semibold text-earth-700">
-							Welcome to
+							Destination knowledge
 						</p>
 						<h2 className="mt-2 text-2xl font-semibold text-charcoal-800 lg:text-3xl">
-							Your Trusted Guide to <br /> Ranthambore National Park
+							The Field Guide to <br /> Ranthambore National Park
 						</h2>
 						<div className="mt-6 space-y-2 text-justify font-body text-base text-charcoal-700">
 							<p>

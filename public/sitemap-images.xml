@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+	xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+	<url>
+		<loc>https://ranthambhor.com/</loc>
+		<image:image>
+			<image:loc>https://ranthambhor.com/hero/8.webp</image:loc>
+			<image:title>Ranthambore National Park tiger country</image:title>
+			<image:caption>Hero photography from Ranthambore National Park</image:caption>
+		</image:image>
+		<image:image>
+			<image:loc>https://ranthambhor.com/logo.webp</image:loc>
+			<image:title>Ranthambhor.com logo</image:title>
+		</image:image>
+	</url>
+	<url>
+		<loc>https://ranthambhor.com/about/national-park</loc>
+		<image:image>
+			<image:loc>https://ranthambhor.com/flora/map.webp</image:loc>
+			<image:title>Map of Ranthambore National Park</image:title>
+			<image:caption>Park map showing forest cover and safari landscape</image:caption>
+		</image:image>
+	</url>
+	<url>
+		<loc>https://ranthambhor.com/about/tigers</loc>
+		<image:image>
+			<image:loc>https://ranthambhor.com/Home/tiger.jpg</image:loc>
+			<image:title>Royal Bengal Tiger in Ranthambore</image:title>
+		</image:image>
+		<image:image>
+			<image:loc>https://ranthambhor.com/Home/machli.jpg</image:loc>
+			<image:title>Machali the legendary tigress of Ranthambore</image:title>
+		</image:image>
+	</url>
+	<url>
+		<loc>https://ranthambhor.com/about/flora-and-fauna</loc>
+		<image:image>
+			<image:loc>https://ranthambhor.com/flora/16.webp</image:loc>
+			<image:title>Birdlife in Ranthambore National Park</image:title>
+		</image:image>
+		<image:image>
+			<image:loc>https://ranthambhor.com/Home/leo.jpg</image:loc>
+			<image:title>Leopard in Ranthambore</image:title>
+		</image:image>
+	</url>
+	<url>
+		<loc>https://ranthambhor.com/safari</loc>
+		<image:image>
+			<image:loc>https://ranthambhor.com/hero/1.webp</image:loc>
+			<image:title>Ranthambore safari landscape</image:title>
+		</image:image>
+	</url>
+	<url>
+		<loc>https://ranthambhor.com/safari/jeep</loc>
+		<image:image>
+			<image:loc>https://ranthambhor.com/Home/gypsy.webp</image:loc>
+			<image:title>Gypsy jeep safari vehicle in Ranthambore</image:title>
+		</image:image>
+		<image:image>
+			<image:loc>https://ranthambhor.com/Home/canter.webp</image:loc>
+			<image:title>Canter safari vehicle in Ranthambore</image:title>
+		</image:image>
+	</url>
+	<url>
+		<loc>https://ranthambhor.com/safari/zones</loc>
+		<image:image>
+			<image:loc>https://ranthambhor.com/flora/map.webp</image:loc>
+			<image:title>Ranthambore safari zones map</image:title>
+		</image:image>
+	</url>
+	<url>
+		<loc>https://ranthambhor.com/about/fort</loc>
+		<image:image>
+			<image:loc>https://ranthambhor.com/Home/fort1.jpg</image:loc>
+			<image:title>Ranthambore Fort UNESCO World Heritage Site</image:title>
+		</image:image>
+	</url>
+	<url>
+		<loc>https://ranthambhor.com/plan</loc>
+		<image:image>
+			<image:loc>https://ranthambhor.com/map.png</image:loc>
+			<image:title>Illustrated map for planning a Ranthambore visit</image:title>
+		</image:image>
+	</url>
+</urlset>

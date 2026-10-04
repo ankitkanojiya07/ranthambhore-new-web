@@ -159,18 +159,98 @@ export const NATIONAL_PARK_QUICK_FACTS = {
 } as const;
 
 export const NATIONAL_PARK_CONTENT = {
-	eyebrow: "Discover Our Heritage",
-	title: "About Ranthambore",
-	subtitle: "A Tapestry of History, Nature, and Culture",
+	eyebrow: "Ranthambore Tiger Reserve",
+	title: "Ranthambore National Park",
+	subtitle: "History, wilderness, and one of India's great tiger landscapes",
 	intro:
-		"Ranthambore is not just about its tigers; it is a living museum where centuries-old temples, hunting pavilions, and majestic forts blend with untamed wilderness. The park's unique ecosystem supports an incredible variety of life against the backdrop of rugged terrain.",
+		"Ranthambore National Park is a tiger reserve in Sawai Madhopur, Rajasthan, where dry deciduous forest, lakes, and a 10th-century fort share the same landscape. Travellers come for Royal Bengal tigers — but the park is equally defined by its history, birdlife, and open viewing habitat. This guide covers what the park is, how big it is, when it is open, and how it connects to safari zones, wildlife, and conservation.",
 	quote:
 		"Historically, the Ranthambore Fort, a UNESCO World Heritage Site, has been a sentinel of power since the 10th century. It overlooks the entire park and remains a proud reminder of Rajasthan's valor and resilience.",
 	outro:
-		"Originally established as the royal hunting grounds of the Maharajas of Jaipur, the park evolved from the Sawai Madhopur Game Sanctuary (1955) to one of India's pioneering tiger reserves under Project Tiger (1973). Today, it stands as a shining example of wildlife conservation, supporting a thriving population of tigers and diverse fauna.",
+		"Originally the royal hunting grounds of the Maharajas of Jaipur, the landscape evolved from the Sawai Madhopur Wildlife Sanctuary (1955) into one of India's pioneering Project Tiger reserves (1973). The core tourism landscape is often described as roughly 392 sq km within a larger tiger reserve complex exceeding 1,300 sq km. Tiger numbers fluctuate with official censuses — treat population figures as approximate and verify against current Forest Department data.",
 	map: {
 		src: "/flora/map.webp",
-		alt: "Satellite map of Ranthambore National Park with safari zones",
+		alt: "Map of Ranthambore National Park showing forest cover and safari zone landscape",
 		location: "Ranthambore, India",
 	},
+	lastReviewed: "2026-10-04",
 } as const;
+
+export const NATIONAL_PARK_FAQS = [
+	{
+		question: "How big is Ranthambore National Park?",
+		answer:
+			"The core tourism landscape of Ranthambore National Park is commonly described as about 392 square kilometres. It sits within the larger Ranthambore Tiger Reserve complex — including adjoining sanctuaries — which covers more than 1,300 square kilometres of protected forest, grassland, and hills.",
+	},
+	{
+		question: "When is Ranthambore National Park closed?",
+		answer:
+			"The park is typically closed during the monsoon, from 1 July to 30 September, and open from 1 October to 30 June. Confirm the current season before you travel, as access rules can be updated by the forest department.",
+	},
+	{
+		question: "What is the best time to visit Ranthambore?",
+		answer:
+			"October to March offers the most comfortable weather and strong birding. April to June is hotter, but wildlife often concentrates near lakes and waterholes. Sightings are never guaranteed in any month.",
+	},
+	{
+		question: "How many safari zones does Ranthambore have?",
+		answer:
+			"Ranthambore is organised into 10 safari zones. Zones 1–5 are core tourism areas; zones 6–10 are buffer zones. Zone allocation is managed by the forest department and is subject to availability.",
+	},
+] as const;
+
+export const NATIONAL_PARK_ECOLOGY = {
+	title: "Landscape & ecology",
+	paragraphs: [
+		"Ranthambore sits at the junction of the Aravalli and Vindhya systems in Sawai Madhopur district. The tourism landscape mixes dry deciduous dhok forest, open grasslands, seasonal streams, and a chain of lakes that become wildlife magnets as the dry season progresses.",
+		"Padam Talao, Raj Bagh, and Malik Talao are among the best-known waterbodies — not only for scenery, but because tigers, deer, crocodiles, and birds share the edges. Ancient structures such as the fort and old hunting pavilions sit inside this working ecosystem, which is why the park feels like wilderness and heritage at once.",
+		"The wider Ranthambore Tiger Reserve complex also includes adjoining protected areas. When comparing “park area” figures, distinguish the core tourism landscape (often cited around 392 sq km) from the larger reserve footprint (over 1,300 sq km including linked sanctuaries).",
+	],
+} as const;
+
+export const NATIONAL_PARK_MONSOON = {
+	title: "Monsoon closure",
+	paragraphs: [
+		"In a typical year the core tourism park closes from 1 July to 30 September for the monsoon. Roads soften, vegetation explodes, and management prioritises habitat rest and safety over visitor traffic.",
+		"Plan arrivals from October onwards. Reopening weeks can be lush and bird-rich, while mid-winter is the classic peak for comfort. Always confirm the current season notice before you lock non-refundable travel.",
+	],
+} as const;
+
+export const NATIONAL_PARK_RELATED_GUIDES = [
+	{
+		title: "Safari Zones 1–10",
+		href: "/safari/zones",
+		description:
+			"Landscape notes, lakes, and wildlife character for every Ranthambore safari zone.",
+	},
+	{
+		title: "Tigers of Ranthambore",
+		href: "/about/tigers",
+		description:
+			"Profiles of famous Royal Bengal tigers and how individuals are known in the park.",
+	},
+	{
+		title: "Plan Your Visit",
+		href: "/plan",
+		description:
+			"How to reach Sawai Madhopur, choose a season, book safaris, and pack for the forest.",
+	},
+	{
+		title: "Jeep & Canter Safari",
+		href: "/safari/jeep",
+		description:
+			"Compare Gypsy and Canter vehicles before you request a booking.",
+	},
+	{
+		title: "Conservation at Ranthambore",
+		href: "/about/conservation",
+		description:
+			"Project Tiger, protection work, and the community side of the reserve story.",
+	},
+	{
+		title: "Wildlife, Flora & Fauna",
+		href: "/about/flora-and-fauna",
+		description:
+			"Mammals, birds, reptiles, and the dry deciduous forest that shapes every safari.",
+	},
+] as const;
