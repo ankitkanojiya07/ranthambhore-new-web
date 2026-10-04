@@ -11,47 +11,47 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as mainRouteRouteImport } from './routes/(main)/route'
 import { Route as mainIndexRouteImport } from './routes/(main)/index'
-import { Route as mainSignUpRouteImport } from './routes/(main)/sign-up'
-import { Route as mainSignInRouteImport } from './routes/(main)/sign-in'
 import { Route as mainLlmInfoRouteImport } from './routes/(main)/llm-info'
-import { Route as mainStayIndexRouteImport } from './routes/(main)/stay/index'
-import { Route as mainSafariIndexRouteImport } from './routes/(main)/safari/index'
-import { Route as mainPlanIndexRouteImport } from './routes/(main)/plan/index'
-import { Route as mainNearbyPlacesIndexRouteImport } from './routes/(main)/nearby-places/index'
-import { Route as mainDailyUpdatesIndexRouteImport } from './routes/(main)/daily-updates/index'
-import { Route as mainContactIndexRouteImport } from './routes/(main)/contact/index'
+import { Route as mainSignInRouteImport } from './routes/(main)/sign-in'
+import { Route as mainSignUpRouteImport } from './routes/(main)/sign-up'
 import { Route as mainAboutIndexRouteImport } from './routes/(main)/about/index'
-import { Route as ApiAuthSplatRouteImport } from './routes/api/auth/$'
-import { Route as mainStayHotelsRouteImport } from './routes/(main)/stay/hotels'
-import { Route as mainStayGuideRouteImport } from './routes/(main)/stay/guide'
-import { Route as mainSafariZonesRouteImport } from './routes/(main)/safari/zones'
-import { Route as mainSafariTimingAndFeesRouteImport } from './routes/(main)/safari/timing-and-fees'
-import { Route as mainSafariJeepRouteImport } from './routes/(main)/safari/jeep'
-import { Route as mainSafariChambalBoatRouteImport } from './routes/(main)/safari/chambal-boat'
-import { Route as mainSafariCanterRouteImport } from './routes/(main)/safari/canter'
-import { Route as mainSafariBookingGuidelinesRouteImport } from './routes/(main)/safari/booking-guidelines'
-import { Route as mainSafariBookRouteImport } from './routes/(main)/safari/book'
-import { Route as mainPlanTravelTipsRouteImport } from './routes/(main)/plan/travel-tips'
-import { Route as mainPlanTourPackagesRouteImport } from './routes/(main)/plan/tour-packages'
-import { Route as mainPlanFaqsRouteImport } from './routes/(main)/plan/faqs'
-import { Route as mainPlanDosAndDontsRouteImport } from './routes/(main)/plan/dos-and-donts'
-import { Route as mainPlanCabHireRouteImport } from './routes/(main)/plan/cab-hire'
-import { Route as mainPlanBestTimeRouteImport } from './routes/(main)/plan/best-time'
-import { Route as mainDailyUpdatesNewRouteImport } from './routes/(main)/daily-updates/new'
-import { Route as mainAboutTemplesAndMuseumsRouteImport } from './routes/(main)/about/temples-and-museums'
-import { Route as mainAboutNationalParkRouteImport } from './routes/(main)/about/national-park'
-import { Route as mainAboutHistoryRouteImport } from './routes/(main)/about/history'
-import { Route as mainAboutHeritageRouteImport } from './routes/(main)/about/heritage'
-import { Route as mainAboutFortRouteImport } from './routes/(main)/about/fort'
-import { Route as mainAboutFloraAndFaunaRouteImport } from './routes/(main)/about/flora-and-fauna'
 import { Route as mainAboutConservationRouteImport } from './routes/(main)/about/conservation'
-import { Route as mainHighlightsSafariInsightsIndexRouteImport } from './routes/(main)/highlights/safari-insights/index'
-import { Route as mainHighlightsRanthambhoreInsightsIndexRouteImport } from './routes/(main)/highlights/ranthambhore-insights/index'
+import { Route as mainAboutFloraAndFaunaRouteImport } from './routes/(main)/about/flora-and-fauna'
+import { Route as mainAboutFortRouteImport } from './routes/(main)/about/fort'
+import { Route as mainAboutHeritageRouteImport } from './routes/(main)/about/heritage'
+import { Route as mainAboutHistoryRouteImport } from './routes/(main)/about/history'
+import { Route as mainAboutNationalParkRouteImport } from './routes/(main)/about/national-park'
+import { Route as mainAboutTemplesAndMuseumsRouteImport } from './routes/(main)/about/temples-and-museums'
+import { Route as mainContactIndexRouteImport } from './routes/(main)/contact/index'
+import { Route as mainDailyUpdatesIndexRouteImport } from './routes/(main)/daily-updates/index'
+import { Route as mainDailyUpdatesNewRouteImport } from './routes/(main)/daily-updates/new'
+import { Route as mainNearbyPlacesIndexRouteImport } from './routes/(main)/nearby-places/index'
+import { Route as mainPlanIndexRouteImport } from './routes/(main)/plan/index'
+import { Route as mainPlanBestTimeRouteImport } from './routes/(main)/plan/best-time'
+import { Route as mainPlanCabHireRouteImport } from './routes/(main)/plan/cab-hire'
+import { Route as mainPlanDosAndDontsRouteImport } from './routes/(main)/plan/dos-and-donts'
+import { Route as mainPlanFaqsRouteImport } from './routes/(main)/plan/faqs'
+import { Route as mainPlanTourPackagesRouteImport } from './routes/(main)/plan/tour-packages'
+import { Route as mainPlanTravelTipsRouteImport } from './routes/(main)/plan/travel-tips'
+import { Route as mainSafariIndexRouteImport } from './routes/(main)/safari/index'
+import { Route as mainSafariBookRouteImport } from './routes/(main)/safari/book'
+import { Route as mainSafariBookingGuidelinesRouteImport } from './routes/(main)/safari/booking-guidelines'
+import { Route as mainSafariCanterRouteImport } from './routes/(main)/safari/canter'
+import { Route as mainSafariChambalBoatRouteImport } from './routes/(main)/safari/chambal-boat'
+import { Route as mainSafariJeepRouteImport } from './routes/(main)/safari/jeep'
+import { Route as mainSafariTimingAndFeesRouteImport } from './routes/(main)/safari/timing-and-fees'
+import { Route as mainSafariZonesRouteImport } from './routes/(main)/safari/zones'
+import { Route as mainStayIndexRouteImport } from './routes/(main)/stay/index'
+import { Route as mainStayGuideRouteImport } from './routes/(main)/stay/guide'
+import { Route as mainStayHotelsRouteImport } from './routes/(main)/stay/hotels'
+import { Route as ApiAuthSplatRouteImport } from './routes/api/auth/$'
 import { Route as mainAboutTigersIndexRouteImport } from './routes/(main)/about/tigers/index'
-import { Route as mainHighlightsSafariInsightsSlugRouteImport } from './routes/(main)/highlights/safari-insights/$slug'
-import { Route as mainHighlightsRanthambhoreInsightsNewRouteImport } from './routes/(main)/highlights/ranthambhore-insights/new'
-import { Route as mainHighlightsRanthambhoreInsightsSlugRouteImport } from './routes/(main)/highlights/ranthambhore-insights/$slug'
 import { Route as mainAboutTigersSlugRouteImport } from './routes/(main)/about/tigers/$slug'
+import { Route as mainHighlightsRanthambhoreInsightsIndexRouteImport } from './routes/(main)/highlights/ranthambhore-insights/index'
+import { Route as mainHighlightsRanthambhoreInsightsSlugRouteImport } from './routes/(main)/highlights/ranthambhore-insights/$slug'
+import { Route as mainHighlightsRanthambhoreInsightsNewRouteImport } from './routes/(main)/highlights/ranthambhore-insights/new'
+import { Route as mainHighlightsSafariInsightsIndexRouteImport } from './routes/(main)/highlights/safari-insights/index'
+import { Route as mainHighlightsSafariInsightsSlugRouteImport } from './routes/(main)/highlights/safari-insights/$slug'
 import { Route as mainHighlightsSafariInsightsZoneZoneIdRouteImport } from './routes/(main)/highlights/safari-insights/zone.$zoneId'
 
 const mainRouteRoute = mainRouteRouteImport.update({
@@ -63,9 +63,9 @@ const mainIndexRoute = mainIndexRouteImport.update({
   path: '/',
   getParentRoute: () => mainRouteRoute,
 } as any)
-const mainSignUpRoute = mainSignUpRouteImport.update({
-  id: '/sign-up',
-  path: '/sign-up',
+const mainLlmInfoRoute = mainLlmInfoRouteImport.update({
+  id: '/llm-info',
+  path: '/llm-info',
   getParentRoute: () => mainRouteRoute,
 } as any)
 const mainSignInRoute = mainSignInRouteImport.update({
@@ -73,39 +73,9 @@ const mainSignInRoute = mainSignInRouteImport.update({
   path: '/sign-in',
   getParentRoute: () => mainRouteRoute,
 } as any)
-const mainLlmInfoRoute = mainLlmInfoRouteImport.update({
-  id: '/llm-info',
-  path: '/llm-info',
-  getParentRoute: () => mainRouteRoute,
-} as any)
-const mainStayIndexRoute = mainStayIndexRouteImport.update({
-  id: '/stay/',
-  path: '/stay/',
-  getParentRoute: () => mainRouteRoute,
-} as any)
-const mainSafariIndexRoute = mainSafariIndexRouteImport.update({
-  id: '/safari/',
-  path: '/safari/',
-  getParentRoute: () => mainRouteRoute,
-} as any)
-const mainPlanIndexRoute = mainPlanIndexRouteImport.update({
-  id: '/plan/',
-  path: '/plan/',
-  getParentRoute: () => mainRouteRoute,
-} as any)
-const mainNearbyPlacesIndexRoute = mainNearbyPlacesIndexRouteImport.update({
-  id: '/nearby-places/',
-  path: '/nearby-places/',
-  getParentRoute: () => mainRouteRoute,
-} as any)
-const mainDailyUpdatesIndexRoute = mainDailyUpdatesIndexRouteImport.update({
-  id: '/daily-updates/',
-  path: '/daily-updates/',
-  getParentRoute: () => mainRouteRoute,
-} as any)
-const mainContactIndexRoute = mainContactIndexRouteImport.update({
-  id: '/contact/',
-  path: '/contact/',
+const mainSignUpRoute = mainSignUpRouteImport.update({
+  id: '/sign-up',
+  path: '/sign-up',
   getParentRoute: () => mainRouteRoute,
 } as any)
 const mainAboutIndexRoute = mainAboutIndexRouteImport.update({
@@ -113,90 +83,34 @@ const mainAboutIndexRoute = mainAboutIndexRouteImport.update({
   path: '/about/',
   getParentRoute: () => mainRouteRoute,
 } as any)
-const ApiAuthSplatRoute = ApiAuthSplatRouteImport.update({
-  id: '/api/auth/$',
-  path: '/api/auth/$',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const mainStayHotelsRoute = mainStayHotelsRouteImport.update({
-  id: '/stay/hotels',
-  path: '/stay/hotels',
+const mainAboutConservationRoute = mainAboutConservationRouteImport.update({
+  id: '/about/conservation',
+  path: '/about/conservation',
   getParentRoute: () => mainRouteRoute,
 } as any)
-const mainStayGuideRoute = mainStayGuideRouteImport.update({
-  id: '/stay/guide',
-  path: '/stay/guide',
+const mainAboutFloraAndFaunaRoute = mainAboutFloraAndFaunaRouteImport.update({
+  id: '/about/flora-and-fauna',
+  path: '/about/flora-and-fauna',
   getParentRoute: () => mainRouteRoute,
 } as any)
-const mainSafariZonesRoute = mainSafariZonesRouteImport.update({
-  id: '/safari/zones',
-  path: '/safari/zones',
+const mainAboutFortRoute = mainAboutFortRouteImport.update({
+  id: '/about/fort',
+  path: '/about/fort',
   getParentRoute: () => mainRouteRoute,
 } as any)
-const mainSafariTimingAndFeesRoute = mainSafariTimingAndFeesRouteImport.update({
-  id: '/safari/timing-and-fees',
-  path: '/safari/timing-and-fees',
+const mainAboutHeritageRoute = mainAboutHeritageRouteImport.update({
+  id: '/about/heritage',
+  path: '/about/heritage',
   getParentRoute: () => mainRouteRoute,
 } as any)
-const mainSafariJeepRoute = mainSafariJeepRouteImport.update({
-  id: '/safari/jeep',
-  path: '/safari/jeep',
+const mainAboutHistoryRoute = mainAboutHistoryRouteImport.update({
+  id: '/about/history',
+  path: '/about/history',
   getParentRoute: () => mainRouteRoute,
 } as any)
-const mainSafariChambalBoatRoute = mainSafariChambalBoatRouteImport.update({
-  id: '/safari/chambal-boat',
-  path: '/safari/chambal-boat',
-  getParentRoute: () => mainRouteRoute,
-} as any)
-const mainSafariCanterRoute = mainSafariCanterRouteImport.update({
-  id: '/safari/canter',
-  path: '/safari/canter',
-  getParentRoute: () => mainRouteRoute,
-} as any)
-const mainSafariBookingGuidelinesRoute =
-  mainSafariBookingGuidelinesRouteImport.update({
-    id: '/safari/booking-guidelines',
-    path: '/safari/booking-guidelines',
-    getParentRoute: () => mainRouteRoute,
-  } as any)
-const mainSafariBookRoute = mainSafariBookRouteImport.update({
-  id: '/safari/book',
-  path: '/safari/book',
-  getParentRoute: () => mainRouteRoute,
-} as any)
-const mainPlanTravelTipsRoute = mainPlanTravelTipsRouteImport.update({
-  id: '/plan/travel-tips',
-  path: '/plan/travel-tips',
-  getParentRoute: () => mainRouteRoute,
-} as any)
-const mainPlanTourPackagesRoute = mainPlanTourPackagesRouteImport.update({
-  id: '/plan/tour-packages',
-  path: '/plan/tour-packages',
-  getParentRoute: () => mainRouteRoute,
-} as any)
-const mainPlanFaqsRoute = mainPlanFaqsRouteImport.update({
-  id: '/plan/faqs',
-  path: '/plan/faqs',
-  getParentRoute: () => mainRouteRoute,
-} as any)
-const mainPlanDosAndDontsRoute = mainPlanDosAndDontsRouteImport.update({
-  id: '/plan/dos-and-donts',
-  path: '/plan/dos-and-donts',
-  getParentRoute: () => mainRouteRoute,
-} as any)
-const mainPlanCabHireRoute = mainPlanCabHireRouteImport.update({
-  id: '/plan/cab-hire',
-  path: '/plan/cab-hire',
-  getParentRoute: () => mainRouteRoute,
-} as any)
-const mainPlanBestTimeRoute = mainPlanBestTimeRouteImport.update({
-  id: '/plan/best-time',
-  path: '/plan/best-time',
-  getParentRoute: () => mainRouteRoute,
-} as any)
-const mainDailyUpdatesNewRoute = mainDailyUpdatesNewRouteImport.update({
-  id: '/daily-updates/new',
-  path: '/daily-updates/new',
+const mainAboutNationalParkRoute = mainAboutNationalParkRouteImport.update({
+  id: '/about/national-park',
+  path: '/about/national-park',
   getParentRoute: () => mainRouteRoute,
 } as any)
 const mainAboutTemplesAndMuseumsRoute =
@@ -205,63 +119,136 @@ const mainAboutTemplesAndMuseumsRoute =
     path: '/about/temples-and-museums',
     getParentRoute: () => mainRouteRoute,
   } as any)
-const mainAboutNationalParkRoute = mainAboutNationalParkRouteImport.update({
-  id: '/about/national-park',
-  path: '/about/national-park',
+const mainContactIndexRoute = mainContactIndexRouteImport.update({
+  id: '/contact/',
+  path: '/contact/',
   getParentRoute: () => mainRouteRoute,
 } as any)
-const mainAboutHistoryRoute = mainAboutHistoryRouteImport.update({
-  id: '/about/history',
-  path: '/about/history',
+const mainDailyUpdatesIndexRoute = mainDailyUpdatesIndexRouteImport.update({
+  id: '/daily-updates/',
+  path: '/daily-updates/',
   getParentRoute: () => mainRouteRoute,
 } as any)
-const mainAboutHeritageRoute = mainAboutHeritageRouteImport.update({
-  id: '/about/heritage',
-  path: '/about/heritage',
+const mainDailyUpdatesNewRoute = mainDailyUpdatesNewRouteImport.update({
+  id: '/daily-updates/new',
+  path: '/daily-updates/new',
   getParentRoute: () => mainRouteRoute,
 } as any)
-const mainAboutFortRoute = mainAboutFortRouteImport.update({
-  id: '/about/fort',
-  path: '/about/fort',
+const mainNearbyPlacesIndexRoute = mainNearbyPlacesIndexRouteImport.update({
+  id: '/nearby-places/',
+  path: '/nearby-places/',
   getParentRoute: () => mainRouteRoute,
 } as any)
-const mainAboutFloraAndFaunaRoute = mainAboutFloraAndFaunaRouteImport.update({
-  id: '/about/flora-and-fauna',
-  path: '/about/flora-and-fauna',
+const mainPlanIndexRoute = mainPlanIndexRouteImport.update({
+  id: '/plan/',
+  path: '/plan/',
   getParentRoute: () => mainRouteRoute,
 } as any)
-const mainAboutConservationRoute = mainAboutConservationRouteImport.update({
-  id: '/about/conservation',
-  path: '/about/conservation',
+const mainPlanBestTimeRoute = mainPlanBestTimeRouteImport.update({
+  id: '/plan/best-time',
+  path: '/plan/best-time',
   getParentRoute: () => mainRouteRoute,
 } as any)
-const mainHighlightsSafariInsightsIndexRoute =
-  mainHighlightsSafariInsightsIndexRouteImport.update({
-    id: '/highlights/safari-insights/',
-    path: '/highlights/safari-insights/',
+const mainPlanCabHireRoute = mainPlanCabHireRouteImport.update({
+  id: '/plan/cab-hire',
+  path: '/plan/cab-hire',
+  getParentRoute: () => mainRouteRoute,
+} as any)
+const mainPlanDosAndDontsRoute = mainPlanDosAndDontsRouteImport.update({
+  id: '/plan/dos-and-donts',
+  path: '/plan/dos-and-donts',
+  getParentRoute: () => mainRouteRoute,
+} as any)
+const mainPlanFaqsRoute = mainPlanFaqsRouteImport.update({
+  id: '/plan/faqs',
+  path: '/plan/faqs',
+  getParentRoute: () => mainRouteRoute,
+} as any)
+const mainPlanTourPackagesRoute = mainPlanTourPackagesRouteImport.update({
+  id: '/plan/tour-packages',
+  path: '/plan/tour-packages',
+  getParentRoute: () => mainRouteRoute,
+} as any)
+const mainPlanTravelTipsRoute = mainPlanTravelTipsRouteImport.update({
+  id: '/plan/travel-tips',
+  path: '/plan/travel-tips',
+  getParentRoute: () => mainRouteRoute,
+} as any)
+const mainSafariIndexRoute = mainSafariIndexRouteImport.update({
+  id: '/safari/',
+  path: '/safari/',
+  getParentRoute: () => mainRouteRoute,
+} as any)
+const mainSafariBookRoute = mainSafariBookRouteImport.update({
+  id: '/safari/book',
+  path: '/safari/book',
+  getParentRoute: () => mainRouteRoute,
+} as any)
+const mainSafariBookingGuidelinesRoute =
+  mainSafariBookingGuidelinesRouteImport.update({
+    id: '/safari/booking-guidelines',
+    path: '/safari/booking-guidelines',
     getParentRoute: () => mainRouteRoute,
   } as any)
-const mainHighlightsRanthambhoreInsightsIndexRoute =
-  mainHighlightsRanthambhoreInsightsIndexRouteImport.update({
-    id: '/highlights/ranthambhore-insights/',
-    path: '/highlights/ranthambhore-insights/',
-    getParentRoute: () => mainRouteRoute,
-  } as any)
+const mainSafariCanterRoute = mainSafariCanterRouteImport.update({
+  id: '/safari/canter',
+  path: '/safari/canter',
+  getParentRoute: () => mainRouteRoute,
+} as any)
+const mainSafariChambalBoatRoute = mainSafariChambalBoatRouteImport.update({
+  id: '/safari/chambal-boat',
+  path: '/safari/chambal-boat',
+  getParentRoute: () => mainRouteRoute,
+} as any)
+const mainSafariJeepRoute = mainSafariJeepRouteImport.update({
+  id: '/safari/jeep',
+  path: '/safari/jeep',
+  getParentRoute: () => mainRouteRoute,
+} as any)
+const mainSafariTimingAndFeesRoute = mainSafariTimingAndFeesRouteImport.update({
+  id: '/safari/timing-and-fees',
+  path: '/safari/timing-and-fees',
+  getParentRoute: () => mainRouteRoute,
+} as any)
+const mainSafariZonesRoute = mainSafariZonesRouteImport.update({
+  id: '/safari/zones',
+  path: '/safari/zones',
+  getParentRoute: () => mainRouteRoute,
+} as any)
+const mainStayIndexRoute = mainStayIndexRouteImport.update({
+  id: '/stay/',
+  path: '/stay/',
+  getParentRoute: () => mainRouteRoute,
+} as any)
+const mainStayGuideRoute = mainStayGuideRouteImport.update({
+  id: '/stay/guide',
+  path: '/stay/guide',
+  getParentRoute: () => mainRouteRoute,
+} as any)
+const mainStayHotelsRoute = mainStayHotelsRouteImport.update({
+  id: '/stay/hotels',
+  path: '/stay/hotels',
+  getParentRoute: () => mainRouteRoute,
+} as any)
+const ApiAuthSplatRoute = ApiAuthSplatRouteImport.update({
+  id: '/api/auth/$',
+  path: '/api/auth/$',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const mainAboutTigersIndexRoute = mainAboutTigersIndexRouteImport.update({
   id: '/about/tigers/',
   path: '/about/tigers/',
   getParentRoute: () => mainRouteRoute,
 } as any)
-const mainHighlightsSafariInsightsSlugRoute =
-  mainHighlightsSafariInsightsSlugRouteImport.update({
-    id: '/highlights/safari-insights/$slug',
-    path: '/highlights/safari-insights/$slug',
-    getParentRoute: () => mainRouteRoute,
-  } as any)
-const mainHighlightsRanthambhoreInsightsNewRoute =
-  mainHighlightsRanthambhoreInsightsNewRouteImport.update({
-    id: '/highlights/ranthambhore-insights/new',
-    path: '/highlights/ranthambhore-insights/new',
+const mainAboutTigersSlugRoute = mainAboutTigersSlugRouteImport.update({
+  id: '/about/tigers/$slug',
+  path: '/about/tigers/$slug',
+  getParentRoute: () => mainRouteRoute,
+} as any)
+const mainHighlightsRanthambhoreInsightsIndexRoute =
+  mainHighlightsRanthambhoreInsightsIndexRouteImport.update({
+    id: '/highlights/ranthambhore-insights/',
+    path: '/highlights/ranthambhore-insights/',
     getParentRoute: () => mainRouteRoute,
   } as any)
 const mainHighlightsRanthambhoreInsightsSlugRoute =
@@ -270,11 +257,24 @@ const mainHighlightsRanthambhoreInsightsSlugRoute =
     path: '/highlights/ranthambhore-insights/$slug',
     getParentRoute: () => mainRouteRoute,
   } as any)
-const mainAboutTigersSlugRoute = mainAboutTigersSlugRouteImport.update({
-  id: '/about/tigers/$slug',
-  path: '/about/tigers/$slug',
-  getParentRoute: () => mainRouteRoute,
-} as any)
+const mainHighlightsRanthambhoreInsightsNewRoute =
+  mainHighlightsRanthambhoreInsightsNewRouteImport.update({
+    id: '/highlights/ranthambhore-insights/new',
+    path: '/highlights/ranthambhore-insights/new',
+    getParentRoute: () => mainRouteRoute,
+  } as any)
+const mainHighlightsSafariInsightsIndexRoute =
+  mainHighlightsSafariInsightsIndexRouteImport.update({
+    id: '/highlights/safari-insights/',
+    path: '/highlights/safari-insights/',
+    getParentRoute: () => mainRouteRoute,
+  } as any)
+const mainHighlightsSafariInsightsSlugRoute =
+  mainHighlightsSafariInsightsSlugRouteImport.update({
+    id: '/highlights/safari-insights/$slug',
+    path: '/highlights/safari-insights/$slug',
+    getParentRoute: () => mainRouteRoute,
+  } as any)
 const mainHighlightsSafariInsightsZoneZoneIdRoute =
   mainHighlightsSafariInsightsZoneZoneIdRouteImport.update({
     id: '/highlights/safari-insights/zone/$zoneId',
@@ -579,11 +579,11 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof mainIndexRouteImport
       parentRoute: typeof mainRouteRoute
     }
-    '/(main)/sign-up': {
-      id: '/(main)/sign-up'
-      path: '/sign-up'
-      fullPath: '/sign-up'
-      preLoaderRoute: typeof mainSignUpRouteImport
+    '/(main)/llm-info': {
+      id: '/(main)/llm-info'
+      path: '/llm-info'
+      fullPath: '/llm-info'
+      preLoaderRoute: typeof mainLlmInfoRouteImport
       parentRoute: typeof mainRouteRoute
     }
     '/(main)/sign-in': {
@@ -593,53 +593,11 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof mainSignInRouteImport
       parentRoute: typeof mainRouteRoute
     }
-    '/(main)/llm-info': {
-      id: '/(main)/llm-info'
-      path: '/llm-info'
-      fullPath: '/llm-info'
-      preLoaderRoute: typeof mainLlmInfoRouteImport
-      parentRoute: typeof mainRouteRoute
-    }
-    '/(main)/stay/': {
-      id: '/(main)/stay/'
-      path: '/stay'
-      fullPath: '/stay/'
-      preLoaderRoute: typeof mainStayIndexRouteImport
-      parentRoute: typeof mainRouteRoute
-    }
-    '/(main)/safari/': {
-      id: '/(main)/safari/'
-      path: '/safari'
-      fullPath: '/safari/'
-      preLoaderRoute: typeof mainSafariIndexRouteImport
-      parentRoute: typeof mainRouteRoute
-    }
-    '/(main)/plan/': {
-      id: '/(main)/plan/'
-      path: '/plan'
-      fullPath: '/plan/'
-      preLoaderRoute: typeof mainPlanIndexRouteImport
-      parentRoute: typeof mainRouteRoute
-    }
-    '/(main)/nearby-places/': {
-      id: '/(main)/nearby-places/'
-      path: '/nearby-places'
-      fullPath: '/nearby-places/'
-      preLoaderRoute: typeof mainNearbyPlacesIndexRouteImport
-      parentRoute: typeof mainRouteRoute
-    }
-    '/(main)/daily-updates/': {
-      id: '/(main)/daily-updates/'
-      path: '/daily-updates'
-      fullPath: '/daily-updates/'
-      preLoaderRoute: typeof mainDailyUpdatesIndexRouteImport
-      parentRoute: typeof mainRouteRoute
-    }
-    '/(main)/contact/': {
-      id: '/(main)/contact/'
-      path: '/contact'
-      fullPath: '/contact/'
-      preLoaderRoute: typeof mainContactIndexRouteImport
+    '/(main)/sign-up': {
+      id: '/(main)/sign-up'
+      path: '/sign-up'
+      fullPath: '/sign-up'
+      preLoaderRoute: typeof mainSignUpRouteImport
       parentRoute: typeof mainRouteRoute
     }
     '/(main)/about/': {
@@ -649,158 +607,11 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof mainAboutIndexRouteImport
       parentRoute: typeof mainRouteRoute
     }
-    '/api/auth/$': {
-      id: '/api/auth/$'
-      path: '/api/auth/$'
-      fullPath: '/api/auth/$'
-      preLoaderRoute: typeof ApiAuthSplatRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/(main)/stay/hotels': {
-      id: '/(main)/stay/hotels'
-      path: '/stay/hotels'
-      fullPath: '/stay/hotels'
-      preLoaderRoute: typeof mainStayHotelsRouteImport
-      parentRoute: typeof mainRouteRoute
-    }
-    '/(main)/stay/guide': {
-      id: '/(main)/stay/guide'
-      path: '/stay/guide'
-      fullPath: '/stay/guide'
-      preLoaderRoute: typeof mainStayGuideRouteImport
-      parentRoute: typeof mainRouteRoute
-    }
-    '/(main)/safari/zones': {
-      id: '/(main)/safari/zones'
-      path: '/safari/zones'
-      fullPath: '/safari/zones'
-      preLoaderRoute: typeof mainSafariZonesRouteImport
-      parentRoute: typeof mainRouteRoute
-    }
-    '/(main)/safari/timing-and-fees': {
-      id: '/(main)/safari/timing-and-fees'
-      path: '/safari/timing-and-fees'
-      fullPath: '/safari/timing-and-fees'
-      preLoaderRoute: typeof mainSafariTimingAndFeesRouteImport
-      parentRoute: typeof mainRouteRoute
-    }
-    '/(main)/safari/jeep': {
-      id: '/(main)/safari/jeep'
-      path: '/safari/jeep'
-      fullPath: '/safari/jeep'
-      preLoaderRoute: typeof mainSafariJeepRouteImport
-      parentRoute: typeof mainRouteRoute
-    }
-    '/(main)/safari/chambal-boat': {
-      id: '/(main)/safari/chambal-boat'
-      path: '/safari/chambal-boat'
-      fullPath: '/safari/chambal-boat'
-      preLoaderRoute: typeof mainSafariChambalBoatRouteImport
-      parentRoute: typeof mainRouteRoute
-    }
-    '/(main)/safari/canter': {
-      id: '/(main)/safari/canter'
-      path: '/safari/canter'
-      fullPath: '/safari/canter'
-      preLoaderRoute: typeof mainSafariCanterRouteImport
-      parentRoute: typeof mainRouteRoute
-    }
-    '/(main)/safari/booking-guidelines': {
-      id: '/(main)/safari/booking-guidelines'
-      path: '/safari/booking-guidelines'
-      fullPath: '/safari/booking-guidelines'
-      preLoaderRoute: typeof mainSafariBookingGuidelinesRouteImport
-      parentRoute: typeof mainRouteRoute
-    }
-    '/(main)/safari/book': {
-      id: '/(main)/safari/book'
-      path: '/safari/book'
-      fullPath: '/safari/book'
-      preLoaderRoute: typeof mainSafariBookRouteImport
-      parentRoute: typeof mainRouteRoute
-    }
-    '/(main)/plan/travel-tips': {
-      id: '/(main)/plan/travel-tips'
-      path: '/plan/travel-tips'
-      fullPath: '/plan/travel-tips'
-      preLoaderRoute: typeof mainPlanTravelTipsRouteImport
-      parentRoute: typeof mainRouteRoute
-    }
-    '/(main)/plan/tour-packages': {
-      id: '/(main)/plan/tour-packages'
-      path: '/plan/tour-packages'
-      fullPath: '/plan/tour-packages'
-      preLoaderRoute: typeof mainPlanTourPackagesRouteImport
-      parentRoute: typeof mainRouteRoute
-    }
-    '/(main)/plan/faqs': {
-      id: '/(main)/plan/faqs'
-      path: '/plan/faqs'
-      fullPath: '/plan/faqs'
-      preLoaderRoute: typeof mainPlanFaqsRouteImport
-      parentRoute: typeof mainRouteRoute
-    }
-    '/(main)/plan/dos-and-donts': {
-      id: '/(main)/plan/dos-and-donts'
-      path: '/plan/dos-and-donts'
-      fullPath: '/plan/dos-and-donts'
-      preLoaderRoute: typeof mainPlanDosAndDontsRouteImport
-      parentRoute: typeof mainRouteRoute
-    }
-    '/(main)/plan/cab-hire': {
-      id: '/(main)/plan/cab-hire'
-      path: '/plan/cab-hire'
-      fullPath: '/plan/cab-hire'
-      preLoaderRoute: typeof mainPlanCabHireRouteImport
-      parentRoute: typeof mainRouteRoute
-    }
-    '/(main)/plan/best-time': {
-      id: '/(main)/plan/best-time'
-      path: '/plan/best-time'
-      fullPath: '/plan/best-time'
-      preLoaderRoute: typeof mainPlanBestTimeRouteImport
-      parentRoute: typeof mainRouteRoute
-    }
-    '/(main)/daily-updates/new': {
-      id: '/(main)/daily-updates/new'
-      path: '/daily-updates/new'
-      fullPath: '/daily-updates/new'
-      preLoaderRoute: typeof mainDailyUpdatesNewRouteImport
-      parentRoute: typeof mainRouteRoute
-    }
-    '/(main)/about/temples-and-museums': {
-      id: '/(main)/about/temples-and-museums'
-      path: '/about/temples-and-museums'
-      fullPath: '/about/temples-and-museums'
-      preLoaderRoute: typeof mainAboutTemplesAndMuseumsRouteImport
-      parentRoute: typeof mainRouteRoute
-    }
-    '/(main)/about/national-park': {
-      id: '/(main)/about/national-park'
-      path: '/about/national-park'
-      fullPath: '/about/national-park'
-      preLoaderRoute: typeof mainAboutNationalParkRouteImport
-      parentRoute: typeof mainRouteRoute
-    }
-    '/(main)/about/history': {
-      id: '/(main)/about/history'
-      path: '/about/history'
-      fullPath: '/about/history'
-      preLoaderRoute: typeof mainAboutHistoryRouteImport
-      parentRoute: typeof mainRouteRoute
-    }
-    '/(main)/about/heritage': {
-      id: '/(main)/about/heritage'
-      path: '/about/heritage'
-      fullPath: '/about/heritage'
-      preLoaderRoute: typeof mainAboutHeritageRouteImport
-      parentRoute: typeof mainRouteRoute
-    }
-    '/(main)/about/fort': {
-      id: '/(main)/about/fort'
-      path: '/about/fort'
-      fullPath: '/about/fort'
-      preLoaderRoute: typeof mainAboutFortRouteImport
+    '/(main)/about/conservation': {
+      id: '/(main)/about/conservation'
+      path: '/about/conservation'
+      fullPath: '/about/conservation'
+      preLoaderRoute: typeof mainAboutConservationRouteImport
       parentRoute: typeof mainRouteRoute
     }
     '/(main)/about/flora-and-fauna': {
@@ -810,18 +621,214 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof mainAboutFloraAndFaunaRouteImport
       parentRoute: typeof mainRouteRoute
     }
-    '/(main)/about/conservation': {
-      id: '/(main)/about/conservation'
-      path: '/about/conservation'
-      fullPath: '/about/conservation'
-      preLoaderRoute: typeof mainAboutConservationRouteImport
+    '/(main)/about/fort': {
+      id: '/(main)/about/fort'
+      path: '/about/fort'
+      fullPath: '/about/fort'
+      preLoaderRoute: typeof mainAboutFortRouteImport
       parentRoute: typeof mainRouteRoute
     }
-    '/(main)/highlights/safari-insights/': {
-      id: '/(main)/highlights/safari-insights/'
-      path: '/highlights/safari-insights'
-      fullPath: '/highlights/safari-insights/'
-      preLoaderRoute: typeof mainHighlightsSafariInsightsIndexRouteImport
+    '/(main)/about/heritage': {
+      id: '/(main)/about/heritage'
+      path: '/about/heritage'
+      fullPath: '/about/heritage'
+      preLoaderRoute: typeof mainAboutHeritageRouteImport
+      parentRoute: typeof mainRouteRoute
+    }
+    '/(main)/about/history': {
+      id: '/(main)/about/history'
+      path: '/about/history'
+      fullPath: '/about/history'
+      preLoaderRoute: typeof mainAboutHistoryRouteImport
+      parentRoute: typeof mainRouteRoute
+    }
+    '/(main)/about/national-park': {
+      id: '/(main)/about/national-park'
+      path: '/about/national-park'
+      fullPath: '/about/national-park'
+      preLoaderRoute: typeof mainAboutNationalParkRouteImport
+      parentRoute: typeof mainRouteRoute
+    }
+    '/(main)/about/temples-and-museums': {
+      id: '/(main)/about/temples-and-museums'
+      path: '/about/temples-and-museums'
+      fullPath: '/about/temples-and-museums'
+      preLoaderRoute: typeof mainAboutTemplesAndMuseumsRouteImport
+      parentRoute: typeof mainRouteRoute
+    }
+    '/(main)/contact/': {
+      id: '/(main)/contact/'
+      path: '/contact'
+      fullPath: '/contact/'
+      preLoaderRoute: typeof mainContactIndexRouteImport
+      parentRoute: typeof mainRouteRoute
+    }
+    '/(main)/daily-updates/': {
+      id: '/(main)/daily-updates/'
+      path: '/daily-updates'
+      fullPath: '/daily-updates/'
+      preLoaderRoute: typeof mainDailyUpdatesIndexRouteImport
+      parentRoute: typeof mainRouteRoute
+    }
+    '/(main)/daily-updates/new': {
+      id: '/(main)/daily-updates/new'
+      path: '/daily-updates/new'
+      fullPath: '/daily-updates/new'
+      preLoaderRoute: typeof mainDailyUpdatesNewRouteImport
+      parentRoute: typeof mainRouteRoute
+    }
+    '/(main)/nearby-places/': {
+      id: '/(main)/nearby-places/'
+      path: '/nearby-places'
+      fullPath: '/nearby-places/'
+      preLoaderRoute: typeof mainNearbyPlacesIndexRouteImport
+      parentRoute: typeof mainRouteRoute
+    }
+    '/(main)/plan/': {
+      id: '/(main)/plan/'
+      path: '/plan'
+      fullPath: '/plan/'
+      preLoaderRoute: typeof mainPlanIndexRouteImport
+      parentRoute: typeof mainRouteRoute
+    }
+    '/(main)/plan/best-time': {
+      id: '/(main)/plan/best-time'
+      path: '/plan/best-time'
+      fullPath: '/plan/best-time'
+      preLoaderRoute: typeof mainPlanBestTimeRouteImport
+      parentRoute: typeof mainRouteRoute
+    }
+    '/(main)/plan/cab-hire': {
+      id: '/(main)/plan/cab-hire'
+      path: '/plan/cab-hire'
+      fullPath: '/plan/cab-hire'
+      preLoaderRoute: typeof mainPlanCabHireRouteImport
+      parentRoute: typeof mainRouteRoute
+    }
+    '/(main)/plan/dos-and-donts': {
+      id: '/(main)/plan/dos-and-donts'
+      path: '/plan/dos-and-donts'
+      fullPath: '/plan/dos-and-donts'
+      preLoaderRoute: typeof mainPlanDosAndDontsRouteImport
+      parentRoute: typeof mainRouteRoute
+    }
+    '/(main)/plan/faqs': {
+      id: '/(main)/plan/faqs'
+      path: '/plan/faqs'
+      fullPath: '/plan/faqs'
+      preLoaderRoute: typeof mainPlanFaqsRouteImport
+      parentRoute: typeof mainRouteRoute
+    }
+    '/(main)/plan/tour-packages': {
+      id: '/(main)/plan/tour-packages'
+      path: '/plan/tour-packages'
+      fullPath: '/plan/tour-packages'
+      preLoaderRoute: typeof mainPlanTourPackagesRouteImport
+      parentRoute: typeof mainRouteRoute
+    }
+    '/(main)/plan/travel-tips': {
+      id: '/(main)/plan/travel-tips'
+      path: '/plan/travel-tips'
+      fullPath: '/plan/travel-tips'
+      preLoaderRoute: typeof mainPlanTravelTipsRouteImport
+      parentRoute: typeof mainRouteRoute
+    }
+    '/(main)/safari/': {
+      id: '/(main)/safari/'
+      path: '/safari'
+      fullPath: '/safari/'
+      preLoaderRoute: typeof mainSafariIndexRouteImport
+      parentRoute: typeof mainRouteRoute
+    }
+    '/(main)/safari/book': {
+      id: '/(main)/safari/book'
+      path: '/safari/book'
+      fullPath: '/safari/book'
+      preLoaderRoute: typeof mainSafariBookRouteImport
+      parentRoute: typeof mainRouteRoute
+    }
+    '/(main)/safari/booking-guidelines': {
+      id: '/(main)/safari/booking-guidelines'
+      path: '/safari/booking-guidelines'
+      fullPath: '/safari/booking-guidelines'
+      preLoaderRoute: typeof mainSafariBookingGuidelinesRouteImport
+      parentRoute: typeof mainRouteRoute
+    }
+    '/(main)/safari/canter': {
+      id: '/(main)/safari/canter'
+      path: '/safari/canter'
+      fullPath: '/safari/canter'
+      preLoaderRoute: typeof mainSafariCanterRouteImport
+      parentRoute: typeof mainRouteRoute
+    }
+    '/(main)/safari/chambal-boat': {
+      id: '/(main)/safari/chambal-boat'
+      path: '/safari/chambal-boat'
+      fullPath: '/safari/chambal-boat'
+      preLoaderRoute: typeof mainSafariChambalBoatRouteImport
+      parentRoute: typeof mainRouteRoute
+    }
+    '/(main)/safari/jeep': {
+      id: '/(main)/safari/jeep'
+      path: '/safari/jeep'
+      fullPath: '/safari/jeep'
+      preLoaderRoute: typeof mainSafariJeepRouteImport
+      parentRoute: typeof mainRouteRoute
+    }
+    '/(main)/safari/timing-and-fees': {
+      id: '/(main)/safari/timing-and-fees'
+      path: '/safari/timing-and-fees'
+      fullPath: '/safari/timing-and-fees'
+      preLoaderRoute: typeof mainSafariTimingAndFeesRouteImport
+      parentRoute: typeof mainRouteRoute
+    }
+    '/(main)/safari/zones': {
+      id: '/(main)/safari/zones'
+      path: '/safari/zones'
+      fullPath: '/safari/zones'
+      preLoaderRoute: typeof mainSafariZonesRouteImport
+      parentRoute: typeof mainRouteRoute
+    }
+    '/(main)/stay/': {
+      id: '/(main)/stay/'
+      path: '/stay'
+      fullPath: '/stay/'
+      preLoaderRoute: typeof mainStayIndexRouteImport
+      parentRoute: typeof mainRouteRoute
+    }
+    '/(main)/stay/guide': {
+      id: '/(main)/stay/guide'
+      path: '/stay/guide'
+      fullPath: '/stay/guide'
+      preLoaderRoute: typeof mainStayGuideRouteImport
+      parentRoute: typeof mainRouteRoute
+    }
+    '/(main)/stay/hotels': {
+      id: '/(main)/stay/hotels'
+      path: '/stay/hotels'
+      fullPath: '/stay/hotels'
+      preLoaderRoute: typeof mainStayHotelsRouteImport
+      parentRoute: typeof mainRouteRoute
+    }
+    '/api/auth/$': {
+      id: '/api/auth/$'
+      path: '/api/auth/$'
+      fullPath: '/api/auth/$'
+      preLoaderRoute: typeof ApiAuthSplatRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/(main)/about/tigers/': {
+      id: '/(main)/about/tigers/'
+      path: '/about/tigers'
+      fullPath: '/about/tigers/'
+      preLoaderRoute: typeof mainAboutTigersIndexRouteImport
+      parentRoute: typeof mainRouteRoute
+    }
+    '/(main)/about/tigers/$slug': {
+      id: '/(main)/about/tigers/$slug'
+      path: '/about/tigers/$slug'
+      fullPath: '/about/tigers/$slug'
+      preLoaderRoute: typeof mainAboutTigersSlugRouteImport
       parentRoute: typeof mainRouteRoute
     }
     '/(main)/highlights/ranthambhore-insights/': {
@@ -831,18 +838,11 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof mainHighlightsRanthambhoreInsightsIndexRouteImport
       parentRoute: typeof mainRouteRoute
     }
-    '/(main)/about/tigers/': {
-      id: '/(main)/about/tigers/'
-      path: '/about/tigers'
-      fullPath: '/about/tigers/'
-      preLoaderRoute: typeof mainAboutTigersIndexRouteImport
-      parentRoute: typeof mainRouteRoute
-    }
-    '/(main)/highlights/safari-insights/$slug': {
-      id: '/(main)/highlights/safari-insights/$slug'
-      path: '/highlights/safari-insights/$slug'
-      fullPath: '/highlights/safari-insights/$slug'
-      preLoaderRoute: typeof mainHighlightsSafariInsightsSlugRouteImport
+    '/(main)/highlights/ranthambhore-insights/$slug': {
+      id: '/(main)/highlights/ranthambhore-insights/$slug'
+      path: '/highlights/ranthambhore-insights/$slug'
+      fullPath: '/highlights/ranthambhore-insights/$slug'
+      preLoaderRoute: typeof mainHighlightsRanthambhoreInsightsSlugRouteImport
       parentRoute: typeof mainRouteRoute
     }
     '/(main)/highlights/ranthambhore-insights/new': {
@@ -852,18 +852,18 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof mainHighlightsRanthambhoreInsightsNewRouteImport
       parentRoute: typeof mainRouteRoute
     }
-    '/(main)/highlights/ranthambhore-insights/$slug': {
-      id: '/(main)/highlights/ranthambhore-insights/$slug'
-      path: '/highlights/ranthambhore-insights/$slug'
-      fullPath: '/highlights/ranthambhore-insights/$slug'
-      preLoaderRoute: typeof mainHighlightsRanthambhoreInsightsSlugRouteImport
+    '/(main)/highlights/safari-insights/': {
+      id: '/(main)/highlights/safari-insights/'
+      path: '/highlights/safari-insights'
+      fullPath: '/highlights/safari-insights/'
+      preLoaderRoute: typeof mainHighlightsSafariInsightsIndexRouteImport
       parentRoute: typeof mainRouteRoute
     }
-    '/(main)/about/tigers/$slug': {
-      id: '/(main)/about/tigers/$slug'
-      path: '/about/tigers/$slug'
-      fullPath: '/about/tigers/$slug'
-      preLoaderRoute: typeof mainAboutTigersSlugRouteImport
+    '/(main)/highlights/safari-insights/$slug': {
+      id: '/(main)/highlights/safari-insights/$slug'
+      path: '/highlights/safari-insights/$slug'
+      fullPath: '/highlights/safari-insights/$slug'
+      preLoaderRoute: typeof mainHighlightsSafariInsightsSlugRouteImport
       parentRoute: typeof mainRouteRoute
     }
     '/(main)/highlights/safari-insights/zone/$zoneId': {
