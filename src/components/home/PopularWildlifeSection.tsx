@@ -218,7 +218,7 @@ export function PopularWildlifeSection() {
 						</h2>
 						<p className="mt-4 max-w-lg font-body text-base text-charcoal-600">
 							Meet the iconic species that call Ranthambore home — from Bengal
-							tigers and leopards to crocodiles, deer, and rare gazelles.
+							tigers and leopards to crocodiles, deer, and rare gazelle.
 						</p>
 					</div>
 
