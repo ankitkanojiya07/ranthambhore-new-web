@@ -32,10 +32,10 @@ function fieldRow(label: string, value: string) {
 	return `
 		<tr>
 			<td style="padding: 0 0 14px;">
-				<p style="margin: 0 0 6px; font-family: Georgia, 'Times New Roman', serif; font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: #46362a;">
+				<p style="margin: 0 0 6px; font-family: Georgia, 'Times New Roman', serif; font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: #555555;">
 					${escapeHtml(label)}
 				</p>
-				<div style="border: 1px solid #b49d86; border-radius: 4px; background: #faf5ed; padding: 10px 12px; font-family: Georgia, 'Times New Roman', serif; font-size: 14px; color: #33261e;">
+				<div style="border: 1px solid #e5e5e5; border-radius: 4px; background: #ffffff; padding: 10px 12px; font-family: Georgia, 'Times New Roman', serif; font-size: 14px; color: #222222;">
 					${escapeHtml(value)}
 				</div>
 			</td>
@@ -55,18 +55,18 @@ function twoColumnFieldRow(
 				<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="border-collapse: collapse;">
 					<tr>
 						<td width="50%" valign="top" style="padding-right: 6px;">
-							<p style="margin: 0 0 6px; font-family: Georgia, 'Times New Roman', serif; font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: #46362a;">
+							<p style="margin: 0 0 6px; font-family: Georgia, 'Times New Roman', serif; font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: #555555;">
 								${escapeHtml(leftLabel)}
 							</p>
-							<div style="border: 1px solid #b49d86; border-radius: 4px; background: #faf5ed; padding: 10px 12px; font-family: Georgia, 'Times New Roman', serif; font-size: 14px; color: #33261e;">
+							<div style="border: 1px solid #e5e5e5; border-radius: 4px; background: #ffffff; padding: 10px 12px; font-family: Georgia, 'Times New Roman', serif; font-size: 14px; color: #222222;">
 								${escapeHtml(leftValue)}
 							</div>
 						</td>
 						<td width="50%" valign="top" style="padding-left: 6px;">
-							<p style="margin: 0 0 6px; font-family: Georgia, 'Times New Roman', serif; font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: #46362a;">
+							<p style="margin: 0 0 6px; font-family: Georgia, 'Times New Roman', serif; font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: #555555;">
 								${escapeHtml(rightLabel)}
 							</p>
-							<div style="border: 1px solid #b49d86; border-radius: 4px; background: #faf5ed; padding: 10px 12px; font-family: Georgia, 'Times New Roman', serif; font-size: 14px; color: #33261e;">
+							<div style="border: 1px solid #e5e5e5; border-radius: 4px; background: #ffffff; padding: 10px 12px; font-family: Georgia, 'Times New Roman', serif; font-size: 14px; color: #222222;">
 								${escapeHtml(rightValue)}
 							</div>
 						</td>
@@ -102,14 +102,14 @@ function buildEnquiryEmail(input: SendEnquiryInput) {
 	const html = `
 		<!DOCTYPE html>
 		<html lang="en">
-			<body style="margin: 0; padding: 0; background: #f5ecde;">
-				<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background: #f5ecde; padding: 28px 12px;">
+			<body style="margin: 0; padding: 0; background: #ffffff;">
+				<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background: #ffffff; padding: 28px 12px;">
 					<tr>
 						<td align="center">
-							<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="max-width: 560px; background: #faf5ed; border: 1px solid #e0c9b0; border-radius: 8px; overflow: hidden;">
+							<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="max-width: 560px; background: #ffffff; border-radius: 8px; overflow: hidden;">
 								<tr>
-									<td style="padding: 22px 24px 12px; border-bottom: 1px solid #ecdccb;">
-										<p style="margin: 0; font-family: Georgia, 'Times New Roman', serif; font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase; color: #a46338; text-align: center;">
+									<td style="padding: 22px 24px 12px; border-bottom: 1px solid #eeeeee;">
+										<p style="margin: 0; font-family: Georgia, 'Times New Roman', serif; font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase; color: #333333; text-align: center;">
 											Feel Free To Communicate With Us
 										</p>
 									</td>
@@ -137,14 +137,14 @@ function buildEnquiryEmail(input: SendEnquiryInput) {
 								</tr>
 								<tr>
 									<td style="padding: 8px 24px 24px;">
-										<div style="margin-top: 8px; padding-top: 16px; border-top: 1px solid #ecdccb;">
-											<p style="margin: 0 0 4px; font-family: Georgia, 'Times New Roman', serif; font-size: 14px; color: #33261e;">
+										<div style="margin-top: 8px; padding-top: 16px; border-top: 1px solid #eeeeee;">
+											<p style="margin: 0 0 4px; font-family: Georgia, 'Times New Roman', serif; font-size: 14px; color: #222222;">
 												Thanks,
 											</p>
-											<p style="margin: 0 0 2px; font-family: Georgia, 'Times New Roman', serif; font-size: 14px; color: #33261e; font-weight: 600;">
+											<p style="margin: 0 0 2px; font-family: Georgia, 'Times New Roman', serif; font-size: 14px; color: #222222; font-weight: 600;">
 												Team Ranthambhore
 											</p>
-											<p style="margin: 0; font-family: Georgia, 'Times New Roman', serif; font-size: 12px; letter-spacing: 0.08em; color: #d95e2a;">
+											<p style="margin: 0; font-family: Georgia, 'Times New Roman', serif; font-size: 12px; letter-spacing: 0.08em; color: #555555;">
 												ranthambhor.com
 											</p>
 										</div>
@@ -178,7 +178,7 @@ export const sendEnquiry = createServerFn({ method: "POST" })
 			to: recipients.to,
 			cc: recipients.cc.length > 0 ? recipients.cc : undefined,
 			replyTo: data.email,
-			subject: "Booking Enquiry for the Regency Hotel",
+			subject: "Booking Enquiry for the Regency Hotel from ranthambhor.com",
 			text,
 			html,
 		});
