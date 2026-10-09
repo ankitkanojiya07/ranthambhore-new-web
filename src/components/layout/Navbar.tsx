@@ -1,4 +1,5 @@
 import { Link, useRouterState } from "@tanstack/react-router";
+import { useEffect, useState } from "react";
 import { FacebookIcon } from "#/icons/facebook.icon";
 import { InstagramIcon } from "#/icons/instagram.icon";
 import { MenuIcon } from "#/icons/menu.icon";
@@ -12,15 +13,34 @@ const NavigationBar = () => {
 		select: (state) =>
 			state.matches.some((match) => match.staticData?.navOverlay),
 	});
+	const isHome = useRouterState({
+		select: (state) => state.location.pathname === "/",
+	});
+	const [isScrolled, setIsScrolled] = useState(false);
+
+	useEffect(() => {
+		if (!isHome) {
+			setIsScrolled(false);
+			return;
+		}
+
+		const updateScrollState = () => setIsScrolled(window.scrollY > 12);
+		updateScrollState();
+		window.addEventListener("scroll", updateScrollState, { passive: true });
+
+		return () => window.removeEventListener("scroll", updateScrollState);
+	}, [isHome]);
 
 	return (
 		<NavDrawerRoot>
 			<header
 				className={cn(
-					"px-4 py-3 sm:px-6 sticky top-0 z-100 sm:py-4 lg:px-10 lg:py-2",
+					"px-4 py-3 sm:px-6 z-100 sm:py-4 lg:px-10 lg:py-2",
 					navOverlay
-						? "absolute inset-x-0 top-0 z-50 bg-transparent backdrop-blur-sm"
-						: "bg-sand-50/80 backdrop-blur-sm",
+						? isHome && isScrolled
+							? "fixed inset-x-0 top-0 z-50 bg-charcoal-950/55 backdrop-blur-sm transition-[background-color,backdrop-filter] duration-300"
+							: "absolute inset-x-0 top-0 z-50 bg-transparent"
+						: "sticky top-0 bg-sand-50/80 backdrop-blur-sm",
 				)}
 			>
 				<div className="grid grid-cols-3 items-center gap-2">

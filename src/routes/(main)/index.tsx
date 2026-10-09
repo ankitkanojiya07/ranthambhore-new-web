@@ -6,6 +6,7 @@ import { getLastReviewed } from "#/lib/content-freshness";
 import { buildPageHead, faqPageJsonLd } from "#/lib/seo";
 
 export const Route = createFileRoute("/(main)/")({
+	staticData: { navOverlay: true },
 	head: () => {
 		const head = buildPageHead({
 			title:

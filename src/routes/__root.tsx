@@ -110,21 +110,7 @@ function RootDocument({ children }: { children: React.ReactNode }) {
 			<head>
 				<HeadContent />
 				<style>{CRITICAL_CSS}</style>
-				<link
-					rel="stylesheet"
-					href={appCss}
-					media="print"
-					{...{ onload: "this.onload=null;this.media='all'" }}
-				/>
-				<script
-					// biome-ignore lint/security/noDangerouslySetInnerHtml: static CSS media swap, no user input
-					dangerouslySetInnerHTML={{
-						__html: `document.querySelectorAll('link[rel="stylesheet"][media="print"]').forEach(function(l){if(l.sheet)l.media="all";else l.addEventListener("load",function(){l.media="all"})});`,
-					}}
-				/>
-				<noscript>
-					<link rel="stylesheet" href={appCss} />
-				</noscript>
+				<link rel="stylesheet" href={appCss} />
 			</head>
 			<body>
 				{children}

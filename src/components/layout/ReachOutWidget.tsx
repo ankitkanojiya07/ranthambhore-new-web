@@ -4,7 +4,10 @@ import { ContactFormHeader } from "#/components/forms/ContactFormHeader";
 import { ContactEnquiryForm } from "#/components/home/ContactEnquiryForm";
 import { cn } from "#/lib/utils";
 
+const AUTO_OPEN_DELAY_MS = 15_000;
 const AUTO_OPEN_INTERVAL_MS = 45_000;
+const MAX_AUTO_OPEN_COUNT = 2;
+const AUTO_OPEN_COUNT_KEY = "reach-out-widget-auto-open-count";
 
 function CloseIcon({ className }: { className?: string }) {
 	return (
@@ -29,8 +32,10 @@ export function ReachOutWidget() {
 	const [open, setOpen] = useState(false);
 	const [footerVisible, setFooterVisible] = useState(false);
 	const footerVisibleRef = useRef(footerVisible);
+	const openRef = useRef(open);
 
 	footerVisibleRef.current = footerVisible;
+	openRef.current = open;
 
 	useEffect(() => {
 		const footer = document.getElementById("site-footer");
@@ -52,11 +57,50 @@ export function ReachOutWidget() {
 	}, [footerVisible, open]);
 
 	useEffect(() => {
-		const intervalId = window.setInterval(() => {
-			if (!footerVisibleRef.current) setOpen(true);
-		}, AUTO_OPEN_INTERVAL_MS);
+		let timeoutId: number | undefined;
+		let autoOpenCount = Number(
+			window.sessionStorage.getItem(AUTO_OPEN_COUNT_KEY) ?? "0",
+		);
+		let started = false;
 
-		return () => window.clearInterval(intervalId);
+		const scheduleAutoOpen = (delay: number) => {
+			timeoutId = window.setTimeout(() => {
+				if (
+					autoOpenCount < MAX_AUTO_OPEN_COUNT &&
+					!footerVisibleRef.current &&
+					!openRef.current
+				) {
+					autoOpenCount += 1;
+					window.sessionStorage.setItem(
+						AUTO_OPEN_COUNT_KEY,
+						String(autoOpenCount),
+					);
+					setOpen(true);
+				}
+
+				if (autoOpenCount < MAX_AUTO_OPEN_COUNT) {
+					scheduleAutoOpen(AUTO_OPEN_INTERVAL_MS);
+				}
+			}, delay);
+		};
+
+		const startAfterScroll = () => {
+			if (started) return;
+			started = true;
+			window.removeEventListener("scroll", startAfterScroll);
+			scheduleAutoOpen(AUTO_OPEN_DELAY_MS);
+		};
+
+		if (window.scrollY > 0) {
+			startAfterScroll();
+		} else {
+			window.addEventListener("scroll", startAfterScroll, { passive: true });
+		}
+
+		return () => {
+			window.removeEventListener("scroll", startAfterScroll);
+			if (timeoutId !== undefined) window.clearTimeout(timeoutId);
+		};
 	}, []);
 
 	return (
