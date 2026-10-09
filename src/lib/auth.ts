@@ -10,6 +10,12 @@ import {
 } from "#/server/schema";
 
 export const auth = betterAuth({
+	trustedOrigins: [
+		process.env.BETTER_AUTH_URL,
+		"http://localhost:3000",
+		"https://ranthambhor.com",
+		"https://www.ranthambhor.com",
+	].filter((origin): origin is string => Boolean(origin)),
 	database: drizzleAdapter(db, {
 		provider: "pg",
 		schema: {

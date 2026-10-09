@@ -27,6 +27,10 @@ export const blogPostTable = pgTable(
 		status: blogPostStatusEnum("status").default("draft").notNull(),
 		type: blogPostTypeEnum("type").default("ranthambhore_update").notNull(),
 		publishedAt: t.timestamp("published_at"),
+		approvalTokenHash: t.text("approval_token_hash"),
+		approvalTokenExpiresAt: t.timestamp("approval_token_expires_at"),
+		submitterName: t.text("submitter_name"),
+		submitterEmail: t.text("submitter_email"),
 		metaTitle: t.text("meta_title"),
 		metaDescription: t.text("meta_description"),
 		authorId: t

@@ -1,21 +1,21 @@
 import { useMutation } from "@tanstack/react-query";
-import { useNavigate } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import { AuthFieldLabel, AuthInput } from "#/components/auth/AuthCard";
 import {
 	createDailyUpdateMutationOptions,
 	type DailyUpdateFormInput,
 } from "#/components/daily-updates/queries/daily-updates.mutation";
-import { Button } from "#/components/ui/button";
 import {
 	formInputClasses,
 	formSpacingClass,
 } from "#/components/forms/form-field";
+import { Button } from "#/components/ui/button";
 import { BLOG_ZONE_OPTIONS } from "#/constants/blog-zones";
+import { Image } from "#/util/Image";
 
 export function DailyUpdateForm() {
-	const navigate = useNavigate();
-
+	const [submitterName, setSubmitterName] = useState("");
+	const [submitterEmail, setSubmitterEmail] = useState("");
 	const [title, setTitle] = useState("");
 	const [zoneId, setZoneId] = useState("");
 	const [spottedDate, setSpottedDate] = useState("");
@@ -39,15 +39,6 @@ export function DailyUpdateForm() {
 
 	const mutation = useMutation({
 		...createDailyUpdateMutationOptions,
-		onSuccess: async (data, variables, onMutateResult, context) => {
-			await createDailyUpdateMutationOptions.onSuccess?.(
-				data,
-				variables,
-				onMutateResult,
-				context,
-			);
-			await navigate({ to: "/" });
-		},
 	});
 
 	function handleImageChange(event: React.ChangeEvent<HTMLInputElement>) {
@@ -62,6 +53,8 @@ export function DailyUpdateForm() {
 	function handleSubmit(event: React.SubmitEvent<HTMLFormElement>) {
 		event.preventDefault();
 		const input: DailyUpdateFormInput = {
+			submitterName,
+			submitterEmail,
 			title,
 			content,
 			zoneId,
@@ -75,8 +68,51 @@ export function DailyUpdateForm() {
 		mutation.mutate(input);
 	}
 
+	if (mutation.isSuccess) {
+		return (
+			<output className="block rounded-xl border border-forest-200 bg-forest-50 p-6 text-center">
+				<h2 className="font-display text-2xl text-forest-800">
+					Update submitted for approval
+				</h2>
+				<p className="mt-2 font-body text-charcoal-700">
+					Thank you for sharing your sighting. It will appear on the website
+					after it has been approved.
+				</p>
+			</output>
+		);
+	}
+
 	return (
 		<form onSubmit={handleSubmit} className={formSpacingClass}>
+			<div>
+				<AuthFieldLabel htmlFor="daily-update-submitter-name">
+					Your Name
+				</AuthFieldLabel>
+				<AuthInput
+					id="daily-update-submitter-name"
+					type="text"
+					autoComplete="name"
+					maxLength={120}
+					value={submitterName}
+					onChange={(event) => setSubmitterName(event.target.value)}
+					placeholder="Enter your name"
+				/>
+			</div>
+
+			<div>
+				<AuthFieldLabel htmlFor="daily-update-submitter-email">
+					Email Address
+				</AuthFieldLabel>
+				<AuthInput
+					id="daily-update-submitter-email"
+					type="email"
+					autoComplete="email"
+					value={submitterEmail}
+					onChange={(event) => setSubmitterEmail(event.target.value)}
+					placeholder="you@example.com"
+				/>
+			</div>
+
 			<div>
 				<AuthFieldLabel htmlFor="daily-update-title" required>
 					Title
@@ -151,7 +187,7 @@ export function DailyUpdateForm() {
 				/>
 				{imagePreviewUrl && (
 					<div className="mt-3 flex items-start gap-4">
-						<img
+						<Image
 							src={imagePreviewUrl}
 							alt="Selected cover preview"
 							className="h-32 w-32 rounded-lg border border-muted-300 object-cover"
@@ -175,7 +211,7 @@ export function DailyUpdateForm() {
 			)}
 
 			<Button type="submit" className="w-full" loading={mutation.isPending}>
-				Publish Update
+				Submit for Approval
 			</Button>
 		</form>
 	);

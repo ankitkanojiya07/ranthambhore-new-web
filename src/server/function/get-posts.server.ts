@@ -172,7 +172,7 @@ export async function handleGetPosts({ data }: { data: ListPostsInput }) {
 
 export async function handleGetPost({ data }: { data: GetPostInput }) {
 	const post = await db.query.blogPostTable.findFirst({
-		where: { slug: data.slug },
+		where: { slug: data.slug, status: "published" },
 		with: {
 			category: {
 				columns: { id: true, name: true, slug: true },
@@ -196,9 +196,16 @@ export async function handleGetPost({ data }: { data: GetPostInput }) {
 	}
 
 	const { postTags, ...postFields } = post;
+	const {
+		submitterName: _submitterName,
+		submitterEmail: _submitterEmail,
+		approvalTokenHash: _approvalTokenHash,
+		approvalTokenExpiresAt: _approvalTokenExpiresAt,
+		...publicPostFields
+	} = postFields;
 
 	return {
-		...postFields,
+		...publicPostFields,
 		category: mapCategory(post.category),
 		zone: mapZone(post.zone),
 		tags: mapTags(postTags),

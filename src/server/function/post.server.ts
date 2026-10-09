@@ -1,5 +1,7 @@
+import { createHash, randomBytes } from "node:crypto";
 import { eq, inArray } from "drizzle-orm";
 import { db } from "#/server/db";
+import { sendDailyUpdateApprovalEmail } from "#/server/function/daily-update-approval.server";
 import type { CreatePostInput } from "#/server/function/post-schema.server";
 import type { AuthSession } from "#/server/middleware";
 import {
@@ -128,11 +130,18 @@ export async function handleCreatePost(ctx: CreatePostHandlerContext) {
 		throw new Error("Unauthorized");
 	}
 
-	const status = data.status ?? "draft";
+	const isDailyUpdate = postType === "daily_update";
+	const submitterName = isDailyUpdate ? data.submitterName : undefined;
+	const submitterEmail = isDailyUpdate ? data.submitterEmail : undefined;
+	const status = isDailyUpdate ? "draft" : (data.status ?? "draft");
 	const publishedAt = status === "published" ? new Date() : null;
 	const excerpt = generateExcerpt(data.content);
 	const metaTitle = generateMetaTitle(data.title);
 	const authorId = context.session?.user.id ?? null;
+	const approvalToken = isDailyUpdate ? randomBytes(32).toString("hex") : null;
+	const approvalTokenExpiresAt = approvalToken
+		? new Date(Date.now() + 7 * 24 * 60 * 60 * 1000)
+		: null;
 
 	const post = await db.transaction(async (tx) => {
 		const category = data.category?.trim();
@@ -155,6 +164,12 @@ export async function handleCreatePost(ctx: CreatePostHandlerContext) {
 				status,
 				type: data.type ?? "ranthambhore_update",
 				publishedAt,
+				approvalTokenHash: approvalToken
+					? createHash("sha256").update(approvalToken).digest("hex")
+					: null,
+				approvalTokenExpiresAt,
+				submitterName: submitterName ?? null,
+				submitterEmail: submitterEmail ?? null,
 				metaTitle,
 				metaDescription: data.metaDescription?.trim() || null,
 				authorId,
@@ -175,5 +190,30 @@ export async function handleCreatePost(ctx: CreatePostHandlerContext) {
 
 		return createdPost;
 	});
-	return post;
+
+	if (approvalToken && approvalTokenExpiresAt) {
+		try {
+			await sendDailyUpdateApprovalEmail({
+				post,
+				approvalToken,
+				zoneId: data.zoneId ?? null,
+				submitterName,
+				submitterEmail,
+			});
+		} catch (error) {
+			throw new Error(
+				"The update was saved for review, but the approval email could not be sent. Please contact the site administrator; do not submit it again.",
+				{ cause: error },
+			);
+		}
+	}
+
+	const {
+		approvalTokenHash: _approvalTokenHash,
+		approvalTokenExpiresAt: _approvalTokenExpiresAt,
+		submitterName: _submitterName,
+		submitterEmail: _submitterEmail,
+		...clientPost
+	} = post;
+	return clientPost;
 }
