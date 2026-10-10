@@ -24,35 +24,27 @@ export const FEATURED_HOTELS: FeaturedHotel[] = [
 		href: "https://ranthamboreregency.com/",
 		images: [
 			{
-				src: "/stay/regency/1.jpg",
+				src: "/stay/regency/11.jpg",
 				alt: "Ranthambore Regency resort exterior at night",
 			},
 			{
-				src: "/stay/regency/2.jpg",
+				src: "/stay/regency/22.jpg",
 				alt: "Fuchsia Lounge seating area at Ranthambore Regency",
 			},
 			{
-				src: "/stay/regency/3.jpg",
+				src: "/stay/regency/33.jpg",
 				alt: "Outdoor lawns, bar, and dining areas at Ranthambore Regency",
 			},
 			{
-				src: "/stay/regency/4.jpg",
+				src: "/stay/regency/44.jpg",
 				alt: "Formal dining room at Ranthambore Regency",
 			},
 			{
-				src: "/stay/regency/5.jpg",
+				src: "/stay/regency/55.jpg",
 				alt: "Guests dining at Ranthambore Regency restaurant",
 			},
 			{
-				src: "/stay/regency/6.jpg",
-				alt: "Swimming pool at Ranthambore Regency at night",
-			},
-			{
-				src: "/stay/regency/7.jpg",
-				alt: "Swimming pool at Ranthambore Regency at night",
-			},
-			{
-				src: "/stay/regency/8.jpg",
+				src: "/stay/regency/66.jpg",
 				alt: "Swimming pool at Ranthambore Regency at night",
 			},
 		],
